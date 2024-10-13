@@ -15,7 +15,25 @@ mongoose.connect(dbURI)
 // register view engine
 // Automatically looks in "views" folder
 app.set("view engine", "ejs");
+app.set("views", "src/views");
 
 // middleware and static files
 app.use(express.static('public'));
 app.use(morgan("dev"));
+
+// How to add a document to a collection
+/*
+const newUser = new Student({
+  name: "Test",
+  age: 26
+});
+
+newUser.save()
+  .then(result => console.log("New document added!"))
+  .catch(err => console.log(err));
+*/
+
+// Render pages
+app.get("/", (req, res) => {
+  res.render("index");
+})
