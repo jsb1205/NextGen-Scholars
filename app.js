@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const Student = require("./src/models/student");
 
 // express app
 const app = express();
