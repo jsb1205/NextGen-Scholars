@@ -1,7 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const Student = require("./src/models/student");
+const studentProfileRoutes = require("./src/routes/studentProfileRoutes");
 
 // express app
 const app = express();
@@ -34,6 +34,4 @@ newUser.save()
 */
 
 // Render pages
-app.get("/", (req, res) => {
-  res.render("index");
-})
+app.use(studentProfileRoutes);
