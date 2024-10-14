@@ -1,10 +1,10 @@
 const Student = require("../models/student");
 
-const studentHomePage = (req, res) => {
+const student_home_page = (req, res) => {
   res.render("index");
 }
 
 
 module.exports = {
-  studentHomePage
+  student_home_page
 }

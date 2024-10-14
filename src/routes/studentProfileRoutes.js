@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 // Student profile routes
-router.get("/", studentProfileController.studentHomePage);
+router.get("/", studentProfileController.student_home_page);
 
 
 module.exports = router;
