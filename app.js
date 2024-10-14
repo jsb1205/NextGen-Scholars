@@ -19,19 +19,9 @@ app.set("views", "src/views");
 
 // middleware and static files
 app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
 app.use(morgan("dev"));
 
-// How to add a document to a collection
-/*
-const newUser = new Student({
-  name: "Test",
-  age: 26
-});
-
-newUser.save()
-  .then(result => console.log("New document added!"))
-  .catch(err => console.log(err));
-*/
 
 // Render pages
 app.use(studentProfileRoutes);
