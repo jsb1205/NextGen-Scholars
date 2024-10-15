@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const studentProfileRoutes = require("./src/routes/studentProfileRoutes");
+const authRoutes = require("./src/routes/authRoutes");
 
 // express app
 const app = express();
@@ -20,8 +21,10 @@ app.set("views", "src/views");
 // middleware and static files
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 app.use(morgan("dev"));
 
 
 // Render pages
 app.use(studentProfileRoutes);
+app.use(authRoutes);
