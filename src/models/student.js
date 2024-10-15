@@ -1,6 +1,7 @@
 const { Decimal128 } = require("bson");
 const mongoose = require("mongoose");
-const { float } = require("webidl-conversions");
+const { isEmail } = require("validator");
+const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
 
 
@@ -8,13 +9,14 @@ const studentSchema = new Schema({
   email: {
     type: String,
     required: [true, "Please enter an email"],
-    unique: [true, "Please enter a unique email"],
-    lowercase: true
+    unique: true,
+    lowercase: true,
+    validate: [isEmail, "Please enter a valid email"]
   },
   password: {
     type: String,
     required: [true, "Please enter a password"],
-    minLength: [6, "Minimum password length is 6 characters"],
+    minlength: [6, "Minimum password length is 6 characters"],
     validate: {
       validator: value => {
         const hasLetter = /[a-zA-Z]/.test(value);
@@ -28,6 +30,14 @@ const studentSchema = new Schema({
     }
   }
 }, {timestamps: true});
+
+// Mongoose hooks
+// before document has been saved
+studentSchema.pre("save", async function (next) {
+  const salt = await bcrypt.genSalt();
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
+});
 
 const Student = mongoose.model("Student", studentSchema);
 
