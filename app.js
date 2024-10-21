@@ -1,8 +1,12 @@
+const fs = require("fs");
+const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const studentProfileRoutes = require("./src/routes/studentProfileRoutes");
 const authRoutes = require("./src/routes/authRoutes");
+const { requireAuth, checkCurrStudent } = require("./src/middleware/authMiddleware");
+const cookieParser = require("cookie-parser");
 
 // express app
 const app = express();
@@ -19,12 +23,14 @@ app.set("view engine", "ejs");
 app.set("views", "src/views");
 
 // middleware and static files
-app.use(express.static('public'));
-app.use(express.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, "src", "public")));
 app.use(express.json());
+app.use(cookieParser());
 app.use(morgan("dev"));
 
 
 // Render pages
+app.get("*", checkCurrStudent);
 app.use(studentProfileRoutes);
 app.use(authRoutes);
+

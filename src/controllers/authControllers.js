@@ -1,8 +1,19 @@
 const { Student, StudentProfile } = require("../models/student");
+const jwt = require("jsonwebtoken");
 
-// handle errors
+// funcction for handling errors
 const handleErrors = err => {
   let errors = { email: "", password: "" };
+
+  // incorrect mail
+  if (err.message === "Incorrect email!") {
+    errors.email = "That email is not registered!";
+  }
+
+  // incorrect password
+  if (err.message === "Incorrect password!") {
+    errors.password = "That password is not correct!";
+  }
 
   // duplicate email error
   if (err.code === 11000) {
@@ -21,6 +32,15 @@ const handleErrors = err => {
 }
 
 
+// json web token functions
+const expireTime = 24 * 60 * 60;
+const createToken = (id) => {
+  return jwt.sign({ id }, "nextgen scholars secret", {
+    expiresIn: expireTime
+  });
+};
+
+
 module.exports.signup_get = (req, res) => {
   res.render("../views/signup");
 }
@@ -34,7 +54,9 @@ module.exports.signup_post = async (req, res) => {
 
   try {
     const student = await Student.create({ email, password });
-    res.status(201).json(student);
+    const token = createToken(student._id);
+    res.cookie("jwt", token, { httpOnly: true, maxAge: expireTime * 1000});
+    res.status(201).json({ student: student._id });
   }
   catch (err) {
     const errors = handleErrors(err);
@@ -45,5 +67,19 @@ module.exports.signup_post = async (req, res) => {
 module.exports.login_post = async (req, res) => {
   const { email, password } = req.body;
 
+  try {
+    const student = await Student.login(email, password);
+    const token = createToken(student._id);
+    res.cookie("jwt", token, { httpOnly: true, maxAge: expireTime * 1000});
+    res.status(200).json({ student: student._id });
+  }
+  catch (err) {
+    const errors = handleErrors(err);
+    res.status(400).json({ errors });
+  }
+}
 
+module.exports.logout_get = async (req, res) => {
+  res.cookie("jwt", "", { maxAge: 1 });
+  res.redirect("/");
 }

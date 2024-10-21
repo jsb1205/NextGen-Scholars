@@ -31,6 +31,7 @@ const studentSchema = new Schema({
   }
 }, {timestamps: true});
 
+
 // Mongoose hooks
 // before document has been saved
 studentSchema.pre("save", async function (next) {
@@ -39,7 +40,23 @@ studentSchema.pre("save", async function (next) {
   next();
 });
 
+
+// Method to log in user
+studentSchema.statics.login = async function(email, password) {
+  const student = await this.findOne({ email });
+  if (student) {
+    const auth = await bcrypt.compare(password, student.password);
+    if (auth) {
+      return student;
+    }
+    throw Error("Incorrect password!");
+  }
+  throw Error("Incorrect email!");
+}
+
 const Student = mongoose.model("Student", studentSchema);
+
+
 
 const studentProfileSchema = new Schema({
   name: {
@@ -51,7 +68,7 @@ const studentProfileSchema = new Schema({
     required: true
   },
   gpa: {
-    type: Decimal128,
+    type: Number,
     required: true
   },
   gender: {
