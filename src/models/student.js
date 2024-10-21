@@ -59,7 +59,11 @@ const Student = mongoose.model("Student", studentSchema);
 
 
 const studentProfileSchema = new Schema({
-  name: {
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
     type: String,
     required: true
   },
@@ -79,11 +83,9 @@ const studentProfileSchema = new Schema({
     type: String,
     required: true
   },
-  middle_school: {
-    type: String
-  },
-  high_school: {
-    type: String
+  school: {
+    type: String,
+    required: true
   },
   credentials: {
     type: Schema.Types.ObjectId,
