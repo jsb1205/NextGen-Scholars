@@ -3,6 +3,7 @@
 
 <form>
   <h2>Sign up</h2>
+
   <label for="email">Email</label>
   <input type="text" name="email" required />
   <div class="email error"></div>
@@ -40,8 +41,8 @@
         emailError.textContent = data.errors.email;
         passwordError.textContent = data.errors.password;
       }
-      if (data.student) {
-        location.assign("/create-profile");
+      if (data.user) {
+        location.assign("/profile-select");
       }
     }
     catch (err) {

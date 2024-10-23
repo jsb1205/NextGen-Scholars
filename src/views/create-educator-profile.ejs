@@ -1,0 +1,58 @@
+<%- include("partials/header"); %>
+
+<form>
+
+  <h2>Please enter your personal information</h2>
+
+  <label for="firstName">First Name</label>
+  <input type="text" name="firstName" required />
+  <div class="firstName error"></div>
+
+  <label for="lastName">Last Name</label>
+  <input type="text" name="lastName" required />
+  <div class="lastName error"></div>
+
+  <label for="school">Current School</label>
+  <input type="text" name="school" required />
+  <div class="school error"></div>
+
+  <button>Submit</button>
+
+</form>
+
+
+<script>
+
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const school = form.school.value;
+    const id = "<%= user._id %>";
+
+    try {
+      const res = await fetch("/create-educator-profile", {
+        method: "POST",
+        body: JSON.stringify({ firstName, lastName, school, id }),
+        headers: { "Content-Type": "application/json" }
+      });
+
+      const data = await res.json();
+      if (data.err) {
+        console.log(data.err);
+      }
+      if (data.educator) {
+        location.assign("/educator-home");
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
+  });
+
+</script>
+
+<%- include("partials/footer"); %>

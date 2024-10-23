@@ -39,8 +39,14 @@
         emailError.textContent = data.errors.email;
         passwordError.textContent = data.errors.password;
       }
-      if (data.student) {
-        location.assign("/");
+      if (data.studentProfile) {
+        location.assign("/student-home");
+      }
+      else if (data.educatorProfile) {
+        location.assign("/educator-home");
+      }
+      else {
+        console.log("No profile!");
       }
     }
     catch (err) {

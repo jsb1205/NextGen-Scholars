@@ -3,9 +3,9 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const studentProfileRoutes = require("./src/routes/studentProfileRoutes");
+const userProfileRoutes = require("./src/routes/userProfileRoutes");
 const authRoutes = require("./src/routes/authRoutes");
-const { requireAuth, checkCurrStudent } = require("./src/middleware/authMiddleware");
+const { requireAuth, checkCurrUser } = require("./src/middleware/authMiddleware");
 const cookieParser = require("cookie-parser");
 
 // express app
@@ -33,7 +33,8 @@ app.use(morgan("dev"));
 
 
 // Render pages
-app.get("*", checkCurrStudent);
-app.use(studentProfileRoutes);
+app.get("*", checkCurrUser);
+app.get("/", checkCurrUser, (req, res) => res.render("index"));
+app.use(userProfileRoutes);
 app.use(authRoutes);
 

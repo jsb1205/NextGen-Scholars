@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { Student, StudentProfile } = require("../models/student");
+const { User, StudentProfile, EducatorProfile } = require("../models/user");
 
 const requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
@@ -21,7 +21,7 @@ const requireAuth = (req, res, next) => {
   }
 }
 
-const checkCurrStudent = (req, res, next) => {
+const checkCurrUser = (req, res, next) => {
   const token = req.cookies.jwt;
 
   // if user is logged in
@@ -29,20 +29,20 @@ const checkCurrStudent = (req, res, next) => {
     jwt.verify(token, "nextgen scholars secret", async (err, decodedToken) => {
       if (err) {
         console.log(err.message);
-        res.locals.student = null;
+        res.locals.user = null;
         next();
       }
       else {
-        let student = await Student.findById(decodedToken.id);
-        res.locals.student = student;
+        let user = await User.findById(decodedToken.id);
+        res.locals.user = user;
         next();
       }
     });
   }
   else {
-    res.locals.student = null;
+    res.locals.user = null;
     next();
   }
 }
 
-module.exports = { requireAuth, checkCurrStudent };
+module.exports = { requireAuth, checkCurrUser };

@@ -1,4 +1,4 @@
-const { Student, StudentProfile } = require("../models/student");
+const { User, StudentProfile } = require("../models/user");
 const jwt = require("jsonwebtoken");
 
 // funcction for handling errors
@@ -22,7 +22,7 @@ const handleErrors = err => {
   }
 
   // validation errors
-  if (err.message.includes("Student validation failed")) {
+  if (err.message.includes("User validation failed")) {
     Object.values(err.errors).forEach(({properties}) => {
       errors[properties.path] = properties.message;
     });
@@ -53,10 +53,10 @@ module.exports.signup_post = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const student = await Student.create({ email, password });
-    const token = createToken(student._id);
+    const user = await User.create({ email, password });
+    const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: expireTime * 1000});
-    res.status(201).json({ student: student._id });
+    res.status(201).json({ user: user._id });
   }
   catch (err) {
     const errors = handleErrors(err);
@@ -68,10 +68,10 @@ module.exports.login_post = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const student = await Student.login(email, password);
-    const token = createToken(student._id);
+    const user = await User.login(email, password);
+    const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: expireTime * 1000});
-    res.status(200).json({ student: student._id });
+    res.status(200).json({ studentProfile: user.studentProfile, educatorProfile: user.educatorProfile });
   }
   catch (err) {
     const errors = handleErrors(err);
@@ -82,4 +82,8 @@ module.exports.login_post = async (req, res) => {
 module.exports.logout_get = async (req, res) => {
   res.cookie("jwt", "", { maxAge: 1 });
   res.redirect("/");
+}
+
+module.exports.profile_select_get = async (req, res) => {
+  res.render("profile-select");
 }

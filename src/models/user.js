@@ -1,11 +1,11 @@
-const { Decimal128 } = require("bson");
 const mongoose = require("mongoose");
 const { isEmail } = require("validator");
 const bcrypt = require("bcrypt");
+const { boolean } = require("webidl-conversions");
 const Schema = mongoose.Schema;
 
 
-const studentSchema = new Schema({
+const userSchema = new Schema({
   email: {
     type: String,
     required: [true, "Please enter an email"],
@@ -28,13 +28,21 @@ const studentSchema = new Schema({
       message: 
         "Password must contain at least one letter, one number, and one special character!"
     }
+  },
+  studentProfile: {
+    type: Schema.Types.ObjectId,
+    ref: "StudentProfile"
+  },
+  educatorProfile: {
+    type: Schema.Types.ObjectId,
+    ref: "EducatorProfile"
   }
 }, {timestamps: true});
 
 
 // Mongoose hooks
 // before document has been saved
-studentSchema.pre("save", async function (next) {
+userSchema.pre("save", async function (next) {
   const salt = await bcrypt.genSalt();
   this.password = await bcrypt.hash(this.password, salt);
   next();
@@ -42,7 +50,7 @@ studentSchema.pre("save", async function (next) {
 
 
 // Method to log in user
-studentSchema.statics.login = async function(email, password) {
+userSchema.statics.login = async function(email, password) {
   const student = await this.findOne({ email });
   if (student) {
     const auth = await bcrypt.compare(password, student.password);
@@ -54,7 +62,7 @@ studentSchema.statics.login = async function(email, password) {
   throw Error("Incorrect email!");
 }
 
-const Student = mongoose.model("Student", studentSchema);
+const User = mongoose.model("User", userSchema);
 
 
 
@@ -89,7 +97,7 @@ const studentProfileSchema = new Schema({
   },
   credentials: {
     type: Schema.Types.ObjectId,
-    ref: "Student",    // Reference to the linked credentials
+    ref: "User",    // Reference to the linked credentials
     required: true
   }
 });
@@ -97,7 +105,32 @@ const studentProfileSchema = new Schema({
 const StudentProfile = mongoose.model("StudentProfile", studentProfileSchema);
 
 
+
+const educatorProfileSchema = new Schema({
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
+  school: {
+    type: String,
+    required: true
+  },
+  credentials: {
+    type: Schema.Types.ObjectId,
+    ref: "User",    // Reference to the linked credentials
+    required: true
+  }
+});
+
+const EducatorProfile = mongoose.model("EducatorProfile", educatorProfileSchema);
+
+
 module.exports = {
-  Student,
+  User,
   StudentProfile,
+  EducatorProfile
 };

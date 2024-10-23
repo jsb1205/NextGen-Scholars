@@ -10,6 +10,7 @@ router.post("/signup", authController.signup_post);
 router.get("/login", authController.login_get);
 router.post("/login", authController.login_post);
 router.get("/logout", authController.logout_get);
+router.get("/profile-select", authController.profile_select_get);
 
 
 module.exports = router;

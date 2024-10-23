@@ -10,9 +10,14 @@
   <nav>
     <h1><a href="/">NextGen Scholars</a></h1>
     <ul>
-      <% if (student) { %>
-        <li>Hello, <%= student.email %>!</li>
-        <li><a href="/logout">Log out</a></li>
+      <% if (user && (user.studentProfile || user.educatorProfile)) { %>
+        <% if (user.studentProfile) { %>
+          <li>Testing studentProfile</li>
+          <li><a href="/logout">Log out</a></li>
+        <% } else { %>
+          <li>Testing educatorProfile</li>
+          <li><a href="/logout">Log out</a></li>
+        <% } %>
       <% } else { %>
         <li><a href="/login">Log in</a></li>
         <li><a href="/signup">Sign Up</a></li>

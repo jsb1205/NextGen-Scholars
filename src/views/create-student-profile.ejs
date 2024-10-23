@@ -45,7 +45,7 @@
   <input type="text" name="gpa" required />
   <div class="gpa error"></div>
 
-  <label for="school">Current High School</label>
+  <label for="school">Current School</label>
   <input type="text" name="school" required />
   <div class="school error"></div>
 
@@ -68,7 +68,7 @@
     const race = form.race.value;
     const gpa = form.gpa.value;
     const school = form.school.value;
-    const id = "<%= student._id %>";
+    const id = "<%= user._id %>";
 
     const currentDate = new Date();
     const age = currentDate.getFullYear() - birthDate.getFullYear();
@@ -77,18 +77,18 @@
     const gpaNum = Number(gpa);
 
     try {
-      const res = await fetch("/create-profile", {
+      const res = await fetch("/create-student-profile", {
         method: "POST",
         body: JSON.stringify({ firstName, lastName, ageNum, gpaNum, gender, race, school, id }),
         headers: { "Content-Type": "application/json" }
       });
-      console.log("Made it");
+
       const data = await res.json();
       if (data.err) {
         console.log(data.err);
       }
       if (data.student) {
-        location.assign("/");
+        location.assign("/student-home");
       }
     }
     catch (err) {
