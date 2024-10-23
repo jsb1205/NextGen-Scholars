@@ -67,11 +67,12 @@ module.exports.signup_post = async (req, res) => {
 module.exports.login_post = async (req, res) => {
   const { email, password } = req.body;
 
+
   try {
     const user = await User.login(email, password);
     const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: expireTime * 1000});
-    res.status(200).json({ studentProfile: user.studentProfile, educatorProfile: user.educatorProfile });
+    res.status(200).json({ id: user._id, studentProfile: user.studentProfile, educatorProfile: user.educatorProfile });
   }
   catch (err) {
     const errors = handleErrors(err);

@@ -12,10 +12,10 @@
     <ul>
       <% if (user && (user.studentProfile || user.educatorProfile)) { %>
         <% if (user.studentProfile) { %>
-          <li>Testing studentProfile</li>
+          <li>View student profile</li>
           <li><a href="/logout">Log out</a></li>
         <% } else { %>
-          <li>Testing educatorProfile</li>
+          <li>View educator profile</li>
           <li><a href="/logout">Log out</a></li>
         <% } %>
       <% } else { %>

@@ -40,10 +40,10 @@
         passwordError.textContent = data.errors.password;
       }
       if (data.studentProfile) {
-        location.assign("/student-home");
+        location.assign(`/student-home/${data.id}`);
       }
       else if (data.educatorProfile) {
-        location.assign("/educator-home");
+        location.assign(`/educator-home/${data.id}`);
       }
       else {
         console.log("No profile!");

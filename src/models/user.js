@@ -95,6 +95,9 @@ const studentProfileSchema = new Schema({
     type: String,
     required: true
   },
+  interests: {
+    type: [String]
+  },
   credentials: {
     type: Schema.Types.ObjectId,
     ref: "User",    // Reference to the linked credentials
