@@ -1,53 +1,62 @@
 <%- include("partials/header"); %>
 
 
-<div class="personal-info">
-  <h3>Your personal information</h3>
+<form>
 
-  <div class="info">
-    Name
-    <div class="info-specifics">
-      <%= user.studentProfile.firstName %> <%= user.studentProfile.lastName %>
-    </div>
-  </div>
+  <h2>Edit your personal information</h2>
 
-  <div class="info">
-    Age
-    <div class="info-specifics">
-      <%= user.studentProfile.age %>
-    </div>
-  </div>
+  <label for="firstName">First Name</label>
+  <input type="text" name="firstName" value="<%= user.studentProfile.firstName %>" required />
+  <div class="firstName error"></div>
 
-  <div class="info">
-    School
-    <div class="info-specifics">
-      <%= user.studentProfile.school %>
-    </div>
-  </div>
+  <label for="lastName">Last Name</label>
+  <input type="text" name="lastName" value="<%= user.studentProfile.lastName %>" required />
+  <div class="lastName error"></div>
 
-  <div class="info">
-    GPA
-    <div class="info-specifics">
-      <%= user.studentProfile.gpa %>
-    </div>
-  </div>
+  <label for="birthDate">Birth Date</label>
+  <input type="date" name="birthDate" required />
+  <div class="birthDate error"></div>
 
-  <div class="info">
-    Gender
-    <div class="info-specifics">
-      <%= user.studentProfile.gender %>
-    </div>
-  </div>
+  <label for="gender">Gender</label>
+  <select name="gender" required>
+    <option value="">--Select--</option>
+    <% if (user.studentProfile.gender === "male") { %>
+      <option value="male" selected>Male</option>
+    <% } else { %>
+      <option value="male">Male</option>
+    <% } %>
+    <option value="female">Female</option>
+    <option value="non-binary">Non-Binary</option>
+    <option value="self-describe">Prefer to self-describe</option>
+  </select>
+  <div class="gender error"></div>
 
-  <div class="info">
-    Race
-    <div class="info-specifics">
-      <%= user.studentProfile.race %>
-    </div>
-  </div>
+  <label for="race">Race</label>
+  <select name="race" required>
+    <option value="">--Select--</option>
+    <option value="white">White</option>
+    <option value="black">Black or African American</option>
+    <option value="asian">Asian</option>
+    <option value="native-american">Native American or Alaska Native</option>
+    <option value="native-hawaiian">Native Hawaiian or Other Pacific Islander</option>
+    <option value="hispanic">Hispanic or Latino</option>
+    <option value="mixed">Two or More Races</option>
+    <option value="other">Other</option>
+    <option value="prefer-not-to-say">Prefer not to say</option>
+  </select>
+  <div class="race error"></div>
 
-  <button id="edit-personal-info-button"><a href="<%= user._id %>/personal-info/edit">Edit</a></button>
-</div>
+  <label for="gpa">Current Grade Point Average</label>
+  <input type="text" name="gpa" required />
+  <div class="gpa error"></div>
+
+  <label for="school">Current School</label>
+  <input type="text" name="school" required />
+  <div class="school error"></div>
+
+  <button>Submit</button>
+
+</form>
 
 
 <div class="interests">
@@ -136,41 +145,6 @@
   <% } %>
 
 </div>
-
-
-<script>
-  const form = document.querySelector("form");
-
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    console.log("Inside form!");
-
-    const checkboxes = document.querySelectorAll('input[name="interests"]:checked');
-    const selectedInterests = Array.from(checkboxes).map(checkbox => checkbox.value);
-    console.log(selectedInterests);
-
-    const id = "<%= user._id %>";
-
-    try {
-      const res = await fetch("/student-home/update-interests", {
-        method: "PUT",
-        body: JSON.stringify({ id, selectedInterests }),
-        headers: { "Content-Type": "application/json" }
-      });
-      const data = await res.json();
-      if (data.error) {
-        console.log(data.error);
-      }
-      if (data.success) {
-        location.assign(`/student-home/${id}`);
-      }
-    }
-    catch (err) {
-      console.log("Failed to fetch the page :(");
-    }
-  });
-
-</script>
 
 
 <%- include("partials/footer"); %>

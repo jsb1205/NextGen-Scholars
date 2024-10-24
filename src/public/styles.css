@@ -3,10 +3,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007bff;
+  background-color: #0c69cd;
   padding: 10px 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 /* Logo (h1) styling */
@@ -16,6 +19,8 @@
   font-size: 1.8rem;
   font-weight: bold;
 }
+
+
 
 /* Unordered list (menu) styling */
 .header ul {
@@ -276,6 +281,56 @@ button {
   cursor: pointer; /* Change cursor to pointer on hover */
   font-size: 1rem; /* Font size for labels */
   margin: 12px 12px;
+}
+
+
+
+/* profile-select */
+.profile-nav {
+  text-align: center; /* Center-align text and content */
+  margin-top: 50px; /* Add some space from the top */
+  font-family: Arial, sans-serif; /* Set a font */
+}
+
+/* Paragraph styling */
+.profile-nav p {
+  font-size: 1.2rem; /* Slightly larger font */
+  margin-bottom: 20px; /* Space between text and buttons */
+}
+
+/* Button group to align buttons horizontally */
+.button-group {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  gap: 15px; /* Space between buttons */
+}
+
+/* Styling for buttons */
+.button-group button {
+  background-color: #007bff; /* Primary blue background */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Add padding */
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+/* Hover effect for buttons */
+.button-group button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Styling for links inside buttons */
+.button-group button a {
+  text-decoration: none; /* Remove underline from links */
+  color: white; /* White text color */
+  font-size: 1rem; /* Set font size */
+  display: inline-block; /* Ensure link fills button */
+}
+
+/* Remove the focus outline when buttons are clicked */
+.button-group button:focus {
+  outline: none;
 }
 
 
