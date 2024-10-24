@@ -119,6 +119,36 @@ const educator_create_profile_post = async (req, res) => {
 }
 
 
+
+const student_profile_get = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: "No profile found!"});
+  }
+
+  const user = await User.findById(id)
+    .populate("studentProfile")
+    .exec();
+
+  res.render("student-profile", { user });
+}
+
+const educator_profile_get = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: "No profile found!"});
+  }
+
+  const user = await User.findById(id)
+    .populate("educatorProfile")
+    .exec();
+
+  res.render("educator-profile", { user });
+}
+ 
+
 module.exports = {
   student_home_page_get,
   educator_home_page_get,
@@ -126,5 +156,7 @@ module.exports = {
   student_create_profile_post,
   educator_create_profile_get,
   educator_create_profile_post,
-  student_interests_update
+  student_interests_update,
+  student_profile_get,
+  educator_profile_get
 }

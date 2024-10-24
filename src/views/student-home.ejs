@@ -13,45 +13,80 @@
   <% if (user.studentProfile.interests.length !== 0) { %>
       <h3>Here are your recommended clubs!</h3>
   <% } else { %>
-      <h3>Please fill out your interests to be recommended clubs!</h3>
-      <form>
+      <div class="interests-container">
+        <h3>Please fill out your interests to be recommended clubs!</h3>
+        <form class="interests-form">
 
-        <input type="checkbox" name="interests" value="science">
-        <label for="interest1"> Science</label><br>
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+                <label for="interest1">Science</label>
+                <input type="checkbox" id="interest1" name="interests" value="science">
+              
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest2">Technology</label>
+                <input type="checkbox" id="interest2" name="interests" value="technology">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest3">Engineering</label>
+                <input type="checkbox" id="interest3" name="interests" value="engineering">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest4">Math</label>
+                <input type="checkbox" id="interest4" name="interests" value="math">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest5">Arts</label>
+                <input type="checkbox" id="interest5" name="interests" value="arts">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest6">Politics</label>
+                <input type="checkbox" id="interest6" name="interests" value="politics">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest7">History</label>
+                <input type="checkbox" id="interest7" name="interests" value="history">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest8">Sports</label>
+                <input type="checkbox" id="interest8" name="interests" value="sports">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest9">Reading/Writing</label>
+                <input type="checkbox" id="interest9" name="interests" value="literature">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest10">Music</label>
+                <input type="checkbox" id="interest10" name="interests" value="music">
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest11">Medicine</label>
+                <input type="checkbox" id="interest11" name="interests" value="medicine">
+            </div>
+          </div>
 
-        <input type="checkbox" name="interests" value="technology">
-        <label for="interest2"> Technology</label><br>
+          <button>Submit</button>
 
-        <input type="checkbox" name="interests" value="engineering">
-        <label for="interest3"> Engineering</label><br>
-
-        <input type="checkbox" name="interests" value="math">
-        <label for="interest4"> Math</label><br>
-
-        <input type="checkbox" name="interests" value="arts">
-        <label for="interest5"> Arts</label><br>
-
-        <input type="checkbox" name="interests" value="politics">
-        <label for="interest6"> Politics</label><br>
-
-        <input type="checkbox" name="interests" value="history">
-        <label for="interest7"> History</label><br>
-
-        <input type="checkbox" name="interests" value="sports">
-        <label for="interest8"> sports</label><br>
-
-        <input type="checkbox" name="interests" value="literature">
-        <label for="interest9"> Reading/Writing</label><br>
-
-        <input type="checkbox" name="interests" value="music">
-        <label for="interest10"> Music</label><br>
-
-        <input type="checkbox" name="interests" value="medicine">
-        <label for="interest11"> Medicine</label>
-
-        <button>Submit</button>
-
-      </form>
+        </form>
+      </div>
   <% } %>
 
 </div>
@@ -62,7 +97,6 @@
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    console.log("Inside form!");
 
     const checkboxes = document.querySelectorAll('input[name="interests"]:checked');
     const selectedInterests = Array.from(checkboxes).map(checkbox => checkbox.value);

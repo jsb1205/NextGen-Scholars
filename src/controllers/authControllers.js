@@ -33,7 +33,7 @@ const handleErrors = err => {
 
 
 // json web token functions
-const expireTime = 24 * 60 * 60;
+const expireTime = 2 * 60 * 60;
 const createToken = (id) => {
   return jwt.sign({ id }, "nextgen scholars secret", {
     expiresIn: expireTime

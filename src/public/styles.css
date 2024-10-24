@@ -1,3 +1,90 @@
+/* header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Logo (h1) styling */
+.header h1 a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Unordered list (menu) styling */
+.header ul {
+  list-style-type: none;
+  display: flex;
+  gap: 15px; /* Space between menu items */
+  margin: 0;
+  padding: 0;
+}
+
+/* List items */
+.header li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+/* Hover effect on links */
+.header li a:hover {
+  color: #e0e0e0;
+}
+
+
+
+/* Front page styles */
+/* Title styling */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+/* Section styling (about and creators) */
+.about, .creators {
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  font-size: 18px;
+}
+
+/* Subheading styling */
+.about h3, .creators h3 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+/* List styling */
+.creators ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+/* List item styling */
+.creators li {
+  font-size: 1rem;
+  margin: 8px 0;
+  padding: 5px;
+  background-color: #e9f5ff;
+  border-radius: 5px;
+}
+
+
 form h2 {
   font-size: 2.4em;
   font-weight: 900;
@@ -30,3 +117,190 @@ button {
   padding: 10px 20px;
   cursor: pointer;
 }
+
+.personal-info {
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  padding-bottom: 70px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.personal-info h3 {
+  text-align: center;
+}
+
+.personal-info button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.personal-info button:hover {
+  background-color: #0056b3;
+}
+
+/* Each info block */
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Last info item doesn't need a border */
+.info:last-child {
+  border-bottom: none;
+}
+
+/* Styling the labels (Name, Age, etc.) */
+.info::before {
+  color: #555;
+  font-weight: bold;
+}
+
+.interests {
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.interests h3 {
+  text-align: center;
+}
+
+/* Paragraph at the top */
+.interests p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Styling the list */
+.interests ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* Styling each list item */
+.interests li {
+  font-size: 1rem;
+  color: #333;
+  margin: 8px 0;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+}
+
+/* Last item without border */
+.interests li:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect on list items */
+.interests li:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+
+
+/* student-home */
+.scholarship-recommendations {
+
+}
+
+
+
+
+/* interests form */
+.interests-form {
+  max-width: 400px; /* Set a maximum width for the form */
+  margin: 20px auto; /* Center the form horizontally */
+  padding: 20px; /* Add padding around the form */
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-family: Arial, sans-serif; /* Set font family */
+}
+
+/* Checkbox group styling */
+.checkbox-group {
+  display: flex;
+  flex-direction: column; /* Stack checkboxes vertically */
+}
+
+/* Checkbox item styling */
+.checkbox-item {
+  display: flex; /* Use flexbox for checkbox and label */
+  align-items: center; /* Center items vertically */
+  /*margin-bottom: 10px; Space between items */
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+
+.checkbox-item:last-child {
+  border-bottom: none;
+}
+
+/* Checkbox and label styling */
+.checkbox-item input[type="checkbox"] {
+  margin-right: 10px; /* Space between checkbox and label */
+  position: absolute;
+  left: 40%;
+}
+
+.checkbox-item label {
+  cursor: pointer; /* Change cursor to pointer on hover */
+  font-size: 1rem; /* Font size for labels */
+  margin: 12px 12px;
+}
+
+
+
+/* footer
+footer {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 100vw;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+*/
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Include padding/border in width calculations */
+}
+

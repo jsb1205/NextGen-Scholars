@@ -1,0 +1,185 @@
+<%- include("partials/header"); %>
+
+
+<div class="personal-info">
+  <h3>Your personal information</h3>
+
+  <div class="info">
+    Name
+    <div class="info-specifics">
+      <%= user.studentProfile.firstName %> <%= user.studentProfile.lastName %>
+    </div>
+  </div>
+
+  <div class="info">
+    Age
+    <div class="info-specifics">
+      <%= user.studentProfile.age %>
+    </div>
+  </div>
+
+  <div class="info">
+    School
+    <div class="info-specifics">
+      <%= user.studentProfile.school %>
+    </div>
+  </div>
+
+  <div class="info">
+    GPA
+    <div class="info-specifics">
+      <%= user.studentProfile.gpa %>
+    </div>
+  </div>
+
+  <div class="info">
+    Gender
+    <div class="info-specifics">
+      <%= user.studentProfile.gender %>
+    </div>
+  </div>
+
+  <div class="info">
+    Race
+    <div class="info-specifics">
+      <%= user.studentProfile.race %>
+    </div>
+  </div>
+
+  <button id="edit-personal-info-button">Edit</button>
+</div>
+
+
+<div class="interests">
+  <% if (user.studentProfile.interests.length !== 0) { %>
+    <h3>Here are your listed interests!</h3>
+
+    <ul>
+      <% user.studentProfile.interests.forEach(interest => { %>
+        <li><%= interest %></li>
+      <% }) %>
+    </ul>
+
+  <% } else { %>
+    <h3>Please fill out your interests!</h3>
+    <form class="interests-form">
+
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+            <label for="interest1">Science</label>
+            <input type="checkbox" id="interest1" name="interests" value="science">
+          
+        </div>
+
+        <div class="checkbox-item">
+            <label for="interest2">Technology</label>
+            <input type="checkbox" id="interest2" name="interests" value="technology">
+            
+        </div>
+
+        <div class="checkbox-item">
+            <label for="interest3">Engineering</label>
+            <input type="checkbox" id="interest3" name="interests" value="engineering">
+            
+        </div>
+
+        <div class="checkbox-item">
+            <label for="interest4">Math</label>
+            <input type="checkbox" id="interest4" name="interests" value="math">
+            
+        </div>
+
+        <div class="checkbox-item">
+            <label for="interest5">Arts</label>
+            <input type="checkbox" id="interest5" name="interests" value="arts">
+            
+        </div>
+
+        <div class="checkbox-item">
+            <label for="interest6">Politics</label>
+            <input type="checkbox" id="interest6" name="interests" value="politics">
+            
+        </div>
+
+        <div class="checkbox-item">
+            <label for="interest7">History</label>
+            <input type="checkbox" id="interest7" name="interests" value="history">
+            
+        </div>
+
+        <div class="checkbox-item">
+            <label for="interest8">Sports</label>
+            <input type="checkbox" id="interest8" name="interests" value="sports">
+            
+        </div>
+
+        <div class="checkbox-item">
+            <label for="interest9">Reading/Writing</label>
+            <input type="checkbox" id="interest9" name="interests" value="literature">
+            
+        </div>
+
+        <div class="checkbox-item">
+            <label for="interest10">Music</label>
+            <input type="checkbox" id="interest10" name="interests" value="music">
+        </div>
+
+        <div class="checkbox-item">
+            <label for="interest11">Medicine</label>
+            <input type="checkbox" id="interest11" name="interests" value="medicine">
+        </div>
+      </div>
+
+      <button>Submit</button>
+
+    </form>
+  <% } %>
+
+</div>
+
+
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    console.log("Inside form!");
+
+    const checkboxes = document.querySelectorAll('input[name="interests"]:checked');
+    const selectedInterests = Array.from(checkboxes).map(checkbox => checkbox.value);
+    console.log(selectedInterests);
+
+    const id = "<%= user._id %>";
+
+    try {
+      const res = await fetch("/student-home/update-interests", {
+        method: "PUT",
+        body: JSON.stringify({ id, selectedInterests }),
+        headers: { "Content-Type": "application/json" }
+      });
+      const data = await res.json();
+      if (data.error) {
+        console.log(data.error);
+      }
+      if (data.success) {
+        location.assign(`/student-home/${id}`);
+      }
+    }
+    catch (err) {
+      console.log("Failed to fetch the page :(");
+    }
+  });
+
+
+  const editButton = document.getElementById("edit-personal-info-button");
+
+  editButton.addEventListener("click", (event) => {
+
+  })
+
+
+
+</script>
+
+
+<%- include("partials/footer"); %>
