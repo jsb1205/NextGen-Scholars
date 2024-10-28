@@ -1,25 +1,56 @@
 <%- include("partials/header"); %>
 
-<h2>Welcome to <span style="color: rgb(109, 172, 109);">NextGen</span> Scholars!</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextGen Scholars</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+  </style>
+</head>
+<body>
+  <!-- Title Section -->
+  <section class="title-section">
+    <h1><span class="montserrat-green">NextGen</span> <span class="fredoka-blue">Scholars</span></h1>
+    <p class="subtitle">Unlock Your Path to College Success</p>
+  </section>
 
-<div class="about">
-  <h3>Who are we?</h3>
+  <!-- Introduction Section -->
+  <section class="introduction">
+    <div class="intro-text">
+      <h3>Create your academic plan now</h3>
+      <p>NextGen Scholars is a free platform designed to empower underserved high school students by providing personalized 4-year plans tailored to their academic and career goals.</p>
+      <a href="/signup" class="start-button">Start Here</a>
+    </div>
+    <div class="intro-image">
+      <img src="/graduating-students.png" alt="Graduating students">
+    </div>
+  </section>
 
-  NextGen Scholars is a comprehensive platform designed to address the issue of limited access to quality education for 
-  underserved youth, particularly high school students from low-income backgrounds. The solution is centered around offering 
-  students comprehensive educational support through personalized plans that encompass a range of opportunities, including 
-  academic options, scholarships, extracurricular clubs, internships, and personal projects.
-</div>
+  <!-- Features Section -->
+  <section class="features">
+    <div class="feature-item feature-green">
+      <img src="/scholarships-icon.png" alt="Scholarships Icon">
+      <p>Scholarships</p>
+    </div>
+    <div class="feature-item feature-blue">
+      <img src="/universities-icon.png" alt="Universities Icon">
+      <p>Universities</p>
+    </div>
+    <div class="feature-item feature-green">
+      <img src="/extracurriculars-icon.png" alt="Extracurriculars Icon">
+      <p>Extracurriculars</p>
+    </div>
+    <div class="feature-item feature-blue">
+      <img src="/programs-icon.png" alt="Programs Icon">
+      <p>Programs</p>
+    </div>
+  </section>
+</body>
+</html>
 
-<div class="creators">
-  <h3>The masterminds behind the project</h3>
-
-  <ul>
-    <li>Declan McKoen</li>
-    <li>Luna Khan</li>
-    <li>Michelle García</li>
-    <li>Jennifer Senra</li>
-  </ul>
-</div>
 
 <%- include("partials/footer"); %>

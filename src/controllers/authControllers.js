@@ -49,6 +49,10 @@ module.exports.login_get = (req, res) => {
   res.render("../views/login");
 }
 
+module.exports.about_us_get = (req, res) => {
+  res.render("../views/about-us");
+}
+
 module.exports.signup_post = async (req, res) => {
   const { email, password } = req.body;
 

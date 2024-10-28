@@ -1,20 +1,27 @@
 <%- include("partials/header"); %>
 
+<div class="signup-container">
+  <!-- Decorative images -->
+  <img src="/books.png" alt="Books" class="decorative-image books">
+  <img src="/lightbulb.png" alt="Lightbulb" class="decorative-image lightbulb">
+  <img src="/diploma.png" alt="Diploma" class="decorative-image diploma">
+  <img src="/pencils.png" alt="Pencils" class="decorative-image pencils">
 
-<form>
-  <h2>Sign up</h2>
+  <form class="signup-form">
+    <h2 class="form-title">Sign up</h2>
 
-  <label for="email">Email</label>
-  <input type="text" name="email" required />
-  <div class="email error"></div>
+    <label for="email" class="visually-hidden">Email</label>
+    <input type="text" name="email" placeholder="Email" required />
+    <div class="email error"></div>
 
-  <label for="password">Password</label>
-  <input type="password" name="password" required />
-  <div class="password error"></div>
+    <label for="password" class="visually-hidden">Password</label>
+    <input type="password" name="password" placeholder="Password" required />
+    <div class="password error"></div>
 
-  <button>Sign up</button>
-</form>
-
+    <button class="signup-button">Sign up</button>
+    <p class="account-text">Have an Account? <a href="/login">Log in</a></p>
+  </form>
+</div>
 
 <script>
   const form = document.querySelector("form");
@@ -50,6 +57,5 @@
     }
   });
 </script>
-
 
 <%- include("partials/footer"); %>
