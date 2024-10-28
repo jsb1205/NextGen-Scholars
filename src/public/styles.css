@@ -1076,26 +1076,6 @@ body, html {
 
 /* Footer styling for full width */
 
-
-
-
-
-/* footer
-footer {
-  background-color: #007bff;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  max-width: 100vw;
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-}
-*/
-
-
 html, body {
   margin: 0;
   padding: 0;
