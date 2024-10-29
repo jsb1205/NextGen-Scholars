@@ -131,6 +131,8 @@ const student_profile_get = async (req, res) => {
     .populate("studentProfile")
     .exec();
 
+  console.log(user);
+
   res.render("student-profile", { user });
 }
 
@@ -162,6 +164,43 @@ const student_profile_update_interests_get = async (req, res) => {
   res.render("edit-personal-info", { user });
 }
 
+const student_profile_update_interests_update = async (req, res) => {
+  const { firstName, lastName, ageNum, gender, race, gpaNum, school, id } = req.body;
+  const idObject = new mongoose.Types.ObjectId(id);
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: "No profile found!"});
+  }
+
+  try {
+    const updatedUser = await User.findById(id)
+      .populate("studentProfile")
+      .exec();
+    
+    updatedUser.studentProfile.firstName = firstName;
+    updatedUser.studentProfile.lastName = lastName;
+    updatedUser.studentProfile.age = ageNum;
+    updatedUser.studentProfile.gender = gender;
+    updatedUser.studentProfile.race = race;
+    updatedUser.studentProfile.gpa = gpaNum;
+    updatedUser.studentProfile.school = school;
+    updatedUser.studentProfile.credentials = idObject;
+
+    await updatedUser.save();
+    const updated = await updatedUser.studentProfile.save();
+
+    if (!updated) {
+      res.status(400).json({error: "Error! User not updated!"});
+      return;
+    }
+
+    res.status(200).json({success: "Successfully updated!"});
+  }
+  catch (err) {
+    res.status(400).json({error: "User not updated!"});
+  }
+}
+
 
 module.exports = {
   student_home_page_get,
@@ -173,5 +212,6 @@ module.exports = {
   student_interests_update,
   student_profile_get,
   educator_profile_get,
-  student_profile_update_interests_get
+  student_profile_update_interests_get,
+  student_profile_update_interests_update
 }

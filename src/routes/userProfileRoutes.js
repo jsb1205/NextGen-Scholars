@@ -18,7 +18,7 @@ router.get("/student-profile/:id", requireAuth, checkCurrUser, userProfileContro
 router.get("/educator-profile/:id", requireAuth, checkCurrUser, userProfileController.educator_profile_get);
 
 router.get("/student-profile/:id/personal-info/edit", requireAuth, checkCurrUser, userProfileController.student_profile_update_interests_get);
-
+router.put("/student-home/:id/personal-info/edit/put", requireAuth, checkCurrUser, userProfileController.student_profile_update_interests_update);
 
 
 module.exports = router;
