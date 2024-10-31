@@ -79,6 +79,17 @@ const studentProfileSchema = new Schema({
     type: Number,
     required: true
   },
+  schoolYear: {
+    type: Number,
+    required: true,
+    validate: {
+      validator: year => {
+        return year >= 6 && year <= 12;
+      },
+      message:
+        "Please enter a valid school year! (6-12)"
+    }
+  },
   gpa: {
     type: Number,
     required: true

@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 
 
+
 // home pages for students and educators
 const student_home_page_get = async (req, res) => {
   const { id } = req.params;
@@ -74,12 +75,12 @@ const student_create_profile_get = (req, res) => {
 }
 
 const student_create_profile_post = async (req, res) => {
-  const { firstName, lastName, ageNum, gender, race, gpaNum, school, id } = req.body;
+  const { firstName, lastName, ageNum, schoolYear, gender, race, gpaNum, school, id } = req.body;
   const idObject = new mongoose.Types.ObjectId(id);
 
 
   try {
-    const studentProfile = await StudentProfile.create({ firstName, lastName, age: ageNum, gender, race, gpa: gpaNum, school, credentials: idObject });
+    const studentProfile = await StudentProfile.create({ firstName, lastName, age: ageNum, schoolYear, gender, race, gpa: gpaNum, school, credentials: idObject });
     
     const updated = await User.findByIdAndUpdate(
       idObject, 
@@ -90,7 +91,8 @@ const student_create_profile_post = async (req, res) => {
     res.status(201).json({ student: studentProfile.firstName });
   }
   catch (err) {
-    res.status(400).json({err});
+    const errors = "Please enter a valid school year! (6-12)";
+    res.status(400).json({ errors });
   }
 }
 
@@ -165,7 +167,7 @@ const student_profile_update_interests_get = async (req, res) => {
 }
 
 const student_profile_update_interests_update = async (req, res) => {
-  const { firstName, lastName, ageNum, gender, race, gpaNum, school, id } = req.body;
+  const { firstName, lastName, ageNum, schoolYear, gender, race, gpaNum, school, id } = req.body;
   const idObject = new mongoose.Types.ObjectId(id);
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -180,6 +182,7 @@ const student_profile_update_interests_update = async (req, res) => {
     updatedUser.studentProfile.firstName = firstName;
     updatedUser.studentProfile.lastName = lastName;
     updatedUser.studentProfile.age = ageNum;
+    updatedUser.studentProfile.schoolYear = schoolYear;
     updatedUser.studentProfile.gender = gender;
     updatedUser.studentProfile.race = race;
     updatedUser.studentProfile.gpa = gpaNum;
@@ -197,7 +200,8 @@ const student_profile_update_interests_update = async (req, res) => {
     res.status(200).json({success: "Successfully updated!"});
   }
   catch (err) {
-    res.status(400).json({error: "User not updated!"});
+    const errors = "Please enter a valid school year! (6-12)";
+    res.status(400).json({ errors });
   }
 }
 
