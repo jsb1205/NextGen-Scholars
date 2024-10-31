@@ -16,8 +16,8 @@
   <input type="date" name="birthDate" required />
   <div class="birthDate error"></div>
 
-  <label for="schoolYear">School Year (Please enter just a number)</label>
-  <input type="text" name="schoolYear" required />
+  <label for="schoolYear">School Year (6-12)</label>
+  <input type="number" min="6" max="12" name="schoolYear" required />
   <div class="schoolYear error"></div>
 
   <label for="gender">Gender</label>
@@ -46,7 +46,7 @@
   <div class="race error"></div>
 
   <label for="gpa">Current Grade Point Average</label>
-  <input type="text" name="gpa" required />
+  <input type="number" min="0" max="4" name="gpa" required />
   <div class="gpa error"></div>
 
   <label for="school">Current School</label>

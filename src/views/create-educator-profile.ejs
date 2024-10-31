@@ -16,6 +16,11 @@
   <input type="text" name="school" required />
   <div class="school error"></div>
 
+  <!--TODO: Have an input for the educator to put down either one OR more students-->
+  <label for="school">Please enter a student email</label>
+  <input type="text" name="students" placeholder="Student Email" required />
+  <div class="students error"></div>
+
   <button>Submit</button>
 
 </form>
@@ -23,7 +28,8 @@
 
 <script>
 
-  const form = document.querySelector("form");
+  const form = document.querySelector("form");  
+
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();

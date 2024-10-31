@@ -101,11 +101,11 @@ const educator_create_profile_get = (req, res) => {
 }
 
 const educator_create_profile_post = async (req, res) => {
-  const { firstName, lastName, school, id } = req.body;
+  const { firstName, lastName, school, students, id } = req.body;
   const idObject = new mongoose.Types.ObjectId(id);
 
   try {
-    const educatorProfile = await EducatorProfile.create({ firstName, lastName, school, credentials: id});
+    const educatorProfile = await EducatorProfile.create({ firstName, lastName, school, students, credentials: id});
     
     const updated = await User.findByIdAndUpdate(
       idObject, 
