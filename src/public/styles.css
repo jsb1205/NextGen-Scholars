@@ -908,14 +908,164 @@ button {
   transition: background-color 0.3s;
 }
 
+/*Styles for student information page*/
+/*might delete this body later*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
+/* Centered container for the profile form */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 120vh;
+  padding: 50px;
+  background-color: #d9e5f4;
+}
 
+/* Profile form styling */
+.profile-form {
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 300px;
+  text-align: left;
+  z-index: 1;
+}
+
+.form-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #7ed957; /* Green text */
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Input fields styling */
+.profile-form label {
+  font-size: 1rem;
+  color: #333;
+  display: block;
+  margin-top: 10px;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 35px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  background-color: #7ed957;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 40%;
+  text-align: center;
+  margin: 20px 80px 0 80px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600; 
+}
+
+.submit-button:hover {
+  background-color: #5a8d4d;
+}
+
+/* Decorative images styling */
+.decor-image {
+  position: absolute;
+  max-width: 100px;
+  height: auto;
+  opacity: 0.9;
+}
+
+/* Position each image individually */
+.diploma-image {
+  top: 30px;
+  left: 60px;
+  width: 260px; /* Adjust size as needed */
+  height: auto;
+  transform: rotate(-85deg);
+}
+
+.lightbulb-image {
+  bottom: 350px;
+  left: 240px;
+  width: 380px; /* Adjust size as needed */
+  height: auto;
+  z-index: 0;
+  transform: rotate(-5deg);
+}
+
+.notebook-image {
+  bottom: 40px;
+  left: 40px;
+  width: 220px; /* Adjust size as needed */
+  height: auto;
+}
+
+.tubes-image {
+  top: 300px;
+  right: 300px;
+  width: 180px; /* Adjust size as needed */
+  height: auto;
+  transform: rotate(-10deg);
+}
+
+.hat-image {
+  top: 30px;
+  right: 80px;
+  width: 180px; /* Adjust size as needed */
+  height: auto;
+  transform: rotate(25deg);
+}
+
+.pencils-image {
+  bottom: 20px;
+  right: 20px;
+  width: 250px; /* Adjust size as needed */
+  height: auto;
+}
+
+.screbil-image{
+  top: 400px;
+  right: -30px;
+  width: 240px; /* Adjust size as needed */
+  height: auto;
+}
+
+/*teacher add more emails button*/
+.add-email-link {
+  color: #004aad; /* Blue color for the link */
+  cursor: pointer; /* Pointer cursor to indicate it's clickable */
+  font-size: 1rem; /* Font size */
+  text-decoration: underline; /* Underline to show it's a link */
+  margin-top: 2px; /* Space above the link */
+  margin-bottom: 10px;
+  display: inline-block; /* Keeps it aligned with other text */
+}
+
+/* Optional: Change color on hover */
+.add-email-link:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
 
 /* student-home */
 .scholarship-recommendations {
 
 }
-
 
 
 
@@ -1072,6 +1222,121 @@ body, html {
 .button-group a {
   color: white;
   text-decoration: none;
+}
+
+/* Student HomePage Profile*/
+.profile-page-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Profile details section */
+.profile-details {
+  background-color: #ffffff;
+  padding: 20px;
+  width: 25%;
+  height: 100%;
+  border-radius: 10px;
+}
+.profile-info-details {
+  text-align: center;
+}
+
+.profile-icon {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #0056b3;
+  margin-bottom: 15px;
+}
+
+.profile-details h2 {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 10px 0;
+}
+.profile-details p {
+  margin: 5px 65px;
+  text-align: left;
+}
+.profile-details p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.button-container {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.profile-code,
+.teacher-button {
+  display: block;
+  font-family: 'Fredoka';
+  background-color: #7ed957;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin: 10px auto;
+  font-size: 0.9em;
+  width: fit-content;
+}
+
+.teacher-button {
+  border: none;
+  cursor: pointer;
+}
+
+.teacher-button:hover {
+  background-color: #66a658;
+}
+/* Personal plan section */
+.personal-plan {
+  background-color: #7db3ff;
+  padding: 20px;
+  width: 65%;
+  height: 100%;
+  min-height: 300px;
+  border-radius: 10px;
+  color: #2a2a2a;
+  text-align: center;
+  margin: auto; /* Center the plan box */
+}
+
+.personal-plan h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.5rem;
+  color: #2a5dca;
+  margin-bottom: 20px;
+}
+
+.plan-details {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  align-items: center;
+  text-align: left;
+}
+
+.plan-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 900px; /* Set a consistent width for alignment */
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-left: 450px;
+  margin-bottom: 60px;
 }
 
 /* Footer styling for full width */

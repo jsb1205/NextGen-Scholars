@@ -1,35 +1,62 @@
 <%- include("partials/header"); %>
 
-<form>
+<div class="profile-container">
+  <!-- Decorative images -->
+  <img src="/diploma.png" alt="Diploma" class="decor-image diploma-image">
+  <img src="/lightbulb2.png" alt="Lightbulb" class="decor-image lightbulb-image">
+  <img src="/notebook.png" alt="Notebook" class="decor-image notebook-image">
+  <img src="/screbil.png" alt="Screbil" class="decor-image screbil-image">
+  <img src="/graduation-hat.png" alt="Graduation Hat" class="decor-image hat-image">
+  <img src="/pencils.png" alt="Pencils" class="decor-image pencils-image">
+  <img src="/tubes.png" alt="Tubes" class="decor-image tubes-image">
+  <form class = "profile-form">
 
-  <h2>Please enter your personal information</h2>
+    <h2 class = "form-title">Please enter your personal information</h2>
 
-  <label for="firstName">First Name</label>
-  <input type="text" name="firstName" required />
-  <div class="firstName error"></div>
+    <label for="firstName">First Name</label>
+    <input type="text" name="firstName" required />
+    <div class="firstName error"></div>
 
-  <label for="lastName">Last Name</label>
-  <input type="text" name="lastName" required />
-  <div class="lastName error"></div>
+    <label for="lastName">Last Name</label>
+    <input type="text" name="lastName" required />
+    <div class="lastName error"></div>
 
-  <label for="school">Current School</label>
-  <input type="text" name="school" required />
-  <div class="school error"></div>
+    <label for="school">Current School</label>
+    <input type="text" name="school" required />
+    <div class="school error"></div>
 
-  <!--TODO: Have an input for the educator to put down either one OR more students-->
-  <label for="school">Please enter a student email</label>
-  <input type="text" name="students" placeholder="Student Email" required />
-  <div class="students error"></div>
+    <!--TODO: Have an input for the educator to put down either one OR more students-->
+    <label for="school">Please enter a student email</label>
+    <div id="students-container">
+      <input type="text" name="students" placeholder="Student Email" required />
+    </div>
+    <a href="#" id="add-student-email" class="add-email-link">+ Add Another Email</a>
+    <div class="students error"></div>
 
-  <button>Submit</button>
+    <button class="submit-button">Create</button>
 
-</form>
-
+  </form>
+</div>
 
 <script>
 
-  const form = document.querySelector("form");  
+  
+  document.getElementById("add-student-email").addEventListener("click", function(event) {
+      event.preventDefault(); // Prevents the default link behavior
+      console.log("Link clicked");
+      const container = document.getElementById("students-container");
 
+      if (container) {
+          const newInput = document.createElement("input");
+          newInput.type = "text";
+          newInput.name = "students[]";
+          newInput.placeholder = "Student Email";
+          newInput.required = true;
+          container.appendChild(newInput);
+      } else {
+          console.error("The students-container element was not found.");
+      }
+  });/*added the above*/
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();

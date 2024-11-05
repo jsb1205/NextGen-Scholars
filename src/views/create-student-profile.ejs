@@ -1,62 +1,71 @@
 <%- include("partials/header"); %>
 
-<form>
+<div class="profile-container">
+  <!-- Decorative images -->
+  <img src="/diploma.png" alt="Diploma" class="decor-image diploma-image">
+  <img src="/lightbulb2.png" alt="Lightbulb" class="decor-image lightbulb-image">
+  <img src="/notebook.png" alt="Notebook" class="decor-image notebook-image">
+  <img src="/screbil.png" alt="Screbil" class="decor-image screbil-image">
+  <img src="/graduation-hat.png" alt="Graduation Hat" class="decor-image hat-image">
+  <img src="/pencils.png" alt="Pencils" class="decor-image pencils-image">
+  <img src="/tubes.png" alt="Tubes" class="decor-image tubes-image">
+  <form class = "profile-form">
 
-  <h2>Please enter your personal information</h2>
+    <h2 class = "form-title">Please enter your personal information</h2>
 
-  <label for="firstName">First Name</label>
-  <input type="text" name="firstName" required />
-  <div class="firstName error"></div>
+    <label for="firstName">First Name</label>
+    <input type="text" name="firstName" required />
+    <div class="firstName error"></div>
 
-  <label for="lastName">Last Name</label>
-  <input type="text" name="lastName" required />
-  <div class="lastName error"></div>
+    <label for="lastName">Last Name</label>
+    <input type="text" name="lastName" required />
+    <div class="lastName error"></div>
 
-  <label for="birthDate">Birth Date</label>
-  <input type="date" name="birthDate" required />
-  <div class="birthDate error"></div>
+    <label for="birthDate">Birth Date</label>
+    <input type="date" name="birthDate" required />
+    <div class="birthDate error"></div>
 
-  <label for="schoolYear">School Year (6-12)</label>
-  <input type="number" min="6" max="12" name="schoolYear" required />
-  <div class="schoolYear error"></div>
+    <label for="schoolYear">School Year (6-12)</label>
+    <input type="number" min="6" max="12" name="schoolYear" required />
+    <div class="schoolYear error"></div>
 
-  <label for="gender">Gender</label>
-  <select name="gender" required>
-    <option value="">--Select--</option>
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-    <option value="non-binary">Non-Binary</option>
-    <option value="self-describe">Prefer to self-describe</option>
-  </select>
-  <div class="gender error"></div>
+    <label for="gender">Gender</label>
+    <select name="gender" required>
+      <option value="">--Select--</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="non-binary">Non-Binary</option>
+      <option value="self-describe">Prefer to self-describe</option>
+    </select>
+    <div class="gender error"></div>
 
-  <label for="race">Race</label>
-  <select name="race" required>
-    <option value="">--Select--</option>
-    <option value="white">White</option>
-    <option value="black">Black or African American</option>
-    <option value="asian">Asian</option>
-    <option value="native-american">Native American or Alaska Native</option>
-    <option value="native-hawaiian">Native Hawaiian or Other Pacific Islander</option>
-    <option value="hispanic">Hispanic or Latino</option>
-    <option value="mixed">Two or More Races</option>
-    <option value="other">Other</option>
-    <option value="prefer-not-to-say">Prefer not to say</option>
-  </select>
-  <div class="race error"></div>
+    <label for="race">Race</label>
+    <select name="race" required>
+      <option value="">--Select--</option>
+      <option value="white">White</option>
+      <option value="black">Black or African American</option>
+      <option value="asian">Asian</option>
+      <option value="native-american">Native American or Alaska Native</option>
+      <option value="native-hawaiian">Native Hawaiian or Other Pacific Islander</option>
+      <option value="hispanic">Hispanic or Latino</option>
+      <option value="mixed">Two or More Races</option>
+      <option value="other">Other</option>
+      <option value="prefer-not-to-say">Prefer not to say</option>
+    </select>
+    <div class="race error"></div>
 
-  <label for="gpa">Current Grade Point Average</label>
-  <input type="number" min="0" max="4" name="gpa" required />
-  <div class="gpa error"></div>
+    <label for="gpa">Current Grade Point Average</label>
+    <input type="number" min="0" max="4" name="gpa" required />
+    <div class="gpa error"></div>
 
-  <label for="school">Current School</label>
-  <input type="text" name="school" required />
-  <div class="school error"></div>
+    <label for="school">Current School</label>
+    <input type="text" name="school" required />
+    <div class="school error"></div>
 
-  <button>Submit</button>
+    <button class="submit-button">Create</button>
 
-</form>
-
+  </form>
+</div>
 
 <script>
 
