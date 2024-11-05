@@ -25,12 +25,11 @@
     <input type="text" name="school" required />
     <div class="school error"></div>
 
-    <!--TODO: Have an input for the educator to put down either one OR more students-->
-    <label for="school">Please enter a student email</label>
+    <label for="school">Add a Student via Email</label>
     <div id="students-container">
-      <input type="text" name="students" placeholder="Student Email" required />
     </div>
     <a href="#" id="add-student-email" class="add-email-link">+ Add Another Email</a>
+    <a href="#" id="remove-student-email" class="remove-email-link invisible">- Remove Email</a>
     <div class="students error"></div>
 
     <button class="submit-button">Create</button>
@@ -39,7 +38,7 @@
 </div>
 
 <script>
-
+  const form = document.querySelector(".profile-form");
   
   document.getElementById("add-student-email").addEventListener("click", function(event) {
       event.preventDefault(); // Prevents the default link behavior
@@ -58,6 +57,21 @@
       }
   });/*added the above*/
 
+  document.getElementById("remove-student-email").addEventListener("click", event => {
+    event.preventDefault();
+    const container = document.getElementById("students-container");
+
+    if (container) {
+      const studentContainer = document.getElementById("students-container");
+      const inputs = studentContainer.querySelectorAll("input");
+
+      if (inputs.length > 0) {
+        const lastInput = inputs[inputs.length-1];
+        studentContainer.removeChild(lastInput);
+      }
+    }
+  })
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -66,10 +80,17 @@
     const school = form.school.value;
     const id = "<%= user._id %>";
 
+    const studentContainer = document.getElementById("students-container");
+    const inputs = studentContainer.querySelectorAll("input");
+    const students = [];
+    inputs.forEach((student, index) => {
+      students.push(student.value);
+    })
+
     try {
       const res = await fetch("/create-educator-profile", {
         method: "POST",
-        body: JSON.stringify({ firstName, lastName, school, id }),
+        body: JSON.stringify({ firstName, lastName, school, students, id }),
         headers: { "Content-Type": "application/json" }
       });
 
@@ -78,7 +99,7 @@
         console.log(data.err);
       }
       if (data.educator) {
-        location.assign("/educator-home/:id");
+        location.assign(`/educator-home/${id}`);
       }
     }
     catch (err) {
