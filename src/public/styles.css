@@ -1,0 +1,1351 @@
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 8px;
+}
+
+/* Ensuring the left section can grow to fill space */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-grow: 1;
+}
+
+/* Logo link styling */
+.header h1 a {
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Specific font and color for "NextGen" */
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; /* Bold weight for "NextGen" */
+  color: #7ed957; /* Green color for "NextGen" */
+}
+
+/* Specific font and color for "Scholars" */
+.fredoka {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700; /* Bold weight for "Scholars" */
+  color: rgb(68, 61, 172); /* Blue color for "Scholars" */
+}
+
+/* Ensuring buttons in .nav-right stay aligned on the right */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Unordered list (menu) styling */
+.nav-left ul,
+.nav-right ul {
+  display: flex;
+  gap: 25px; /* Horizontal gap between buttons */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* List items (button style for links) */
+.nav-left li a,
+.nav-right li a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 16px;
+  background-color: #72a6f9; /* Button background color */
+  border-radius: 10px; /* Rounded corners */
+  font-weight: bold;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+/* Hover effect on links */
+.nav-left li a:hover,
+.nav-right li a:hover {
+  background-color: #5c94f1; /* Slightly darker shade on hover */
+  color: white; /* Change text color to white on hover */
+}
+
+/* Footer styling */
+.footer {
+  background-color: #72d472; /* Green background color */
+  padding: 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 1.3rem;
+  border-top: 4px solid #6e48f4; /* Purple border on top */
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.montserrat-white {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; /* Bold weight */
+  color: rgb(254, 254, 254); /* white color */
+}
+
+.fredoka {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700; /* Bold weight */
+  color: rgb(68, 61, 172); /* Blue color */
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between; /* Distributes space between columns */
+  width: 100%; 
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* changes verticle gap */
+  min-width: 150px;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #000; /* Dark color on hover */
+}
+
+.qa-icon {
+  margin-top: 10px;
+}
+
+.qa-icon img {
+  width: 80px;
+  height: 80px;
+}
+
+/* Footer bottom copyright text */
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: white;
+}
+
+/* New Home Screen Styles*/
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+/* Title Section */
+.title-section {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #fff;
+}
+
+.montserrat-green {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #7ed957; /* Green color */
+  font-size: 2.5rem;
+}
+
+.fredoka-blue {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  color: #004aad; /* Blue color */
+  font-size: 2.5rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* Introduction Section */
+.introduction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 80px;
+  text-align: left;
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+.intro-text {
+  max-width: 400px;
+}
+
+.intro-text h3 {
+  font-family: 'Fredoka', sans-serif;
+  color: #004aad;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.intro-text p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-weight: 200;
+}
+
+.start-button {
+  display: inline-block;
+  text-align: center;
+  background-color: #72a6f9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none; /* Removes underline for links */
+  transition: background-color 0.3s;
+}
+
+.start-button:hover {
+  background-color: #5c94f1;
+}
+
+.intro-image img {
+  max-width: 300px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transform: rotate(-2deg);
+  position: relative; /* Allows for absolute positioning of the image */
+  display: inline-block; /* Ensures the container wraps around the image */
+}
+
+/* A lot of manual adjustment for the rectangle*/
+.intro-image::before {
+  content: '';
+  position: absolute;
+  top: 250px; /* Adjusts the position of the green square */
+  left: 850px;
+  width: 310px;
+  height: 180px;
+  background-color: #7ed957; /* Green color for the square */
+  transform: rotate(15deg); /* Rotates the green square */
+  z-index: -1; /* Places the green square behind the image */
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 40px 60px;
+  background-color: #ffffff;
+}
+
+.feature-item {
+  text-align: center;
+  max-width: 150px;
+  margin: 0 10px; /* Sets even spacing between items */
+}
+
+.feature-item img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.feature-green img {
+  background-color: #7ed957; /* Green background */
+}
+
+/* Blue background for selected icons */
+.feature-blue img {
+  background-color: #70a2f8; /* Blue background */
+}
+
+.feature-item p {
+  font-family: 'Fredoka', sans-serif;
+  color: #004aad; /* Blue color for the text */
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* New Home Screen Styles end here*/
+
+/* login page styles*/
+
+/* Overall page layout */
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Aligns items to the left */
+  background-color: #d9e5f4; /* Light blue background */
+  padding: 20px 50px; /* Adds padding on the left and right */
+  height: 100vh;
+}
+
+/* Login form container */
+.login-container {
+  background-color: white;
+  padding: 30px 70px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  min-height: 450px;
+  margin-left: 50px;  /* Move the login form slightly to the right */
+  margin-right: 50px; /* Space between form and image */
+}
+
+.login-container h2 {
+  font-family: 'Fredoka', sans-serif;
+  color: #7ed957; /* Green color */
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Input styling */
+.login-container label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+  margin-top: 30px;
+}
+
+.login-container input[type="text"] 
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+/* Forgot password link */
+.forgot-password {
+  color: #4285f4; /* Blue color */
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 15px;
+  text-align: right;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Login button styling */
+.login-button {
+  background-color: #7ed957; /* Green color */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.login-button:hover {
+  background-color: #2d8f47; /* Darker green on hover */
+}
+
+/* Sign up link */
+.no-account {
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.no-account a {
+  color: #4285f4; /* Blue color */
+  text-decoration: none;
+}
+
+.no-account a:hover {
+  text-decoration: underline;
+}
+
+/* Owl illustration */
+.login-illustration {
+  margin-left: 200px; /* Adds spacing between form and owl image */
+}
+
+.login-illustration img {
+  width: 600px; /* Adjust as needed */
+  height: auto;
+}
+
+
+/* Sign up page styles */
+
+/* Centering the container */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #d9e5f4; /* Light blue background */
+}
+
+/* Form styling */
+.signup-form {
+  background-color: #f9f9f9; /* Light gray form background */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Title styling to match "Login" */
+.form-title {
+  font-family: 'Fredoka', sans-serif; /* Assuming Fredoka is used in "Login" */
+  color: #7ed957; /* Blue color to match "Login" */
+  font-weight: bold;
+  font-size: 2rem; /* Increased font size */
+  margin-bottom: 20px;
+}
+
+/* Input styling */
+.signup-form input[type="text"],
+.signup-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 25px;
+  background-color: #f0f0f0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Styling for "Confirm Password" after input */
+.signup-form input[name="confirmPassword"]:not(:placeholder-shown) {
+  background-color: #dceafc; /* Light blue background after typing */
+  color: #333; /* Text color */
+}
+
+/* Sign in button styling */
+.signup-button {
+  background-color: #7ed957; /* Green button */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.signup-button:hover {
+  background-color: #2d8f47; /* Darker green on hover */
+}
+
+/* Account text styling */
+.account-text {
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 15px;
+}
+
+.account-text a {
+  color: #4285f4; /* Blue color for link */
+  text-decoration: none;
+}
+
+.account-text a:hover {
+  text-decoration: underline;
+}
+
+/* Decorative image styling */
+.decorative-image {
+  position: absolute;
+  width: 100px;
+  height: auto;
+}
+
+/* Specific positions for each image */
+.books {
+  bottom: 20px;
+  left: 20px;
+  width: 500px; /* Adjust size as needed */
+  height: auto;
+}
+
+.lightbulb {
+  top: 200px;
+  left: 900px;
+  width: 70px; /* Adjust size as needed */
+  z-index: 2;
+  transform: rotate(-25deg);
+}
+
+.diploma {
+  top: 100px;
+  right: 70px;
+  width: 300px; /* Adjust size as needed */
+  height: auto;
+}
+
+.pencils {
+  bottom: 30px;
+  right: 40px;
+  width: 250px; /* Adjust size as needed */
+  height: auto;
+}
+
+/* Visually hidden labels for accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+/* Styling for error messages */
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  display: block;
+}
+
+/*About-us page style*/
+/* Container for the About section */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* Space between columns */
+  padding: 40px;
+}
+
+/* Text styling */
+.about-text {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ensures all text is aligned to the left */
+  text-align: left; /* Additional left alignment */
+}
+
+.about-text h2 {
+  color: #7db86e; /* Green color for "About Us" */
+  font-family: sans-serif; /* Apply Fredoka font if desired */
+  font-weight: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+
+.about-text p {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 2rem;
+  color: #2a5dca; /* Dark blue color */
+  font-weight: bold;
+  margin-top: 10px;
+  margin-right: 50px;
+}
+
+.join-button {
+  background-color: #70a2f8; /* Light blue */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 20px;
+  cursor: pointer;
+  text-decoration: none; 
+}
+
+.join-button:hover {
+  background-color: #4a76e0; /* Darker blue on hover */
+}
+
+/* Image styling */
+.about-image {
+  position: relative;
+}
+
+.computer-image {
+  width: 350px; /* Adjust size as needed */
+}
+
+/* Second Part of the about-us*/
+.how-it-works-container {
+  display: flex;
+  align-items: flex-start;
+  padding: 40px;
+  gap: 0px;
+}
+
+.how-it-works-title {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 120px;
+}
+
+/* Styling each line */
+.how-it-works-title .line {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2a5dca;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.how-it-works-title .green {
+  color: #7db86e; /* Green color for "NextGen.com" */
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+  margin-left: 180px;
+}
+
+.feature-icon {
+  width: 100px;
+  height: auto;
+}
+
+.feature-text h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2a2a2a; /* Black color */
+  margin: 0;
+}
+
+.feature-text p {
+  font-size: 1rem;
+  color: #555555; /* Slightly muted black for paragraph text */
+  margin: 0px 100px 0 0;
+}
+/*Last section of the about-us page*/
+.our-team-section {
+  text-align: center;
+  padding: 40px;
+}
+
+.our-team-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: left;
+  color: #000000;
+  margin-left: 300px;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  gap: 100px; /* Space between each member */
+}
+
+.team-member {
+  text-align: center;
+  max-width: 150px;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Makes the image a circle */
+  object-fit: cover;
+}
+
+.team-member h3 {
+  font-size: 1.1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #2a5dca; /* Blue color for names */
+  margin: 10px 0 5px 0;
+}
+
+.team-member p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #7db86e; /* Muted color for degree and role */
+}
+
+.role {
+  color: #7db86e; /* Green color for roles */
+  font-weight: bold;
+}
+
+
+
+
+/* Im not sure what of this was used for the home screen*/
+/* Front page styles */
+/* Title styling */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+/* Section styling (about and creators) */
+.about, .creators {
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  font-size: 18px;
+}
+
+/* Subheading styling */
+.about h3, .creators h3 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+/* List styling */
+.creators ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+/* List item styling */
+.creators li {
+  font-size: 1rem;
+  margin: 8px 0;
+  padding: 5px;
+  background-color: #e9f5ff;
+  border-radius: 5px;
+}
+
+
+form h2 {
+  font-size: 2.4em;
+  font-weight: 900;
+  margin-bottom: 40px;
+}
+
+input {
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+  width: 100%;
+}
+label {
+  display: block;
+  margin: 20px 0 10px;
+}
+button {
+  margin-top: 30px;
+  border-radius: 36px;
+  background: #FEE996;
+  border: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.personal-info {
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  padding-bottom: 70px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.personal-info h3 {
+  text-align: center;
+}
+
+.personal-info button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.personal-info button:hover {
+  background-color: #0056b3;
+}
+
+/* Each info block */
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Last info item doesn't need a border */
+.info:last-child {
+  border-bottom: none;
+}
+
+/* Styling the labels (Name, Age, etc.) */
+.info::before {
+  color: #555;
+  font-weight: bold;
+}
+
+.interests {
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.interests h3 {
+  text-align: center;
+}
+
+/* Paragraph at the top */
+.interests p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Styling the list */
+.interests ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* Styling each list item */
+.interests li {
+  font-size: 1rem;
+  color: #333;
+  margin: 8px 0;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+}
+
+/* Last item without border */
+.interests li:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect on list items */
+.interests li:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/*Styles for student information page*/
+/*might delete this body later*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centered container for the profile form */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 120vh;
+  padding: 50px;
+  background-color: #d9e5f4;
+}
+
+/* Profile form styling */
+.profile-form {
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 300px;
+  text-align: left;
+  z-index: 1;
+}
+
+.form-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #7ed957; /* Green text */
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Input fields styling */
+.profile-form label {
+  font-size: 1rem;
+  color: #333;
+  display: block;
+  margin-top: 10px;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 35px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  background-color: #7ed957;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 40%;
+  text-align: center;
+  margin: 20px 80px 0 80px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600; 
+}
+
+.submit-button:hover {
+  background-color: #5a8d4d;
+}
+
+/* Decorative images styling */
+.decor-image {
+  position: absolute;
+  max-width: 100px;
+  height: auto;
+  opacity: 0.9;
+}
+
+/* Position each image individually */
+.diploma-image {
+  top: 30px;
+  left: 60px;
+  width: 260px; /* Adjust size as needed */
+  height: auto;
+  transform: rotate(-85deg);
+}
+
+.lightbulb-image {
+  bottom: 350px;
+  left: 240px;
+  width: 380px; /* Adjust size as needed */
+  height: auto;
+  z-index: 0;
+  transform: rotate(-5deg);
+}
+
+.notebook-image {
+  bottom: 40px;
+  left: 40px;
+  width: 220px; /* Adjust size as needed */
+  height: auto;
+}
+
+.tubes-image {
+  top: 300px;
+  right: 300px;
+  width: 180px; /* Adjust size as needed */
+  height: auto;
+  transform: rotate(-10deg);
+}
+
+.hat-image {
+  top: 30px;
+  right: 80px;
+  width: 180px; /* Adjust size as needed */
+  height: auto;
+  transform: rotate(25deg);
+}
+
+.pencils-image {
+  bottom: 20px;
+  right: 20px;
+  width: 250px; /* Adjust size as needed */
+  height: auto;
+}
+
+.screbil-image{
+  top: 400px;
+  right: -30px;
+  width: 240px; /* Adjust size as needed */
+  height: auto;
+}
+
+/*teacher add more emails button*/
+.add-email-link {
+  color: #004aad; /* Blue color for the link */
+  cursor: pointer; /* Pointer cursor to indicate it's clickable */
+  font-size: 1rem; /* Font size */
+  text-decoration: underline; /* Underline to show it's a link */
+  margin-top: 2px; /* Space above the link */
+  margin-bottom: 10px;
+  display: inline-block; /* Keeps it aligned with other text */
+}
+
+/* Optional: Change color on hover */
+.add-email-link:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+/* student-home */
+.scholarship-recommendations {
+
+}
+
+
+
+/* interests form */
+.interests-form {
+  max-width: 400px; /* Set a maximum width for the form */
+  margin: 20px auto; /* Center the form horizontally */
+  padding: 20px; /* Add padding around the form */
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-family: Arial, sans-serif; /* Set font family */
+}
+
+/* Checkbox group styling */
+.checkbox-group {
+  display: flex;
+  flex-direction: column; /* Stack checkboxes vertically */
+}
+
+/* Checkbox item styling */
+.checkbox-item {
+  display: flex; /* Use flexbox for checkbox and label */
+  align-items: center; /* Center items vertically */
+  /*margin-bottom: 10px; Space between items */
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+
+.checkbox-item:last-child {
+  border-bottom: none;
+}
+
+/* Checkbox and label styling */
+.checkbox-item input[type="checkbox"] {
+  margin-right: 10px; /* Space between checkbox and label */
+  position: absolute;
+  left: 40%;
+}
+
+.checkbox-item label {
+  cursor: pointer; /* Change cursor to pointer on hover */
+  font-size: 1rem; /* Font size for labels */
+  margin: 12px 12px;
+}
+
+
+
+/* Main container to ensure the footer stays at the bottom */
+body, html {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.content-container {
+  flex: 1; /* Allows the content to expand, pushing the footer down */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #e6f3ff; /* Light blue background */
+}
+
+/* Profile Select Page Style */
+
+/* Light blue background for the entire webpage */
+/* Main container to center the content */
+
+.container2 {
+  position: relative; /* Relative positioning for absolute child elements */
+  padding: 60px 0;
+  height: 80vh;
+  background-color: #d9e5f4; 
+}
+
+/* Profile nav styling */
+.profile-nav {
+  text-align: center;
+  background-color: #f4f4f4; /* Light gray background for nav */
+  padding: 60px 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px; /* Set a fixed width for a compact look */
+  margin: 180px auto 220px auto; /* Add space above and below with margin */
+  z-index: 1;
+}
+
+
+.profile-nav p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.decor-image {
+  max-width: 500px;
+  height: auto;
+  opacity: 0.9;/* Make sure they stay behind the profile-nav */
+}
+
+/* Specific positioning for each image */
+.puzzle-image {
+  position: absolute;
+  bottom: 0px; /* Adjust as needed */
+  left: 20px;
+  height: auto;
+  width: 400px;
+  opacity: 0.9;
+}
+
+.ribbon-image {
+  position: absolute;
+  top: 210px; /* Place near the top */
+  right: 500px; /* Adjust right position */
+  height: auto;
+  width: 80px;
+  transform: rotate(-25deg);
+}
+
+.laptop-image {
+  position: absolute;
+  bottom: 20px; /* Place near the bottom */
+  right: 50px; /* Place on the right side */
+  height: auto;
+  width: 350px;
+}
+
+
+.button-group {
+  display: flex;
+  justify-content: center; 
+  gap: 20px;
+}
+
+.button-group button {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-group button:hover {
+  background-color: #003d80;
+}
+
+.button-group a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Student HomePage Profile*/
+.profile-page-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Profile details section */
+.profile-details {
+  background-color: #ffffff;
+  padding: 20px;
+  width: 25%;
+  height: 100%;
+  border-radius: 10px;
+}
+.profile-info-details {
+  text-align: center;
+}
+
+.profile-icon {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #0056b3;
+  margin-bottom: 15px;
+}
+
+.profile-details h2 {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 10px 0;
+}
+.profile-details p {
+  margin: 5px 65px;
+  text-align: left;
+}
+.profile-details p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.button-container {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.profile-code,
+.teacher-button {
+  display: block;
+  font-family: 'Fredoka';
+  background-color: #7ed957;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin: 10px auto;
+  font-size: 0.9em;
+  width: fit-content;
+}
+
+.teacher-button {
+  border: none;
+  cursor: pointer;
+}
+
+.teacher-button:hover {
+  background-color: #66a658;
+}
+/* Personal plan section */
+.personal-plan {
+  background-color: #7db3ff;
+  padding: 20px;
+  width: 65%;
+  height: 100%;
+  min-height: 300px;
+  border-radius: 10px;
+  color: #2a2a2a;
+  text-align: center;
+  margin: auto; /* Center the plan box */
+}
+
+.personal-plan h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.5rem;
+  color: #2a5dca;
+  margin-bottom: 20px;
+}
+
+.plan-details {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  align-items: center;
+  text-align: left;
+}
+
+.plan-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 900px; /* Set a consistent width for alignment */
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-left: 450px;
+  margin-bottom: 60px;
+}
+
+/* Footer styling for full width */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Include padding/border in width calculations */
+}
+

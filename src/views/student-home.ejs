@@ -1,0 +1,176 @@
+<%- include("partials/header"); %>
+
+<h1>Welcome, <%= user.studentProfile.firstName %> <%= user.studentProfile.lastName %></h1>
+
+
+<div class="scholarship-recommendations">
+  <h3>Here are your scholarship recommendations!</h2>
+
+
+</div>
+
+<div class="clubs">
+  <% if (user.studentProfile.interests.length !== 0) { %>
+      <h3>Here are your recommended clubs!</h3>
+      <div class="profile-page-container">
+        <div class="profile-details">
+          <div class="profile-info-details">
+            <img src="/default profile.png" alt="Profile Picture" class="profile-icon">
+            <h2><%= user.studentProfile.firstName %> <%= user.studentProfile.lastName %></h2>
+            <p><a href="mailto:email@example.com">Email address</a></p>
+            <p>School</p>
+            <p>Grade</p>
+          </div>
+          <div class="button-container">
+            <div class="profile-code">code: 76352</div>
+            <button class="teacher-button">Add your teacher</button>
+          </div>
+        </div>
+
+      <!-- Right section with personal plan -->
+      <div class="personal-plan">
+          <h3>4-Year Personal Plan</h3>
+          <div class="plan-details">
+            <div class="plan-item">
+              <span>Program:</span> <span>Internships:</span>
+            </div>
+            <div class="plan-item">
+              <span>Clubs:</span> <span>Sports:</span>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <div class="feature-item feature-green">
+        <img src="/scholarships-icon.png" alt="Scholarships Icon">
+        <p>Scholarships</p>
+      </div>
+      <div class="feature-item feature-blue">
+        <img src="/universities-icon.png" alt="Universities Icon">
+        <p>Universities</p>
+      </div>
+      <div class="feature-item feature-green">
+        <img src="/extracurriculars-icon.png" alt="Extracurriculars Icon">
+        <p>Extracurriculars</p>
+      </div>
+      <div class="feature-item feature-blue">
+        <img src="/programs-icon.png" alt="Programs Icon">
+        <p>Programs</p>
+      </div>
+  </div>
+  <% } else { %>
+      <div class="interests-container">
+        <h3>Please fill out your interests to be recommended clubs!</h3>
+        <form class="interests-form">
+
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+                <label for="interest1">Science</label>
+                <input type="checkbox" id="interest1" name="interests" value="science">
+              
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest2">Technology</label>
+                <input type="checkbox" id="interest2" name="interests" value="technology">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest3">Engineering</label>
+                <input type="checkbox" id="interest3" name="interests" value="engineering">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest4">Math</label>
+                <input type="checkbox" id="interest4" name="interests" value="math">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest5">Arts</label>
+                <input type="checkbox" id="interest5" name="interests" value="arts">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest6">Politics</label>
+                <input type="checkbox" id="interest6" name="interests" value="politics">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest7">History</label>
+                <input type="checkbox" id="interest7" name="interests" value="history">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest8">Sports</label>
+                <input type="checkbox" id="interest8" name="interests" value="sports">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest9">Reading/Writing</label>
+                <input type="checkbox" id="interest9" name="interests" value="literature">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest10">Music</label>
+                <input type="checkbox" id="interest10" name="interests" value="music">
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest11">Medicine</label>
+                <input type="checkbox" id="interest11" name="interests" value="medicine">
+            </div>
+          </div>
+
+          <button>Submit</button>
+
+        </form>
+      </div>
+  <% } %>
+
+</div>
+
+
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const checkboxes = document.querySelectorAll('input[name="interests"]:checked');
+    const selectedInterests = Array.from(checkboxes).map(checkbox => checkbox.value);
+    console.log(selectedInterests);
+
+    const id = "<%= user._id %>";
+
+    try {
+      const res = await fetch("/student-home/update-interests", {
+        method: "PUT",
+        body: JSON.stringify({ id, selectedInterests }),
+        headers: { "Content-Type": "application/json" }
+      });
+      const data = await res.json();
+      if (data.error) {
+        console.log(data.error);
+      }
+      if (data.success) {
+        location.assign(`/student-home/${id}`);
+      }
+    }
+    catch (err) {
+      console.log("Failed to fetch the page :(");
+    }
+  })
+
+</script>
+
+
+
+<%- include("partials/footer"); %>

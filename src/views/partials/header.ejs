@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextGen Scholars</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+  </style>
+</head>
+<body>
+  <nav class="header">
+    <div class="nav-left">
+      <h1><a href="/"><span class="montserrat">NextGen</span> <span class="fredoka">Scholars</span></a></h1>
+      <ul>
+        <% if (!user) { %>
+          <li><a href="/students">Students</a></li>
+          <li><a href="/parents">Parents</a></li>
+          <li><a href="/educators">Educators</a></li>
+          <li><a href="/about-us">About Us</a></li>
+        <% } %>
+      </ul>
+    </div>
+
+    <div class="nav-right">
+      <ul>
+        <% if (user && (user.studentProfile || user.educatorProfile)) { %>
+          <% if (user.studentProfile) { %>
+            <li><a href="/student-home/<%= user._id %>">View your home page</a></li>
+            <li><a href="/student-profile/<%= user._id %>">View student profile</a></li>
+            <li><a href="/logout">Log out</a></li>
+          <% } else { %>
+            <li><a href="/educator-home/<%= user._id %>">View your home page</a></li>
+            <li><a href="/educator-profile/<%= user._id %>">View educator profile</a></li>
+            <li><a href="/logout">Log out</a></li>
+          <% } %>
+        <% } else { %>
+          <li><a href="/login">Log in</a></li>
+        <% } %>
+      </ul>
+    <div>
+  </nav>
