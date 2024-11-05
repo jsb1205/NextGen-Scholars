@@ -1,6 +1,7 @@
 const { User, StudentProfile, EducatorProfile } = require("../models/user");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
+const { boolean } = require("webidl-conversions");
 
 
 
@@ -104,10 +105,41 @@ const educator_create_profile_post = async (req, res) => {
   const { firstName, lastName, school, students, id } = req.body;
   const idObject = new mongoose.Types.ObjectId(id);
 
+  // class id generation
+  // each class id will be 10 characters long
+  let unique = false;
+  let classId = "";
+  do {
+    classId = "";
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < 10; i++) {
+        classId += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    if (!(await EducatorProfile.findOne({classId}))) {
+      unique = true;
+    }
+  } while (!unique);
+
   try {
-    const educatorProfile = await EducatorProfile.create({ firstName, lastName, school, students, credentials: id});
+    let educatorProfile;
+    if (students.length > 0) {
+      const studentProfiles = [];
+      for (const studentEmail of students) {
+        const student = await User.findOne({ email: studentEmail });
+        console.log(student);
     
-    const updated = await User.findByIdAndUpdate(
+        if (student && student.studentProfile) {
+            await student.populate("studentProfile");
+            studentProfiles.push(student._id);
+        }
+      }
+      educatorProfile = await EducatorProfile.create({ firstName, lastName, school, students: studentProfiles, classId, credentials: id});
+    }
+    else {
+      educatorProfile = await EducatorProfile.create({ firstName, lastName, school, classId: classId, credentials: id});
+    }
+
+    await User.findByIdAndUpdate(
       idObject, 
       { educatorProfile: educatorProfile._id },
       { new: true, runValidators: true }

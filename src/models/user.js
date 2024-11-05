@@ -136,6 +136,10 @@ const educatorProfileSchema = new Schema({
   students: {
     type: [Schema.Types.ObjectId],
     ref: "StudentProfile",    // Reference to linked students
+  },
+  classId: {
+    type: String,
+    unique: true,
     required: true
   },
   credentials: {
