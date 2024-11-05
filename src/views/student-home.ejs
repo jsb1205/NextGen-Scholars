@@ -59,9 +59,17 @@
       </div>
   </div>
   <% } else { %>
+    <div class="welcome-container">
+      <div class="image-container">
+        <img src="/interest-side.png" alt="Interests Image">
+      </div>
       <div class="interests-container">
-        <h3>Please fill out your interests to be recommended clubs!</h3>
+        <h1 class="welcome-title">
+          Welcome, <span class="user-name"><%= user.studentProfile.firstName %> <%= user.studentProfile.lastName %></span>
+        </h1>
+        <p class="subtext">Please select all your interest!</p>
         <form class="interests-form">
+          <h2 class="form-title">Pick Your Interest</h2>
 
           <div class="checkbox-group">
             <div class="checkbox-item">
@@ -129,10 +137,11 @@
             </div>
           </div>
 
-          <button>Submit</button>
+          <button class="submit-interest">Submit</button>
 
         </form>
       </div>
+    </div>
   <% } %>
 
 </div>
