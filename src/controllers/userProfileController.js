@@ -243,7 +243,7 @@ const student_add_educator = async (req, res) => {
   const educator = await EducatorProfile.findOne({ classId });
 
   if (!educator) {
-    return res.status(404).json({error: "No profile found!"});
+    return res.status(404).json({noProfile: "No profile found!"});
   }
 
   try {

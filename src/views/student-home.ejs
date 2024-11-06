@@ -204,11 +204,21 @@
         newInput.placeholder = "Class ID";
         classForm.appendChild(newInput);
 
+        const errorMessage = document.createElement("p");
+        errorMessage.classList.add("not-found");
+        errorMessage.classList.add("error");
+        classForm.appendChild(errorMessage);
+
+        const error = document.querySelector(".not-found");
+
         const submit = document.createElement("button");
         submit.textContent = "Submit";
         submit.type = "submit";
         submit.classList.add("submit-button");
         classForm.appendChild(submit);
+
+
+        //error.textContent = "";
 
         classForm.addEventListener("submit", async (event) => {
           event.preventDefault();
@@ -223,13 +233,14 @@
               headers: { "Content-Type": "application/json" }
             });
             const data = await res.json();
+            if (data.noProfile) {
+              error.textContent = data.noProfile;
+            }
             if (data.error) {
               console.log(data.error);
             }
             if (data.success) {
-              setTimeout(() => {
-                location.reload();
-              }, 1000);
+              location.reload();
             }
           }
           catch (err) {
