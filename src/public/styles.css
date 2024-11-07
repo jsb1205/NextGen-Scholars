@@ -1530,6 +1530,97 @@ body, html {
   margin-bottom: 60px;
 }
 
+/*Scholarships Page*/
+.scholarship-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.scholarship-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.scholarship-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scholarship-card h3 {
+  color: #1e3a8a;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.apply-btn {
+  background-color: #32cd32;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.apply-btn:hover {
+  background-color: #28a745;
+}
+
+.details-link {
+  color: #1e3a8a;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.filter-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-bar {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.filters label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.filters select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.info-box {
+  grid-column: span 2;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 14px;
+}
+
 /* Footer styling for full width */
 
 html, body {

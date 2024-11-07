@@ -1,0 +1,102 @@
+<%- include("partials/header"); %>
+
+
+<div class="scholarship-container">
+    <!-- Scholarship Cards Section -->
+    <div class="scholarship-section">
+        <div class="scholarship-card">
+            <h3>Scholarship title</h3>
+            <p><strong>Deadline:</strong> [Date]</p>
+            <p><strong>Amount:</strong> [Amount]</p>
+            <button class="apply-btn">Apply</button>
+            <a href="#" class="details-link">Scholarship Details</a>
+        </div>
+        <div class="scholarship-card">
+            <h3>Scholarship title</h3>
+            <p><strong>Deadline:</strong> [Date]</p>
+            <p><strong>Amount:</strong> [Amount]</p>
+            <button class="apply-btn">Apply</button>
+            <a href="#" class="details-link">Scholarship Details</a>
+        </div>
+        <!-- Add more cards as needed -->
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <input type="text" placeholder="Search..." class="search-bar">
+        <div class="filters">
+            <label for="year">Year</label>
+            <select id="year">
+                <option>Freshman</option>
+                <option>Sophmore</option>
+                <option>Junior</option>
+                <option>Senior</option>
+                <!-- Add options as needed -->
+            </select>
+
+            <label for="state">State</label>
+            <select id="state">
+                <option>All States</option>
+                <option>Alabama</option>
+                <option>Arkansas</option>
+                <option>Florida</option>
+                <option>Georgia</option>
+                <option>Iowa</option>
+                <option>Illinois</option>
+                <option>Indiana</option>
+                <option>Kentucky</option>
+                <option>Lousiana</option>
+                <option>Mississippi</option>
+                <option>Missouri</option>
+                <option>North Carolina</option>
+                <option>South Carolina</option>
+                <option>Tennessee</option>
+                <option>Texas</option>
+                <!-- Add options as needed -->
+            </select>
+
+            <label for="pell">Pell eligible</label>
+            <select id="pell">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+
+            <label for="ethnicity">Ethnicity</label>
+            <select id="ethnicity">
+                <option>All</option>
+                <option>American Indian</option>
+                <option>Alaskan Native</option>
+                <option>Asian</option>
+                <option>Black or African descent</option>
+                <option>Hispanic</option>
+                <option>Native Hawaiin or Pacific Islander</option>
+                <option>Multiple Ethnicities</option>
+                <option>Other</option>
+                <option>White</option>
+                <!-- Add options as needed -->
+            </select>
+
+            <label for="gpa">GPA</label>
+            <select id="gpa">
+                <option>All GPAs</option>
+                <option>4.0</option>
+                <option>>3.5</option>
+                <option>3.5</option>
+                <option>>3.0</option>
+                <option>3.0</option>
+                <option>>2.5</option>
+                <option>2.5</option>
+                <option>>2.0</option>
+                <option>2.0</option>
+                <!-- Add options as needed -->
+            </select>
+        </div>
+    </div>
+
+    <!-- Information Box -->
+    <div class="info-box">
+        <p>Information on scholarships and how to apply and how to filter.</p>
+    </div>
+</div>
+
+<%- include("partials/footer"); %>
