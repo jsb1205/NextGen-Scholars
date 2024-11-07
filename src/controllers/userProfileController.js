@@ -268,6 +268,20 @@ const student_add_educator = async (req, res) => {
   }
 }
 
+const student_interests_update_get = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: "No profile found!"});
+  }
+
+  const user = await User.findById(id)
+    .populate("studentProfile")
+    .exec();
+
+  res.render("edit-interests", { user });
+}
+
 
 module.exports = {
   student_home_page_get,
@@ -281,5 +295,6 @@ module.exports = {
   educator_profile_get,
   student_profile_update_interests_get,
   student_profile_update_interests_update,
-  student_add_educator
+  student_add_educator,
+  student_interests_update_get
 }

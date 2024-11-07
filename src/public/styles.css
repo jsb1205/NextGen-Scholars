@@ -848,6 +848,10 @@ label {
   margin-bottom: 20px;
 }
 
+.personal-info button a {
+  text-decoration: none;
+}
+
 .personal-info button {
   font-family: 'fredoka';
   font-size: 1rem;
@@ -865,6 +869,52 @@ label {
 }
 
 .personal-info button:hover {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+#edit-interests-button a {
+  text-decoration: none;
+}
+
+#edit-interests-button {
+  font-family: 'fredoka';
+  font-size: 1rem;
+  background-color: #7ed957;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#edit-interests-button:hover {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+#submit-interests-button {
+  font-family: 'fredoka';
+  font-size: 1rem;
+  background-color: #7ed957;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#submit-interests-button:hover {
   color: #4CAF50;
   text-decoration: none;
 }
