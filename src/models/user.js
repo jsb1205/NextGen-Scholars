@@ -106,6 +106,10 @@ const studentProfileSchema = new Schema({
     type: String,
     required: true
   },
+  educator: {
+    type: Schema.Types.ObjectId,
+    ref: "EducatorProfile"
+  },
   interests: {
     type: [String]
   },

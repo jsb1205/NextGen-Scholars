@@ -22,8 +22,11 @@
             <p>Grade</p>
           </div>
           <div class="button-container">
-            <div class="profile-code">code: 76352</div>
-            <button class="teacher-button">Add your teacher</button>
+            <% if (!user.studentProfile.educator) { %>
+              <button class="teacher-button">Add your teacher</button>
+            <% } else { %>
+              <p>Educator Added</p>
+            <% } %>
           </div>
         </div>
 
@@ -59,9 +62,17 @@
       </div>
   </div>
   <% } else { %>
+    <div class="welcome-container">
+      <div class="image-container">
+        <img src="/interest-side.png" alt="Interests Image">
+      </div>
       <div class="interests-container">
-        <h3>Please fill out your interests to be recommended clubs!</h3>
+        <h1 class="welcome-title">
+          Welcome, <span class="user-name"><%= user.studentProfile.firstName %> <%= user.studentProfile.lastName %></span>
+        </h1>
+        <p class="subtext">Please select all your interest!</p>
         <form class="interests-form">
+          <h2 class="form-title">Pick Your Interest</h2>
 
           <div class="checkbox-group">
             <div class="checkbox-item">
@@ -129,10 +140,11 @@
             </div>
           </div>
 
-          <button>Submit</button>
+          <button class="submit-interest">Submit</button>
 
         </form>
       </div>
+    </div>
   <% } %>
 
 </div>
@@ -140,34 +152,105 @@
 
 <script>
   const form = document.querySelector("form");
+  const teacherButtonContainer = document.querySelector(".button-container");
+  const teacherButton = document.querySelector(".teacher-button");
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  if (form) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-    const checkboxes = document.querySelectorAll('input[name="interests"]:checked');
-    const selectedInterests = Array.from(checkboxes).map(checkbox => checkbox.value);
-    console.log(selectedInterests);
+      const checkboxes = document.querySelectorAll('input[name="interests"]:checked');
+      const selectedInterests = Array.from(checkboxes).map(checkbox => checkbox.value);
 
-    const id = "<%= user._id %>";
+      const id = "<%= user._id %>";
 
-    try {
-      const res = await fetch("/student-home/update-interests", {
-        method: "PUT",
-        body: JSON.stringify({ id, selectedInterests }),
-        headers: { "Content-Type": "application/json" }
-      });
-      const data = await res.json();
-      if (data.error) {
-        console.log(data.error);
+      try {
+        const res = await fetch("/student-home/update-interests", {
+          method: "PUT",
+          body: JSON.stringify({ id, selectedInterests }),
+          headers: { "Content-Type": "application/json" }
+        });
+        const data = await res.json();
+        if (data.error) {
+          console.log(data.error);
+        }
+        if (data.success) {
+          location.assign(`/student-home/${id}`);
+        }
       }
-      if (data.success) {
-        location.assign(`/student-home/${id}`);
+      catch (err) {
+        console.log("Failed to fetch the page :(");
       }
-    }
-    catch (err) {
-      console.log("Failed to fetch the page :(");
-    }
-  })
+    });
+  }
+  
+  if (teacherButton) {
+    teacherButton.addEventListener("click", async (event) => {
+      const newClassForm = document.createElement("form");
+      newClassForm.classList.add("class-form");
+      teacherButtonContainer.appendChild(newClassForm);
+
+      teacherButtonContainer.removeChild(teacherButton);
+
+      // Now that newClassForm is created, assign it to classForm
+      const classForm = document.querySelector(".class-form");
+
+      // Execute the logic in the second if block after creating classForm
+      if (classForm) {
+
+        const newInput = document.createElement("input");
+        newInput.type = "text";
+        newInput.name = "classId";
+        newInput.placeholder = "Class ID";
+        classForm.appendChild(newInput);
+
+        const errorMessage = document.createElement("p");
+        errorMessage.classList.add("not-found");
+        errorMessage.classList.add("error");
+        classForm.appendChild(errorMessage);
+
+        const error = document.querySelector(".not-found");
+
+        const submit = document.createElement("button");
+        submit.textContent = "Submit";
+        submit.type = "submit";
+        submit.classList.add("submit-button");
+        classForm.appendChild(submit);
+
+
+        //error.textContent = "";
+
+        classForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const classId = classForm.classId.value;
+          const studentId = "<%= user._id %>";
+
+          try {
+            const res = await fetch("/student-home/add-educator", {
+              method: "PUT",
+              body: JSON.stringify({ classId, studentId }),
+              headers: { "Content-Type": "application/json" }
+            });
+            const data = await res.json();
+            if (data.noProfile) {
+              error.textContent = data.noProfile;
+            }
+            if (data.error) {
+              console.log(data.error);
+            }
+            if (data.success) {
+              location.reload();
+            }
+          }
+          catch (err) {
+            console.log("Failed to fetch the page :(");
+          }
+        });
+      }
+    });
+  }
+
 
 </script>
 
