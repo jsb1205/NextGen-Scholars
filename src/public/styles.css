@@ -1004,6 +1004,86 @@ label {
   text-decoration: none;
 }
 
+/*Edit Student personal info styles*/
+.background-student-edit {
+  background-color: #ffffff;
+}
+.content-wrapper {
+  width: 500px; /* Set this to match the desired width */
+  max-width: 100%; /* Makes it responsive on smaller screens */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  gap: 20px; /* Adds space between the two sections */
+}
+
+.edit-personal-info-page-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-height: 120vh;
+  padding: 50px;
+  background-color: #d9e5f4;
+}
+
+
+.edit-personal-info-container{
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px; /* Ensure consistent padding */
+  height: 1050px;
+  width: 100%; /* Take full width of the content wrapper */
+  box-sizing: border-box; /* Include padding and border in the element’s total width */
+  text-align: left;
+  z-index: 1;
+  margin: 0; /* Remove any default margin */
+}
+
+
+.submit-changes {
+  font-family: 'fredoka';
+  font-size: 1rem;
+  background-color: #7ed957;
+  color: #000000;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.submit-changes:hover {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.interests h3 {
+  font-family: 'Fredoka', sans-serif;
+  color: #004aad;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.edit-personal-information h2 {
+  font-family: 'Fredoka', sans-serif;
+  color: #004aad;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.edit-personal-information input[type="text"],
+.edit-personal-information input[type="date"],
+.edit-personal-information select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px; /* Rounded corners */
+  font-size: 16px;
+  color: #333;
+  box-sizing: border-box;
+}
 /*Styles for student information page*/
 /*might delete this body later*/
 body {
