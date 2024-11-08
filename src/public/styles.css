@@ -1530,44 +1530,73 @@ body, html {
   margin-bottom: 60px;
 }
 
+.Scholarship
+{
+  background-color: #d9e5f4;
+}
+
 /*Scholarships Page*/
 .scholarship-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 80%;
+  margin-left: 150px;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .scholarship-section {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  max-width: 700px;
 }
 
+/*Exists*/
 .scholarship-card {
-  background-color: white;
+  background-color: #ffffff;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 .scholarship-card h3 {
-  color: #1e3a8a;
+  color: #004aad;
+  font-family: 'fredoka', sans-serif;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.scholarship-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.scholarship-card p {
+  margin: 0;
+  font-size: 1em;
 }
 
 .apply-btn {
-  background-color: #32cd32;
-  color: white;
+  background-color: #7ed957;
+  font-family: 'fredoka', sans-serif;
+  color: black;
+  font-size: 1.2rem;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 25px;
+  border-radius: 20px;
   cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 60px;
+  margin-right: 10px;
 }
 
 .apply-btn:hover {
@@ -1577,11 +1606,27 @@ body, html {
 .details-link {
   color: #1e3a8a;
   text-decoration: underline;
+  font-size: 0.9em;
   margin-top: 10px;
 }
 
+.scholarship-card .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.scholarship-card .content .details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+/*Right of the Scholarship Page*/
+.Scholarship-right{
+  
+}
 .filter-section {
-  background-color: white;
+  background-color: #f4f4f4;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1595,6 +1640,7 @@ body, html {
   border-radius: 5px;
   border: 1px solid #ccc;
   margin-bottom: 15px;
+  width: 90%;
 }
 
 .filters label {

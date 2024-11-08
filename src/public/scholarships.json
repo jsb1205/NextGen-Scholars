@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Scholarship A",
+        "deadline": "December 1, 2024",
+        "amount": "$5000",
+        "gpa": 3.5,
+        "scholarship details": "hey hello"
+    },
+    {
+        "title": "Scholarship B",
+        "deadline": "January 15, 2025",
+        "amount": "$3000",
+        "gpa": 2.5,
+        "scholarship details": "hey hello"
+    },
+    {
+        "title": "Scholarship C",
+        "deadline": "March 30, 2025",
+        "amount": "$4000",
+        "gpa": 3.0,
+        "scholarship details": "hey hello"
+    }
+]
