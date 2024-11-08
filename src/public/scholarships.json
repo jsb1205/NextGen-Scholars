@@ -1,17 +1,29 @@
 [
     {
-        "title": "Scholarship A",
-        "deadline": "December 1, 2024",
-        "amount": "$5000",
-        "gpa": 3.5,
-        "scholarship details": "hey hello"
+        "title": "Bright Futures",
+        "deadline": "August 31, 2024",
+        "amount": "100% Tuition",
+        "year": "senior",
+        "state": "florida",
+        "sports": "all",
+        "ethnicity": "all",
+        "major": "all",
+        "gpa": 3.0,
+        "scholarship details": "hey hello",
+        "link": "https://www.floridabrightfutures.gov"
     },
     {
-        "title": "Scholarship B",
-        "deadline": "January 15, 2025",
-        "amount": "$3000",
-        "gpa": 2.5,
-        "scholarship details": "hey hello"
+        "title": "The Gates Scholarship",
+        "deadline": "September 15, 2025",
+        "amount": "100% Tuition",
+        "year": "senior",
+        "state": "all",
+        "sports": "all",
+        "ethnicity": "all",
+        "major": "all",
+        "gpa": 3.3,
+        "scholarship details": "hey hello",
+        "link": "https://www.thegatesscholarship.org/scholarship"
     },
     {
         "title": "Scholarship C",

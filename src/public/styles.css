@@ -1597,6 +1597,7 @@ body, html {
   font-weight: bold;
   margin-bottom: 60px;
   margin-right: 10px;
+  text-decoration: none; 
 }
 
 .apply-btn:hover {
