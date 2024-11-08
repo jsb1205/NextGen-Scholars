@@ -53,6 +53,10 @@ module.exports.about_us_get = (req, res) => {
   res.render("../views/about-us");
 }
 
+module.exports.scholarships_get = (req, res) => {
+  res.render("../views/scholarships");
+}
+
 module.exports.signup_post = async (req, res) => {
   const { email, password } = req.body;
 

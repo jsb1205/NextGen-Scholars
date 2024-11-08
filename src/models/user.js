@@ -110,6 +110,9 @@ const studentProfileSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "EducatorProfile"
   },
+  profile: {
+    type: String
+  },
   interests: {
     type: [String]
   },

@@ -1,203 +1,217 @@
 <%- include("partials/header"); %>
+<div class = "background-student-edit">
+  
+  
+  <div class = "edit-personal-info-page-container">
 
+  <img src="/diploma.png" alt="Diploma" class="decor-image diploma-image">
+  <img src="/lightbulb2.png" alt="Lightbulb" class="decor-image lightbulb-image">
+  <img src="/notebook.png" alt="Notebook" class="decor-image notebook-image">
+  <img src="/screbil.png" alt="Screbil" class="decor-image screbil-image">
+  <img src="/graduation-hat.png" alt="Graduation Hat" class="decor-image hat-image">
+  <img src="/pencils.png" alt="Pencils" class="decor-image pencils-image">
+  <img src="/tubes.png" alt="Tubes" class="decor-image tubes-image">
+    <div class="content-wrapper">
+      <div class = "edit-personal-info-container">
+        <form class="edit-personal-information">
 
-<form class="edit-personal-information">
+          <h2>Edit your personal information</h2>
 
-  <h2>Edit your personal information</h2>
+          <label for="firstName">First Name</label>
+          <input type="text" name="firstName" value="<%= user.studentProfile.firstName %>" required />
+          <div class="firstName error"></div>
 
-  <label for="firstName">First Name</label>
-  <input type="text" name="firstName" value="<%= user.studentProfile.firstName %>" required />
-  <div class="firstName error"></div>
+          <label for="lastName">Last Name</label>
+          <input type="text" name="lastName" value="<%= user.studentProfile.lastName %>" required />
+          <div class="lastName error"></div>
 
-  <label for="lastName">Last Name</label>
-  <input type="text" name="lastName" value="<%= user.studentProfile.lastName %>" required />
-  <div class="lastName error"></div>
+          <label for="birthDate">Birth Date</label>
+          <input type="date" name="birthDate" required />
+          <div class="birthDate error"></div>
 
-  <label for="birthDate">Birth Date</label>
-  <input type="date" name="birthDate" required />
-  <div class="birthDate error"></div>
+          <label for="schoolYear">School Year (Please enter just a number)</label>
+          <input type="text" name="schoolYear" value="<%= user.studentProfile.schoolYear %>" required />
+          <div class="schoolYear error"></div>
 
-  <label for="schoolYear">School Year (Please enter just a number)</label>
-  <input type="text" name="schoolYear" value="<%= user.studentProfile.schoolYear %>" required />
-  <div class="schoolYear error"></div>
+          <label for="gender">Gender</label>
+          <select name="gender" required>
+            <option value="">--Select--</option>
+            <% if (user.studentProfile.gender === "male") { %>
+              <option value="male" selected>Male</option>
+            <% } else { %>
+              <option value="male">Male</option>
+            <% } %>
+            <% if (user.studentProfile.gender === "female") { %>
+              <option value="female" selected>Female</option>
+            <% } else { %>
+              <option value="female">Female</option>
+            <% } %>
+            <% if (user.studentProfile.gender === "non-binary") { %>
+              <option value="non-binary" selected>Non-Binary</option>
+            <% } else { %>
+              <option value="non-binary">Non-Binary</option>
+            <% } %>
+            <% if (user.studentProfile.gender === "self-describe") { %>
+              <option value="self-describe" selected>Prefer to self-describe</option>
+            <% } else { %>
+              <option value="self-describe">Prefer to self-describe</option>
+            <% } %>
+          </select>
+          <div class="gender error"></div>
 
-  <label for="gender">Gender</label>
-  <select name="gender" required>
-    <option value="">--Select--</option>
-    <% if (user.studentProfile.gender === "male") { %>
-      <option value="male" selected>Male</option>
-    <% } else { %>
-      <option value="male">Male</option>
-    <% } %>
-    <% if (user.studentProfile.gender === "female") { %>
-      <option value="female" selected>Female</option>
-    <% } else { %>
-      <option value="female">Female</option>
-    <% } %>
-    <% if (user.studentProfile.gender === "non-binary") { %>
-      <option value="non-binary" selected>Non-Binary</option>
-    <% } else { %>
-      <option value="non-binary">Non-Binary</option>
-    <% } %>
-    <% if (user.studentProfile.gender === "self-describe") { %>
-      <option value="self-describe" selected>Prefer to self-describe</option>
-    <% } else { %>
-      <option value="self-describe">Prefer to self-describe</option>
-    <% } %>
-  </select>
-  <div class="gender error"></div>
+          <label for="race">Race</label>
+          <select name="race" required>
+            <option value="">--Select--</option>
+            <% if (user.studentProfile.race === "white") { %>
+              <option value="white" selected>White</option>
+            <% } else { %>
+              <option value="white">White</option>
+            <% } %>
+            <% if (user.studentProfile.race === "black") { %>
+              <option value="black" selected>Black</option>
+            <% } else { %>
+              <option value="black">Black</option>
+            <% } %>
+            <% if (user.studentProfile.race === "Asian") { %>
+              <option value="Asian" selected>Asian</option>
+            <% } else { %>
+              <option value="Asian">Asian</option>
+            <% } %>
+            <% if (user.studentProfile.race === "native-american") { %>
+              <option value="native-american" selected>Native American or Alaskan Native</option>
+            <% } else { %>
+              <option value="native-american">Native American or Alaskan Native</option>
+            <% } %>
+            <% if (user.studentProfile.gender === "native-hawaiian") { %>
+              <option value="native-hawaiian" selected>Native Hawaiian or Other Pacific Islander</option>
+            <% } else { %>
+              <option value="native-hawaiian">Native Hawaiian or Other Pacific Islander</option>
+            <% } %>
+            <% if (user.studentProfile.race === "hispanic") { %>
+              <option value="hispanic" selected>Hispanic or Latino</option>
+            <% } else { %>
+              <option value="hispanic">Hispanic or Latino</option>
+            <% } %>
+            <% if (user.studentProfile.race === "mixed") { %>
+              <option value="mixed" selected>Two or More Races</option>
+            <% } else { %>
+              <option value="mixed">Two or More Races</option>
+            <% } %>
+            <% if (user.studentProfile.race === "other") { %>
+              <option value="other" selected>Other</option>
+            <% } else { %>
+              <option value="other">Other</option>
+            <% } %>
+            <% if (user.studentProfile.race === "prefer-not-to-say") { %>
+              <option value="prefer-not-to-say" selected>Prefer not to say</option>
+            <% } else { %>
+              <option value="prefer-not-to-say">Prefer not to say</option>
+            <% } %>
+          </select>
+          <div class="race error"></div>
 
-  <label for="race">Race</label>
-  <select name="race" required>
-    <option value="">--Select--</option>
-    <% if (user.studentProfile.race === "white") { %>
-      <option value="white" selected>White</option>
-    <% } else { %>
-      <option value="white">White</option>
-    <% } %>
-    <% if (user.studentProfile.race === "black") { %>
-      <option value="black" selected>Black</option>
-    <% } else { %>
-      <option value="black">Black</option>
-    <% } %>
-    <% if (user.studentProfile.race === "Asian") { %>
-      <option value="Asian" selected>Asian</option>
-    <% } else { %>
-      <option value="Asian">Asian</option>
-    <% } %>
-    <% if (user.studentProfile.race === "native-american") { %>
-      <option value="native-american" selected>Native American or Alaskan Native</option>
-    <% } else { %>
-      <option value="native-american">Native American or Alaskan Native</option>
-    <% } %>
-    <% if (user.studentProfile.gender === "native-hawaiian") { %>
-      <option value="native-hawaiian" selected>Native Hawaiian or Other Pacific Islander</option>
-    <% } else { %>
-      <option value="native-hawaiian">Native Hawaiian or Other Pacific Islander</option>
-    <% } %>
-    <% if (user.studentProfile.race === "hispanic") { %>
-      <option value="hispanic" selected>Hispanic or Latino</option>
-    <% } else { %>
-      <option value="hispanic">Hispanic or Latino</option>
-    <% } %>
-    <% if (user.studentProfile.race === "mixed") { %>
-      <option value="mixed" selected>Two or More Races</option>
-    <% } else { %>
-      <option value="mixed">Two or More Races</option>
-    <% } %>
-    <% if (user.studentProfile.race === "other") { %>
-      <option value="other" selected>Other</option>
-    <% } else { %>
-      <option value="other">Other</option>
-    <% } %>
-    <% if (user.studentProfile.race === "prefer-not-to-say") { %>
-      <option value="prefer-not-to-say" selected>Prefer not to say</option>
-    <% } else { %>
-      <option value="prefer-not-to-say">Prefer not to say</option>
-    <% } %>
-  </select>
-  <div class="race error"></div>
+          <label for="gpa">Current Grade Point Average</label>
+          <input type="text" name="gpa" value="<%= user.studentProfile.gpa %>" required />
+          <div class="gpa error"></div>
 
-  <label for="gpa">Current Grade Point Average</label>
-  <input type="text" name="gpa" value="<%= user.studentProfile.gpa %>" required />
-  <div class="gpa error"></div>
+          <label for="school">Current School</label>
+          <input type="text" name="school" value="<%= user.studentProfile.school %>" required />
+          <div class="school error"></div>
 
-  <label for="school">Current School</label>
-  <input type="text" name="school" value="<%= user.studentProfile.school %>" required />
-  <div class="school error"></div>
+          <button class="submit-changes">Submit Changes</button>
 
-  <button>Submit Changes</button>
-
-</form>
-
-
-<div class="interests">
-  <% if (user.studentProfile.interests.length !== 0) { %>
-    <h3>Here are your listed interests!</h3>
-
-    <ul>
-      <% user.studentProfile.interests.forEach(interest => { %>
-        <li><%= interest %></li>
-      <% }) %>
-    </ul>
-
-  <% } else { %>
-    <h3>Please fill out your interests!</h3>
-    <form class="interests-form">
-
-      <div class="checkbox-group">
-        <div class="checkbox-item">
-            <label for="interest1">Science</label>
-            <input type="checkbox" id="interest1" name="interests" value="science">
-          
-        </div>
-
-        <div class="checkbox-item">
-            <label for="interest2">Technology</label>
-            <input type="checkbox" id="interest2" name="interests" value="technology">
-            
-        </div>
-
-        <div class="checkbox-item">
-            <label for="interest3">Engineering</label>
-            <input type="checkbox" id="interest3" name="interests" value="engineering">
-            
-        </div>
-
-        <div class="checkbox-item">
-            <label for="interest4">Math</label>
-            <input type="checkbox" id="interest4" name="interests" value="math">
-            
-        </div>
-
-        <div class="checkbox-item">
-            <label for="interest5">Arts</label>
-            <input type="checkbox" id="interest5" name="interests" value="arts">
-            
-        </div>
-
-        <div class="checkbox-item">
-            <label for="interest6">Politics</label>
-            <input type="checkbox" id="interest6" name="interests" value="politics">
-            
-        </div>
-
-        <div class="checkbox-item">
-            <label for="interest7">History</label>
-            <input type="checkbox" id="interest7" name="interests" value="history">
-            
-        </div>
-
-        <div class="checkbox-item">
-            <label for="interest8">Sports</label>
-            <input type="checkbox" id="interest8" name="interests" value="sports">
-            
-        </div>
-
-        <div class="checkbox-item">
-            <label for="interest9">Reading/Writing</label>
-            <input type="checkbox" id="interest9" name="interests" value="literature">
-            
-        </div>
-
-        <div class="checkbox-item">
-            <label for="interest10">Music</label>
-            <input type="checkbox" id="interest10" name="interests" value="music">
-        </div>
-
-        <div class="checkbox-item">
-            <label for="interest11">Medicine</label>
-            <input type="checkbox" id="interest11" name="interests" value="medicine">
-        </div>
+        </form>
       </div>
 
-      <button>Submit</button>
 
-    </form>
-  <% } %>
+      <div class="interests">
+        <% if (user.studentProfile.interests.length !== 0) { %>
+          <h3>Here are your listed interests!</h3>
 
+          <ul>
+            <% user.studentProfile.interests.forEach(interest => { %>
+              <li><%= interest %></li>
+            <% }) %>
+          </ul>
+          <button id="edit-interests-button"><a href="/student-profile/<%= user._id %>/interests/edit">Edit</a></button>
+        <% } else { %>
+          <h3>Please fill out your interests!</h3>
+          <form class="interests-form">
+
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                  <label for="interest1">Science</label>
+                  <input type="checkbox" id="interest1" name="interests" value="science">
+                
+              </div>
+
+              <div class="checkbox-item">
+                  <label for="interest2">Technology</label>
+                  <input type="checkbox" id="interest2" name="interests" value="technology">
+                  
+              </div>
+
+              <div class="checkbox-item">
+                  <label for="interest3">Engineering</label>
+                  <input type="checkbox" id="interest3" name="interests" value="engineering">
+                  
+              </div>
+
+              <div class="checkbox-item">
+                  <label for="interest4">Math</label>
+                  <input type="checkbox" id="interest4" name="interests" value="math">
+                  
+              </div>
+
+              <div class="checkbox-item">
+                  <label for="interest5">Arts</label>
+                  <input type="checkbox" id="interest5" name="interests" value="arts">
+                  
+              </div>
+
+              <div class="checkbox-item">
+                  <label for="interest6">Politics</label>
+                  <input type="checkbox" id="interest6" name="interests" value="politics">
+                  
+              </div>
+
+              <div class="checkbox-item">
+                  <label for="interest7">History</label>
+                  <input type="checkbox" id="interest7" name="interests" value="history">
+                  
+              </div>
+
+              <div class="checkbox-item">
+                  <label for="interest8">Sports</label>
+                  <input type="checkbox" id="interest8" name="interests" value="sports">
+                  
+              </div>
+
+              <div class="checkbox-item">
+                  <label for="interest9">Reading/Writing</label>
+                  <input type="checkbox" id="interest9" name="interests" value="literature">
+                  
+              </div>
+
+              <div class="checkbox-item">
+                  <label for="interest10">Music</label>
+                  <input type="checkbox" id="interest10" name="interests" value="music">
+              </div>
+
+              <div class="checkbox-item">
+                  <label for="interest11">Medicine</label>
+                  <input type="checkbox" id="interest11" name="interests" value="medicine">
+              </div>
+            </div>
+
+            <button>Submit</button>
+
+          </form>
+        <% } %>
+      </div>
+    </div>
+  </div>
 </div>
-
 
 <script>
 

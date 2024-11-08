@@ -61,17 +61,7 @@
 
 
     <div class="interests">
-      <% if (user.studentProfile.interests.length !== 0) { %>
-        <h2>Your listed Interests!</h2>
-
-        <ul>
-          <% user.studentProfile.interests.forEach(interest => { %>
-            <li><%= interest %></li>
-          <% }) %>
-        </ul>
-
-      <% } else { %>
-        <h3>Please fill out your interests!</h3>
+      <h3>Please edit your interests!</h3>
         <form class="interests-form">
 
           <div class="checkbox-group">
@@ -140,11 +130,9 @@
             </div>
           </div>
 
-          <button>Submit</button>
+          <button id="submit-interests-button">Submit</button>
 
         </form>
-      <% } %>
-      <button id="edit-interests-button"><a href="/student-profile/<%= user._id %>/interests/edit">Edit</a></button>
     </div>
   </div>
 </div>

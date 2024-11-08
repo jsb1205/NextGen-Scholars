@@ -1,0 +1,188 @@
+<%- include("partials/header"); %>
+
+<div class="Scholarship">
+    <div class="scholarship-container">
+        <!-- Scholarship Cards Section -->
+        <div class="scholarship-section" id="scholarshipContainer">
+            
+            <!-- Add more cards as needed -->
+        </div>
+
+        <!-- Filter Section -->
+        <div class="Scholarship-Right">
+            <div class="filter-section">
+                <input type="text" placeholder="Search..." class="search-bar">
+                <div class="filters">
+                    <label for="year">Year</label>
+                    <select id="year">
+                        <option value="all">All</option>
+                        <option value="Freshman">Freshman</option>
+                        <option value="Sophomore">Sophomore</option>
+                        <option value="Junior">Junior</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+
+                    <label for="state">State</label>
+                    <select id="state">
+                        <option value="all">All States</option>
+                        <option value="Alabama">Alabama</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="South Carolina">South Carolina</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                    </select>
+
+                    <label for="pell">Pell eligible</label>
+                    <select id="pell">
+                        <option value="all">All</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+
+                    <label for="ethnicity">Ethnicity</label>
+                    <select id="ethnicity">
+                        <option value="all">All</option>
+                        <option value="American Indian">American Indian</option>
+                        <option value="Alaskan Native">Alaskan Native</option>
+                        <option value="Asian">Asian</option>
+                        <option value="Black or African descent">Black or African descent</option>
+                        <option value="Hispanic">Hispanic</option>
+                        <option value="Native Hawaiian or Pacific Islander">Native Hawaiian or Pacific Islander</option>
+                        <option value="Multiple Ethnicities">Multiple Ethnicities</option>
+                        <option value="Other">Other</option>
+                        <option value="White">White</option>
+                    </select>
+
+
+                    <label for="gpa">GPA</label>
+                    <select id="gpa">
+                        <option value="All GPAs">All GPAs</option>
+                        <option value="4.0">4.0</option>
+                        <option value=">3.5">3.5 and above</option>
+                        <option value=">3.0">3.0 and above</option>
+                        <option value=">2.5">2.5 and above</option>
+                        <option value=">2.0">2.0 and above</option>
+                        <!-- Add options as needed -->
+                    </select>
+                </div>
+                <!-- Information Box -->
+            
+            </div>
+            <div class="info-box">
+                <p>Information on scholarships and how to apply and how to filter.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let scholarshipsData = []; // Store scholarships data for filtering
+
+    async function loadScholarships() {
+        try {
+            const response = await fetch('/scholarships.json');
+            scholarshipsData = await response.json(); // Save the fetched data
+            displayScholarships(scholarshipsData); // Display all scholarships initially
+        } catch (error) {
+            console.error('Error loading scholarships:', error);
+        }
+    }
+    // Function to load JSON data
+    function displayScholarships(scholarships) {
+        const container = document.getElementById('scholarshipContainer');
+        container.innerHTML = ''; // Clear previous scholarship cards
+
+        scholarships.forEach(scholarship => {
+            const card = document.createElement('div');
+            card.classList.add('scholarship-card');
+
+            card.innerHTML = `
+                <div class="content">
+                    <h3>${scholarship.title}</h3>
+                    <div class="info">
+                        <p><strong>Deadline:</strong> ${scholarship.deadline}</p>
+                        <p><strong>Amount:</strong> ${scholarship.amount}</p>
+                    </div>
+                    <a href="#" class="details-link">Scholarship Details</a>
+                    <div class="extra-details" style="display: none;">
+                        <p>${scholarship["scholarship details"]}</p>
+                    </div>
+                </div>
+                <a href="${scholarship.link}" target="_blank" class="apply-btn">Apply</a>
+            `;
+
+            const detailsLink = card.querySelector('.details-link');
+            const extraDetails = card.querySelector('.extra-details');
+            detailsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                extraDetails.style.display = extraDetails.style.display === 'none' ? 'block' : 'none';
+                detailsLink.textContent = extraDetails.style.display === 'none' ? 'Scholarship Details' : 'Hide Details';
+            });
+
+            container.appendChild(card);
+        });
+    }
+
+    // Call the function to load scholarships on page load
+    // GPA filter function
+    function filterScholarships() {
+        const yearFilter = document.getElementById('year').value.toLowerCase();
+        const stateFilter = document.getElementById('state').value.toLowerCase();
+        const pellFilter = document.getElementById('pell').value.toLowerCase();
+        const ethnicityFilter = document.getElementById('ethnicity').value.toLowerCase();
+        const gpaFilter = document.getElementById('gpa').value;
+
+        const filteredScholarships = scholarshipsData.filter(scholarship => {
+            // Convert scholarship properties to lowercase for case-insensitive comparison
+            const scholarshipYear = scholarship.year ? scholarship.year.toLowerCase() : "";
+            const scholarshipState = scholarship.state ? scholarship.state.toLowerCase() : "";
+            const scholarshipPell = scholarship.pellEligible ? scholarship.pellEligible.toLowerCase() : "";
+            const scholarshipEthnicity = scholarship.ethnicity ? scholarship.ethnicity.toLowerCase() : "";
+
+            // Year filter
+            const matchesYear = yearFilter === "all" || scholarshipYear === "all" ||scholarshipYear === yearFilter;
+
+            // State filter
+            const matchesState = stateFilter === "all" || scholarshipState === "all" || scholarshipState === stateFilter;
+
+            // Pell eligibility filter
+            const matchesPell = pellFilter === "all" || scholarshipPell === "all" || scholarshipPell === pellFilter;
+
+            // Ethnicity filter
+            const matchesEthnicity = ethnicityFilter === "all" || scholarshipEthnicity === "all" || scholarshipEthnicity === ethnicityFilter;
+                
+            let matchesGPA = true;
+            if (gpaFilter !== "All GPAs") {
+                const gpaValue = parseFloat(gpaFilter.replace(">", ""));
+                matchesGPA = gpaFilter.startsWith(">") ? scholarship.gpa >= gpaValue : scholarship.gpa === gpaValue;
+            }
+            return matchesYear && matchesState && matchesPell && matchesEthnicity && matchesGPA;
+        });
+
+        displayScholarships(filteredScholarships);
+    }
+
+    // Event listener for GPA filter
+    document.getElementById('year').addEventListener('change', filterScholarships);
+    document.getElementById('state').addEventListener('change', filterScholarships);
+    document.getElementById('pell').addEventListener('change', filterScholarships);
+    document.getElementById('ethnicity').addEventListener('change', filterScholarships);
+    document.getElementById('gpa').addEventListener('change', filterScholarships);
+
+    // Load scholarships initially
+    loadScholarships();
+</script>
+
+
+<%- include("partials/footer"); %>
