@@ -141,8 +141,8 @@ const educatorProfileSchema = new Schema({
     required: true
   },
   students: {
-    type: [Schema.Types.ObjectId],
-    ref: "StudentProfile",    // Reference to linked students
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: 'StudentProfile'
   },
   classId: {
     type: String,

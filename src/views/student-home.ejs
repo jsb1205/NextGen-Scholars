@@ -1,22 +1,12 @@
 <%- include("partials/header"); %>
 
-<h1>Welcome, <%= user.studentProfile.firstName %> <%= user.studentProfile.lastName %></h1>
-
-
-<div class="scholarship-recommendations">
-  <h3>Here are your scholarship recommendations!</h2>
-
-
-</div>
-
 <div class="clubs">
   <% if (user.studentProfile.interests.length !== 0) { %>
-      <h3>Here are your recommended clubs!</h3>
       <div class="profile-page-container">
         <div class="profile-details">
           <div class="profile-info-details">
-            <img src="/default profile.png" alt="Profile Picture" class="profile-icon">
-            <!--TODO: Add button to enable profile picture selection-->
+            <img src="/default profile.png" alt="Profile Picture" class="profile-icon"><br />
+            <button id="profile-button">Select Profile Picture</button>
             <h2><%= user.studentProfile.firstName %> <%= user.studentProfile.lastName %></h2>
             <p><a href="mailto:email@example.com">Email address</a></p>
             <p>School</p>
@@ -26,7 +16,7 @@
             <% if (!user.studentProfile.educator) { %>
               <button class="teacher-button">Add your teacher</button>
             <% } else { %>
-              <p>Educator Added</p>
+              <p>Educator: <%= user.studentProfile.educator.firstName %> <%= user.studentProfile.educator.lastName %></p>
             <% } %>
           </div>
         </div>
@@ -155,6 +145,7 @@
   const form = document.querySelector("form");
   const teacherButtonContainer = document.querySelector(".button-container");
   const teacherButton = document.querySelector(".teacher-button");
+  const profileButton = document.getElementById("profile-button");
 
   if (form) {
     form.addEventListener("submit", async (event) => {
@@ -219,8 +210,6 @@
         classForm.appendChild(submit);
 
 
-        //error.textContent = "";
-
         classForm.addEventListener("submit", async (event) => {
           event.preventDefault();
 
@@ -250,6 +239,36 @@
         });
       }
     });
+  }
+
+  if (profileButton) {
+    profileButton.addEventListener("click", async (event) => {
+      event.preventDefault();
+
+      const id = "<%= user._id %>";
+
+      // Add list of profile pictures
+
+
+
+      try {
+        const res = await fetch(`/student-home/${id}/profile-picture/put`, {
+          method: "PUT",
+          body: JSON.stringify({ id }),
+          headers: { "Content-Type": "application/json" }
+        });
+        const data = await res.json();
+        if (data.err) {
+          console.log(data.err);
+        }
+        if (data.success) {
+          location.reload();
+        }
+      }
+      catch (err) {
+        console.log("Failed to fetch the page :(");
+      }
+    })
   }
 
 

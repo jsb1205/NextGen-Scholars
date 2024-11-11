@@ -2,4 +2,13 @@
 
 <p>Welcome, <%= user.educatorProfile.firstName %> <%= user.educatorProfile.lastName %></p>
 
+<div class="students-container">
+  <h1>Your students</h1>
+  <ul>
+    <% user.educatorProfile.students.forEach(student => { %>
+      <li> <%= student.firstName %> <%= student.lastName %></li>
+    <% }); %>
+  </ul>
+</div>
+
 <%- include("partials/footer"); %>

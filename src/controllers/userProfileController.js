@@ -18,6 +18,8 @@ const student_home_page_get = async (req, res) => {
     .populate("studentProfile")
     .exec();
 
+  await user.studentProfile.populate("educator");
+
   res.render("student-home", { user });
 }
 
@@ -30,7 +32,12 @@ const educator_home_page_get = async (req, res) => {
 
   // find the assocciated user model with the id
   const user = await User.findById(id)
-    .populate("educatorProfile")
+    .populate({
+        path: 'educatorProfile',
+        populate: {
+            path: 'students'
+        }
+    })
     .exec();
 
   res.render("educator-home", { user });
@@ -126,11 +133,10 @@ const educator_create_profile_post = async (req, res) => {
       const studentProfiles = [];
       for (const studentEmail of students) {
         const student = await User.findOne({ email: studentEmail });
-        console.log(student);
     
         if (student && student.studentProfile) {
             await student.populate("studentProfile");
-            studentProfiles.push(student._id);
+            studentProfiles.push(student.studentProfile._id);
         }
       }
       educatorProfile = await EducatorProfile.create({ firstName, lastName, school, students: studentProfiles, classId, credentials: id});
@@ -252,8 +258,13 @@ const student_add_educator = async (req, res) => {
     .exec();
   
     user.studentProfile.educator = educator._id;
+    await user.studentProfile.populate("educator");
 
-    const updated = await user.studentProfile.save();
+    educator.students.push(user.studentProfile);
+    await educator.save();
+
+    const updated = await user.studentProfile.educator.save();
+    await user.studentProfile.save();
     await user.save();
 
     if (!updated) {
@@ -282,6 +293,35 @@ const student_interests_update_get = async (req, res) => {
   res.render("edit-interests", { user });
 }
 
+const student_profile_picture_update = async (req, res) => {
+  const { id } = req.params;
+  const { profilePicture } = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: "No profile found!"});
+  }
+
+  try {
+    const user = await User.findById(id)
+    .populate("studentProfile")
+    .exec();
+  
+    user.studentProfile.profile = profilePicture;
+
+    const updated = await user.studentProfile.save();
+    await user.save();
+
+    if (!updated) {
+      res.status(400).json({error: "Error! User not updated!"});
+      return;
+    }
+    res.status(200).json({success: "Successfully updated!"});
+  }
+  catch (err) {
+    res.status(400).json({ err });
+  }
+}
+
 
 module.exports = {
   student_home_page_get,
@@ -296,5 +336,6 @@ module.exports = {
   student_profile_update_interests_get,
   student_profile_update_interests_update,
   student_add_educator,
-  student_interests_update_get
+  student_interests_update_get,
+  student_profile_picture_update
 }
