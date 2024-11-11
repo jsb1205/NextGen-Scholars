@@ -166,7 +166,7 @@
                 : scholarshipState.toLowerCase() === stateFilter);
 
             // Pell eligibility filter
-            const matchesPell = pellFilter === "all" || scholarshipPell === "all" || scholarshipPell === pellFilter;
+            const matchesPell = pellFilter === "all" || scholarshipPell === pellFilter;
 
             let matchesEthnicity = true;
             if (ethnicityFilter !== "all") {
