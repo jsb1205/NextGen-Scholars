@@ -1,35 +1,290 @@
 [
     {
-        "title": "Bright Futures",
-        "deadline": "August 31, 2024",
-        "amount": "100% Tuition",
-        "year": "senior",
-        "state": "florida",
-        "sports": "all",
-        "ethnicity": "all",
-        "major": "all",
-        "gpa": 3.0,
-        "scholarship details": "hey hello",
-        "link": "https://www.floridabrightfutures.gov"
+      "title": "Bright Futures",
+      "deadline": "August 31, 2025",
+      "amount": "100% Tuition",
+      "year": "Senior",
+      "state": "Florida",
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 3.0,
+      "scholarship details": "",
+      "link": "https://www.floridabrightfutures.gov"
     },
     {
-        "title": "The Gates Scholarship",
-        "deadline": "September 15, 2025",
-        "amount": "100% Tuition",
-        "year": "senior",
-        "state": "all",
-        "sports": "all",
-        "ethnicity": "all",
-        "major": "all",
-        "gpa": 3.3,
-        "scholarship details": "hey hello",
-        "link": "https://www.thegatesscholarship.org/scholarship"
+      "title": "The Gates Scholarship",
+      "deadline": "September 15, 2025",
+      "amount": "100% Tuition, fees, room, board, books, and transportation",
+      "year": "Senior",
+      "state": "All",
+      "pell": "Yes",
+      "ethnicity": [
+        "Black or African descent",
+        "American Indian or Alaska Native",
+        "Asian",
+        "Native Hawaiin or Pacific Islander",
+        "Hispanic"
+      ],
+      "gpa": 3.5,
+      "scholarship details": "",
+      "link": "https://www.thegatesscholarship.org/scholarship"
     },
     {
-        "title": "Scholarship C",
-        "deadline": "March 30, 2025",
-        "amount": "$4000",
-        "gpa": 3.0,
-        "scholarship details": "hey hello"
+      "title": "The Dell Scholars",
+      "deadline": "December 01, 2024",
+      "amount": "$20,000, Dell laptop, annual book credits",
+      "year": "Senior",
+      "state": "All",
+      "pell": "Yes",
+      "ethnicity": "All",
+      "gpa": 2.5,
+      "scholarship details": "",
+      "link": "https://www.dellscholars.org"
+    },
+    {
+      "title": "Sallie Mae Scholarship",
+      "deadline": "November 30, 2024",
+      "amount": "$2,000",
+      "year": [
+          "Junior",
+          "Senior"
+      ],
+      "state": "All",
+      "pell": "Yes",
+      "ethnicity": "All",
+      "gpa": 2.0,
+      "scholarship details": "",
+      "link": "https://www.salliemae.com/scholarships/2k-scholarship/"
+    },
+    {
+      "title": "Niche \"No Essay\" Scholarship",
+      "deadline": "December 31, 2024",
+      "amount": "$50,000",
+      "year": "Senior",
+      "state": "All",
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 2.0,
+      "scholarship details": "",
+      "link": "https://www.niche.com/colleges/scholarships/50k-no-essay-scholarship-202412/?utm_source=SallieMae&utm_medium=affiliate&utm_campaign=SallieMae_50k_202412"
+    },
+    {
+      "title": "Hagan Scholarship",
+      "deadline": "December 01, 2024",
+      "amount": "$60,000",
+      "year": [
+          "Freshmen",
+          "Sophomore",
+          "Junior",
+          "Senior"
+      ],
+      "state": "All",
+      "pell": "Yes",
+      "ethnicity": "All",
+      "gpa": 3.5,
+      "scholarship details": "",
+      "link": "https://haganscholarships.org"
+    },
+    {
+      "title": "Regions Riding Foward Scholarship",
+      "deadline": "December 31, 2024",
+      "amount": "$8,000",
+      "year": [
+          "Junior",
+          "Senior"
+      ],
+      "state": [
+          "Alabama",
+          "Arkansas", 
+          "Florida", 
+          "Georgia", 
+          "Iowa", 
+          "Illinois", 
+          "Indiana", 
+          "Kentucky", 
+          "Louisiana", 
+          "Mississippi", 
+          "Missouri", 
+          "North Carolina", 
+          "South Carolina", 
+          "Tennessee", 
+          "Texas"
+      ],
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 2.0,
+      "scholarship details": "",
+      "link": "https://www.regions.com/about-regions/diversity-equity-inclusion/supporting-communities/essay-contest-scholarship"
+    },
+    {
+      "title": "\"Be Bold\" No-Essay Scholarship",
+      "deadline": "December 01, 2024",
+      "amount": "$25,000",
+      "year": [
+          "Freshmen",
+          "Sophomore",
+          "Junior",
+          "Senior"
+      ],
+      "state": "All",
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 2.0,
+      "scholarship details": "",
+      "link": "https://bold.org/scholarships/the-be-bold-no-essay-scholarship/#ref=search-exclusive-bold-scholarships"
+    },
+    {
+      "title": "Jim McKay Graduate Scholarship",
+      "deadline": "January 10, 2024",
+      "amount": "$10,000",
+      "year": "Senior",
+      "state": "All",
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 3.5,
+      "scholarship details": "",
+      "link": "https://www.ncaa.org/sports/2013/11/21/jim-mckay-graduate-scholarship.aspx"
+    },
+    {
+      "title": "Student Referee Scholarship",
+      "deadline": "April 23, 2024",
+      "amount": "$1,300",
+      "year": "Senior",
+      "state": "All",
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 2.0,
+      "scholarship details": "",
+      "link": "https://bold.org/scholarships/student-referee-scholarship/"
+    },
+    {
+      "title": "NSHSS STEAM Scholarship",
+      "deadline": "March 13, 2024",
+      "amount": "$1,000",
+      "year": "Senior",
+      "state": "All",
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 3.0,
+      "scholarship details": "",
+      "link": "https://www.nshss.org/scholarships/s/nshss-steam-scholarship-2025/"
+    },
+    {
+      "title": "Elevate Women in Tech Scholarship",
+      "deadline": "November 30, 2024",
+      "amount": "$1,040",
+      "year": "Senior",
+      "state": "All",
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 2.0,
+      "scholarship details": "",
+      "link": "https://bold.org/scholarships/elevate-women-in-technology-scholarship/"
+    },
+    {
+      "title": "Devin Chase Vancil Art and Music Scholarship",
+      "deadline": "February 24, 2024",
+      "amount": "$1,563",
+      "year": [
+          "Freshmen",
+          "Sophomore",
+          "Junior",
+          "Senior"
+      ],
+      "state": "All",
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 2.0,
+      "scholarship details": "",
+      "link": "https://bold.org/scholarships/devin-chase-vancil-art-and-music-scholarship/"
+    },
+    {
+      "title": "Regeneron Science Talent Search Scholarship",
+      "deadline": "November 07, 2024",
+      "amount": "250,000",
+      "year": "Senior",
+      "state": "All",
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 2.0,
+      "scholarship details": "",
+      "link": "https://www.scholarships.com/scholarships/regeneron-science-talent-search-scholarship#"
+    },
+    {
+      "title": "Cooke College Scholarship Program",
+      "deadline": "November 14, 2024",
+      "amount": "$55,000",
+      "year": "Senior",
+      "state": "All",
+      "pell": "Yes",
+      "ethnicity": "All",
+      "gpa": 3.75,
+      "scholarship details": "",
+      "link": "https://www.scholarships.com/scholarships/cooke-college-scholarship-program"
+    },
+    {
+      "title": "Greenhouse Scholars Whole Person College Program",
+      "deadline": "November 14, 2024",
+      "amount": "$20,000",
+      "year": "Senior",
+      "state": "All",
+      "pell": "Yes",
+      "ethnicity": "All",
+      "gpa": 3.5,
+      "scholarship details": "",
+      "link": "https://www.scholarships.com/scholarships/greenhouse-scholars-whole-person-college-program"
+    },
+    {
+      "title": "Mark Kilroy Foundation Scholarships",
+      "deadline": "November 15, 2024",
+      "amount": "$4,000",
+      "year": "Senior",
+      "state": "Texas",
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 2.0,
+      "scholarship details": "",
+      "link": "https://www.scholarships.com/scholarships/mark-kilroy-foundation-scholarships#"
+    },
+    {
+      "title": "Levine Scholars Program",
+      "deadline": "November 15, 2024",
+      "amount": "$172,000",
+      "year": "Senior",
+      "state": "All",
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 3.5,
+      "scholarship details": "",
+      "link": "https://www.scholarships.com/scholarships/levine-scholars-program"
+    },
+    {
+      "title": "Jack Kent Cooke Young Artist Award",
+      "deadline": "November 15, 2024",
+      "amount": "$10,000",
+      "year": [
+          "Freshmen",
+          "Sophomore",
+          "Junior",
+          "Senior"
+      ],
+      "state": "All",
+      "pell": "Yes",
+      "ethnicity": "All",
+      "gpa": 2.0,
+      "scholarship details": "",
+      "link": "https://www.scholarships.com/scholarships/jack-kent-cooke-young-artist-award"
+    },
+    {
+      "title": "AIM Center for Independent Living Scholarship",
+      "deadline": "November 15, 2024",
+      "amount": "$1,000",
+      "year": "Senior",
+      "state": "All",
+      "pell": "No",
+      "ethnicity": "All",
+      "gpa": 2.0,
+      "scholarship details": "",
+      "link": "https://www.scholarships.com/scholarships/aim-center-for-independent-living-scholarship"
     }
 ]

@@ -142,32 +142,50 @@
         const pellFilter = document.getElementById('pell').value.toLowerCase();
         const ethnicityFilter = document.getElementById('ethnicity').value.toLowerCase();
         const gpaFilter = document.getElementById('gpa').value;
+        const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
 
         const filteredScholarships = scholarshipsData.filter(scholarship => {
             // Convert scholarship properties to lowercase for case-insensitive comparison
-            const scholarshipYear = scholarship.year ? scholarship.year.toLowerCase() : "";
-            const scholarshipState = scholarship.state ? scholarship.state.toLowerCase() : "";
-            const scholarshipPell = scholarship.pellEligible ? scholarship.pellEligible.toLowerCase() : "";
-            const scholarshipEthnicity = scholarship.ethnicity ? scholarship.ethnicity.toLowerCase() : "";
+            const scholarshipYear = scholarship.year;
+            const scholarshipState = scholarship.state;
+            const scholarshipPell = scholarship.pell ? scholarship.pell.toLowerCase() : "";
+            const scholarshipEthnicity = scholarship.ethnicity;
 
             // Year filter
-            const matchesYear = yearFilter === "all" || scholarshipYear === "all" ||scholarshipYear === yearFilter;
+            const matchesYear = 
+            yearFilter === "all" ||
+            (Array.isArray(scholarshipYear) 
+                ? scholarshipYear.some(year => year.toLowerCase() === yearFilter) 
+                : scholarshipYear.toLowerCase() === yearFilter);
 
             // State filter
-            const matchesState = stateFilter === "all" || scholarshipState === "all" || scholarshipState === stateFilter;
+            const matchesState = 
+            stateFilter === "all" ||
+            (Array.isArray(scholarshipState) 
+                ? scholarshipState.some(state => state.toLowerCase() === stateFilter) 
+                : scholarshipState.toLowerCase() === stateFilter);
 
             // Pell eligibility filter
             const matchesPell = pellFilter === "all" || scholarshipPell === "all" || scholarshipPell === pellFilter;
 
-            // Ethnicity filter
-            const matchesEthnicity = ethnicityFilter === "all" || scholarshipEthnicity === "all" || scholarshipEthnicity === ethnicityFilter;
-                
+            let matchesEthnicity = true;
+            if (ethnicityFilter !== "all") {
+                if (Array.isArray(scholarshipEthnicity)) {
+                    matchesEthnicity = scholarshipEthnicity.some(eth => eth.toLowerCase() === ethnicityFilter);
+                } else {
+                    matchesEthnicity = scholarshipEthnicity.toLowerCase() === ethnicityFilter;
+                }
+            }
+
             let matchesGPA = true;
             if (gpaFilter !== "All GPAs") {
                 const gpaValue = parseFloat(gpaFilter.replace(">", ""));
                 matchesGPA = gpaFilter.startsWith(">") ? scholarship.gpa >= gpaValue : scholarship.gpa === gpaValue;
             }
-            return matchesYear && matchesState && matchesPell && matchesEthnicity && matchesGPA;
+            
+            const matchesSearch = scholarship.title.toLowerCase().includes(searchQuery);
+
+            return matchesYear && matchesState && matchesPell && matchesEthnicity && matchesGPA && matchesSearch;
         });
 
         displayScholarships(filteredScholarships);
@@ -179,6 +197,7 @@
     document.getElementById('pell').addEventListener('change', filterScholarships);
     document.getElementById('ethnicity').addEventListener('change', filterScholarships);
     document.getElementById('gpa').addEventListener('change', filterScholarships);
+    document.querySelector('.search-bar').addEventListener('input', filterScholarships);
 
     // Load scholarships initially
     loadScholarships();
