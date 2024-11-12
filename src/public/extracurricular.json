@@ -1,0 +1,162 @@
+[
+    {
+        "title": "National Art Honor Society",
+        "interests": "Arts",
+        "extracurricular details": "An organization recognizing students with exceptional artistic talent and dedication to visual arts through community service and leadership opportunities."
+    },
+    {
+        "title": "FRC Robotics",
+        "interests": "Engineering",
+        "extracurricular details": "A competitive robotics program where teams build and program large-scale robots to compete in challenging field games and missions."
+    },
+    {
+        "title": "FTC Robotics",
+        "interests": "Engineering",
+        "extracurricular details": "A robotics competition program where smaller teams design, build, and program more compact robots to compete in annual challenges."
+    },
+    {
+        "title": "Mu Alpha Theta",
+        "interests": "Math",
+        "extracurricular details": "A mathematics honor society that celebrates excellence in mathematics through competitions, tutoring, and mathematical exploration."
+    },
+    {
+        "title": "Future Business Leaders of America",
+        "interests": "Politics",
+        "extracurricular details": "An organization preparing students for careers in business through leadership development, academic competitions, and networking opportunities."
+    },
+    {
+        "title": "Speech and Debate",
+        "interests": ["Politics", "Reading / Writing"],
+        "extracurricular details": "A competitive program where students develop public speaking, argumentation, and critical thinking skills through various speaking and debate events."
+    },
+    {
+        "title": "National Honor Society",
+        "interests": "All",
+        "extracurricular details": "A prestigious organization recognizing students who demonstrate excellence in scholarship, leadership, service, and character."
+    },
+    {
+        "title": "Volleyball",
+        "interests": "Sports",
+        "extracurricular details": "A team sport where players hit a ball over a net, combining athleticism, strategy, and teamwork."
+    },
+    {
+        "title": "Soccer",
+        "interests": "Sports",
+        "extracurricular details": "A globally popular team sport where players work together to score goals by maneuvering a ball without using their hands."
+    },
+    {
+        "title": "Baseball",
+        "interests": "Sports",
+        "extracurricular details": "America's pastime where teams compete by hitting, throwing, and catching a ball while scoring runs around four bases."
+    },
+    {
+        "title": "Basketball",
+        "interests": "Sports",
+        "extracurricular details": "A fast-paced team sport where players dribble, pass, and shoot a ball to score points through elevated hoops."
+    },
+    {
+        "title": "Cheerleading",
+        "interests": "Sports",
+        "extracurricular details": "A high-energy activity combining dance, acrobatics, and crowd leadership to support school sports and compete in championships."
+    },
+    {
+        "title": "Model United Nations",
+        "interests": ["Politics", "History"],
+        "extracurricular details": "A simulation program where students represent different countries to debate global issues and practice diplomacy."
+    },
+    {
+        "title": "Key Club",
+        "interests": "All",
+        "extracurricular details": "A student-led service organization focused on community service, leadership development, and character building."
+    },
+    {
+        "title": "Girls Who Code",
+        "interests": ["Technology", "Engineering"],
+        "extracurricular details": "An organization empowering young women to explore computer science and technology through coding projects and mentorship."
+    },
+    {
+        "title": "Future Educators of America",
+        "interests": "All",
+        "extracurricular details": "A club for students interested in teaching careers, providing classroom experience and educational leadership opportunities."
+    },
+    {
+        "title": "Gay Straight Alliance",
+        "interests": "All",
+        "extracurricular details": "A student organization promoting understanding, support, and advocacy for LGBTQ+ students and their allies."
+    },
+    {
+        "title": "Mock Trial",
+        "interests": ["Politics", "History"],
+        "extracurricular details": "A competitive program where students act as attorneys and witnesses to argue court cases in simulated trials."
+    },
+    {
+        "title": "Theatre",
+        "interests": "Arts",
+        "extracurricular details": "A performing arts program where students explore acting, directing, and technical theatre through productions and performances."
+    },
+    {
+        "title": "Band",
+        "interests": "Music",
+        "extracurricular details": "A musical ensemble where students play wind, brass, and percussion instruments to perform various styles of music."
+    },
+    {
+        "title": "Choir",
+        "interests": "Music",
+        "extracurricular details": "A vocal music group where students develop singing skills and perform various styles of choral music."
+    },
+    {
+        "title": "Orchestra",
+        "interests": "Music",
+        "extracurricular details": "An ensemble where students perform classical and contemporary music using string, wind, and percussion instruments."
+    },
+    {
+        "title": "Science Olympiad",
+        "interests": "Medicine",
+        "extracurricular details": "A competitive program where students participate in various science-related challenges and laboratory events."
+    },
+    {
+        "title": "Technology Student Association",
+        "interests": "Technology",
+        "extracurricular details": "An organization promoting technology education through competitive events and leadership development."
+    },
+    {
+        "title": "Swimming",
+        "interests": "Sports",
+        "extracurricular details": "An athletic program where students compete in various swimming strokes and relay events."
+    },
+    {
+        "title": "Tennis",
+        "interests": "Sports",
+        "extracurricular details": "A racquet sport where players compete individually or in doubles matches on a court."
+    },
+    {
+        "title": "Football",
+        "interests": "Sports",
+        "extracurricular details": "A team sport combining strategy, athleticism, and coordination as players advance the ball to score touchdowns."
+    },
+    {
+        "title": "Photography Club",
+        "interests": "Arts",
+        "extracurricular details": "A creative organization where students learn camera techniques, photo editing, and artistic composition."
+    },
+    {
+        "title": "Future Farmers of America",
+        "interests": "Sports",
+        "extracurricular details": "An organization preparing students for careers in agriculture through hands-on experience and leadership development."
+    },
+    {
+        "title": "Science, Engineering, Communication, Mathematics, and Enrichment",
+        "interests": "Science",
+        "extracurricular details": "An interdisciplinary program integrating STEM fields through project-based learning and enrichment activities."
+    },
+    {
+        "title": "National English Honor Society",
+        "interests": "Reading / Writing",
+        "extracurricular details": "An organization recognizing high school students who demonstrate exceptional ability in English language, literature, and writing."
+    },
+    {
+        "title": "Health Occupations Students of America",
+        "interests": "Medicine",
+        "extracurricular details": "A program preparing students for careers in healthcare through competitions, leadership development, and hands-on medical experience."
+    }
+]

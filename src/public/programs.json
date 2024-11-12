@@ -1,0 +1,38 @@
+[
+    {
+        "title": "International Baccalaureate",
+        "requirements": "for students in grade 11-12 with at least a GPA of 3.0",
+        "program details": "IB is a globally recognized program offering rigorous coursework that emphasizes international mindedness and critical thinking. Students can earn an IB diploma recognized by universities worldwide.",
+        "link": "https://www.ibo.org"
+    },
+    {
+        "title": "Magnet",
+        "requirements": "for students in grade 9-12",
+        "program details": "Magnet programs offer specialized courses focused on specific themes or subject areas such as STEM, arts, or technology, drawing students from various neighborhoods to create diverse learning environments.",
+        "link": "https://magnet.edu"
+    },
+    {
+        "title": "Advanced Placement - CAPS",
+        "requirements": "for students in grade 9-12 with at least a GPA of 3.0",
+        "program details": "CAPS combines Advanced Placement coursework with career-focused learning, allowing students to earn college credits while exploring professional pathways.",
+        "link": "https://apstudents.collegeboard.org/what-is-ap"
+    },
+    {
+        "title": "Honors",
+        "requirements": "for students in grade 9-12 with at least a GPA of 3.0",
+        "program details": "Honors courses provide advanced academic content at an accelerated pace, preparing students for college-level work while remaining within the standard curriculum framework.",
+        "link": "https://www.collegevine.com/faq/9073/understanding-honors-courses-in-high-school"
+    },
+    {
+        "title": "Advanced International Certificate of Education",
+        "requirements": "for students in grade 11-12 with at least a GPA of 3.0",
+        "program details": "AICE is a Cambridge-based international curriculum offering college-level courses with an emphasis on global perspectives and independent research skills.",
+        "link": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-advanced/cambridge-aice-diploma/"
+    },
+    {
+        "title": "Dual Enrollment",
+        "requirements": "for students in grade 11-12 with at least a GPA of 3.0",
+        "program details": "Dual enrollment allows students to take college courses while still in high school, earning both high school and college credits simultaneously.",
+        "link": "https://www.fldoe.org/schools/higher-ed/fl-college-system/dual-enroll-transfer/"
+    }
+]
