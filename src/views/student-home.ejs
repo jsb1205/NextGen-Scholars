@@ -25,11 +25,12 @@
       <div class="personal-plan">
           <h3>4-Year Personal Plan</h3>
           <div class="plan-details">
+            <button id="refresh-button">Refresh</button>
             <div class="plan-item">
-              <span>Program:</span> <span>Internships:</span>
+              <div id="program">Program:</div> <div id="internships">Internships:</div>
             </div>
             <div class="plan-item">
-              <span>Clubs:</span> <span>Sports:</span>
+              <div id="clubs">Clubs:</div> <div id="sports">Sports:</div>
             </div>
           </div>
       </div>
@@ -146,6 +147,49 @@
   const teacherButtonContainer = document.querySelector(".button-container");
   const teacherButton = document.querySelector(".teacher-button");
   const profileButton = document.getElementById("profile-button");
+  
+  const program = document.getElementById("program");
+  const internships = document.getElementById("internships");
+  const clubs = document.getElementById("clubs");
+  const sports = document.getElementById("sports");
+
+  const refreshButton = document.getElementById("refresh-button");
+
+
+  if (program && internships && clubs && sports) {
+    refreshButton.addEventListener("click", async (event) => {
+      event.preventDefault();
+
+      const id = "<%= user._id %>";
+
+      try {
+        const res = await fetch(`/student-home/${id}/get-interests`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" }
+        });
+        const data = await res.json();
+        if (data.error) {
+          console.log(data.error);
+        }
+        if (data.success) {
+          programsArr = data.programs;
+          clubsArr = data.clubs;
+          scholarshipsArr = data.scholarships;
+          internshipsArr = data.internships;
+          projectsArr = data.personalProjects;
+
+          programsArr.forEach((prog, index) => {
+            const newElement = document.createElement("p");
+            newElement.textContent = prog;
+            program.appendChild(newElement);
+          })
+        }
+      }
+      catch (err) {
+        console.log(err);
+      }
+    });
+  }
 
   if (form) {
     form.addEventListener("submit", async (event) => {

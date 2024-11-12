@@ -9,6 +9,7 @@ const router = express.Router();
 router.get("/student-home/:id", requireAuth, checkCurrUser, userProfileController.student_home_page_get);
 router.get("/educator-home/:id", requireAuth, checkCurrUser, userProfileController.educator_home_page_get);
 router.put("/student-home/update-interests", requireAuth, checkCurrUser, userProfileController.student_interests_update);
+router.get("/student-home/:id/get-interests", requireAuth, checkCurrUser, userProfileController.student_interests_get);
 router.get("/create-student-profile", requireAuth, checkCurrUser, userProfileController.student_create_profile_get);
 router.post("/create-student-profile", requireAuth, checkCurrUser, userProfileController.student_create_profile_post);
 router.get("/create-educator-profile", requireAuth, checkCurrUser, userProfileController.educator_create_profile_get);
