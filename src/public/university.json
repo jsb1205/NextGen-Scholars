@@ -17,7 +17,7 @@
         "os_cost": 46503,
         "state": "California",
         "university details": "A prestigious public institution in Los Angeles offering world-class education across disciplines, particularly renowned for its film school, medical center, and athletics program.",
-		"link": "https://www.universityofcalifornia.edu"
+	"link": "https://www.universityofcalifornia.edu"
     },
     {
         "title": "University of California, Berkeley",
@@ -27,7 +27,7 @@
         "os_cost": 51032,
         "state": "California",
         "university details": "The flagship campus of the University of California system, celebrated for its revolutionary spirit, groundbreaking research, and academic excellence across fields, particularly in engineering, computer science, and economics.",
-		"link": "https://www.berkeley.edu"
+	"link": "https://www.berkeley.edu"
     },
     {
         "title": "University of Michigan, Ann Arbor",
@@ -37,7 +37,7 @@
         "os_cost": 63081,
         "state": "Michigan",
         "university details": "A premier public research university in Ann Arbor known for its comprehensive academic programs, powerful athletic tradition, and influential research across multiple disciplines.",
-		"link": "https://umich.edu"
+	"link": "https://umich.edu"
     },
     {
         "title": "University of Virginia",
@@ -47,7 +47,7 @@
         "os_cost": 60907,
         "state": "Virginia",
         "university details": "Thomas Jefferson's architectural and academic masterpiece in Charlottesville, combining historical significance with modern research excellence and a strong emphasis on undergraduate education.",
-		"link": "https://www.virginia.edu"
+	"link": "https://www.virginia.edu"
     },
     {
         "title": "University of North Carolina, Chapel Hill",
@@ -57,7 +57,7 @@
         "os_cost": 41211,
         "state": "North Carolina",
         "university details": "The oldest public university in the United States, known for its stellar basketball program, top-ranked medical school, and excellence in journalism and public health.",
-		"link": "https://www.unc.edu"
+	"link": "https://www.unc.edu"
     },
     {
         "title": "University of California, San Diego",
@@ -67,7 +67,7 @@
         "os_cost": 51015,
         "state": "California",
         "university details": "A coastal powerhouse in scientific research, particularly known for its oceanography, engineering, and biomedical programs, with a unique college system that creates smaller communities within the larger university.",
-		"link": "https://ucsd.edu"
+	"link": "https://ucsd.edu"
     },
     {
         "title": "University of Texas, Austin",
@@ -77,7 +77,7 @@
         "os_cost": 42778,
         "state": "Texas",
         "university details": "The flagship institution of Texas, combining academic excellence with a vibrant cultural scene in the heart of Austin, particularly strong in business, engineering, and computer science.",
-		"link": "https://www.utexas.edu"
+	"link": "https://www.utexas.edu"
     },
     {
         "title": "Georgia Institute of Technology",
@@ -87,7 +87,7 @@
         "os_cost": 34484,
         "state": "Georgia",
         "university details": "A leading technology-focused institution in Atlanta that excels in engineering, computing, and applied sciences while maintaining a strong entrepreneurial spirit.",
-		"link": "https://www.gatech.edu"
+	"link": "https://www.gatech.edu"
     },
     {
         "title": "University of California, Davis",
@@ -97,7 +97,7 @@
         "os_cost": 47682,
         "state": "California",
         "university details": "A comprehensive public university known for its leadership in agricultural research, veterinary medicine, and environmental sustainability.",
-		"link": "https://www.ucdavis.edu"
+	"link": "https://www.ucdavis.edu"
     },
     {
         "title": "Stanford University",
@@ -107,7 +107,7 @@
         "os_cost": 58416,
         "state": "California",
         "university details": "A Silicon Valley icon combining entrepreneurial spirit with academic excellence, known for fostering innovation and producing influential leaders in technology and business.",
-		"link": "https://www.stanford.edu"
+	"link": "https://www.stanford.edu"
     },
     {
         "title": "Harvard University",
@@ -117,7 +117,7 @@
         "os_cost": 57261,
         "state": "Massachusetts",
         "university details": "America's oldest university, renowned for its unparalleled academic prestige, influential research, and exceptional professional schools.",
-		"link": "https://www.harvard.edu"
+	"link": "https://www.harvard.edu"
     },
     {
         "title": "Massachusetts Institute of Technology",
@@ -127,7 +127,7 @@
         "os_cost": 57986,
         "state": "Massachusetts",
         "university details": "The world's leading institution for technology and science education, known for groundbreaking research and innovation across disciplines.",
-		"link": "https://www.mit.edu"
+	"link": "https://www.mit.edu"
     },
     {
         "title": "Yale University",
@@ -137,7 +137,7 @@
         "os_cost": 62250,
         "state": "Connecticut",
         "university details": "An Ivy League institution combining centuries of tradition with modern research excellence, particularly renowned for its law school and humanities programs.",
-		"link": "https://www.yale.edu"
+	"link": "https://www.yale.edu"
     },
     {
         "title": "California Institute of Technology",
@@ -147,7 +147,7 @@
         "os_cost": 60864,
         "state": "California",
         "university details": "A small but mighty scientific powerhouse known for its rigorous academics and significant contributions to science and engineering, including management of NASA's Jet Propulsion Laboratory.",
-		"link": "https://www.caltech.edu"
+	"link": "https://www.caltech.edu"
     },
     {
         "title": "Princeton University",
@@ -157,7 +157,7 @@
         "os_cost": 62400,
         "state": "New Jersey",
         "university details": "An Ivy League leader combining academic excellence with a strong focus on undergraduate education, particularly renowned for mathematics, physics, and public policy.",
-		"link": "https://www.princeton.edu"
+	"link": "https://www.princeton.edu"
     },
     {
         "title": "Rice University",
@@ -167,7 +167,7 @@
         "os_cost": 54960,
         "state": "Texas",
         "university details": "A private research university in Houston offering an intimate educational experience with strong STEM programs and collaborative research opportunities.",
-		"link": "https://www.rice.edu"
+	"link": "https://www.rice.edu"
     },
     {
         "title": "Columbia University",
@@ -177,7 +177,7 @@
         "os_cost": 66139,
         "state": "New York",
         "university details": "A prestigious Ivy League institution in New York City known for its core curriculum, journalism school, and integration with the cultural fabric of Manhattan.",
-		"link": "https://www.columbia.edu"
+	"link": "https://www.columbia.edu"
     },
     {
         "title": "University of Pennsylvania",
@@ -187,7 +187,7 @@
         "os_cost": 63452,
         "state": "Pennsylvania",
         "university details": "An Ivy League powerhouse in Philadelphia, home to the world-renowned Wharton School of Business and excellent programs across multiple disciplines.",
-		"link": "https://www.upenn.edu"
+	"link": "https://www.upenn.edu"
     },
     {
         "title": "Pomona College",
@@ -197,6 +197,6 @@
         "os_cost": 58818,
         "state": "California",
         "university details": "A premier liberal arts college in Southern California offering an intimate, rigorous educational experience with a focus on undergraduate teaching and interdisciplinary study.",
-		"link": "https://www.pomona.edu"
+	"link": "https://www.pomona.edu"
     }
 ]
