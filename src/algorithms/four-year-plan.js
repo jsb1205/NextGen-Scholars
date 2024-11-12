@@ -69,7 +69,7 @@ export const scholarshipCalculator = (student) => {
 
 // Input: user.studentProfile
 // Output: set containing list of extracurriculars/clubs
-export const interestCalculator = (student) => {
+export const clubCalculator = (student) => {
   let interestsList = new Set();
   const interests = student.interests;
   const gender = student.gender;
