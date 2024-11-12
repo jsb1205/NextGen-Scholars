@@ -1,5 +1,193 @@
 <%- include("partials/header"); %>
 
+<div class="University">
+    <div class="university-container">
+        <!-- Scholarship Cards Section -->
+        <div class="university-section" id="universityContainer">
+            
+            <!-- Add more cards as needed -->
+        </div>
+
+        <!-- Filter Section -->
+        <div class="University-Right">
+            <div class="filter-section">
+                <input type="text" placeholder="Search..." class="search-bar">
+                <div class="filters">
+                    <label for="type">Public/Private</label>
+                    <select id="type">
+                        <option value="all">All</option>
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                    </select>
+
+                    <label for="state">State</label>
+                    <select id="state">
+                        <option value="all">All States</option>
+                        <option value="Alabama">Alabama</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="South Carolina">South Carolina</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                    </select>
+
+                    <label for="acceptance">Acceptance Rate</label>
+                    <select id="acceptance">
+                        <option value="all">All</option>
+                        <option value="below_10">Below 10%</option>
+                        <option value="10_20">10-20%</option>
+                        <option value="20_30">20-30%</option>
+                        <option value="above_30">Above 30%</option>
+                        
+                    </select>
+
+                    <label for="is_cost">In-State Cost</label>
+                    <select id="is_cost">
+                        <option value="all">All</option>
+                        <option value="below_20000">Below $20,000</option>
+                        <option value="20000_40000">$20,000 - $40,000</option>
+                        <option value="40000_60000">$40,000 - $60,000</option>
+                        <option value="above_60000">Above $60,000</option>
+                        
+                    </select>
+
+
+                    <label for="os_cost">Out-State Cost</label>
+                    <select id="os_cost">
+                        <option value="all">All</option>
+                        <option value="below_20000">Below $20,000</option>
+                        <option value="20000_40000">$20,000 - $40,000</option>
+                        <option value="40000_60000">$40,000 - $60,000</option>
+                        <option value="above_60000">Above $60,000</option>
+                
+                        <!-- Add options as needed -->
+                    </select>
+                </div>
+                <!-- Information Box -->
+            
+            </div>
+            <div class="info-box">
+                <p>Information on scholarships and how to apply and how to filter.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let universityData = []; // Store scholarships data for filtering
+
+    async function loadUniversity() {
+        try {
+            const response = await fetch('/university.json');
+            universityData = await response.json(); // Save the fetched data
+            displayUniversities(universityData); // Display all scholarships initially
+        } catch (error) {
+            console.error('Error loading university:', error);
+        }
+    }
+    // Function to load JSON data
+    function displayUniversities(universities) {
+        const container = document.getElementById('universityContainer');
+        container.innerHTML = ''; // Clear previous scholarship cards
+
+        universities.forEach(university => {
+            const card = document.createElement('div');
+            card.classList.add('university-card');
+
+            card.innerHTML = `
+                <div class="content">
+                    <h3>${university.title}</h3>
+                    <div class="info">
+                        <p><strong>In-State Cost:</strong> $${university.is_cost}</p>
+                        <p><strong>Out-of-State Cost:</strong> $${university.os_cost}</p>
+                    </div>
+                    <a href="#" class="details-link">University Details</a>
+                    <div class="extra-details" style="display: none;">
+                        <p>${university["university details"]}</p>
+                    </div>
+                </div>
+                <a href="${university.link}" target="_blank" class="apply-btn">Apply</a>
+            `;
+
+            const detailsLink = card.querySelector('.details-link');
+            const extraDetails = card.querySelector('.extra-details');
+            detailsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                extraDetails.style.display = extraDetails.style.display === 'none' ? 'block' : 'none';
+                detailsLink.textContent = extraDetails.style.display === 'none' ? 'University Details' : 'Hide Details';
+            });
+
+            container.appendChild(card);
+        });
+    }
+
+    // Call the function to load scholarships on page load
+    // GPA filter function
+    function filterUniversities() {
+        const typeFilter = document.getElementById('type').value.toLowerCase();
+        const stateFilter = document.getElementById('state').value.toLowerCase();
+        const acceptanceFilter = document.getElementById('acceptance').value;
+        const inCostFilter = document.getElementById('is_cost').value;
+        const outCostFilter = document.getElementById('os_cost').value;
+        const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
+
+        const filteredUniversities = universityData.filter(university => {
+            const matchesType = typeFilter === "all" || university.type.toLowerCase() === typeFilter;
+            const matchesState = stateFilter === "all" || university.state.toLowerCase() === stateFilter;
+
+            const acceptanceRate = parseFloat(university.acceptance);
+            const matchesAcceptance = 
+                acceptanceFilter === "all" ||
+                (acceptanceFilter === "below_10" && acceptanceRate < 10) ||
+                (acceptanceFilter === "10_20" && acceptanceRate >= 10 && acceptanceRate < 20) ||
+                (acceptanceFilter === "20_30" && acceptanceRate >= 20 && acceptanceRate < 30) ||
+                (acceptanceFilter === "above_30" && acceptanceRate >= 30);
+
+            const inCost = parseFloat(university.is_cost);
+            const matchesInCost = 
+                inCostFilter === "all" ||
+                (inCostFilter === "below_20000" && inCost < 20000) ||
+                (inCostFilter === "20000_40000" && inCost >= 20000 && inCost < 40000) ||
+                (inCostFilter === "40000_60000" && inCost >= 40000 && inCost < 60000) ||
+                (inCostFilter === "above_60000" && inCost >= 60000);
+
+            const outCost = parseFloat(university.os_cost);
+            const matchesOutCost = 
+                outCostFilter === "all" ||
+                (outCostFilter === "below_20000" && outCost < 20000) ||
+                (outCostFilter === "20000_40000" && outCost >= 20000 && outCost < 40000) ||
+                (outCostFilter === "40000_60000" && outCost >= 40000 && outCost < 60000) ||
+                (outCostFilter === "above_60000" && outCost >= 60000);
+
+            const matchesSearch = university.title.toLowerCase().includes(searchQuery);
+
+            return matchesType && matchesState && matchesAcceptance && matchesInCost && matchesOutCost && matchesSearch;
+        });
+
+        displayUniversities(filteredUniversities);
+    }
+
+
+    // Event listener for GPA filter
+    document.getElementById('type').addEventListener('change', filterUniversities);
+    document.getElementById('state').addEventListener('change', filterUniversities);
+    document.getElementById('acceptance').addEventListener('change', filterUniversities);
+    document.getElementById('is_cost').addEventListener('change', filterUniversities);
+    document.getElementById('os_cost').addEventListener('change', filterUniversities);
+    document.querySelector('.search-bar').addEventListener('input', filterUniversities);
+
+    loadUniversity();
+</script>
 
 
 <%- include("partials/footer"); %>

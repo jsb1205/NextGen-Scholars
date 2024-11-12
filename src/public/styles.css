@@ -1767,6 +1767,77 @@ body, html {
   font-size: 14px;
 }
 
+/*University Page*/
+.University
+{
+  background-color: #d9e5f4;
+}
+
+.university-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 80%;
+  margin-left: 150px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.university-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 700px;
+}
+
+.university-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.university-card h3 {
+  color: #004aad;
+  font-family: 'fredoka', sans-serif;
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.university-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.university-card p {
+  margin: 0;
+  font-size: 1em;
+}
+
+
+.university-card .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.university-card .content .details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+/*Right of the Scholarship Page*/
+.University-right{
+
+}
+
 /* Footer styling for full width */
 
 html, body {
