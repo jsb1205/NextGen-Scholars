@@ -1,0 +1,168 @@
+.educator-page {
+    padding-top: 200px;
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 150px;
+    padding-bottom: 200px; 
+  }
+  
+  .profile-section,
+  .link-scholar-section,
+  .linked-scholars {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .profile-section {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .profile-icon img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  
+  .educator-name {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+  
+  .educator-details {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .class-code {
+    background-color: #d1f7c4;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: inline-block;
+    color: #333;
+    margin-top: 10px;
+    font-size: 0.9em;
+  }
+  
+  .settings {
+    margin-top: 20px;
+    font-size: 0.9em;
+  }
+  
+  .linked-scholars {
+    width: 35%;
+    background-color: #70a2f8; /* Light blue color */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .link-scholar-section h2 {
+    font-family: 'Fredoka', sans-serif;
+    color: #7ed957;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .teacher-question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content horizontally */
+    margin-bottom: 20px; /* Adds space below the question and buttons */
+  }
+  
+  
+  .teacher-toggle {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  /*yes and no buttons*/
+  .toggle-button {
+    background-color: #004aad;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-button {
+    font-family: 'fredoka';
+    font-size: 1rem;
+    background-color: #7ed957;
+    color: #000000;
+    padding: 10px 20px;
+    width: fit-content;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 20px auto 0 auto; /* Centers the button horizontally */
+    display: block;
+    text-decoration: none;
+  }
+  
+
+  .linked-scholars {
+    width: 35%;
+  }
+  
+  .linked-scholars h2 {
+    font-family: sans-serif;
+    color: #004aad;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .linked-scholars ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .linked-scholars li {
+    background-color: #add8e6;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  .settings img {
+    width: 40px; /* Adjust the size as needed */
+    height: auto; /* Adjust the size as needed */
+    vertical-align: middle; /* Aligns the image with the text */
+  }
+
+  .class-code {
+    font-family: 'fredoka';
+    font-size: 1rem;
+    background-color: #7ed957;
+    color: #000000;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.9em;
+  }
+  input[type="text"] {
+    background-color: #dce6f2; /* Light blue color */
+    border: none;
+    border-radius: 15px; /* Rounds the corners */
+    padding: 10px 15px; /* Adds padding for spacing inside the box */
+    width: 100%; /* Makes the input fill the container's width */
+    box-sizing: border-box; /* Ensures padding doesn’t affect the overall width */
+    font-size: 1em; /* Adjust font size */
+    color: #333; /* Text color */
+    margin-bottom: 15px; /* Adds space between input boxes */
+  }
+  
+  input[type="text"]::placeholder {
+    color: #333; /* Placeholder text color */
+    opacity: 0.7; /* Slightly faded placeholder */
+  }

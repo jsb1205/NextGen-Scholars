@@ -1,18 +1,52 @@
 <%- include("partials/header"); %>
 
-<p>Welcome, <%= user.educatorProfile.firstName %> <%= user.educatorProfile.lastName %></p>
+<div class="educator-page">
+  <div class="profile-section">
+    <div class="profile-icon">
+      <!-- Add profile icon here -->
+      <img src="/profile-icon.png" alt="Profile Icon">
+    </div>
+    <p class="educator-name">Dr.<%= user.educatorProfile.firstName %> <%= user.educatorProfile.lastName %></p>
+    <p class="educator-details">
+      <%= user.educatorProfile.email %> <br>
+      <%= user.educatorProfile.school %> <br>
+      <%= user.educatorProfile.jobTitle %>
+    </p>
+    <div class="class-code">
+      Code: <span><%= user.educatorProfile.classId %></span>
+    </div>
+    <div class="settings">
+      <a href="/settings">
+        <img src="/settings-icon.png" alt="Settings Icon"> Settings
+      </a>
+    </div>
+  </div>
 
-<div class="students-container">
-  <h1>Your students</h1>
-  <ul>
-    <% user.educatorProfile.students.forEach(student => { %>
-      <li> <%= student.firstName %> <%= student.lastName %></li>
-    <% }); %>
-  </ul>
-</div>
+  <div class="link-scholar-section">
+    <h2>Link Your Scholar</h2>
+    <div class="teacher-question-container">
+      <p>Are you a teacher?</p>
+      <div class="teacher-toggle">
+        <button class="toggle-button">Yes</button>
+        <button class="toggle-button">No</button>
+      </div>
+    </div>
+    <form action="/link-scholar" method="POST">
+      <input type="text" placeholder="Scholar's Name" name="scholarName">
+      <input type="text" placeholder="Linking Code" name="linkingCode">
+      <input type="text" placeholder="Associated School" name="associatedSchool">
+      <button type="submit" class="add-button">Add</button>
+    </form>
+  </div>
 
-<div>
-  Your class ID: <%= user.educatorProfile.classId %>
+  <div class="linked-scholars">
+    <h2>Linked Scholars:</h2>
+    <ul>
+      <% user.educatorProfile.students.forEach(student => { %>
+        <li> <%= student.firstName %> <%= student.lastName %></li>
+      <% }); %>
+    </ul>
+  </div>
 </div>
 
 <%- include("partials/footer"); %>
