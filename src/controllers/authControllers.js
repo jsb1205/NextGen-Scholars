@@ -79,7 +79,6 @@ module.exports.signup_post = async (req, res) => {
 module.exports.login_post = async (req, res) => {
   const { email, password } = req.body;
 
-
   try {
     const user = await User.login(email, password);
     const token = createToken(user._id);

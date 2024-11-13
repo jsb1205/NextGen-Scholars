@@ -15,6 +15,8 @@ router.post("/create-student-profile", requireAuth, checkCurrUser, userProfileCo
 router.get("/create-educator-profile", requireAuth, checkCurrUser, userProfileController.educator_create_profile_get);
 router.post("/create-educator-profile", requireAuth, checkCurrUser, userProfileController.educator_create_profile_post);
 
+router.put("/educator-profile/:id/students/edit", requireAuth, checkCurrUser, userProfileController.educator_edit_students);
+
 router.get("/student-profile/:id", requireAuth, checkCurrUser, userProfileController.student_profile_get);
 router.get("/educator-profile/:id", requireAuth, checkCurrUser, userProfileController.educator_profile_get);
 

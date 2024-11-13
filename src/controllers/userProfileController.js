@@ -20,7 +20,7 @@ const academicCalculator = (student) => {
     academics.add("Magnet");
   }
   if (schoolYear <= 10 && gpa >= 3) {
-    academics.add("Dual-Enrollment");
+    academics.add("Dual Enrollment");
     academics.add("IB");
     academics.add("CAPS");
     academics.add("Honors");
@@ -44,19 +44,19 @@ const scholarshipCalculator = (student) => {
   let scholarships = new Set();
 
   // assuming all our users are from Florida
-  scholarships.add("Bright-Futures-Scholarship");
+  scholarships.add("Bright Futures Scholarship");
 
   if (student.race === "native-american" || 
       student.race === "black" ||
       student.race === "hispanic") {
-    scholarships.add("Gates-Scholarship");
-    scholarships.add("Sallie-Mae-Scholarship");
+    scholarships.add("Gates Scholarship");
+    scholarships.add("Sallie Mae Scholarship");
   }
 
   if (student.gender === "female") {
-    scholarships.add("Gates-Scholarship");
-    scholarships.add("Sallie-Mae-Scholarship");
-    scholarships.add("Colonel-Kathleen-Swacina-Scholarship");
+    scholarships.add("Gates Scholarship");
+    scholarships.add("Sallie Mae Scholarship");
+    scholarships.add("Colonel Kathleen Swacina Scholarship");
   }
 
   if (student.interests.length > 0) {
@@ -64,7 +64,7 @@ const scholarshipCalculator = (student) => {
         student.interests.includes("technology") ||
         student.interests.includes("engineering") ||
         student.interests.includes("math")) {
-      scholarships.add("Colonel-Kathleen-Swacina-Scholarship");
+      scholarships.add("Colonel Kathleen Swacina Scholarship");
     }
   }
 
@@ -87,27 +87,27 @@ const clubCalculator = (student) => {
     interestsList.add("TSA");
   }
   if (gender === "female" && (interests.includes("technology") || interests.includes("engineering"))) {
-    interestsList.add("Girls-Who-Code");
+    interestsList.add("Girls Who Code");
   }
   if (interests.includes("engineering")) {
-    interestsList.add("FRC-Robotics");
-    interestsList.add("FTC-Robotics");
+    interestsList.add("FRC Robotics");
+    interestsList.add("FTC Robotics");
   }
   if (interests.includes("math")) {
-    interestsList.add("Mu-Alpha-Theta");
+    interestsList.add("Mu Alpha Theta");
   }
   if (interests.includes("arts")) {
-    interestsList.add("National-Art-Honors-Society");
+    interestsList.add("National Art Honors Society");
     interestsList.add("Theatre");
-    interestsList.add("Photography-Club");
+    interestsList.add("Photography Club");
   }
   if (interests.includes("politics")) {
     interestsList.add("FBLA");
-    interestsList.add("Speech-and-Debate");
+    interestsList.add("Speech and Debate");
   }
   if (interests.includes("history")) {
-    interestsList.add("Mock-Trial");
-    interestsList.add("Model-UN");
+    interestsList.add("Mock Trial");
+    interestsList.add("Model UN");
   }
   if (interests.includes("sports")) {
     interestsList.add("Swimming");
@@ -120,8 +120,8 @@ const clubCalculator = (student) => {
     interestsList.add("Cheerleading");
   }
   if (interests.includes("literature")) {
-    interestsList.add("National-English-Honors-Society");
-    interestsList.add("Speech-and-Debate");
+    interestsList.add("National English Honors Society");
+    interestsList.add("Speech and Debate");
   }
   if (interests.includes("music")) {
     interestsList.add("Band");
@@ -129,7 +129,7 @@ const clubCalculator = (student) => {
     interestsList.add("Orchestra");
   }
   if (gpa >= 3.8) {
-    interestsList.add("National-Honor-Society");
+    interestsList.add("National Honor Society");
   }
 
   return [...interestsList];
@@ -146,25 +146,25 @@ const internshipCalculator = (student) => {
   const gpa = student.gpa;
 
   if (schoolYear >= 11 && interests.includes("medicine")) {
-    internships.add("JJ-Vance-Memorial-Summer-Internship");
-    internships.add("Cell-Science-Summer-Internship");
+    internships.add("JJ Vance Memorial Summer Internship");
+    internships.add("Cell Science Summer Internship");
     if (gpa >= 2.5)
-      internships.add("Nicklaus-Children's-Hospital-Teen-Academic-Year-Program");
+      internships.add("Nicklaus Children's Hospital Teen Academic Year Program");
   }
   if (schoolYear === 12 && interests.includes("medicine")) {
-    internships.add("FIU's-Summer-Research-Internship-In-Cardiovascular-Health");
+    internships.add("FIU's Summer Research Internship In Cardiovascular Health");
   }
   if (schoolYear >= 9 && interests.includes("medicine")) {
-    internships.add("Medicine-Encompassed-Observer-Program-At-Baptist-Health-Academics");
+    internships.add("Medicine Encompassed Observer Program At Baptist Health Academics");
   }
   if (schoolYear >= 11 && interests.includes("science")) {
-    internships.add("High-School-Summer-Internship-Program-At-FIU's-Center-For-Translational-Science");
+    internships.add("High School Summer Internship Program At FIU's Center For Translational Science");
   }
   if (schoolYear >= 11 && gpa > 3) {
-    internships.add("Kenan-Fellows-High-School-Summer-Internships-At-The-University-Of-Florida-Health");
+    internships.add("Kenan Fellows High School Summer Internships At The University Of Florida Health");
   }
   if (gpa >= 2.5 && interests.includes("environment")) {
-    internships.add("Fleet-Services-Student-Intern-9039");
+    internships.add("Fleet Services Student Intern 9039");
   }
 
   return [...internships];
@@ -385,7 +385,7 @@ const educator_create_profile_get = (req, res) => {
 }
 
 const educator_create_profile_post = async (req, res) => {
-  const { firstName, lastName, school, students, id } = req.body;
+  const { firstName, lastName, school, id } = req.body;
   const idObject = new mongoose.Types.ObjectId(id);
 
   // class id generation
@@ -404,22 +404,7 @@ const educator_create_profile_post = async (req, res) => {
   } while (!unique);
 
   try {
-    let educatorProfile;
-    if (students.length > 0) {
-      const studentProfiles = [];
-      for (const studentEmail of students) {
-        const student = await User.findOne({ email: studentEmail });
-    
-        if (student && student.studentProfile) {
-            await student.populate("studentProfile");
-            studentProfiles.push(student.studentProfile._id);
-        }
-      }
-      educatorProfile = await EducatorProfile.create({ firstName, lastName, school, students: studentProfiles, classId, credentials: id});
-    }
-    else {
-      educatorProfile = await EducatorProfile.create({ firstName, lastName, school, classId: classId, credentials: id});
-    }
+    const educatorProfile = await EducatorProfile.create({ firstName, lastName, school, classId: classId, credentials: id});
 
     await User.findByIdAndUpdate(
       idObject, 
@@ -533,20 +518,13 @@ const student_add_educator = async (req, res) => {
     .populate("studentProfile")
     .exec();
   
-    user.studentProfile.educator = educator._id;
-    await user.studentProfile.populate("educator");
+    user.studentProfile.educator = educator;
+    await user.studentProfile.save();
+    await user.save();
+    //await user.studentProfile.populate("educator");
 
     educator.students.push(user.studentProfile);
     await educator.save();
-
-    const updated = await user.studentProfile.educator.save();
-    await user.studentProfile.save();
-    await user.save();
-
-    if (!updated) {
-      res.status(400).json({error: "Error! User not updated!"});
-      return;
-    }
     
     res.status(200).json({success: "Successfully updated!"});
   }
@@ -598,6 +576,42 @@ const student_profile_picture_update = async (req, res) => {
   }
 }
 
+const educator_edit_students = async (req, res) => {
+  const { id } = req.params;
+  const { name, email, school } = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: "No profile found!"});
+  }
+
+  const educator = await User.findById(id)
+    .select("-password")
+    .populate("educatorProfile")
+    .exec();
+
+  try {
+    const student = await User.findOne({ email })
+      .select("-password")
+      .populate("studentProfile")
+      .exec();
+
+    if (!student) {
+      return res.status(404).json({noProfile: "No profile found!"});
+    }
+
+    educator.educatorProfile.students.push(student.studentProfile);
+    await educator.educatorProfile.save();
+
+    student.studentProfile.educator = educator.educatorProfile;
+    await student.studentProfile.save();
+
+    res.status(201).json({success: "Student list successfully updated!"});
+  }
+  catch (err) {
+    res.status(400).json({error: "Could not update student list!"});
+  }
+}
+
 
 module.exports = {
   student_home_page_get,
@@ -614,5 +628,6 @@ module.exports = {
   student_profile_update_interests_update,
   student_add_educator,
   student_interests_update_get,
-  student_profile_picture_update
+  student_profile_picture_update,
+  educator_edit_students
 }

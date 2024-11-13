@@ -8,9 +8,9 @@
             <img src="/default profile.png" alt="Profile Picture" class="profile-icon"><br />
             <button id="profile-button">Select Profile Picture</button>
             <h2><%= user.studentProfile.firstName %> <%= user.studentProfile.lastName %></h2>
-            <p><a href="mailto:email@example.com">Email address</a></p>
-            <p>School</p>
-            <p>Grade</p>
+            <p><a href="mailto:email@example.com">Email address</a>: <%= user.email %></p>
+            <p>School: <%= user.studentProfile.school %></p>
+            <p>Grade: <%= user.studentProfile.schoolYear %></p>
           </div>
           <div class="button-container">
             <% if (!user.studentProfile.educator) { %>
@@ -25,12 +25,11 @@
       <div class="personal-plan">
           <h3>4-Year Personal Plan</h3>
           <div class="plan-details">
-            <button id="refresh-button">Refresh</button>
             <div class="plan-item">
-              <div id="program">Program:</div> <div id="internships">Internships:</div>
+              <div id="program">Eligible Programs:</div> <div id="internships">Internships:</div>
             </div>
             <div class="plan-item">
-              <div id="clubs">Clubs:</div> <div id="sports">Sports:</div>
+              <div id="clubs">Clubs:</div> <div id="scholarships">Eligible Scholarships:</div>
             </div>
           </div>
       </div>
@@ -151,13 +150,13 @@
   const program = document.getElementById("program");
   const internships = document.getElementById("internships");
   const clubs = document.getElementById("clubs");
-  const sports = document.getElementById("sports");
+  const scholarships = document.getElementById("scholarships");
 
   const refreshButton = document.getElementById("refresh-button");
 
 
-  if (program && internships && clubs && sports) {
-    refreshButton.addEventListener("click", async (event) => {
+  if (program && internships && clubs && scholarships) {
+    document.addEventListener("DOMContentLoaded", async (event) => {
       event.preventDefault();
 
       const id = "<%= user._id %>";
@@ -178,10 +177,25 @@
           internshipsArr = data.internships;
           projectsArr = data.personalProjects;
 
-          programsArr.forEach((prog, index) => {
+          programsArr.forEach(prog => {
             const newElement = document.createElement("p");
             newElement.textContent = prog;
             program.appendChild(newElement);
+          })
+          clubsArr.forEach(clb => {
+            const newElement = document.createElement("p");
+            newElement.textContent = clb;
+            clubs.appendChild(newElement);
+          })
+          internshipsArr.forEach(intshp => {
+            const newElement = document.createElement("p");
+            newElement.textContent = intshp;
+            internships.appendChild(newElement);
+          })
+          scholarshipsArr.forEach(schshp => {
+            const newElement = document.createElement("p");
+            newElement.textContent = schshp;
+            scholarships.appendChild(newElement);
           })
         }
       }

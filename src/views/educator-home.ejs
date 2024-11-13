@@ -31,11 +31,12 @@
         <button class="toggle-button">No</button>
       </div>
     </div>
-    <form action="/link-scholar" method="POST">
+    <form class="add-scholar-form">
       <input type="text" placeholder="Scholar's Name" name="scholarName">
-      <input type="text" placeholder="Linking Code" name="linkingCode">
+      <input type="text" placeholder="Scholar's Email" name="email">
       <input type="text" placeholder="Associated School" name="associatedSchool">
       <button type="submit" class="add-button">Add</button>
+      <p class="add-scholar error"></p>
     </form>
   </div>
 
@@ -48,5 +49,48 @@
     </ul>
   </div>
 </div>
+
+
+
+<script>
+
+  const form = document.querySelector(".add-scholar-form");
+  const addScholarError = document.querySelector(".add-scholar.error");
+
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    addScholarError.textContent = "";
+
+    const name = form.scholarName.value;
+    const email = form.email.value;
+    const school = form.associatedSchool.value;
+    const id = "<%= user._id %>"
+
+    try {
+      const res = await fetch(`/educator-profile/${id}/students/edit`, {
+        method: "PUT",
+        body: JSON.stringify({ name, email, school, id }),
+        headers: { "Content-Type": "application/json" }
+      });
+      const data = await res.json();
+      if (data.noProfile) {
+       addScholarError.textContent = "That scholar does not exist!";
+      }
+      if (data.error) {
+        console.log(data.error);
+      }
+      if (data.success) {
+        location.reload();
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
+  })
+
+
+</script>
 
 <%- include("partials/footer"); %>
