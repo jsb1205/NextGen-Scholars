@@ -599,6 +599,11 @@ const educator_edit_students = async (req, res) => {
       return res.status(404).json({noProfile: "No profile found!"});
     }
 
+    if (educator.educatorProfile.students.some(studentProfile =>
+      studentProfile.equals(student.studentProfile._id))) {
+      return res.status(400).json({exists: "Student is already in your class!"});
+    }
+
     educator.educatorProfile.students.push(student.studentProfile);
     await educator.educatorProfile.save();
 

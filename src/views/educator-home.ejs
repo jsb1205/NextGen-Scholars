@@ -8,7 +8,7 @@
     </div>
     <p class="educator-name">Dr.<%= user.educatorProfile.firstName %> <%= user.educatorProfile.lastName %></p>
     <p class="educator-details">
-      <%= user.educatorProfile.email %> <br>
+      <%= user.email %> <br>
       <%= user.educatorProfile.school %> <br>
       <%= user.educatorProfile.jobTitle %>
     </p>
@@ -24,13 +24,6 @@
 
   <div class="link-scholar-section">
     <h2>Link Your Scholar</h2>
-    <div class="teacher-question-container">
-      <p>Are you a teacher?</p>
-      <div class="teacher-toggle">
-        <button class="toggle-button">Yes</button>
-        <button class="toggle-button">No</button>
-      </div>
-    </div>
     <form class="add-scholar-form">
       <input type="text" placeholder="Scholar's Name" name="scholarName">
       <input type="text" placeholder="Scholar's Email" name="email">
@@ -75,6 +68,9 @@
         headers: { "Content-Type": "application/json" }
       });
       const data = await res.json();
+      if (data.exists) {
+        addScholarError.textContent = data.exists;
+      }
       if (data.noProfile) {
        addScholarError.textContent = "That scholar does not exist!";
       }
