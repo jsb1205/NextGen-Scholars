@@ -1,0 +1,168 @@
+/*About-us page style*/
+/* Container for the About section */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px; /* Space between columns */
+    padding: 40px;
+  }
+  
+  /* Text styling */
+  .about-text {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Ensures all text is aligned to the left */
+    text-align: left; /* Additional left alignment */
+  }
+  
+  .about-text h2 {
+    color: #7db86e; /* Green color for "About Us" */
+    font-family: sans-serif; /* Apply Fredoka font if desired */
+    font-weight: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 0px;
+  }
+  
+  .about-text p {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2rem;
+    color: #2a5dca; /* Dark blue color */
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 50px;
+  }
+  
+  .join-button {
+    background-color: #70a2f8; /* Light blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none; 
+  }
+  
+  .join-button:hover {
+    background-color: #4a76e0; /* Darker blue on hover */
+  }
+  
+  /* Image styling */
+  .about-image {
+    position: relative;
+  }
+  
+  .computer-image {
+    width: 350px; /* Adjust size as needed */
+  }
+  
+  /* Second Part of the about-us*/
+  .how-it-works-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 40px;
+    gap: 0px;
+  }
+  
+  .how-it-works-title {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 120px;
+  }
+  
+  /* Styling each line */
+  .how-it-works-title .line {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2a5dca;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .how-it-works-title .green {
+    color: #7db86e; /* Green color for "NextGen.com" */
+  }
+  
+  .feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    margin-left: 180px;
+  }
+  
+  .feature-icon {
+    width: 100px;
+    height: auto;
+  }
+  
+  .feature-text h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2a2a2a; /* Black color */
+    margin: 0;
+  }
+  
+  .feature-text p {
+    font-size: 1rem;
+    color: #555555; /* Slightly muted black for paragraph text */
+    margin: 0px 100px 0 0;
+  }
+  /*Last section of the about-us page*/
+  .our-team-section {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .our-team-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #000000;
+    margin-left: 300px;
+  }
+  
+  .team-members {
+    display: flex;
+    justify-content: center;
+    gap: 100px; /* Space between each member */
+  }
+  
+  .team-member {
+    text-align: center;
+    max-width: 150px;
+  }
+  
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Makes the image a circle */
+    object-fit: cover;
+  }
+  
+  .team-member h3 {
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #2a5dca; /* Blue color for names */
+    margin: 10px 0 5px 0;
+  }
+  
+  .team-member p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #7db86e; /* Muted color for degree and role */
+  }
+  
+  .role {
+    color: #7db86e; /* Green color for roles */
+    font-weight: bold;
+  }
+  

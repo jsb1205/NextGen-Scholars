@@ -1,0 +1,155 @@
+/*Styles for student information page*/
+/*might delete this body later*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Centered container for the profile form */
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 120vh;
+    padding: 50px;
+    background-color: #d9e5f4;
+  }
+  
+  /* Profile form styling */
+  .profile-form {
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 300px;
+    text-align: left;
+    z-index: 1;
+  }
+  
+  .form-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #7ed957; /* Green text */
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  /* Input fields styling */
+  .profile-form label {
+    font-size: 1rem;
+    color: #333;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .profile-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 35px;
+    box-sizing: border-box;
+  }
+  
+  .submit-button {
+    background-color: #7ed957;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 40%;
+    text-align: center;
+    margin: 20px 80px 0 80px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600; 
+  }
+  
+  .submit-button:hover {
+    background-color: #5a8d4d;
+  }
+  
+  /* Decorative images styling */
+  .decor-image {
+    position: absolute;
+    max-width: 100px;
+    height: auto;
+    opacity: 0.9;
+  }
+  
+  /* Position each image individually */
+  .diploma-image {
+    top: 30px;
+    left: 60px;
+    width: 260px; /* Adjust size as needed */
+    height: auto;
+    transform: rotate(-85deg);
+  }
+  
+  .lightbulb-image {
+    bottom: 350px;
+    left: 240px;
+    width: 380px; /* Adjust size as needed */
+    height: auto;
+    z-index: 0;
+    transform: rotate(-5deg);
+  }
+  
+  .notebook-image {
+    bottom: 40px;
+    left: 40px;
+    width: 220px; /* Adjust size as needed */
+    height: auto;
+  }
+  
+  .tubes-image {
+    top: 300px;
+    right: 300px;
+    width: 180px; /* Adjust size as needed */
+    height: auto;
+    transform: rotate(-10deg);
+  }
+  
+  .hat-image {
+    top: 30px;
+    right: 80px;
+    width: 180px; /* Adjust size as needed */
+    height: auto;
+    transform: rotate(25deg);
+  }
+  
+  .pencils-image {
+    bottom: 20px;
+    right: 20px;
+    width: 250px; /* Adjust size as needed */
+    height: auto;
+  }
+  
+  .screbil-image{
+    top: 400px;
+    right: -30px;
+    width: 240px; /* Adjust size as needed */
+    height: auto;
+  }
+  
+  /*teacher add more emails button*/
+  .add-email-link {
+    color: #004aad; /* Blue color for the link */
+    cursor: pointer; /* Pointer cursor to indicate it's clickable */
+    font-size: 1rem; /* Font size */
+    text-decoration: underline; /* Underline to show it's a link */
+    margin-top: 2px; /* Space above the link */
+    margin-bottom: 10px;
+    display: inline-block; /* Keeps it aligned with other text */
+  }
+  
+  /* Optional: Change color on hover */
+  .add-email-link:hover {
+    color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* student-home */
