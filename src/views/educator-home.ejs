@@ -84,7 +84,16 @@
     catch (err) {
       console.log(err);
     }
-  })
+  });
+
+
+  const linkedStudents = document.querySelectorAll(".linked-scholars ul li");
+
+  linkedStudents.forEach((student) => {
+    student.addEventListener("click", () => {
+      console.log(`Clicked on: ${student.textContent}`);
+    });
+  });
 
 
 </script>
