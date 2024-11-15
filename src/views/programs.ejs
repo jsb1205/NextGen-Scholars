@@ -1,0 +1,52 @@
+<%- include("partials/header"); %>
+
+<div class="Programs">
+    <div class="Programs-container">
+        <!-- Scholarship Cards Section -->
+        <div class="programs-section" id="programContainer">
+            <!-- Add more cards as needed -->
+        </div>
+    </div>
+</div>
+
+<script>
+    let programData = []; // Store scholarships data for filtering
+
+    async function loadProgram() {
+        try {
+            const response = await fetch('/programs.json');
+            programData = await response.json(); // Save the fetched data
+            displayPrograms(programData); // Display all scholarships initially
+        } catch (error) {
+            console.error('Error loading programs:', error);
+        }
+    }
+
+    // Function to load JSON data
+    function displayPrograms(programs) {
+        const container = document.getElementById('programContainer');
+        container.innerHTML = ''; // Clear previous scholarship cards
+
+        programs.forEach(program => {
+            const card = document.createElement('div');
+            card.classList.add('program-card');
+
+            card.innerHTML = `
+                <div class="content">
+                    <h3>${program.title}</h3>
+                    <div class="info">
+                        <p><span class="req">Requirements:</span> <span class="req-info">${program.requirements}</span></p>
+                        <p><span class="req">Program Details:</span> <span class="req-info">${program["program details"]}</span></p>
+                    </div>
+                </div>
+                <a href="${program.link}" target="_blank" class="apply-btn">Apply</a>
+            `;
+
+            container.appendChild(card);
+        });
+    }
+
+    loadProgram();
+</script>
+
+<%- include("partials/footer"); %>
