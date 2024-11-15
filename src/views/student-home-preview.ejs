@@ -20,9 +20,9 @@
 <body>
   <nav class="header">
     <div class="nav-left">
-      <h1><a href="/"><span class="montserrat">NextGen</span> <span class="fredoka">Scholars</span></a></h1>
+      <h1><span class="montserrat">NextGen</span> <span class="fredoka">Scholars</span></h1>
       <ul>
-        <% if (!user) { %>
+        <% if (!student) { %>
           <li><a href="/students">Students</a></li>
           <li><a href="/parents">Parents</a></li>
           <li><a href="/educators">Educators</a></li>
@@ -31,28 +31,12 @@
       </ul>
     </div>
 
-    <!--
-    <div class="nav-right">
-      <ul>
-        <% if (user && (user.studentProfile || user.educatorProfile)) { %>
-          <% if (user.studentProfile) { %>
-            <li><a href="/student-home/<%= user._id %>">View your home page</a></li>
-            <li><a href="/student-profile/<%= user._id %>">View student profile</a></li>
-            <li><a href="/logout">Log out</a></li>
-          <% } else { %>
-            <li><a href="/educator-home/<%= user._id %>">View your home page</a></li>
-            <li><a href="/educator-profile/<%= user._id %>">View educator profile</a></li>
-            <li><a href="/logout">Log out</a></li>
-          <% } %>
-        <% } else { %>
-          <li><a href="/login">Log in</a></li>
-        <% } %>
-      </ul>
     <div>
-    -->
+      Preview Mode
+    </div>
 
     <div>
-      <button id="return-button">Return</button>
+      <button onclick="history.back()" id="return-button">Return</button>
     </div>
   </nav>
 
@@ -193,5 +177,72 @@
 </div>
 
 
+<script>
+
+/*
+  const form = document.querySelector("form");
+  const teacherButtonContainer = document.querySelector(".button-container");
+  const teacherButton = document.querySelector(".teacher-button");
+  const profileButton = document.getElementById("profile-button");
+*/
+  
+  const program = document.getElementById("program");
+  const internships = document.getElementById("internships");
+  const clubs = document.getElementById("clubs");
+  const scholarships = document.getElementById("scholarships");
+
+
+  if (program && internships && clubs && scholarships) {
+    document.addEventListener("DOMContentLoaded", async (event) => {
+      event.preventDefault();
+
+      const id = "<%= student._id %>";
+
+      try {
+        const res = await fetch(`/student-home/${id}/preview/interests/get`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" }
+        });
+        const data = await res.json();
+        if (data.error) {
+          console.log(data.error);
+        }
+        if (data.success) {
+          programsArr = data.programs;
+          clubsArr = data.clubs;
+          scholarshipsArr = data.scholarships;
+          internshipsArr = data.internships;
+          projectsArr = data.personalProjects;
+
+          programsArr.forEach(prog => {
+            const newElement = document.createElement("p");
+            newElement.textContent = prog;
+            program.appendChild(newElement);
+          })
+          clubsArr.forEach(clb => {
+            const newElement = document.createElement("p");
+            newElement.textContent = clb;
+            clubs.appendChild(newElement);
+          })
+          internshipsArr.forEach(intshp => {
+            const newElement = document.createElement("p");
+            newElement.textContent = intshp;
+            internships.appendChild(newElement);
+          })
+          scholarshipsArr.forEach(schshp => {
+            const newElement = document.createElement("p");
+            newElement.textContent = schshp;
+            scholarships.appendChild(newElement);
+          })
+        }
+      }
+      catch (err) {
+        console.log(err);
+      }
+    });
+  }
+
+
+</script>
 
 <%- include("partials/footer"); %>

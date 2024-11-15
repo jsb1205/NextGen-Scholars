@@ -276,13 +276,18 @@ const educator_home_page_get = async (req, res) => {
 
   // find the assocciated user model with the id
   const user = await User.findById(id)
-    .populate({
-        path: 'educatorProfile',
-        populate: {
-            path: 'students'
-        }
-    })
-    .exec();
+  .populate({
+      path: 'educatorProfile',
+      populate: [
+          {
+              path: 'students',
+              populate: {
+                  path: 'credentials'
+              }
+          }
+      ]
+  })
+  .exec();
 
   res.render("educator-home", { user });
 }
@@ -304,6 +309,37 @@ const student_interests_get = async (req, res) => {
     const scholarships = scholarshipCalculator(user.studentProfile);
     const internships = internshipCalculator(user.studentProfile);
     const personalProjects = personalProjectCalculator(user.studentProfile);
+
+    res.status(200).json({
+      success: "Success!",
+      programs,
+      clubs,
+      scholarships,
+      internships,
+      personalProjects
+    });
+  }
+  catch (err) {
+    res.status(400).json({error: "Could not get interests!"});
+  }
+}
+
+const student_preview_interests_get = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: "No profile found!"});
+  }
+
+  try {
+    const student = await StudentProfile.findById(id)
+    .exec();
+
+    const programs = academicCalculator(student);
+    const clubs = clubCalculator(student);
+    const scholarships = scholarshipCalculator(student);
+    const internships = internshipCalculator(student);
+    const personalProjects = personalProjectCalculator(student);
 
     res.status(200).json({
       success: "Success!",
@@ -521,7 +557,6 @@ const student_add_educator = async (req, res) => {
     user.studentProfile.educator = educator;
     await user.studentProfile.save();
     await user.save();
-    //await user.studentProfile.populate("educator");
 
     educator.students.push(user.studentProfile);
     await educator.save();
@@ -590,10 +625,11 @@ const educator_edit_students = async (req, res) => {
     .exec();
 
   try {
+
     const student = await User.findOne({ email })
-      .select("-password")
-      .populate("studentProfile")
-      .exec();
+    .select("-password")
+    .populate("studentProfile")
+    .exec();
 
     if (!student) {
       return res.status(404).json({noProfile: "No profile found!"});
@@ -618,7 +654,15 @@ const educator_edit_students = async (req, res) => {
 }
 
 const student_home_preview_get = async (req, res) => {
-  const { student } = req.body;
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: "No profile found!"});
+  }
+
+  const student = await StudentProfile.findById(id)
+    .populate("educator")
+    .exec();
 
   res.render("student-home-preview", { student });
 }
@@ -641,5 +685,6 @@ module.exports = {
   student_interests_update_get,
   student_profile_picture_update,
   educator_edit_students,
-  student_home_preview_get
+  student_home_preview_get,
+  student_preview_interests_get
 }
