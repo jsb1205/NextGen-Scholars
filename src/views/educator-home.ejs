@@ -37,7 +37,7 @@
     <h2>Linked Scholars:</h2>
     <ul>
       <% user.educatorProfile.students.forEach(student => { %>
-        <li> <%= student.firstName %> <%= student.lastName %></li>
+        <li><a href="/student-home/<%= student._id %>/preview/get"><%= student.firstName %> <%= student.lastName %></a></li>
       <% }); %>
     </ul>
   </div>
@@ -85,16 +85,6 @@
       console.log(err);
     }
   });
-
-
-  const linkedStudents = document.querySelectorAll(".linked-scholars ul li");
-
-  linkedStudents.forEach((student) => {
-    student.addEventListener("click", () => {
-      console.log(`Clicked on: ${student.textContent}`);
-    });
-  });
-
 
 </script>
 
