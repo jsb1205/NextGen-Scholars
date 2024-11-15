@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextGen Scholars</title>
+  <link rel="stylesheet" href="/login.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/home-screen.css">
+  <link rel="stylesheet" href="/sign-up.css">
+  <link rel="stylesheet" href="/about-us.css">
+  <link rel="stylesheet" href="/student-edit.css">
+  <link rel="stylesheet" href="/student-profile.css">
+  <link rel="stylesheet" href="/profile-form.css">
+  <link rel="stylesheet" href="/styles-educator.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+  </style>
+</head>
+<body>
+  <nav class="header">
+    <div class="nav-left">
+      <h1><a href="/"><span class="montserrat">NextGen</span> <span class="fredoka">Scholars</span></a></h1>
+      <ul>
+        <% if (!user) { %>
+          <li><a href="/students">Students</a></li>
+          <li><a href="/parents">Parents</a></li>
+          <li><a href="/educators">Educators</a></li>
+          <li><a href="/about-us">About Us</a></li>
+        <% } %>
+      </ul>
+    </div>
+
+    <!--
+    <div class="nav-right">
+      <ul>
+        <% if (user && (user.studentProfile || user.educatorProfile)) { %>
+          <% if (user.studentProfile) { %>
+            <li><a href="/student-home/<%= user._id %>">View your home page</a></li>
+            <li><a href="/student-profile/<%= user._id %>">View student profile</a></li>
+            <li><a href="/logout">Log out</a></li>
+          <% } else { %>
+            <li><a href="/educator-home/<%= user._id %>">View your home page</a></li>
+            <li><a href="/educator-profile/<%= user._id %>">View educator profile</a></li>
+            <li><a href="/logout">Log out</a></li>
+          <% } %>
+        <% } else { %>
+          <li><a href="/login">Log in</a></li>
+        <% } %>
+      </ul>
+    <div>
+    -->
+
+    <div>
+      <button id="return-button">Return</button>
+    </div>
+  </nav>
+
+
+<div class="clubs">
+  <% if (student.interests.length !== 0) { %>
+      <div class="profile-page-container">
+        <div class="profile-details">
+          <div class="profile-info-details">
+            <img src="/default profile.png" alt="Profile Picture" class="profile-icon"><br />
+            <button id="profile-button">Select Profile Picture</button>
+            <h2><%= student.firstName %> <%= student.lastName %></h2>
+            <p>School: <%= student.school %></p>
+            <p>Grade: <%= student.schoolYear %></p>
+          </div>
+          <div class="button-container">
+            <p>Educator: <%= student.educator.firstName %> <%= student.educator.lastName %></p>
+          </div>
+        </div>
+
+      <!-- Right section with personal plan -->
+      <div class="personal-plan">
+          <h3>4-Year Personal Plan</h3>
+          <div class="plan-details">
+            <div class="plan-item">
+              <div id="program">Eligible Programs:</div> <div id="internships">Internships:</div>
+            </div>
+            <div class="plan-item">
+              <div id="clubs">Clubs:</div> <div id="scholarships">Eligible Scholarships:</div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <div class="feature-item feature-green">
+        <img src="/scholarships-icon.png" alt="Scholarships Icon">
+        <p>Scholarships</p>
+      </div>
+      <div class="feature-item feature-blue">
+        <img src="/universities-icon.png" alt="Universities Icon">
+        <p>Universities</p>
+      </div>
+      <div class="feature-item feature-green">
+        <img src="/extracurriculars-icon.png" alt="Extracurriculars Icon">
+        <p>Extracurriculars</p>
+      </div>
+      <div class="feature-item feature-blue">
+        <img src="/programs-icon.png" alt="Programs Icon">
+        <p>Programs</p>
+      </div>
+  </div>
+  <% } else { %>
+    <div class="welcome-container">
+      <div class="image-container">
+        <img src="/interest-side.png" alt="Interests Image">
+      </div>
+      <div class="interests-container">
+        <h1 class="welcome-title">
+          Welcome, <span class="user-name"><%= student.firstName %> <%= student.lastName %></span>
+        </h1>
+        <p class="subtext">Please select all your interest!</p>
+        <form class="interests-form">
+          <h2 class="form-title">Pick Your Interest</h2>
+
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+                <label for="interest1">Science</label>
+                <input type="checkbox" id="interest1" name="interests" value="science">
+              
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest2">Technology</label>
+                <input type="checkbox" id="interest2" name="interests" value="technology">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest3">Engineering</label>
+                <input type="checkbox" id="interest3" name="interests" value="engineering">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest4">Math</label>
+                <input type="checkbox" id="interest4" name="interests" value="math">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest5">Arts</label>
+                <input type="checkbox" id="interest5" name="interests" value="arts">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest6">Politics</label>
+                <input type="checkbox" id="interest6" name="interests" value="politics">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest7">History</label>
+                <input type="checkbox" id="interest7" name="interests" value="history">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest8">Sports</label>
+                <input type="checkbox" id="interest8" name="interests" value="sports">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest9">Reading/Writing</label>
+                <input type="checkbox" id="interest9" name="interests" value="literature">
+                
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest10">Music</label>
+                <input type="checkbox" id="interest10" name="interests" value="music">
+            </div>
+    
+            <div class="checkbox-item">
+                <label for="interest11">Medicine</label>
+                <input type="checkbox" id="interest11" name="interests" value="medicine">
+            </div>
+          </div>
+
+          <button class="submit-interest">Submit</button>
+
+        </form>
+      </div>
+    </div>
+  <% } %>
+
+</div>
+
+
+
+<%- include("partials/footer"); %>

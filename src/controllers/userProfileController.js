@@ -617,6 +617,12 @@ const educator_edit_students = async (req, res) => {
   }
 }
 
+const student_home_preview_get = async (req, res) => {
+  const { student } = req.body;
+
+  res.render("student-home-preview", { student });
+}
+
 
 module.exports = {
   student_home_page_get,
@@ -634,5 +640,6 @@ module.exports = {
   student_add_educator,
   student_interests_update_get,
   student_profile_picture_update,
-  educator_edit_students
+  educator_edit_students,
+  student_home_preview_get
 }
