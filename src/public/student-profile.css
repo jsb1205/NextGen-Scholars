@@ -1,3 +1,7 @@
+.invisible {
+  display: none
+}
+
 /* Student-profile styles*/
 .Student-profile-page-container {
     display: flex;

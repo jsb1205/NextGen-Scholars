@@ -5,8 +5,43 @@
       <div class="profile-page-container">
         <div class="profile-details">
           <div class="profile-info-details">
-            <img src="/default profile.png" alt="Profile Picture" class="profile-icon"><br />
+            <img src="/picture<%= user.studentProfile.profile %>.png" alt="Profile Picture" class="profile-icon"><br />
             <button id="profile-button">Select Profile Picture</button>
+            <form class="profile-select-form invisible">
+  
+              <label><img src="/picture1.jpg" alt="Option 1" class="profile-preview"></label>
+              <input type="radio" name="profile" value="1">
+
+              <label><img src="/picture2.jpg" alt="Option 2" class="profile-preview"></label>
+              <input type="radio" name="profile" value="2">
+
+              <label><img src="/picture3.jpg" alt="Option 3" class="profile-preview"></label>
+              <input type="radio" name="profile" value="3">
+
+              <label><img src="/picture4.jpg" alt="Option 4" class="profile-preview"></label>
+              <input type="radio" name="profile" value="4">
+
+              <label><img src="/picture5.jpg" alt="Option 5" class="profile-preview"></label>
+              <input type="radio" name="profile" value="5">
+
+              <label><img src="/picture6.jpg" alt="Option 6" class="profile-preview"></label>
+              <input type="radio" name="profile" value="6">
+
+              <label><img src="/picture7.jpg" alt="Option 7" class="profile-preview"></label>
+              <input type="radio" name="profile" value="7">
+
+              <label><img src="/picture8.jpg" alt="Option 8" class="profile-preview"></label>
+              <input type="radio" name="profile" value="8">
+
+              <label><img src="/picture9.jpg" alt="Option 9" class="profile-preview"></label>
+              <input type="radio" name="profile" value="9">
+
+              <label><img src="/picture10.jpg" alt="Option 10" class="profile-preview"></label>
+              <input type="radio" name="profile" value="10">
+
+              <button>Submit</button>
+
+            </form>
             <h2><%= user.studentProfile.firstName %> <%= user.studentProfile.lastName %></h2>
             <p><a href="mailto:email@example.com">Email address</a>: <%= user.email %></p>
             <p>School: <%= user.studentProfile.school %></p>
@@ -142,7 +177,7 @@
 
 
 <script>
-  const form = document.querySelector("form");
+  const form = document.querySelector(".interests-form");
   const teacherButtonContainer = document.querySelector(".button-container");
   const teacherButton = document.querySelector(".teacher-button");
   const profileButton = document.getElementById("profile-button");
@@ -299,25 +334,33 @@
     });
   }
 
+
+  const profileForm = document.querySelector(".profile-select-form");
+
   if (profileButton) {
-    profileButton.addEventListener("click", async (event) => {
+    profileButton.addEventListener("click", (event) => {
+      profileForm.classList.toggle("invisible");
+    });
+  }
+
+  if (profileForm) {
+    profileForm.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       const id = "<%= user._id %>";
-
-      // Add list of profile pictures
-
-
+      const profilePicture = profileForm.profile.value;
 
       try {
+        console.log("here");
         const res = await fetch(`/student-home/${id}/profile-picture/put`, {
           method: "PUT",
-          body: JSON.stringify({ id }),
+          body: JSON.stringify({ profilePicture }),
           headers: { "Content-Type": "application/json" }
         });
+        console.log("After");
         const data = await res.json();
-        if (data.err) {
-          console.log(data.err);
+        if (data.error) {
+          console.log(data.error);
         }
         if (data.success) {
           location.reload();

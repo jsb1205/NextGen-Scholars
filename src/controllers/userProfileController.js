@@ -468,8 +468,6 @@ const student_profile_get = async (req, res) => {
     .populate("studentProfile")
     .exec();
 
-  console.log(user);
-
   res.render("student-profile", { user });
 }
 
@@ -592,22 +590,17 @@ const student_profile_picture_update = async (req, res) => {
 
   try {
     const user = await User.findById(id)
-    .populate("studentProfile")
-    .exec();
-  
+      .populate("studentProfile")
+      .exec();
+
     user.studentProfile.profile = profilePicture;
 
-    const updated = await user.studentProfile.save();
-    await user.save();
+    await user.studentProfile.save();
 
-    if (!updated) {
-      res.status(400).json({error: "Error! User not updated!"});
-      return;
-    }
     res.status(200).json({success: "Successfully updated!"});
   }
-  catch (err) {
-    res.status(400).json({ err });
+  catch (error) {
+    res.status(400).json({ error });
   }
 }
 
