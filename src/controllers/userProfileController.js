@@ -628,6 +628,10 @@ const educator_edit_students = async (req, res) => {
       return res.status(404).json({noProfile: "No profile found!"});
     }
 
+    if (student.studentProfile.educator) {
+      return res.status(400).json({exists: "Student is already assigned to a class!"});
+    }
+
     if (educator.educatorProfile.students.some(studentProfile =>
       studentProfile.equals(student.studentProfile._id))) {
       return res.status(400).json({exists: "Student is already in your class!"});
@@ -660,6 +664,34 @@ const student_home_preview_get = async (req, res) => {
   res.render("student-home-preview", { student });
 }
 
+const educator_delete_students = async (req, res) => {
+  const { studentId } = req.body;
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id) || !mongoose.Types.ObjectId.isValid(studentId)) {
+    return res.status(404).json({error: "No profile found!"});
+  }
+
+  try {
+    const educator = await User.findById(id)
+      .populate("educatorProfile")
+      .exec();
+
+    educator.educatorProfile.students.pull(studentId);
+
+    await educator.educatorProfile.save();
+
+    const student = await StudentProfile.findById(studentId);
+    student.educator = null;
+    await student.save();
+
+    res.status(200).json({ success: "Successful removeal" });
+  }
+  catch (error) {
+    res.status(400).json({ error });
+  }
+}
+
 
 module.exports = {
   student_home_page_get,
@@ -679,5 +711,6 @@ module.exports = {
   student_profile_picture_update,
   educator_edit_students,
   student_home_preview_get,
-  student_preview_interests_get
+  student_preview_interests_get,
+  educator_delete_students
 }

@@ -35,9 +35,15 @@
 
   <div class="linked-scholars">
     <h2>Linked Scholars:</h2>
-    <ul>
+    <ul class="student-list">
       <% user.educatorProfile.students.forEach(student => { %>
-        <li><a href="/student-home/<%= student._id %>/preview/get"><%= student.firstName %> <%= student.lastName %></a></li>
+        <li id="<%= student._id %>">
+          <a href="/student-home/<%= student._id %>/preview/get">
+            <img src="/picture<%= student.profile %>.png" alt="Profile Picture" class="profile-icon">
+            <%= student.firstName %> <%= student.lastName %>
+          </a>
+          <button class="remove-scholar-button" value="<%= student._id %>">Remove</button>
+        </li>
       <% }); %>
     </ul>
   </div>
@@ -85,6 +91,36 @@
       console.log(err);
     }
   });
+
+  
+  const removeButtons = document.querySelectorAll(".remove-scholar-button");
+
+  const removeFunc =  async (event) => {
+    event.preventDefault();
+
+    const id = "<%= user._id %>"
+    const studentId = event.target.value;
+
+    try {
+      const res = await fetch(`/educator-profile/${id}/students/delete`, {
+        method: "DELETE",
+        body: JSON.stringify({ studentId }),
+        headers: { "Content-Type": "application/json" }
+      });
+      const data = await res.json();
+      if (data.error) {
+        console.log(data.error);
+      }
+      if (data.success) {
+        location.reload();
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
+  };
+
+  removeButtons.forEach(button => button.addEventListener("click", removeFunc));
 
 </script>
 
