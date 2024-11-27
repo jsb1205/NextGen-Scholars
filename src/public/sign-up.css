@@ -1,0 +1,139 @@
+/* Sign up page styles */
+
+/* Centering the container */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #d9e5f4; /* Light blue background */
+  }
+  
+  /* Form styling */
+  .signup-form {
+    background-color: #f9f9f9; /* Light gray form background */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    z-index: 1;
+  }
+  
+  /* Title styling to match "Login" */
+  .form-title {
+    font-family: 'Fredoka', sans-serif; /* Assuming Fredoka is used in "Login" */
+    color: #7ed957; /* Blue color to match "Login" */
+    font-weight: bold;
+    font-size: 2rem; /* Increased font size */
+    margin-bottom: 20px;
+  }
+  
+  /* Input styling */
+  .signup-form input[type="text"],
+  .signup-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 25px;
+    background-color: #f0f0f0;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  /* Styling for "Confirm Password" after input */
+  .signup-form input[name="confirmPassword"]:not(:placeholder-shown) {
+    background-color: #dceafc; /* Light blue background after typing */
+    color: #333; /* Text color */
+  }
+  
+  /* Sign in button styling */
+  .signup-button {
+    background-color: #7ed957; /* Green button */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .signup-button:hover {
+    background-color: #2d8f47; /* Darker green on hover */
+  }
+  
+  /* Account text styling */
+  .account-text {
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 15px;
+  }
+  
+  .account-text a {
+    color: #4285f4; /* Blue color for link */
+    text-decoration: none;
+  }
+  
+  .account-text a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Decorative image styling */
+  .decorative-image {
+    position: absolute;
+    width: 100px;
+    height: auto;
+  }
+  
+  /* Specific positions for each image */
+  .books {
+    bottom: 20px;
+    left: 20px;
+    width: 500px; /* Adjust size as needed */
+    height: auto;
+  }
+  
+  .lightbulb {
+    top: 200px;
+    left: 900px;
+    width: 70px; /* Adjust size as needed */
+    z-index: 2;
+    transform: rotate(-25deg);
+  }
+  
+  .diploma {
+    top: 100px;
+    right: 70px;
+    width: 300px; /* Adjust size as needed */
+    height: auto;
+  }
+  
+  .pencils {
+    bottom: 30px;
+    right: 40px;
+    width: 250px; /* Adjust size as needed */
+    height: auto;
+  }
+  
+  /* Visually hidden labels for accessibility */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  /* Styling for error messages */
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+  }

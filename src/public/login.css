@@ -1,0 +1,108 @@
+/* login page styles*/
+
+/* Overall page layout */
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligns items to the left */
+    background-color: #d9e5f4; /* Light blue background */
+    padding: 20px 50px; /* Adds padding on the left and right */
+    height: 100vh;
+  }
+  
+  /* Login form container */
+  .login-container {
+    background-color: white;
+    padding: 30px 70px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    min-height: 450px;
+    margin-left: 50px;  /* Move the login form slightly to the right */
+    margin-right: 50px; /* Space between form and image */
+  }
+  
+  .login-container h2 {
+    font-family: 'Fredoka', sans-serif;
+    color: #7ed957; /* Green color */
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  /* Input styling */
+  .login-container label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+    margin-top: 30px;
+  }
+  
+  .login-container input[type="text"] 
+  .login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
+  
+  /* Forgot password link */
+  .forgot-password {
+    color: #4285f4; /* Blue color */
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 15px;
+    text-align: right;
+    text-decoration: none;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+  /* Login button styling */
+  .login-button {
+    background-color: #7ed957; /* Green color */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 60px;
+  }
+  
+  .login-button:hover {
+    background-color: #2d8f47; /* Darker green on hover */
+  }
+  
+  /* Sign up link */
+  .no-account {
+    font-size: 0.9rem;
+    color: #333;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .no-account a {
+    color: #4285f4; /* Blue color */
+    text-decoration: none;
+  }
+  
+  .no-account a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Owl illustration */
+  .login-illustration {
+    margin-left: 200px; /* Adds spacing between form and owl image */
+  }
+  
+  .login-illustration img {
+    width: 600px; /* Adjust as needed */
+    height: auto;
+  }

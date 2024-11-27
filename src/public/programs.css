@@ -1,0 +1,77 @@
+/*University Page*/
+.Programs
+{
+  background-color: #d9e5f4;
+  display: flex; /* Ensures content is centered vertically */
+  justify-content: center; /* Centers content horizontally */
+  align-items: flex-start; /*Aligns content to the top */
+}
+
+.Programs-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px; /*Adjust this width as needed*/
+  margin-top: 80px; 
+  margin-bottom: 80px;
+}
+
+.programs-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 1000px;
+}
+
+.program-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.program-card h3 {
+  color: #004aad;
+  font-family: 'fredoka', sans-serif;
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.program-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.program-card p {
+  margin: 0;
+  font-size: 1em;
+  font-weight: normal;
+}
+.req{
+    margin: 0;
+  font-size: 1em;
+  color: #004aad; /#7ed957*/
+}
+.req-info{
+    margin: 0;
+  font-size: 0.9em;
+  color: black;
+}
+
+.program-card .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.program-card .content .details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}

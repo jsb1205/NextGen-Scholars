@@ -1,14 +1,127 @@
 <%- include("partials/header"); %>
 
-<p>Welcome, <%= user.educatorProfile.firstName %> <%= user.educatorProfile.lastName %></p>
+<div class="educator-page">
+  <div class="profile-section">
+    <div class="profile-icon">
+      <!-- Add profile icon here -->
+      <img src="/profile-icon.png" alt="Profile Icon">
+    </div>
+    <p class="educator-name">Dr.<%= user.educatorProfile.firstName %> <%= user.educatorProfile.lastName %></p>
+    <p class="educator-details">
+      <%= user.email %> <br>
+      <%= user.educatorProfile.school %> <br>
+      <%= user.educatorProfile.jobTitle %>
+    </p>
+    <div class="class-code">
+      Code: <span><%= user.educatorProfile.classId %></span>
+    </div>
+    <div class="settings">
+      <a href="/settings">
+        <img src="/settings-icon.png" alt="Settings Icon"> Settings
+      </a>
+    </div>
+  </div>
 
-<div class="students-container">
-  <h1>Your students</h1>
-  <ul>
-    <% user.educatorProfile.students.forEach(student => { %>
-      <li> <%= student.firstName %> <%= student.lastName %></li>
-    <% }); %>
-  </ul>
+  <div class="link-scholar-section">
+    <h2>Link Your Scholar</h2>
+    <form class="add-scholar-form">
+      <input type="text" placeholder="Scholar's Name" name="scholarName">
+      <input type="text" placeholder="Scholar's Email" name="email">
+      <input type="text" placeholder="Associated School" name="associatedSchool">
+      <button type="submit" class="add-button">Add</button>
+      <p class="add-scholar error"></p>
+    </form>
+  </div>
+
+  <div class="linked-scholars">
+    <h2>Linked Scholars:</h2>
+    <ul class="student-list">
+      <% user.educatorProfile.students.forEach(student => { %>
+        <li id="<%= student._id %>">
+          <a href="/student-home/<%= student._id %>/preview/get">
+            <img src="/picture<%= student.profile %>.png" alt="Profile Picture" class="profile-icon">
+            <%= student.firstName %> <%= student.lastName %>
+          </a>
+          <button class="remove-scholar-button" value="<%= student._id %>">Remove</button>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
 </div>
+
+
+
+<script>
+
+  const form = document.querySelector(".add-scholar-form");
+  const addScholarError = document.querySelector(".add-scholar.error");
+
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    addScholarError.textContent = "";
+
+    const name = form.scholarName.value;
+    const email = form.email.value;
+    const school = form.associatedSchool.value;
+    const id = "<%= user._id %>"
+
+    try {
+      const res = await fetch(`/educator-profile/${id}/students/edit`, {
+        method: "PUT",
+        body: JSON.stringify({ name, email, school, id }),
+        headers: { "Content-Type": "application/json" }
+      });
+      const data = await res.json();
+      if (data.exists) {
+        addScholarError.textContent = data.exists;
+      }
+      if (data.noProfile) {
+       addScholarError.textContent = "That scholar does not exist!";
+      }
+      if (data.error) {
+        console.log(data.error);
+      }
+      if (data.success) {
+        location.reload();
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
+  });
+
+  
+  const removeButtons = document.querySelectorAll(".remove-scholar-button");
+
+  const removeFunc =  async (event) => {
+    event.preventDefault();
+
+    const id = "<%= user._id %>"
+    const studentId = event.target.value;
+
+    try {
+      const res = await fetch(`/educator-profile/${id}/students/delete`, {
+        method: "DELETE",
+        body: JSON.stringify({ studentId }),
+        headers: { "Content-Type": "application/json" }
+      });
+      const data = await res.json();
+      if (data.error) {
+        console.log(data.error);
+      }
+      if (data.success) {
+        location.reload();
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
+  };
+
+  removeButtons.forEach(button => button.addEventListener("click", removeFunc));
+
+</script>
 
 <%- include("partials/footer"); %>

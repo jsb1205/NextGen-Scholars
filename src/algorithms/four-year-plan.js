@@ -1,6 +1,6 @@
 // Input: user.studentProfile
-// Output: set containing list of academic options
-export const academicCalculator = (student) => {
+// Output: list of academic options
+const academicCalculator = (student) => {
   const academics = new Set();
   const schoolYear = student.schoolYear;
   const gpa = student.gpa;
@@ -29,13 +29,13 @@ export const academicCalculator = (student) => {
     academics.add("AP");
   }
 
-  return academics;
+  return [...academics];
 }
 
 
 // Input: user.studentProfile
-// Output: set containing list of scholarships
-export const scholarshipCalculator = (student) => {
+// Output: list of scholarships
+const scholarshipCalculator = (student) => {
   let scholarships = new Set();
 
   // assuming all our users are from Florida
@@ -63,13 +63,13 @@ export const scholarshipCalculator = (student) => {
     }
   }
 
-  return scholarships;
+  return [...scholarships];
 }
 
 
 // Input: user.studentProfile
-// Output: set containing list of extracurriculars/clubs
-export const interestCalculator = (student) => {
+// Output: list of extracurriculars/clubs
+const clubCalculator = (student) => {
   let interestsList = new Set();
   const interests = student.interests;
   const gender = student.gender;
@@ -128,14 +128,14 @@ export const interestCalculator = (student) => {
     interestsList.add("National-Honor-Society");
   }
 
-  return interestsList;
+  return [...interestsList];
 }
 
 
 // Not applicable if student.studentProfile.age < 16
 // Input: user.studentProfile
-// Output: set containing list of internships
-export const internshipCalculator = (student) => {
+// Output: list of internships
+const internshipCalculator = (student) => {
   let internships = new Set();
   const schoolYear = student.schoolYear;
   const interests = student.interests;
@@ -163,13 +163,13 @@ export const internshipCalculator = (student) => {
     internships.add("Fleet-Services-Student-Intern-9039");
   }
 
-  return internships;
+  return [...internships];
 }
 
 
 // Input: user.studentProfile
-// Output: Set containing list of potential personal projects
-export const personalProjectCalculator = (student) => {
+// Output: list of potential personal projects
+const personalProjectCalculator = (student) => {
   const projects = new Set();
   const interests = student.interests;
 
@@ -238,6 +238,7 @@ export const personalProjectCalculator = (student) => {
     projects.add("Host a street cleanup");
   }
 
-  return projects;
+  return [...projects];
 }
+
 
