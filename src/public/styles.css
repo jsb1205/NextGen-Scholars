@@ -530,7 +530,9 @@ body, html {
 }
 
 .profile-code,
-.teacher-button {
+.teacher-button, 
+.profile-select-form button
+{
   display: block;
   font-family: 'Fredoka';
   background-color: #7ed957;
@@ -595,6 +597,47 @@ body, html {
   margin-left: 450px;
   margin-bottom: 60px;
 }
+/* Profile Preview Images */
+.profile-preview {
+  width: 100px; /* Set width of the profile pictures */
+  height: 100px; /* Set height of the profile pictures */
+  border-radius: 10px; /* Add rounded corners */
+  border: 2px solid transparent; /* Default border */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  object-fit: cover; /* Ensure the image scales nicely */
+  transition: transform 0.2s ease, border-color 0.2s ease; /* Add smooth hover effects */
+}
+/* Hover Effect for Profile Pictures */
+.profile-preview:hover {
+  transform: scale(1.1); /* Slight zoom-in effect on hover */
+  border-color: #007bff; /* Blue border on hover */
+}
 
+/* Highlight Selected Picture */
+input[type="radio"]:checked + .profile-preview {
+  border-color: #2a5dca; /* Blue border for selected picture */
+  transform: scale(1.1); /* Slight zoom for selected picture */
+}
 
+.profile-select-form button:hover {
+  background-color: #66a658; /* Darker green on hover */
+}
+
+/* Profile Button to Toggle Form */
+#profile-button {
+  display: block;
+  font-family: 'Fredoka';
+  background-color: #7ed957;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin: 10px auto;
+  font-size: 0.9em;
+  width: fit-content;
+}
+
+#profile-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
 
