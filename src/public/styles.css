@@ -531,7 +531,8 @@ body, html {
 
 .profile-code,
 .teacher-button, 
-.profile-select-form button
+.profile-select-form button,
+#profile-button
 {
   display: block;
   font-family: 'Fredoka';
@@ -623,21 +624,15 @@ input[type="radio"]:checked + .profile-preview {
   background-color: #66a658; /* Darker green on hover */
 }
 
-/* Profile Button to Toggle Form */
-#profile-button {
-  display: block;
-  font-family: 'Fredoka';
-  background-color: #7ed957;
-  color: black;
-  padding: 10px 15px;
-  border-radius: 20px;
-  font-weight: bold;
-  margin: 10px auto;
-  font-size: 0.9em;
-  width: fit-content;
-}
 
 #profile-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #66a658; /* Darker blue on hover */
+}
+.profile-icon {
+  width: 200px; /* Ensure this matches your desired size */
+  height: 200px;
+  border-radius: 50%; /* Make it a circle */
+  object-fit: cover; /* Crop the image to fit the circle */
+  background-color: #0056b3; /* Fallback color if image fails to load */
 }
 

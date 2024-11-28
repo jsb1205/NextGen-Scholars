@@ -461,12 +461,17 @@ const student_profile_get = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: "No profile found!"});
+    return res.status(404).json({ error: "No profile found!" });
   }
 
   const user = await User.findById(id)
     .populate("studentProfile")
     .exec();
+
+  // Add default profile picture if none is set
+  if (!user.studentProfile || !user.studentProfile.profile) {
+    user.studentProfile.profile = "default"; // Set default
+  }  
 
   res.render("student-profile", { user });
 }
@@ -585,7 +590,7 @@ const student_profile_picture_update = async (req, res) => {
   const { profilePicture } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: "No profile found!"});
+    return res.status(404).json({ error: "No profile found!" });
   }
 
   try {
@@ -593,13 +598,13 @@ const student_profile_picture_update = async (req, res) => {
       .populate("studentProfile")
       .exec();
 
-    user.studentProfile.profile = profilePicture;
+    // Assign "default" if no profile picture is provided
+    user.studentProfile.profile = profilePicture || "default";
 
     await user.studentProfile.save();
 
-    res.status(200).json({success: "Successfully updated!"});
-  }
-  catch (error) {
+    res.status(200).json({ success: "Successfully updated!" });
+  } catch (error) {
     res.status(400).json({ error });
   }
 }

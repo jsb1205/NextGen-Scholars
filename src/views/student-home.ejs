@@ -5,7 +5,7 @@
       <div class="profile-page-container">
         <div class="profile-details">
           <div class="profile-info-details">
-            <img src="/picture<%= user.studentProfile.profile %>.png" alt="Profile Picture" class="profile-icon"><br />
+            <img src="/picture<%= user.studentProfile.profile || 'default' %>.png" alt="Profile Picture" class="profile-icon">
             <button id="profile-button">Select Profile Picture</button>
             <form class="profile-select-form invisible">
   
