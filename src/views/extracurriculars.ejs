@@ -1,3 +1,116 @@
 <%- include("partials/header"); %>
 
+<div class="Extracurriculars">
+    <div class="extracurriculars-container">
+        <!-- Scholarship Cards Section -->
+        <div class="extracurriculars-section" id="extracurricularsContainer">
+            
+            <!-- Add more cards as needed -->
+        </div>
+
+        <!-- Filter Section -->
+        <div class="Extracurriculars-Right">
+            <div class="filter-section">
+                <input type="text" placeholder="Search..." class="search-bar">
+                <div class="filters">
+                    <label for="type">Interests</label>
+                    <select id="type">
+                        <option value="All">All</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Math">Math</option>
+                        <option value="Politics">Politics</option>
+                        <option value="Reading / Writing">Reading / Writing</option>
+                        <option value="Sports">Sports</option>
+                        <option value="History">History</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Music">Music</option>
+                        <option value="Medicine">Medicine</option>
+
+                    </select>
+                </div>
+                <!-- Information Box -->
+            
+            </div>
+            <div class="info-box-big">
+                <div class="info-box">
+                    <h2>Extracurriculars How-To:</h2>
+                    <ol>
+                        <li>Filter your extracurriculars based on your personal interests!</li>
+                        <li>Join your high school or community team to get involved. If it doesn’t exist yet, try founding it yourself for an extra challenge</li>
+                        <li>Don’t be afraid! The more time you commit, the more you learn.</li>
+                        <li>Document numbers, how quickly you finished a sprint, how many people you impacted, how many hours you spent practicing, etc.</li>
+                        <li>Have fun and make new friends!</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    let extracurricularsData = []; // Store scholarships data for filtering
+
+    async function loadExtracurriculars() {
+        try {
+            const response = await fetch('/extracurricular.json');
+            extracurricularsData = await response.json(); // Save the fetched data
+            displayExtracurriculars(extracurricularsData); // Display all scholarships initially
+        } catch (error) {
+            console.error('Error loading extracurricular:', error);
+        }
+    }
+    // Function to load JSON data
+    function displayExtracurriculars(extracurriculars) {
+        const container = document.getElementById('extracurricularsContainer');
+        container.innerHTML = ''; // Clear previous scholarship cards
+
+        extracurriculars.forEach(extracurricular => {
+            const card = document.createElement('div');
+            card.classList.add('extracurriculars-card');
+
+            card.innerHTML = `
+                <div class="content">
+                    <h3>${extracurricular.title}</h3>
+                    <div class="info">
+                        <p><span class="req">Description:</span> <span class="req-info">${extracurricular["extracurricular details"]}</span></p>
+                    </div>
+                </div>
+            `;
+
+            container.appendChild(card);
+        });
+    }
+
+    // Call the function to load scholarships on page load
+    // GPA filter function
+    function filterExtracurriculars() {
+        const interestFilter = document.getElementById('type').value.toLowerCase();
+        const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
+
+        const filteredExtracurriculars = extracurricularsData.filter(extracurricular => {
+            const interests = Array.isArray(extracurricular.interests) 
+            ? extracurricular.interests.map(i => i.toLowerCase()) 
+            : [extracurricular.interests.toLowerCase()];
+            const matchesInterest = interestFilter === "all" || interests.includes(interestFilter);
+            
+            const matchesSearch = extracurricular.title.toLowerCase().includes(searchQuery);
+
+            return matchesInterest && matchesSearch;
+        });
+
+        displayExtracurriculars(filteredExtracurriculars);
+    }
+
+
+    // Event listener for GPA filter
+    document.getElementById('type').addEventListener('change', filterExtracurriculars);
+    document.querySelector('.search-bar').addEventListener('input', filterExtracurriculars);
+
+    loadExtracurriculars();
+</script>
+
+
 <%- include("partials/footer"); %>

@@ -490,6 +490,7 @@ const educator_profile_get = async (req, res) => {
   res.render("educator-profile", { user });
 }
 
+
 const student_profile_update_interests_get = async (req, res) => {
   const { id } = req.params;
 
@@ -584,6 +585,37 @@ const student_interests_update_get = async (req, res) => {
 
   res.render("edit-interests", { user });
 }
+
+const educator_profile_update = async (req, res) => {
+  const { id } = req.params;
+  const { firstName, lastName, school } = req.body;
+
+  console.log("Received Data:", { id, firstName, lastName, school });
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No profile found!" });
+  }
+
+  try {
+    const user = await User.findById(id).populate("educatorProfile").exec();
+
+    if (!user || !user.educatorProfile) {
+      return res.status(404).json({ error: "Educator profile not found!" });
+    }
+
+    user.educatorProfile.firstName = firstName || user.educatorProfile.firstName;
+    user.educatorProfile.lastName = lastName || user.educatorProfile.lastName;
+    user.educatorProfile.school = school || user.educatorProfile.school;
+
+    await user.educatorProfile.save();
+
+    res.status(200).json({ success: "Educator profile updated successfully!" });
+  } catch (error) {
+    console.error("Error updating profile:", error);
+    res.status(400).json({ error: "Failed to update educator profile!" });
+  }
+}
+
 
 const student_profile_picture_update = async (req, res) => {
   const { id } = req.params;
@@ -717,5 +749,6 @@ module.exports = {
   educator_edit_students,
   student_home_preview_get,
   student_preview_interests_get,
-  educator_delete_students
+  educator_delete_students,
+  educator_profile_update
 }
