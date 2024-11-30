@@ -161,4 +161,17 @@
     font-size: 1.8em;
   }
   
-  
+  .info-box ol {
+    text-align: left;
+    padding-left: 20px;
+    color: #004aad;
+    line-height: 1.6;
+}
+
+.info-box ol li {
+    margin-bottom: 10px;
+}
+
+.info-box ol li:last-child {
+    margin-bottom: 0;
+}
