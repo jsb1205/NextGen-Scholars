@@ -203,3 +203,18 @@
   text-align: center;
   font-size: 14px;
 }
+.pell-box h2{
+  color: #004aad;
+  font-family: 'fredoka', sans-serif;
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.8em;
+}
+.pell-box p{
+  text-align: left;
+  padding-top: 10px;
+  padding-left: 10px;
+  color: #004aad;
+  line-height: 1.6;
+  font-size: 1.2em;
+}
