@@ -84,10 +84,14 @@
     // GPA filter function
     function filterExtracurriculars() {
         const interestFilter = document.getElementById('type').value.toLowerCase();
+        const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
 
         const filteredExtracurriculars = extracurricularsData.filter(extracurricular => {
-            const matchesInterest = interestFilter === "all" || extracurricular.type.toLowerCase() === interestFilter;
-
+            const interests = Array.isArray(extracurricular.interests) 
+            ? extracurricular.interests.map(i => i.toLowerCase()) 
+            : [extracurricular.interests.toLowerCase()];
+            const matchesInterest = interestFilter === "all" || interests.includes(interestFilter);
+            
             const matchesSearch = extracurricular.title.toLowerCase().includes(searchQuery);
 
             return matchesInterest && matchesSearch;
@@ -99,6 +103,7 @@
 
     // Event listener for GPA filter
     document.getElementById('type').addEventListener('change', filterExtracurriculars);
+    document.querySelector('.search-bar').addEventListener('input', filterExtracurriculars);
 
     loadExtracurriculars();
 </script>
