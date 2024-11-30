@@ -151,6 +151,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     font-size: 14px;
+    margin-bottom: 20px;
   }
   .info-box {
     background-color: white;
@@ -183,4 +184,22 @@
 
 .info-box ol li:last-child {
     margin-bottom: 0;
+}
+
+.pell-box-big{
+  grid-column: span 2;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 14px;
+}
+.pell-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 14px;
 }
