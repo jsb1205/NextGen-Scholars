@@ -111,7 +111,8 @@
     cursor: pointer;
   }
   
-  .add-button {
+  .add-button,
+  .remove-scholar-button {
     font-family: 'fredoka';
     font-size: 1rem;
     background-color: #7ed957;
