@@ -1,38 +1,25 @@
 <%- include("partials/header"); %>
 
-<div class="profile-container">
-  <form class="profile-form">
-    <h2 class="form-title">Edit Your Personal Information</h2>
+<div class="educator-edit-profile-container">
+    <div class="student-profile-image-container">
+        <img src="/paperplaneowlbooks.png" alt="Owl and Paper Airplane"class="decorative-sp-image">
+    </div>
+  <!-- Form container -->
+  <div class="form-container">
+    <h2>Your Personal Information</h2>
+    <form class="profile-form">
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" placeholder="Enter your first name" required />
 
-    <label for="firstName">First Name</label>
-    <input
-      type="text"
-      name="firstName"
-      value="<%= user.educatorProfile.firstName %>" <!-- Pre-fill current value -->
-      required
-    />
-    <div class="firstName error"></div>
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" placeholder="Enter your last name" required />
 
-    <label for="lastName">Last Name</label>
-    <input
-      type="text"
-      name="lastName"
-      value="<%= user.educatorProfile.lastName %>" <!-- Pre-fill current value -->
-      required
-    />
-    <div class="lastName error"></div>
+      <label for="school">Current School</label>
+      <input type="text" name="school" placeholder="Enter your current school" required />
 
-    <label for="school">Current School</label>
-    <input
-      type="text"
-      name="school"
-      value="<%= user.educatorProfile.school %>" <!-- Pre-fill current value -->
-      required
-    />
-    <div class="school error"></div>
-
-    <button class="submit-button">Save Changes</button>
-  </form>
+      <button type="submit" class="save-changes-button">Save Changes</button>
+    </form>
+  </div>
 </div>
 
 <script>
@@ -47,7 +34,7 @@
     const id = "<%= user._id %>";
 
     try {
-      const res = await fetch(`/educator-profile/${id}/edit`, { // Update the backend route
+      const res = await fetch(`/educator-profile/${id}/edit`, {
         method: "PUT",
         body: JSON.stringify({ firstName, lastName, school }),
         headers: { "Content-Type": "application/json" }
@@ -55,13 +42,13 @@
 
       const data = await res.json();
       if (data.error) {
-        console.error(data.error);
+        console.log(data.error);
       }
       if (data.success) {
-        location.assign(`/educator-home/${id}`); // Redirect on success
+        location.assign(`/educator-home/${id}`);
       }
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   });
 </script>

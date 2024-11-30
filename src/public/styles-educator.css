@@ -190,4 +190,91 @@
 
 /*Educator Profile Styles start here */
 
+.educator-edit-profile-container {
+  background-color: #e9f5ff; /* Light blue background */
+  padding: 50px;
+  position: relative;
+}
+
+.form-container {
+  background-color: #f8f8f8; /* Light gray */
+  border-radius: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Fredoka', sans-serif;
+  color: #004aad;
+  margin-bottom: 20px;
+}
+
+.profile-form label {
+  display: block;
+  font-family: 'Fredoka', sans-serif;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  color: #333;
+}
+
+.profile-form input::placeholder {
+  color: #999;
+}
+
+.save-changes-button {
+  display: block;
+  width: 100%;
+  background-color: #7ed957;
+  color: #000;
+  font-weight: bold;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.save-changes-button:hover {
+  background-color: #66a658;
+}
+
+.decor-image {
+  position: absolute;
+}
+
+.paper-plane {
+  top: 10px;
+  left: 10px;
+  width: 100px;
+}
+
+.owl {
+  bottom: 20px;
+  left: 20px;
+  width: 150px;
+}
+
+.books {
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+}
+
+
 /*Educator profile Styles end here */
