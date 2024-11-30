@@ -10,13 +10,13 @@
     padding-bottom: 200px; 
   }
   
-  .profile-section{
+.profile-section{
     text-align: center; 
     position: relative;
   }
 
-  .link-scholar-section,
-  .linked-scholars {
+.link-scholar-section,
+.linked-scholars {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -40,25 +40,25 @@
   overflow: hidden; /* Ensures the image stays within the circle */
 }
 
-  .edu-profile-icon img {
+.edu-profile-icon img {
     width: 140px;
     height: auto;
     border-radius: 50%;
   }
   
-  .educator-name {
+.educator-name {
     font-weight: bold;
     font-size: 1.2em;
     margin-top: 10px;
   }
   
-  .educator-details {
+.educator-details {
     font-size: 0.9em;
     color: #666;
     margin-top: 5px;
   }
   
-  .class-code {
+.class-code {
     text-align: center;
     background-color: #d1f7c4;
     font-weight: bold;
@@ -70,24 +70,74 @@
     font-size: 0.9em;
   }
   
-  .settings {
+.settings {
     margin-top: 20px;
     font-size: 0.9em;
   }
   
-  .linked-scholars {
+.linked-scholars {
+    align-items: center;
     width: 35%;
-    background-color: #70a2f8; /* Light blue color */
+    background-color: #f4f4f4; /* Light blue color */
     padding: 20px;
     border-radius: 10px;
   }
   
-  .link-scholar-section h2 {
+.link-scholar-section h2 {
     font-family: 'Fredoka', sans-serif;
     color: #7ed957;
     text-align: center;
     margin-bottom: 20px;
   }
+.student-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally */
+    background-color: #d1f7c4; /* Background color for the item */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Centers the name and button text */
+    padding-bottom: 100px;
+  }
+  
+.profile-icon2 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Makes the image circular */
+    margin-bottom: 10px; /* Adds spacing between the image and name */
+  }
+  
+.student-list a {
+    margin: 5px 0; /* Adds spacing between the name and remove button */
+    font-size: 1rem; /* Adjust font size of the name */
+    font-weight: bold;
+    color: #004aad;
+    text-decoration: none;
+  }
+  
+.student-list a:hover {
+    text-decoration: underline;
+  }
+  
+.remove-scholar-button {
+    font-family: 'fredoka';
+    font-size: 1rem;
+    background-color: #7ed957;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px; /* Adds space above the button */
+  }
+  
+.remove-scholar-button:hover {
+    background-color: #6bc34f;
+  }
+  
+  
 
   .teacher-question-container {
     display: flex;
@@ -112,8 +162,7 @@
     cursor: pointer;
   }
   
-  .add-button,
-  .remove-scholar-button {
+  .add-button {
     font-family: 'fredoka';
     font-size: 1rem;
     background-color: #7ed957;
@@ -135,8 +184,8 @@
   }
   
   .linked-scholars h2 {
-    font-family: sans-serif;
-    color: #004aad;
+    font-family: 'Fredoka', sans-serif;
+    color: #7ed957;
     text-align: center;
     margin-bottom: 20px;
   }
@@ -147,7 +196,7 @@
   }
   
   .linked-scholars li {
-    background-color: #add8e6;
+    background-color: #ddebef;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 5px;

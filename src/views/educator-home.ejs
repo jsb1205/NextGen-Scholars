@@ -37,10 +37,8 @@
     <ul class="student-list">
       <% user.educatorProfile.students.forEach(student => { %>
         <li id="<%= student._id %>">
-          <a href="/student-home/<%= student._id %>/preview/get">
-            <img src="/picture<%= student.profile %>.png" alt="Profile Picture" class="profile-icon">
-            <%= student.firstName %> <%= student.lastName %>
-          </a>
+          <img src="/picture<%= student.profile %>.png" alt="Profile Picture" class="profile-icon2">
+          <a href="/student-home/<%= student._id %>/preview/get"><%= student.firstName %> <%= student.lastName %></a>
           <button class="remove-scholar-button" value="<%= student._id %>">Remove</button>
         </li>
       <% }); %>
