@@ -32,5 +32,6 @@ router.put("/student-home/add-educator", requireAuth, checkCurrUser, userProfile
 router.get("/student-home/:id/preview/get", requireAuth, checkCurrUser, userProfileController.student_home_preview_get);
 router.get("/student-home/:id/preview/interests/get", requireAuth, checkCurrUser, userProfileController.student_preview_interests_get);
 
+router.put("/educator-profile/:id/edit", requireAuth, checkCurrUser, userProfileController.educator_profile_edit);
 
 module.exports = router;
