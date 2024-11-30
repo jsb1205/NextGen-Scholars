@@ -65,6 +65,10 @@ module.exports.programs_get = (req, res) => {
   res.render("../views/programs");
 }
 
+module.exports.extracurriculars_get = (req, res) => {
+  res.render("../views/extracurriculars");
+}
+
 module.exports.signup_post = async (req, res) => {
   const { email, password } = req.body;
 

@@ -79,3 +79,7 @@ html, body {
   box-sizing: border-box; /* Include padding/border in width calculations */
 }
 
+.info-box strong{
+  color: #004aad;
+  font-size: 1.2em;
+}
