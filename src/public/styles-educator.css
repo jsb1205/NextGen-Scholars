@@ -9,7 +9,11 @@
     padding-bottom: 200px; 
   }
   
-  .profile-section,
+  .profile-section{
+    text-align: center; 
+    position: relative;
+  }
+
   .link-scholar-section,
   .linked-scholars {
     background-color: #fff;
@@ -22,9 +26,22 @@
     text-align: left;
   }
   
+
+.profile-icon {
+  width: 150px; /* Adjust the size of the circle */
+  height: 150px; /* Keep it a perfect circle */
+  border-radius: 50%; /* Makes the div a circle */
+  background-color: #004aad; /* Blue background */
+  position: relative; /* To position the person icon within the circle */
+  display: flex; /* Centers content horizontally and vertically */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensures the image stays within the circle */
+}
+
   .profile-icon img {
-    width: 80px;
-    height: 80px;
+    width: 140px;
+    height: auto;
     border-radius: 50%;
   }
   
