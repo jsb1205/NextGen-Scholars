@@ -15,7 +15,7 @@
                 <div class="filters">
                     <label for="type">Interests</label>
                     <select id="type">
-                        <option value="all">All</option>
+                        <option value="All">All</option>
                         <option value="Arts">Arts</option>
                         <option value="Engineering">Engineering</option>
                         <option value="Math">Math</option>
@@ -52,7 +52,7 @@
     async function loadExtracurriculars() {
         try {
             const response = await fetch('/extracurricular.json');
-            universityData = await response.json(); // Save the fetched data
+            extracurricularsData = await response.json(); // Save the fetched data
             displayExtracurriculars(extracurricularsData); // Display all scholarships initially
         } catch (error) {
             console.error('Error loading extracurricular:', error);
@@ -65,7 +65,7 @@
 
         extracurriculars.forEach(extracurricular => {
             const card = document.createElement('div');
-            card.classList.add('university-card');
+            card.classList.add('extracurriculars-card');
 
             card.innerHTML = `
                 <div class="content">
@@ -83,59 +83,24 @@
     // Call the function to load scholarships on page load
     // GPA filter function
     function filterExtracurriculars() {
-        const typeFilter = document.getElementById('type').value.toLowerCase();
-        const stateFilter = document.getElementById('state').value.toLowerCase();
-        const acceptanceFilter = document.getElementById('acceptance').value;
-        const inCostFilter = document.getElementById('is_cost').value;
-        const outCostFilter = document.getElementById('os_cost').value;
-        const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
+        const interestFilter = document.getElementById('type').value.toLowerCase();
 
-        const filteredUniversities = universityData.filter(university => {
-            const matchesType = typeFilter === "all" || university.type.toLowerCase() === typeFilter;
-            const matchesState = stateFilter === "all" || university.state.toLowerCase() === stateFilter;
+        const filteredExtracurriculars = extracurricularsData.filter(extracurricular => {
+            const matchesInterest = interestFilter === "all" || extracurricular.type.toLowerCase() === interestFilter;
 
-            const acceptanceRate = parseFloat(university.acceptance);
-            const matchesAcceptance = 
-                acceptanceFilter === "all" ||
-                (acceptanceFilter === "below_10" && acceptanceRate < 10) ||
-                (acceptanceFilter === "10_20" && acceptanceRate >= 10 && acceptanceRate < 20) ||
-                (acceptanceFilter === "20_30" && acceptanceRate >= 20 && acceptanceRate < 30) ||
-                (acceptanceFilter === "above_30" && acceptanceRate >= 30);
+            const matchesSearch = extracurricular.title.toLowerCase().includes(searchQuery);
 
-            const inCost = parseFloat(university.is_cost);
-            const matchesInCost = 
-                inCostFilter === "all" ||
-                (inCostFilter === "below_20000" && inCost < 20000) ||
-                (inCostFilter === "20000_40000" && inCost >= 20000 && inCost < 40000) ||
-                (inCostFilter === "40000_60000" && inCost >= 40000 && inCost < 60000) ||
-                (inCostFilter === "above_60000" && inCost >= 60000);
-
-            const outCost = parseFloat(university.os_cost);
-            const matchesOutCost = 
-                outCostFilter === "all" ||
-                (outCostFilter === "below_20000" && outCost < 20000) ||
-                (outCostFilter === "20000_40000" && outCost >= 20000 && outCost < 40000) ||
-                (outCostFilter === "40000_60000" && outCost >= 40000 && outCost < 60000) ||
-                (outCostFilter === "above_60000" && outCost >= 60000);
-
-            const matchesSearch = university.title.toLowerCase().includes(searchQuery);
-
-            return matchesType && matchesState && matchesAcceptance && matchesInCost && matchesOutCost && matchesSearch;
+            return matchesInterest && matchesSearch;
         });
 
-        displayUniversities(filteredUniversities);
+        displayExtracurriculars(filteredExtracurriculars);
     }
 
 
     // Event listener for GPA filter
-    document.getElementById('type').addEventListener('change', filterUniversities);
-    document.getElementById('state').addEventListener('change', filterUniversities);
-    document.getElementById('acceptance').addEventListener('change', filterUniversities);
-    document.getElementById('is_cost').addEventListener('change', filterUniversities);
-    document.getElementById('os_cost').addEventListener('change', filterUniversities);
-    document.querySelector('.search-bar').addEventListener('input', filterUniversities);
+    document.getElementById('type').addEventListener('change', filterExtracurriculars);
 
-    loadUniversity();
+    loadExtracurriculars();
 </script>
 
 

@@ -1,0 +1,58 @@
+.Extracurriculars
+{
+  background-color: #d9e5f4;
+}
+
+.extracurriculars-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 80%;
+  margin-left: 150px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.extracurriculars-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 700px;
+}
+
+.extracurriculars-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.extracurriculars-card h3 {
+  color: #004aad;
+  font-family: 'fredoka', sans-serif;
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.extracurriculars-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.extracurriculars-card p {
+  margin: 0;
+  font-size: 1em;
+}
+
+
+.extracurriculars-card .content {
+  display: flex;
+  flex-direction: column;
+}
