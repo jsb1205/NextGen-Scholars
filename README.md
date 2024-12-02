@@ -39,15 +39,15 @@ To set up the NextGen Scholars platform locally, follow these steps:
    git clone https://github.com/jsb1205/NextGen-Scholars.git
    cd NextGen-Scholars
 2. **Install NPM**:
-    # installs fnm (Fast Node Manager)
+    ### installs fnm (Fast Node Manager)
     winget install Schniz.fnm
-    # configure fnm environment
+    ### configure fnm environment
     fnm env --use-on-cd | Out-String | Invoke-Expression
-    # download and install Node.js
+    ### download and install Node.js
     fnm use --install-if-missing 22
-    # verifies the right Node.js version is in the environment
+    ### verifies the right Node.js version is in the environment
     node -v # should print `v22.11.0`
-    # verifies the right npm version is in the environment
+    ### verifies the right npm version is in the environment
     npm -v # should print `10.9.0`
 3. **Install Dependencies**:
     npm install
