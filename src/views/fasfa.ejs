@@ -32,15 +32,15 @@
     <h2>How to Apply</h2>
     <div class="fasfa-steps-container">
       <% const steps = [
-        { step: "STEP 1", title: "Gather Documents", description: "Collect necessary documents like your Social Security number, driver's license (if applicable), federal tax returns, W-2 forms, and financial information for both you and your parents (if dependent)." },
-        { step: "STEP 2", title: "Create an FSA ID", description: "Visit the Federal Student Aid website to create an FSA ID, which you'll use to log in, sign your FAFSA, and track your application status." },
-        { step: "STEP 3", title: "Log in and Start Application", description: "Go to fafsa.gov or use your myStudentAid app, log in with your FSA ID, and select 'Start a New FAFSA' or 'Renewal FAFSA' (if you're a returning applicant)." },
-        { step: "STEP 4", title: "Fill in Personal Information", description: "Provide personal and family information as required in the FAFSA form." },
-        { step: "STEP 5", title: "List Schools", description: "Add the colleges or schools you're considering attending. They will receive your FAFSA information to determine your aid package." },
-        { step: "STEP 6", title: "Answer Financial Questions", description: "Complete questions about your income, tax information, and assets. Let the IRS Data Retrieval Tool transfer tax information if you're eligible." },
-        { step: "STEP 7", title: "Sign and Submit", description: "Sign your FAFSA using your FSA ID, and have a parent sign if you're a dependent. Submit your application and check the confirmation page." },
-        { step: "STEP 8", title: "Review and Update", description: "After submission, you’ll receive a Student Aid Report (SAR) summarizing your FAFSA. Review it for errors and update any information if needed." },
-        { step: "STEP 9", title: "Monitor Your Aid Package", description: "Schools listed on your FAFSA will send you details of aid offers. Compare offers and accept the aid you wish to use." }
+        { step: "STEP 1", titleL: "Gather Documents", descriptionL: "Collect necessary documents like your Social Security number, driver's license (if applicable), federal tax returns, W-2 forms, and financial information for both you and your parents (if dependent)." },
+        { step: "STEP 2", titleR: "Create an FSA ID", descriptionR: "Visit the Federal Student Aid website to create an FSA ID, which you'll use to log in, sign your FAFSA, and track your application status." },
+        { step: "STEP 3", titleL: "Log in and Start Application", descriptionL: "Go to fafsa.gov or use your myStudentAid app, log in with your FSA ID, and select 'Start a New FAFSA' or 'Renewal FAFSA' (if you're a returning applicant)." },
+        { step: "STEP 4", titleR: "Fill in Personal Information", descriptionR: "Provide personal and family information as required in the FAFSA form." },
+        { step: "STEP 5", titleL: "List Schools", descriptionL: "Add the colleges or schools you're considering attending. They will receive your FAFSA information to determine your aid package." },
+        { step: "STEP 6", titleR: "Answer Financial Questions", descriptionR: "Complete questions about your income, tax information, and assets. Let the IRS Data Retrieval Tool transfer tax information if you're eligible." },
+        { step: "STEP 7", titleL: "Sign and Submit", descriptionL: "Sign your FAFSA using your FSA ID, and have a parent sign if you're a dependent. Submit your application and check the confirmation page." },
+        { step: "STEP 8", titleR: "Review and Update", descriptionR: "After submission, you’ll receive a Student Aid Report (SAR) summarizing your FAFSA. Review it for errors and update any information if needed." },
+        { step: "STEP 9", titleL: "Monitor Your Aid Package", descriptionL: "Schools listed on your FAFSA will send you details of aid offers. Compare offers and accept the aid you wish to use." }
       ]; %>
 
       <div class="fasfa-step-circles-container">
@@ -49,11 +49,19 @@
         <% }); %>
       </div>
 
-      <div class="fasfa-steps-info">
-        <% steps.forEach(({ title, description }) => { %>
+      <div class="fasfa-steps-info-Left">
+        <% steps.forEach(({ titleL, descriptionL }) => { %>
           <div class="fasfa-step">
-            <h3><%= title %></h3>
-            <p><%= description %></p>
+            <h3><%= titleL %></h3>
+            <p><%= descriptionL %></p>
+          </div>
+        <% }); %>
+      </div>
+      <div class="fasfa-steps-info-right">
+        <% steps.forEach(({ titleR, descriptionR }) => { %>
+          <div class="fasfa-step">
+            <h3><%= titleR %></h3>
+            <p><%= descriptionR %></p>
           </div>
         <% }); %>
       </div>
