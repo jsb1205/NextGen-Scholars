@@ -86,26 +86,37 @@
   }
   
   .fasfa-steps-container {
+    height: 1000px;
     display: flex;
     gap: 40px;
+  }
+
+  .fasfa-step-line {
+    position: absolute;
+    width: 4px; /* Line thickness */
+    height: 700px; /* Full height of the container */
+    background-color: #004aad; /* Line color */
+    z-index: 1; /* Place behind the circles */
   }
   
   .fasfa-step-circles-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 1000px;
     gap: 20px;
   }
 
   .fasfa-steps-info-Left{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    left: 0%;
   }
   .fasfa-steps-info-Right{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 100px;
   }
   
   .fasfa-step-circle {
@@ -119,6 +130,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
   }
   
   .fasfa-step {

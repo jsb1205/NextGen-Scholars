@@ -43,12 +43,6 @@
         { step: "STEP 9", titleL: "Monitor Your Aid Package", descriptionL: "Schools listed on your FAFSA will send you details of aid offers. Compare offers and accept the aid you wish to use." }
       ]; %>
 
-      <div class="fasfa-step-circles-container">
-        <% steps.forEach(({ step }) => { %>
-          <div class="fasfa-step-circle"><%= step %></div>
-        <% }); %>
-      </div>
-
       <div class="fasfa-steps-info-Left">
         <% steps.forEach(({ titleL, descriptionL }) => { %>
           <div class="fasfa-step">
@@ -57,6 +51,16 @@
           </div>
         <% }); %>
       </div>
+
+      <div class="fasfa-step-circles-container">
+        <div class="fasfa-step-line"></div> <!-- Vertical line -->
+        <% steps.forEach(({ step }) => { %>
+          <div class="fasfa-step-circle"><%= step %></div>
+        <% }); %>
+        
+      </div>
+
+    
       <div class="fasfa-steps-info-right">
         <% steps.forEach(({ titleR, descriptionR }) => { %>
           <div class="fasfa-step">
