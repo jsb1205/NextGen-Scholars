@@ -1,0 +1,108 @@
+[
+    {
+        "title": "Ladder Internship Program",
+        "deadline": "Not specified",
+        "year": ["Freshman", "Sophomore", "Junior", "Senior"],
+        "state": "All",
+        "gpa": 2.0,
+        "interests": [
+            "Technology",
+            "Engineering",
+            "Reading / Writing",
+            "Medicine",
+            "Science",
+            "Politics"
+        ],
+        "internship details": "Ladder Internships is a world-class internship program for ambitious students. In the program, students work with top start-ups and NGOs to develop real-world projects.",
+        "link": "https://airtable.com/appx1OFdMpDfxtEkR/shrNdEykWdhc4yeSv"
+    },
+    {
+        "title": "AI Internship Program by Veritas AI",
+        "deadline": "Not specified",
+        "year": ["Freshman", "Sophomore", "Junior", "Senior"],
+        "state": "All",
+        "gpa": 2.0,
+        "interests": [
+            "Technology",
+            "Engineering"
+        ],
+        "internship details": "The AI Internship Program by Veritas AI is founded and run by Harvard graduate students. Through the 8-week internship, students have the opportunity to work with VC-backed startups on real-world AI/ML projects.",
+        "link": "https://drive.google.com/file/d/1u1VfiBN7DwW6HKbncjAK0rFFxla0ZDFT/view"
+    },
+    {
+        "title": "Summer Research Internship @ Max Planck Florida Institute for Neuroscience",
+        "deadline": "Not specified",
+        "year": ["Junior", "Senior"],
+        "state": "Florida",
+        "gpa": 3.0,
+        "interests": [
+            "Science",
+            "Medicine",
+            "Engineering",
+            "Technology"
+        ],
+        "internship details": "The Max Planck Florida Institute for Neuroscience (MPFI) offers an exceptional summer research internship, providing high school students with the opportunity to delve into the intricacies of brain science.",
+        "link": "https://mpfi.org/community/educationoutreach/high-schoolinternship/"
+    },
+    {
+        "title": "JJ Vance Memorial Summer Internship",
+        "deadline": "Not specified",
+        "year": ["Junior", "Senior"],
+        "state": "Florida",
+        "gpa": 2.0,
+        "interests": ["Medicine"],
+        "internship details": "The JJ Vance Memorial Summer Internship is an excellent opportunity for high school juniors in the Miami and Broward areas who are passionate about biological and computational sciences.",
+        "link": "https://med.miami.edu/centers-andinstitutes/hihg/education-andtraining/division-of-genomiceducation/educationalprograms/jj-vance-memorialsummer-internship"
+    },
+    {
+        "title": "NASA OSTEM Internship",
+        "deadline": "Not specified",
+        "year": ["Junior", "Senior"],
+        "state": "All",
+        "gpa": 3.0,
+        "interests": [
+            "Science",
+            "Medicine",
+            "Engineering",
+            "Technology",
+            "Math"
+        ],
+        "internship details": "OSTEM internships offer students an opportunity to gain practical work experience while working side-by-side with mentors who are research scientists, engineers, and individuals from many other professions.",
+        "link": "https://www.nasa.gov/learningresources/internshipprograms/"
+    },
+    {
+        "title": "U.S. Senate Page Program",
+        "deadline": "Not specified",
+        "year": ["Junior", "Senior"],
+        "state": "All",
+        "gpa": 3.0,
+        "interests": ["Politics", "History"],
+        "internship details": "Perhaps the most widely known law internships for high school students are those within the Senate Page Program. Pages for the Senate have been working on the floor since the early 19th century!",
+        "link": "https://pageprogram.senate.gov/page-program/"
+    },
+    {
+        "title": "Microsoft Discovery Program",
+        "deadline": "Not specified",
+        "year": ["Freshman", "Sophomore", "Junior", "Senior"],
+        "state": "All",
+        "gpa": 2.0,
+        "interests": ["Technology", "Engineering"],
+        "internship details": "Students in the Microsoft Discovery Program will participate in a curriculum designed to learn programming fundamentals and develop career readiness skills. They will also gain mentorship.",
+        "link": "https://careers.microsoft.com/v2/global/en/discoveryprogram"
+    },
+    {
+        "title": "California Academy of Sciences, Careers in Science",
+        "deadline": "Not specified",
+        "year": ["Junior", "Senior"],
+        "state": "California",
+        "gpa": 2.5,
+        "interests": [
+            "Science",
+            "Technology",
+            "Engineering",
+            "Math"
+        ],
+        "internship details": "Careers in Science is a multi-year, year-round, paid internship and youth development program for San Francisco high school students who come from communities underrepresented in STEM, including girls and students of color.",
+        "link": "https://www.calacademy.org/careers-in-science-cis-intern-program"
+    }
+]

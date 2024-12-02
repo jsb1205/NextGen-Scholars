@@ -80,7 +80,8 @@
 }
 
 /* Ensuring buttons in .nav-right stay aligned on the right */
-.nav-right {
+.nav-right, 
+.return-nav-button {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -88,7 +89,8 @@
 
 /* Unordered list (menu) styling */
 .nav-left ul,
-.nav-right ul {
+.nav-right ul,
+.return-nav-button {
   display: flex;
   gap: 25px; /* Horizontal gap between buttons */
   list-style-type: none;
@@ -98,7 +100,8 @@
 
 /* List items (button style for links) */
 .nav-left li a,
-.nav-right li a {
+.nav-right li a,
+.return-nav-button {
   color: black;
   text-decoration: none;
   font-size: 1rem;
@@ -112,7 +115,8 @@
 
 /* Hover effect on links */
 .nav-left li a:hover,
-.nav-right li a:hover {
+.nav-right li a:hover,
+.return-nav-button:hover {
   background-color: #5c94f1; /* Slightly darker shade on hover */
   color: white; /* Change text color to white on hover */
 }
@@ -458,7 +462,7 @@ body, html {
   margin-bottom: 20px;
 }
 
-.decor-image {
+.decor-image-1 {
   max-width: 500px;
   height: auto;
   opacity: 0.9;/* Make sure they stay behind the profile-nav */
@@ -613,19 +617,24 @@ body, html {
 
 .plan-details {
   display: flex;
-  flex-direction: column;
-  gap: 100px;
+  flex-direction: column; /* Stack rows vertically */
+  gap: 40px; /* Adjust spacing between rows */
   align-items: center;
-  text-align: left;
 }
 
 .plan-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Spread items evenly */
   width: 100%;
   max-width: 900px; /* Set a consistent width for alignment */
+}
+
+.plan-item > div {
+  width: 45%; /* Ensures each section takes equal width */
   font-size: 1.1rem;
   font-weight: bold;
+  text-align: left;
+  color: #2a2a2a;
 }
 
 .bottom-nav {

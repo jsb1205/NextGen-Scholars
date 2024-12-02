@@ -1,0 +1,92 @@
+[
+    {
+        "title": "Start a community garden",
+        "interests": ["Environment"],
+        "description": "Establish a shared green space where community members can grow vegetables, fruits, and flowers. This project promotes sustainability, local food production, and strengthens community bonds."
+    },
+    {
+        "title": "Organize a food drive",
+        "interests": ["Politics"],
+        "description": "Plan and execute a food collection campaign to support local food banks or shelters. It helps address hunger in the community while engaging neighbors in a meaningful cause."
+    },
+    {
+        "title": "Organize a book drive",
+        "interests": ["Politics", "Reading / Writing"],
+        "description": "Collect and distribute books to schools, libraries, or shelters. This project fosters literacy and provides access to educational and recreational reading materials for underserved populations."
+    },
+    {
+        "title": "Start a letter writing campaign for local politics",
+        "interests": ["Politics"],
+        "description": "Encourage community members to write letters to local government officials about pressing issues. This project empowers individuals to advocate for change and increases civic engagement."
+    },
+    {
+        "title": "Lead tutoring sessions",
+        "interests": ["All"],
+        "description": "Offer free or low-cost tutoring to help students excel academically. This initiative supports education and provides valuable one-on-one guidance for learners."
+    },
+    {
+        "title": "Host youth mentoring",
+        "interests": ["All"],
+        "description": "Pair experienced mentors with young individuals to provide guidance, inspiration, and life skills. This project fosters personal growth and creates lasting connections."
+    },
+    {
+        "title": "Design an app",
+        "interests": ["Technology", "Engineering", "Arts"],
+        "description": "Develop a mobile or web application that addresses a specific need, such as organizing events or promoting mental health. This project combines technical skills with creativity."
+    },
+    {
+        "title": "Build and design a website",
+        "interests": ["Technology", "Engineering", "Arts"],
+        "description": "Create a website for a cause, local business, or personal portfolio. This project sharpens design and coding skills while showcasing a professional online presence."
+    },
+    {
+        "title": "Start a blog",
+        "interests": ["All"],
+        "description": "Write and publish articles on topics you're passionate about, such as sustainability, education, or personal experiences. A blog can inform, inspire, and build a community."
+    },
+    {
+        "title": "Film a video or documentary for a cause",
+        "interests": ["Politics", "Arts"],
+        "description": "Create a short film or documentary highlighting an important social, environmental, or cultural issue. This project raises awareness and sparks dialogue."
+    },
+    {
+        "title": "Design a video game",
+        "interests": ["Technology", "Engineering", "Arts"],
+        "description": "Conceptualize and create a playable video game that entertains and educates. This project combines storytelling, design, and programming skills."
+    },
+    {
+        "title": "Learn a new programming language",
+        "interests": ["Technology", "Engineering"],
+        "description": "Master a programming language such as Python, Java, or C++. This self-driven project enhances problem-solving skills and opens doors to various tech opportunities."
+    },
+    {
+        "title": "Learn about 3D modelling and printing",
+        "interests": ["Technology", "Engineering", "Arts"],
+        "description": "Explore 3D modeling software and create physical prototypes or art using a 3D printer. This project develops technical skills and fosters innovation."
+    },
+    {
+        "title": "Build a photography or art portfolio",
+        "interests": ["Arts"],
+        "description": "Compile a professional collection of your best creative works. This project showcases talent, builds confidence, and prepares you for future opportunities."
+    },
+    {
+        "title": "Paint a local mural",
+        "interests": ["Arts"],
+        "description": "Design and paint a mural to beautify a public space while conveying an inspiring message. This project combines art and community engagement."
+    },
+    {
+        "title": "Initiate a recycling program in your neighborhood",
+        "interests": ["Environment", "Politics"],
+        "description": "Launch a recycling initiative to reduce waste and educate others on sustainability. This project has a lasting environmental impact."
+    },
+    {
+        "title": "Host a street cleanup",
+        "interests": ["Environment"],
+        "description": "Organize a group of volunteers to clean up litter in local streets or parks. This project improves the environment and fosters community pride."
+    },
+    {
+        "title": "Volunteer for a youth sports team",
+        "interests": ["Sports"],
+        "description": "Help coach or manage youth sports teams to encourage physical activity and teamwork. This project supports youth development and builds leadership skills."
+    }
+]

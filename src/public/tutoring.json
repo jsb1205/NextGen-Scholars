@@ -1,0 +1,134 @@
+[
+    {
+        "title": "Khan Academy",
+        "format": "Online Platforms",
+        "description": "Offers free, high-quality lessons in various subjects, including math, science, and SAT prep. The platform provides interactive exercises and video tutorials.",
+        "link": "https://www.khanacademy.org"
+    },
+    {
+        "title": "Coursera",
+        "format": "Online Platforms",
+        "description": "Provides access to college-level courses from universities worldwide. Great for advanced learners looking to dive deeper into subjects like computer science or calculus.",
+        "link": "https://www.coursera.org"
+    },
+    {
+        "title": "edX",
+        "format": "Online Platforms",
+        "description": "Features free courses from top universities on topics ranging from AP courses to niche fields like environmental science or robotics.",
+        "link": "https://www.edx.org"
+    },
+    {
+        "title": "Quizlet",
+        "format": "Online Platforms",
+        "description": "A versatile tool for creating and studying flashcards. It's especially useful for memorization-heavy subjects like biology or history.",
+        "link": "https://quizlet.com/latest"
+    },
+    {
+        "title": "Chegg Tutors",
+        "format": "Online Platforms",
+        "description": "Connects students with online tutors for personalized help. Chegg is ideal for homework assistance and test preparation.",
+        "link": "https://www.chegg.com/study"
+    },
+    {
+        "title": "Study.com",
+        "format": "Online Platforms",
+        "description": "Offers engaging video lessons and quizzes on high school and college-level subjects. The platform is designed for quick learning and review.",
+        "link": "study.com"
+    },
+    {
+        "title": "Brilliant",
+        "format": "Online Platforms",
+        "description": "Focused on STEM topics, it uses problem-solving and interactive exercises to teach concepts in an engaging manner.",
+        "link": "https://brilliant.org"
+    },
+    {
+        "title": "Wyzant",
+        "format": "Online Platforms",
+        "description": "A marketplace for finding in-person or online tutors for one-on-one lessons tailored to the student's needs.",
+        "link": "https://www.wyzant.com"
+    },
+    {
+        "title": "TutorMe",
+        "format": "Online Platforms",
+        "description": "Provides instant online tutoring across many subjects with 24/7 availability. Their rigorous vetting process ensures high-quality tutors.",
+        "link": "https://tutormeeducation.com"
+    },
+    {
+        "title": "Skooli",
+        "format": "Online Platforms",
+        "description": "An online tutoring service with a pay-as-you-go model, covering a range of high school subjects, including math, physics, and English.",
+        "link": "https://www.skooli.com"
+    },
+    {
+        "title": "Photomath",
+        "format": "Mobile Apps",
+        "description": "Solves math problems using a phone camera while providing step-by-step solutions. Great for independent learners needing immediate feedback.",
+        "link": "https://photomath.com"
+    },
+    {
+        "title": "Brainly",
+        "format": "Mobile Apps",
+        "description": "A collaborative learning app where students can ask and answer questions. It encourages peer-to-peer learning.",
+        "link": "https://brainly.com"
+    },
+    {
+        "title": "Socratic by Google",
+        "format": "Mobile Apps",
+        "description": "Uses AI to break down and explain questions in subjects like math, science, and literature. A helpful tool for quick concept clarification.",
+        "link": "https://socratic.org"
+    },
+    {
+        "title": "Duolingo",
+        "format": "Mobile Apps",
+        "description": "Ideal for language learners, offering gamified lessons in various languages. Its bite-sized approach makes learning consistent and fun.",
+        "link": "https://www.duolingo.com"
+    },
+    {
+        "title": "Sylvan Learning Center",
+        "format": "In-Person Tutoring Centers",
+        "description": "Provides personalized tutoring plans and small-group instruction. Known for its structured programs in core academic areas.",
+        "link": "https://www.sylvanlearning.com"
+    },
+    {
+        "title": "Kumon",
+        "format": "In-Person Tutoring Centers",
+        "description": "Focused on math and reading, Kumon emphasizes self-paced learning and building foundational skills.",
+        "link": "https://www.kumon.com"
+    },
+    {
+        "title": "Huntington Learning Center",
+        "format": "In-Person Tutoring Centers",
+        "description": "Specializes in academic skill-building and test preparation, with tailored learning plans for each student.",
+        "link": "https://huntingtonhelps.com"
+    },
+    {
+        "title": "Mathnasium",
+        "format": "In-Person Tutoring Centers",
+        "description": "Designed to help students excel in math through customized lesson plans and one-on-one instruction.",
+        "link": "https://www.mathnasium.com"
+    },
+    {
+        "title": "National Honor Society",
+        "format": "Peer and Volunteer-Based Tutoring",
+        "description": "Many NHS chapters offer free tutoring services run by high-achieving students, often at the high school itself.",
+        "link": "https://www.nationalhonorsociety.org"
+    },
+    {
+        "title": "School-Based Tutoring Programs",
+        "format": "Peer and Volunteer-Based Tutoring",
+        "description": "Many schools have teacher-led or peer-tutoring initiatives for extra support in core subjects.",
+        "link": null
+    },
+    {
+        "title": "Boys & Girls Clubs of America",
+        "format": "Peer and Volunteer-Based Tutoring",
+        "description": "Offers free or low-cost tutoring and homework help at local centers, with a focus on accessibility and community support.",
+        "link": "https://www.bgca.org"
+    },
+    {
+        "title": "Libraries",
+        "format": "Peer and Volunteer-Based Tutoring",
+        "description": "Many public libraries host free tutoring programs or connect students with volunteer tutors.",
+        "link": null
+    }
+]

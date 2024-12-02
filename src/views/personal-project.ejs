@@ -1,0 +1,111 @@
+<%- include("partials/header"); %>
+
+<div class="Projects">
+    <div class="projects-container">
+        <!-- Scholarship Cards Section -->
+        <div class="projects-section" id="projectsContainer">
+            
+            <!-- Add more cards as needed -->
+        </div>
+
+        <!-- Filter Section -->
+        <div class="Projects-Right">
+            <div class="filter-section">
+                <input type="text" placeholder="Search..." class="search-bar">
+                <div class="filters">
+                    <label for="type">Interests</label>
+                    <select id="type">
+                        <option value="All">All</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Math">Math</option>
+                        <option value="Politics">Politics</option>
+                        <option value="Reading / Writing">Reading / Writing</option>
+                        <option value="Sports">Sports</option>
+                        <option value="History">History</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Music">Music</option>
+                        <option value="Medicine">Medicine</option>
+
+                    </select>
+                </div>
+                <!-- Information Box -->
+            
+            </div>
+            <div class="info-box-big">
+                <div class="info-box">
+                    <h2>Extracurriculars How-To:</h2>
+                    <ol>
+                        <li></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    let projectsData = []; // Store scholarships data for filtering
+
+    async function loadProjects() {
+        try {
+            const response = await fetch('/personalProjects.json');
+            projectsData = await response.json(); // Save the fetched data
+            displayProjects(projectsData); // Display all scholarships initially
+        } catch (error) {
+            console.error('Error loading projects:', error);
+        }
+    }
+    // Function to load JSON data
+    function displayProjects(projects) {
+        const container = document.getElementById('projectsContainer');
+        container.innerHTML = ''; // Clear previous scholarship cards
+
+        projects.forEach(project => {
+            const card = document.createElement('div');
+            card.classList.add('projects-card');
+
+            card.innerHTML = `
+                <div class="content">
+                    <h3>${project.title}</h3>
+                    <div class="info">
+                        <p><span class="req">Description:</span> <span class="req-info">${project["description"]}</span></p>
+                    </div>
+                </div>
+            `;
+
+            container.appendChild(card);
+        });
+    }
+
+    // Call the function to load scholarships on page load
+    // GPA filter function
+    function filterProjects() {
+        const interestFilter = document.getElementById('type').value.toLowerCase();
+        const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
+
+        const filteredProjects = projectsData.filter(project => {
+            const projects = Array.isArray(project.interests) 
+            ? project.interests.map(i => i.toLowerCase()) 
+            : [project.interests.toLowerCase()];
+            const matchesInterest = interestFilter === "all" || projects.includes(interestFilter);
+            
+            const matchesSearch = project.title.toLowerCase().includes(searchQuery);
+
+            return matchesInterest && matchesSearch;
+        });
+
+        displayProjects(filteredProjects);
+    }
+
+
+    // Event listener for GPA filter
+    document.getElementById('type').addEventListener('change', filterProjects);
+    document.querySelector('.search-bar').addEventListener('input', filterProjects);
+
+    loadProjects();
+</script>
+
+<%- include("partials/footer"); %>

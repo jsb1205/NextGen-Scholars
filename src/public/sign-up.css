@@ -38,6 +38,7 @@
     border: none;
     border-radius: 25px;
     background-color: #f0f0f0;
+    box-sizing: border-box;
     font-size: 1rem;
     text-align: center;
   }

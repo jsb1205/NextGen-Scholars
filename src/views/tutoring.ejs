@@ -1,0 +1,117 @@
+<%- include("partials/header"); %>
+
+<div class="Tutoring">
+    <div class="tutoring-container">
+        <!-- Scholarship Cards Section -->
+        <div class="tutoring-section" id="tutoringContainer">
+            
+            <!-- Add more cards as needed -->
+        </div>
+
+        <!-- Filter Section -->
+        <div class="Tutoring-Right">
+            <div class="filter-section">
+                <input type="text" placeholder="Search..." class="search-bar">
+                <div class="filters">
+                    <label for="format">Format</label>
+                    <select id="format">
+                        <option value="all">All</option>
+                        <option value="Online Platforms">Online Platforms</option>
+                        <option value="Mobile Apps">Mobile Apps</option>
+                        <option value="In-Person Tutoring Centers">In-Person Tutoring Centers</option>
+                        <option value="Peer and Volunteer-Based Tutoring">Peer and Volunteer-Based Tutoring</option>
+                    </select>
+
+                </div>
+                <!-- Information Box -->
+            
+            </div>
+            <div class="info-box-big">
+                <div class="info-box">
+                    <h2>Scholarship Finder How-To:</h2>
+                    <ol>
+                        <li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let tutoringData = []; // Store scholarships data for filtering
+
+    async function loadTutoring() {
+        try {
+            const response = await fetch('/tutoring.json');
+            tutoringData = await response.json(); // Save the fetched data
+            displayTutoring(tutoringData); // Display all scholarships initially
+        } catch (error) {
+            console.error('Error loading tutoring:', error);
+        }
+    }
+    // Function to load JSON data
+    function displayTutoring(tutors) {
+        const container = document.getElementById('tutoringContainer');
+        container.innerHTML = ''; // Clear previous scholarship cards
+
+        tutors.forEach(tutoring => {
+            const card = document.createElement('div');
+            card.classList.add('tutoring-card');
+
+            card.innerHTML = `
+                <div class="content">
+                    <h3>${tutoring.title}</h3>
+                    <div class="info">
+                        <p><strong>Format:</strong> ${tutoring.format}</p>
+                    </div>
+                    <a href="#" class="details-link">Tutoring Details</a>
+                    <div class="extra-details" style="display: none;">
+                        <p>${tutoring["description"]}</p>
+                    </div>
+                </div>
+                <a href="${tutoring.link}" target="_blank" class="apply-btn">Apply</a>
+            `;
+
+            const detailsLink = card.querySelector('.details-link');
+            const extraDetails = card.querySelector('.extra-details');
+            detailsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                extraDetails.style.display = extraDetails.style.display === 'none' ? 'block' : 'none';
+                detailsLink.textContent = extraDetails.style.display === 'none' ? 'Scholarship Details' : 'Hide Details';
+            });
+
+            container.appendChild(card);
+        });
+    }
+
+    // Call the function to load scholarships on page load
+    // GPA filter function
+    function filterTutors() {
+        const formatFilter = document.getElementById('format').value.toLowerCase();
+        const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
+
+        const filteredTutors = tutoringData.filter(tutoring => {
+            const tutors = Array.isArray(tutoring.format) 
+            ? tutoring.format.map(i => i.toLowerCase()) 
+            : [tutoring.format.toLowerCase()];
+            const matchesFormat = formatFilter === "all" || tutors.includes(formatFilter);
+            
+            const matchesSearch = tutoring.title.toLowerCase().includes(searchQuery);
+
+            return matchesFormat && matchesSearch;
+        });
+
+        displayTutoring(filteredTutors);
+    }
+
+    // Event listener for GPA filter
+    document.getElementById('format').addEventListener('change', filterTutors);
+    document.querySelector('.search-bar').addEventListener('input', filterTutors);
+
+    // Load scholarships initially
+    loadTutoring();
+</script>
+
+<%- include("partials/footer"); %>

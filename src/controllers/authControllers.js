@@ -69,6 +69,33 @@ module.exports.extracurriculars_get = (req, res) => {
   res.render("../views/extracurriculars");
 }
 
+module.exports.internship_get = (req, res) => {
+  res.render("../views/internship");
+}
+
+module.exports.fasfa_get = (req, res) => {
+  res.render("../views/fasfa");
+}
+
+module.exports.courses_get = (req, res) => {
+  res.render("../views/courses");
+}
+
+module.exports.tutoring_get = (req, res) => {
+  res.render("../views/tutoring");
+}
+
+module.exports.projects_get = (req, res) => {
+  res.render("../views/personal-project");
+}
+
+module.exports.prep_get = (req, res) => {
+  res.render("../views/college-prep");
+}
+module.exports.loans_get = (req, res) => {
+  res.render("../views/loans");
+}
+
 module.exports.signup_post = async (req, res) => {
   const { email, password } = req.body;
 

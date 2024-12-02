@@ -1,0 +1,117 @@
+<%- include("partials/header"); %>
+
+<div class="Courses">
+    <div class="courses-container">
+        <!-- Scholarship Cards Section -->
+        <div class="courses-section" id="coursesContainer">
+            
+            <!-- Add more cards as needed -->
+        </div>
+
+        <!-- Filter Section -->
+        <div class="Courses-Right">
+            <div class="filter-section">
+                <input type="text" placeholder="Search..." class="search-bar">
+                <div class="filters">
+                    <label for="program">Program</label>
+                    <select id="program">
+                        <option value="all">All</option>
+                        <option value="IB">IB</option>
+                        <option value="AICE">AICE</option>
+                        <option value="Dual Enrollment">Dual Enrollment</option>
+                        <option value="AP">AP</option>
+                    </select>
+
+                </div>
+                <!-- Information Box -->
+            
+            </div>
+            <div class="info-box-big">
+                <div class="info-box">
+                    <h2>Scholarship Finder How-To:</h2>
+                    <ol>
+                        <li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let coursesData = []; // Store scholarships data for filtering
+
+    async function loadCourses() {
+        try {
+            const response = await fetch('/courses.json');
+            coursesData = await response.json(); // Save the fetched data
+            displayCourses(coursesData); // Display all scholarships initially
+        } catch (error) {
+            console.error('Error loading courses:', error);
+        }
+    }
+    // Function to load JSON data
+    function displayCourses(courses) {
+        const container = document.getElementById('coursesContainer');
+        container.innerHTML = ''; // Clear previous scholarship cards
+
+        courses.forEach(course => {
+            const card = document.createElement('div');
+            card.classList.add('courses-card');
+
+            card.innerHTML = `
+                <div class="content">
+                    <h3>${course.title}</h3>
+                    <div class="info">
+                        <p><strong>Program:</strong> ${course.program}</p>
+                    </div>
+                    <a href="#" class="details-link">Course Details</a>
+                    <div class="extra-details" style="display: none;">
+                        <p>${course["description"]}</p>
+                    </div>
+                </div>
+                <a href="${course.link}" target="_blank" class="apply-btn">Apply</a>
+            `;
+
+            const detailsLink = card.querySelector('.details-link');
+            const extraDetails = card.querySelector('.extra-details');
+            detailsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                extraDetails.style.display = extraDetails.style.display === 'none' ? 'block' : 'none';
+                detailsLink.textContent = extraDetails.style.display === 'none' ? 'Scholarship Details' : 'Hide Details';
+            });
+
+            container.appendChild(card);
+        });
+    }
+
+    // Call the function to load scholarships on page load
+    // GPA filter function
+    function filterCourses() {
+        const programFilter = document.getElementById('program').value.toLowerCase();
+        const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
+
+        const filteredCourses = coursesData.filter(course => {
+            const courses = Array.isArray(course.program) 
+            ? course.program.map(i => i.toLowerCase()) 
+            : [course.program.toLowerCase()];
+            const matchesCourses = programFilter === "all" || courses.includes(programFilter);
+            
+            const matchesSearch = course.title.toLowerCase().includes(searchQuery);
+
+            return matchesCourses && matchesSearch;
+        });
+
+        displayCourses(filteredCourses);
+    }
+
+    // Event listener for GPA filter
+    document.getElementById('program').addEventListener('change', filterCourses);
+    document.querySelector('.search-bar').addEventListener('input', filterCourses);
+
+    // Load scholarships initially
+    loadCourses();
+</script>
+
+<%- include("partials/footer"); %>

@@ -1,0 +1,138 @@
+/* FAFSA Page Styles */
+.fafsa-page {
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+
+.fasfa-title-section-back-box{
+    content: '';
+    position: absolute;
+    top: 20%; /* Adjust position of the darker blue box */
+    left: 3%; /* Adjust position of the darker blue box */
+    width: 65%;
+    height: 30%;
+    background-color: #70a2f8; /* Dark blue background color */
+    border-radius: 10px; /* Match the rounded corners of the light blue box */
+    z-index: 1; /* Place the darker box behind the lighter box */
+}
+/* Title Section */
+.fasfa-title-section {
+    background-color: #d9e5f4;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    margin: 20px 0; /* Removed auto centering */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align to the left */
+    max-width: 65%;
+    z-index: 2;
+  }
+  
+  
+  .fasfa-title-text {
+    max-width: 65%;
+  }
+  
+  .fasfa-title-text-section h1 {
+    font-size: 2.5rem;
+    color: #004aad;
+    margin-bottom: 20px;
+  }
+  .green-title-text-section{
+
+    color: #7ed957;
+
+  }
+  
+  .fasfa-title-section p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .fasfa-title-section ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .fasfa-title-section ul li {
+    margin-bottom: 5px;
+  }
+  
+  .dollar-icon {
+    width: 15%;
+    height: auto;
+    position: absolute;
+    top: 20%;
+    right: 34%;
+    z-index: 3;
+  }
+
+/* Steps Section */
+.fasfa-steps-section {
+    margin-top: 7%;
+  }
+
+  .fasfa-steps-section h2 {
+    font-size: 2rem; /* Ensure the font size is prominent */
+    color: #7ed957;
+    text-align: left; /* Align the title to the left */
+    margin-left: 20px; /* Add some space from the left edge */
+  }
+  
+  .fasfa-steps-container {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .fasfa-step-circles-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .fasfa-steps-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .fasfa-step-circle {
+    width: 60px;
+    height: 60px;
+    background-color: #7ed957;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .fasfa-step {
+    display: flex;
+    flex-direction: column;
+    top: 20%;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .fasfa-step h3 {
+    color: #004aad;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .fasfa-step p {
+    color: #333;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
