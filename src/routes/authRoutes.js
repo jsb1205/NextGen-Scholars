@@ -19,6 +19,7 @@ router.get("/extracurriculars", authController.extracurriculars_get);
 router.get("/internship", authController.internship_get);
 router.get("/fasfa", authController.fasfa_get);
 router.get("/courses", authController.courses_get);
+router.get("/tutoring", authController.tutoring_get);
 
 module.exports = router;
 
