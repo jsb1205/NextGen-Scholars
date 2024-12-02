@@ -1,0 +1,120 @@
+/* FAFSA Page Styles */
+.fafsa-page {
+    font-family: 'Fredoka', sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+  
+  /* Title Section */
+  .fasfa-title-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d9e5f4;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+  
+  .title-text {
+    flex: 1;
+  }
+  
+  .fasfa-title-section h1 {
+    font-size: 2.5rem;
+    color: #004aad;
+    margin-bottom: 20px;
+  }
+  
+  .fasfa-title-section p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .fasfa-title-section ul {
+    list-style: disc;
+    padding-left: 20px;
+  }
+  
+  .dollar-icon {
+    flex-shrink: 0;
+    width: 120px;
+    height: auto;
+  }
+  
+  /* Steps Section */
+  .fasfa-steps-section {
+    text-align: center;
+  }
+  
+  .fasfa-steps-section h2 {
+    font-size: 2rem;
+    color: #7ed957;
+    margin-bottom: 40px;
+  }
+  
+  .fasfa-steps-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the column */
+    gap: 20px;
+  }
+  
+  .fasfa-step {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%; /* Adjust to make it consistent across the column */
+    max-width: 600px; /* Ensure it doesn’t stretch too wide */
+  }
+  
+  .fasfa-step h3 {
+    font-size: 1.4rem;
+    color: #004aad;
+    margin-bottom: 10px;
+  }
+  
+  .fasfa-step p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .fasfa-step-circle {
+    width: 60px;
+    height: 60px;
+    background-color: #7ed957;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px auto; /* Center the circle */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .fasfa-title-section {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .dollar-icon {
+      margin-top: 20px;
+    }
+  
+    .fasfa-steps-container {
+      gap: 15px;
+    }
+  
+    .fasfa-step {
+      width: 90%; /* Adjust for smaller screens */
+    }
+  }
+  
