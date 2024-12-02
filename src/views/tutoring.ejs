@@ -96,7 +96,7 @@
             const tutors = Array.isArray(tutoring.format) 
             ? tutoring.format.map(i => i.toLowerCase()) 
             : [tutoring.format.toLowerCase()];
-            const matchesFormat = formatFilter === "all" || tutoring.includes(formatFilter);
+            const matchesFormat = formatFilter === "all" || tutors.includes(formatFilter);
             
             const matchesSearch = tutoring.title.toLowerCase().includes(searchQuery);
 
