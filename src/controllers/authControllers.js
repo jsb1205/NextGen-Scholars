@@ -89,6 +89,10 @@ module.exports.projects_get = (req, res) => {
   res.render("../views/personal-project");
 }
 
+module.exports.prep_get = (req, res) => {
+  res.render("../views/college-prep");
+}
+
 module.exports.signup_post = async (req, res) => {
   const { email, password } = req.body;
 

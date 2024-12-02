@@ -2,23 +2,30 @@
 
 <div class="fafsa-page">
   <!-- Title Section -->
+  <div class="fasfa-title-text-section">
+    <h1>
+      FAFSA, <span class="green-title-text-section">what is it?</span>
+    </h1>
+  </div>
+  <div class = "fasfa-title-section-back-box">
+    
+  </div>
   <div class="fasfa-title-section">
-    <div class="title-text">
-      <h1>FAFSA, what is it?</h1>
+    <div class="fasfa-title-text">
       <p>
-        FAFSA is a form that students in the U.S. complete to determine their eligibility for federal financial aid. This includes:
+        <strong>FAFSA</strong> is a form that students in the U.S. complete to determine their eligibility for federal financial aid. This includes:
       </p>
       <ul>
-        <li>Grants</li>
-        <li>Loans</li>
-        <li>Work-study opportunities</li>
+        <li><strong>Grants</strong></li>
+        <li><strong>Loans</strong></li>
+        <li><strong>Work-study opportunities</strong></li>
       </ul>
       <p>
         It's a valuable resource because it provides access to various funding options, including need-based aid and scholarships from schools and states, making higher education more affordable!
       </p>
     </div>
-    <img src="/dollar-icon.png" alt="Dollar Icon" class="dollar-icon">
   </div>
+  <img src="/dollar-icon.png" alt="Dollar Icon" class="dollar-icon">
 
   <!-- Steps Section -->
   <div class="fasfa-steps-section">
@@ -32,16 +39,25 @@
         { step: "STEP 5", title: "List Schools", description: "Add the colleges or schools you're considering attending. They will receive your FAFSA information to determine your aid package." },
         { step: "STEP 6", title: "Answer Financial Questions", description: "Complete questions about your income, tax information, and assets. Let the IRS Data Retrieval Tool transfer tax information if you're eligible." },
         { step: "STEP 7", title: "Sign and Submit", description: "Sign your FAFSA using your FSA ID, and have a parent sign if you're a dependent. Submit your application and check the confirmation page." },
-        { step: "STEP 8", title: "Monitor Your Aid Package", description: "Schools listed on your FAFSA will send you details of aid offers. Compare offers and accept the aid you wish to use." }
+        { step: "STEP 8", title: "Review and Update", description: "After submission, you’ll receive a Student Aid Report (SAR) summarizing your FAFSA. Review it for errors and update any information if needed." },
+        { step: "STEP 9", title: "Monitor Your Aid Package", description: "Schools listed on your FAFSA will send you details of aid offers. Compare offers and accept the aid you wish to use." }
       ]; %>
 
-      <% steps.forEach(({ step, title, description }) => { %>
-        <div class="fasfa-step">
+      <div class="fasfa-step-circles-container">
+        <% steps.forEach(({ step }) => { %>
           <div class="fasfa-step-circle"><%= step %></div>
-          <h3><%= title %></h3>
-          <p><%= description %></p>
-        </div>
-      <% }); %>
+        <% }); %>
+      </div>
+
+      <div class="fasfa-steps-info">
+        <% steps.forEach(({ title, description }) => { %>
+          <div class="fasfa-step">
+            <h3><%= title %></h3>
+            <p><%= description %></p>
+          </div>
+        <% }); %>
+      </div>
+      
     </div>
   </div>
 </div>
