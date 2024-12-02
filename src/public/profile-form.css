@@ -76,7 +76,7 @@ body {
   /* Decorative images styling */
   .decor-image {
     position: absolute;
-    max-width: 100px;
+    max-width: 500px;
     height: auto;
     opacity: 0.9;
   }
