@@ -1,5 +1,193 @@
 <%- include("partials/header"); %>
 
+<div class="Internship">
+    <div class="internship-container">
+        <!-- Scholarship Cards Section -->
+        <div class="internship-section" id="internshipContainer">
+            
+            <!-- Add more cards as needed -->
+        </div>
 
+        <!-- Filter Section -->
+        <div class="Internship-Right">
+            <div class="filter-section">
+                <input type="text" placeholder="Search..." class="search-bar">
+                <div class="filters">
+                    <label for="year">Year</label>
+                    <select id="year">
+                        <option value="all">All</option>
+                        <option value="Freshman">Freshman</option>
+                        <option value="Sophomore">Sophomore</option>
+                        <option value="Junior">Junior</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+
+                    <label for="state">State</label>
+                    <select id="state">
+                        <option value="all">All States</option>
+                        <option value="Alabama">Alabama</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="South Carolina">South Carolina</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                    </select>
+
+                    <label for="gpa">GPA</label>
+                    <select id="gpa">
+                        <option value="All GPAs">All GPAs</option>
+                        <option value="4.0">4.0</option>
+                        <option value=">3.5">3.5 and above</option>
+                        <option value=">3.0">3.0 and above</option>
+                        <option value=">2.5">2.5 and above</option>
+                        <option value=">2.0">2.0 and above</option>
+                        <!-- Add options as needed -->
+                    </select>
+
+                    <label for="interest">Interests</label>
+                    <select id="interest">
+                        <option value="All">All</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Math">Math</option>
+                        <option value="Politics">Politics</option>
+                        <option value="Reading / Writing">Reading / Writing</option>
+                        <option value="Sports">Sports</option>
+                        <option value="History">History</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Music">Music</option>
+                        <option value="Medicine">Medicine</option>
+
+                    </select>
+                </div>
+                <!-- Information Box -->
+            
+            </div>
+            <div class="info-box-big">
+                <div class="info-box">
+                    <h2>Scholarship Finder How-To:</h2>
+                    <ol>
+                        <li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let internshipsData = []; // Store scholarships data for filtering
+
+    async function loadInternships() {
+        try {
+            const response = await fetch('/internship.json');
+            internshipsData = await response.json(); // Save the fetched data
+            displayInternships(internshipsData); // Display all scholarships initially
+        } catch (error) {
+            console.error('Error loading scholarships:', error);
+        }
+    }
+    // Function to load JSON data
+    function displayInternships(internships) {
+        const container = document.getElementById('internshipContainer');
+        container.innerHTML = ''; // Clear previous scholarship cards
+
+        internships.forEach(internship => {
+            const card = document.createElement('div');
+            card.classList.add('internship-card');
+
+            card.innerHTML = `
+                <div class="content">
+                    <h3>${internship.title}</h3>
+                    <div class="info">
+                        <p><strong>Deadline:</strong> ${internship.deadline}</p>
+                    </div>
+                    <a href="#" class="details-link">Internship Details</a>
+                    <div class="extra-details" style="display: none;">
+                        <p>${internship["internship details"]}</p>
+                    </div>
+                </div>
+                <a href="${internship.link}" target="_blank" class="apply-btn">Apply</a>
+            `;
+
+            const detailsLink = card.querySelector('.details-link');
+            const extraDetails = card.querySelector('.extra-details');
+            detailsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                extraDetails.style.display = extraDetails.style.display === 'none' ? 'block' : 'none';
+                detailsLink.textContent = extraDetails.style.display === 'none' ? 'Scholarship Details' : 'Hide Details';
+            });
+
+            container.appendChild(card);
+        });
+    }
+
+    // Call the function to load scholarships on page load
+    // GPA filter function
+    function filterInternships() {
+        const yearFilter = document.getElementById('year').value.toLowerCase();
+        const stateFilter = document.getElementById('state').value.toLowerCase();
+        const gpaFilter = document.getElementById('gpa').value;
+        const interestFilter = document.getElementById('interest').value.toLowerCase();
+        const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
+
+        const filteredInternships = internshipsData.filter(internship => {
+            // Convert scholarship properties to lowercase for case-insensitive comparison
+            const internshipYear = internship.year;
+            const internshipState = internship.state;
+
+            // Year filter
+            const matchesYear = 
+            yearFilter === "all" ||
+            (Array.isArray(internshipYear) 
+                ? internshipYear.some(year => year.toLowerCase() === yearFilter) 
+                : internshipYear.toLowerCase() === yearFilter);
+
+            // State filter
+            const matchesState = 
+            stateFilter === "all" ||
+            (Array.isArray(internshipState) 
+                ? internshipState.some(state => state.toLowerCase() === stateFilter) 
+                : internshipState.toLowerCase() === stateFilter);
+
+            let matchesGPA = true;
+            if (gpaFilter !== "All GPAs") {
+                const gpaValue = parseFloat(gpaFilter.replace(">", ""));
+                matchesGPA = gpaFilter.startsWith(">") ? internship.gpa >= gpaValue : internship.gpa === gpaValue;
+            }
+
+            const interests = Array.isArray(internship.interests) 
+            ? internship.interests.map(i => i.toLowerCase()) 
+            : [internship.interests.toLowerCase()];
+            const matchesInterest = interestFilter === "all" || interests.includes(interestFilter);
+            
+            const matchesSearch = internship.title.toLowerCase().includes(searchQuery);
+
+            return matchesYear && matchesState && matchesInterest && matchesGPA && matchesSearch;
+        });
+
+        displayInternships(filteredInternships);
+    }
+
+    // Event listener for GPA filter
+    document.getElementById('year').addEventListener('change', filterInternships);
+    document.getElementById('state').addEventListener('change', filterInternships);
+    document.getElementById('gpa').addEventListener('change', filterInternships);
+    document.getElementById('interest').addEventListener('change', filterInternships);
+    document.querySelector('.search-bar').addEventListener('input', filterInternships);
+
+    // Load scholarships initially
+    loadInternships();
+</script>
 
 <%- include("partials/footer"); %>
