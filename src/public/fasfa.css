@@ -4,23 +4,38 @@
     background-color: #f9f9f9;
     padding: 20px;
   }
-  
-  /* Title Section */
-  .fasfa-title-section {
+
+.fasfa-title-section-back-box{
+    content: '';
+    position: absolute;
+    top: 20%; /* Adjust position of the darker blue box */
+    left: 3%; /* Adjust position of the darker blue box */
+    width: 65%;
+    height: 30%;
+    background-color: #70a2f8; /* Dark blue background color */
+    border-radius: 10px; /* Match the rounded corners of the light blue box */
+    z-index: 1; /* Place the darker box behind the lighter box */
+}
+/* Title Section */
+.fasfa-title-section {
+    background-color: #d9e5f4;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    margin: 20px 0; /* Removed auto centering */
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: #d9e5f4;
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 40px;
+    justify-content: flex-start; /* Align to the left */
+    max-width: 65%;
+    z-index: 2;
   }
   
-  .title-text {
-    flex: 1;
+  
+  .fasfa-title-text {
+    max-width: 65%;
   }
   
-  .fasfa-title-section h1 {
+  .fasfa-title-text-section h1 {
     font-size: 2.5rem;
     color: #004aad;
     margin-bottom: 20px;
@@ -36,23 +51,32 @@
   .fasfa-title-section ul {
     list-style: disc;
     padding-left: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .fasfa-title-section ul li {
+    margin-bottom: 5px;
   }
   
   .dollar-icon {
-    flex-shrink: 0;
-    width: 120px;
+    width: 15%;
     height: auto;
+    position: absolute;
+    top: 20%;
+    right: 34%;
+    z-index: 3;
   }
   
   /* Steps Section */
   .fasfa-steps-section {
     text-align: center;
+    padding: 40px 20px;
   }
   
   .fasfa-steps-section h2 {
     font-size: 2rem;
     color: #7ed957;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   
   .fasfa-steps-container {
@@ -65,11 +89,14 @@
   .fasfa-step {
     background-color: #ffffff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 80%; /* Adjust to make it consistent across the column */
-    max-width: 600px; /* Ensure it doesn’t stretch too wide */
+    max-width: 500px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
   }
   
   .fasfa-step h3 {
