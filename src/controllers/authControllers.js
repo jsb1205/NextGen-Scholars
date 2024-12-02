@@ -73,6 +73,10 @@ module.exports.internship_get = (req, res) => {
   res.render("../views/internship");
 }
 
+module.exports.fasfa_get = (req, res) => {
+  res.render("../views/fasfa");
+}
+
 module.exports.signup_post = async (req, res) => {
   const { email, password } = req.body;
 
