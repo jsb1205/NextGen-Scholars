@@ -9,8 +9,8 @@
     position: absolute;
     top: 20%; /* Adjust position of the darker blue box */
     left: 3%; /* Adjust position of the darker blue box */
-    width: 65%;
-    height: 30%;
+    width: 930px;
+    height: 330px;
     background-color: #70a2f8; /* Dark blue background color */
     border-radius: 10px; /* Match the rounded corners of the light blue box */
     z-index: 1; /* Place the darker box behind the lighter box */
@@ -20,12 +20,14 @@
     background-color: #d9e5f4;
     padding: 20px;
     border-radius: 10px;
+    left: 0%;
     position: relative;
     margin: 20px 0; /* Removed auto centering */
     display: flex;
     align-items: center;
     justify-content: flex-start; /* Align to the left */
-    max-width: 65%;
+    width: 900px;
+    height: 300px;
     z-index: 2;
   }
   
@@ -63,11 +65,11 @@
   }
   
   .dollar-icon {
-    width: 15%;
+    width: 200px;
     height: auto;
     position: absolute;
-    top: 20%;
-    right: 34%;
+    top: 34%;
+    left: 45%;
     z-index: 3;
   }
 
@@ -95,7 +97,12 @@
     gap: 20px;
   }
 
-  .fasfa-steps-info{
+  .fasfa-steps-info-Left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .fasfa-steps-info-Right{
     display: flex;
     flex-direction: column;
     align-items: center;
