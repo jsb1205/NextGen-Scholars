@@ -1,0 +1,152 @@
+[
+    {
+        "title": "Studies in language and literature - IB",
+        "program": "IB",
+        "description": "As part of the Diploma Programme (DP), students take at least one subject from studies in language and literature. Taking two studies in language and literature subjects in different languages is one way of obtaining a bilingual diploma.",
+        "link": "https://www.ibo.org/programmes/diploma-programme/curriculum/language-and-literature/"
+    },
+    {
+        "title": "Language acquisition - IB",
+        "program": "IB",
+        "description": "The main emphasis of the modern language courses is on the acquisition and use of language in a range of contexts and for different purposes while, at the same time, promoting an understanding of another culture through the study of its language.",
+        "link": "https://www.ibo.org/programmes/diploma-programme/curriculum/language-acquisition/"
+    },
+    {
+        "title": "Individuals and societies - IB",
+        "program": "IB",
+        "description": "Studying about individuals and societies provides for the development of a critical appreciation of: human experience and behaviour, the varieties of physical, economic and social environments that people inhabit, and the history of social and cultural institutions.",
+        "link": "https://www.ibo.org/programmes/diploma-programme/curriculum/individuals-and-societies/"
+    },
+    {
+        "title": "Sciences - IB",
+        "program": "IB",
+        "description": "Students explore the concepts, theories, models and techniques that underpin each subject area and through these develop their understanding of the scientific method. A compulsory project encourages students to appreciate the environmental, social and ethical implications of science.",
+        "link": "https://www.ibo.org/programmes/diploma-programme/curriculum/sciences/"
+    },
+    {
+        "title": "Mathematics - IB",
+        "program": "IB",
+        "description": "Students are also encouraged to appreciate the international dimensions of mathematics and the multiplicity of its cultural and historical perspectives.",
+        "link": "https://www.ibo.org/programmes/diploma-programme/curriculum/mathematics/"
+    },
+    {
+        "title": "Arts - IB",
+        "program": "IB",
+        "description": "The subjects in the arts allow a high degree of adaptability to different cultural contexts. The emphasis is on creativity in the context of disciplined, practical research into the relevant genres.",
+        "link": "https://www.ibo.org/programmes/diploma-programme/curriculum/the-arts/"
+    },
+    {
+        "title": "Mathematics and sciences - AICE",
+        "program": "AICE",
+        "description": "Mathematics and Sciences focuses on developing students' analytical and problem-solving abilities through rigorous STEM coursework. Students engage with subjects like Mathematics, Biology, Chemistry, Physics, Marine Science, and Environmental Management. These courses emphasize both theoretical understanding and practical laboratory skills, preparing students for advanced study in scientific fields.",
+        "link": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-advanced/cambridge-aice-diploma/curriculum/"
+    },
+    {
+        "title": "Languages - AICE",
+        "program": "AICE",
+        "description": "Languages develops students' communication abilities and cultural understanding through comprehensive language study. This group includes English Language, Literature in English, First Language courses, and Foreign Language options such as Spanish, French, and Chinese. Students learn to analyze texts, develop writing skills, and gain proficiency in multiple languages while exploring diverse cultural perspectives.",
+        "link": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-advanced/cambridge-aice-diploma/curriculum/"
+    },
+    {
+        "title": "Arts and humanities - AICE",
+        "program": "AICE",
+        "description": "Arts and Humanities broadens students' understanding of human society, culture, and creative expression. The group encompasses subjects like History, Geography, Psychology, Sociology, Art and Design, Music, Business Studies, Economics, and Law, allowing students to explore different aspects of human experience and social systems. These courses develop critical thinking skills while fostering cultural awareness and creative abilities.",
+        "link": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-advanced/cambridge-aice-diploma/curriculum/"
+    },
+    {
+        "title": "Interdisciplinary subjects - AICE",
+        "program": "AICE",
+        "description": "Interdisciplinary Subjects serves as an optional group that bridges different fields of study. This group includes courses like Global Perspectives & Research, Thinking Skills, General Paper, and Media Studies, which help students integrate knowledge across disciplines and develop advanced research and analytical capabilities.",
+        "link": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-advanced/cambridge-aice-diploma/curriculum/"
+    },
+    {
+        "title": "English - Dual Enrollment",
+        "program": "Dual Enrollment",
+        "description": "English encompasses literature, composition, and technical writing courses, ranging from American and British literature surveys to freshman composition and specialized writing courses in technical, research, and creative genres.",
+        "link": "https://www.fldoe.org/schools/higher-ed/fl-college-system/dual-enroll-transfer/"
+    },
+    {
+        "title": "World languages - Dual Enrollment",
+        "program": "Dual Enrollment",
+        "description": "World Languages offers comprehensive language instruction in multiple languages including Arabic, American Sign Language, Chinese, French, German, Hebrew, Italian, Japanese, Latin, Portuguese, Russian, Spanish, and Swahili, with courses covering elementary through intermediate levels.",
+        "link": "https://www.fldoe.org/schools/higher-ed/fl-college-system/dual-enroll-transfer/"
+    },
+    {
+        "title": "Mathematics - Dual Enrollment",
+        "program": "Dual Enrollment",
+        "description": "Mathematics includes courses in algebra, calculus, statistics, discrete mathematics, and mathematical theory, providing both applied and theoretical mathematical foundations for various academic and career paths.",
+        "link": "https://www.fldoe.org/schools/higher-ed/fl-college-system/dual-enroll-transfer/"
+    },
+    {
+        "title": "Performing/fine arts/speech and debate - Dual Enrollment",
+        "program": "Dual Enrollment",
+        "description": "Performing/Fine Arts/Speech and Debate combines visual arts, music, theater, dance, and public speaking courses, offering both performance-based and appreciation-focused instruction across artistic disciplines.",
+        "link": "https://www.fldoe.org/schools/higher-ed/fl-college-system/dual-enroll-transfer/"
+    },
+    {
+        "title": "Sciences - Dual Enrollment",
+        "program": "Dual Enrollment",
+        "description": "Science features a broad range of courses in biology, chemistry, physics, astronomy, environmental science, and earth sciences, with many courses including both lecture and laboratory components.",
+        "link": "https://www.fldoe.org/schools/higher-ed/fl-college-system/dual-enroll-transfer/"
+    },
+    {
+        "title": "Social studies - Dual Enrollment",
+        "program": "Dual Enrollment",
+        "description": "Social Studies covers American and world history, economics, and government courses that examine human societies, political systems, and economic principles across different time periods and regions.",
+        "link": "https://www.fldoe.org/schools/higher-ed/fl-college-system/dual-enroll-transfer/"
+    },
+    {
+        "title": "Electives - Dual Enrollment",
+        "program": "Dual Enrollment",
+        "description": "Electives spans diverse subjects including anthropology, philosophy, psychology, sociology, business, computer literacy, and student success courses that allow students to explore various academic and career interests.",
+        "link": "https://www.fldoe.org/schools/higher-ed/fl-college-system/dual-enroll-transfer/"
+    },
+    {
+        "title": "English - AP",
+        "program": "AP",
+        "description": "English includes two distinct tracks: AP English Language and Composition focuses on rhetorical analysis and argumentation, while AP English Literature and Composition explores literary analysis through close reading of complex texts from various genres and periods.",
+        "link": "https://apstudents.collegeboard.org/courses"
+    },
+    {
+        "title": "Mathematics - AP",
+        "program": "AP",
+        "description": "Mathematics offers a progressive sequence including AP Precalculus, AP Calculus AB, AP Calculus BC, and AP Statistics, ranging from foundational mathematical concepts through advanced calculus and statistical analysis.",
+        "link": "https://apstudents.collegeboard.org/courses"
+    },
+    {
+        "title": "History - AP",
+        "program": "AP",
+        "description": "History encompasses AP United States History, AP World History: Modern, AP European History, and specialized courses like AP African American Studies, examining historical developments, patterns, and interconnections across different regions and time periods.",
+        "link": "https://apstudents.collegeboard.org/courses"
+    },
+    {
+        "title": "Sciences - AP",
+        "program": "AP",
+        "description": "Sciences include both traditional courses (AP Biology, AP Chemistry, AP Physics 1, 2, and C) and environmental studies (AP Environmental Science), combining theoretical knowledge with hands-on laboratory investigations.",
+        "link": "https://apstudents.collegeboard.org/courses"
+    },
+    {
+        "title": "World languages and cultures - AP",
+        "program": "AP",
+        "description": "World Languages and Cultures offers Chinese, French, German, Italian, Japanese, Latin, and Spanish Language and Culture courses, with additional Spanish Literature and Culture options, focusing on both language proficiency and cultural understanding.",
+        "link": "https://apstudents.collegeboard.org/courses"
+    },
+    {
+        "title": "Arts - AP",
+        "program": "AP",
+        "description": "Arts includes AP Art History, AP Music Theory, and several AP Art and Design courses (Drawing, 2-D, and 3-D), allowing students to develop both creative skills and theoretical understanding.",
+        "link": "https://apstudents.collegeboard.org/courses"
+    },
+    {
+        "title": "Social sciences - AP",
+        "program": "AP",
+        "description": "Social Sciences features courses like AP Psychology, AP Human Geography, AP Comparative Government and Politics, and AP Macroeconomics/Microeconomics, exploring human behavior, society, and systems from various analytical perspectives.",
+        "link": "https://apstudents.collegeboard.org/courses"
+    },
+    {
+        "title": "Computer science - AP",
+        "program": "AP",
+        "description": "Computer Science offers both AP Computer Science Principles and AP Computer Science A, covering broad computing concepts and specialized Java programming respectively.",
+        "link": "https://apstudents.collegeboard.org/courses"
+    }
+]
