@@ -171,7 +171,7 @@
             : [internship.interests.toLowerCase()];
             const matchesInterest = interestFilter === "all" || interests.includes(interestFilter);
             
-            const matchesSearch = scholarship.title.toLowerCase().includes(searchQuery);
+            const matchesSearch = internship.title.toLowerCase().includes(searchQuery);
 
             return matchesYear && matchesState && matchesInterest && matchesGPA && matchesSearch;
         });
