@@ -4,7 +4,7 @@
   <!-- Title Section -->
   <div class="fasfa-title-text-section">
     <h1>
-      FAFSA, <span class="highlight">what is it?</span>
+      FAFSA, <span class="green-title-text-section">what is it?</span>
     </h1>
   </div>
   <div class = "fasfa-title-section-back-box">
@@ -39,16 +39,25 @@
         { step: "STEP 5", title: "List Schools", description: "Add the colleges or schools you're considering attending. They will receive your FAFSA information to determine your aid package." },
         { step: "STEP 6", title: "Answer Financial Questions", description: "Complete questions about your income, tax information, and assets. Let the IRS Data Retrieval Tool transfer tax information if you're eligible." },
         { step: "STEP 7", title: "Sign and Submit", description: "Sign your FAFSA using your FSA ID, and have a parent sign if you're a dependent. Submit your application and check the confirmation page." },
-        { step: "STEP 8", title: "Monitor Your Aid Package", description: "Schools listed on your FAFSA will send you details of aid offers. Compare offers and accept the aid you wish to use." }
+        { step: "STEP 8", title: "Review and Update", description: "After submission, you’ll receive a Student Aid Report (SAR) summarizing your FAFSA. Review it for errors and update any information if needed." },
+        { step: "STEP 9", title: "Monitor Your Aid Package", description: "Schools listed on your FAFSA will send you details of aid offers. Compare offers and accept the aid you wish to use." }
       ]; %>
 
-      <% steps.forEach(({ step, title, description }) => { %>
-        <div class="fasfa-step">
+      <div class="fasfa-step-circles-container">
+        <% steps.forEach(({ step }) => { %>
           <div class="fasfa-step-circle"><%= step %></div>
-          <h3><%= title %></h3>
-          <p><%= description %></p>
-        </div>
-      <% }); %>
+        <% }); %>
+      </div>
+
+      <div class="fasfa-steps-info">
+        <% steps.forEach(({ title, description }) => { %>
+          <div class="fasfa-step">
+            <h3><%= title %></h3>
+            <p><%= description %></p>
+          </div>
+        <% }); %>
+      </div>
+      
     </div>
   </div>
 </div>
