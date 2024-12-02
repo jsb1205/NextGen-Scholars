@@ -66,7 +66,7 @@
                     <div class="info">
                         <p><strong>Program:</strong> ${course.program}</p>
                     </div>
-                    <a href="#" class="details-link">Scholarship Details</a>
+                    <a href="#" class="details-link">Course Details</a>
                     <div class="extra-details" style="display: none;">
                         <p>${course["description"]}</p>
                     </div>
@@ -93,12 +93,12 @@
         const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
 
         const filteredCourses = coursesData.filter(course => {
-            const courses = Array.isArray(courses.program) 
-            ? courses.program.map(i => i.toLowerCase()) 
-            : [courses.program.toLowerCase()];
+            const courses = Array.isArray(course.program) 
+            ? course.program.map(i => i.toLowerCase()) 
+            : [course.program.toLowerCase()];
             const matchesCourses = programFilter === "all" || courses.includes(programFilter);
             
-            const matchesSearch = courses.title.toLowerCase().includes(searchQuery);
+            const matchesSearch = course.title.toLowerCase().includes(searchQuery);
 
             return matchesCourses && matchesSearch;
         });
