@@ -95,6 +95,9 @@ module.exports.prep_get = (req, res) => {
 module.exports.loans_get = (req, res) => {
   res.render("../views/loans");
 }
+module.exports.satact_get = (req, res) => {
+  res.render("../views/sat-act");
+}
 
 module.exports.signup_post = async (req, res) => {
   const { email, password } = req.body;

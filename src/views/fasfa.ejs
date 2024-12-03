@@ -7,9 +7,7 @@
       FAFSA, <span class="green-title-text-section">what is it?</span>
     </h1>
   </div>
-  <div class = "fasfa-title-section-back-box">
-    
-  </div>
+  <div class="fasfa-title-section-back-box"></div>
   <div class="fasfa-title-section">
     <div class="fasfa-title-text">
       <p>
@@ -43,33 +41,37 @@
         { step: "STEP 9", titleL: "Monitor Your Aid Package", descriptionL: "Schools listed on your FAFSA will send you details of aid offers. Compare offers and accept the aid you wish to use." }
       ]; %>
 
-      <div class="fasfa-steps-info-Left">
+      <!-- Left Descriptions -->
+      <div class="fasfa-steps-info-left">
         <% steps.forEach(({ titleL, descriptionL }) => { %>
-          <div class="fasfa-step">
-            <h3><%= titleL %></h3>
-            <p><%= descriptionL %></p>
-          </div>
+          <% if (titleL && descriptionL) { %>
+            <div class="fasfa-step">
+              <h3><%= titleL %></h3>
+              <p><%= descriptionL %></p>
+            </div>
+          <% } %>
         <% }); %>
       </div>
 
+      <!-- Steps and Circles -->
       <div class="fasfa-step-circles-container">
-        <div class="fasfa-step-line"></div> <!-- Vertical line -->
+        <div class="fasfa-step-line"></div>
         <% steps.forEach(({ step }) => { %>
           <div class="fasfa-step-circle"><%= step %></div>
         <% }); %>
-        
       </div>
 
-    
+      <!-- Right Descriptions -->
       <div class="fasfa-steps-info-right">
         <% steps.forEach(({ titleR, descriptionR }) => { %>
-          <div class="fasfa-step">
-            <h3><%= titleR %></h3>
-            <p><%= descriptionR %></p>
-          </div>
+          <% if (titleR && descriptionR) { %>
+            <div class="fasfa-step">
+              <h3><%= titleR %></h3>
+              <p><%= descriptionR %></p>
+            </div>
+          <% } %>
         <% }); %>
       </div>
-      
     </div>
   </div>
 </div>
