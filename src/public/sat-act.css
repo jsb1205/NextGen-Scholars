@@ -1,0 +1,113 @@
+/* SAT vs ACT Page Styles */
+.sat-act-page {
+    font-family: 'Fredoka', sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+/* Title Section */
+.sat-act-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sat-act-title h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.blue-text {
+    color: #004aad;
+}
+
+.green-text {
+    color: #7ed957;
+}
+
+.vs-circle {
+    display: inline-block;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Banner Style */
+.banner {
+    background-color: #f7b147;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Why Does it Matter Section */
+.why-matter-section {
+    background-color: #d9e5f4;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.why-matter-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.why-matter-content p {
+    flex: 1;
+}
+
+/* Score Range Section */
+.score-range-section {
+    background-color: #d9e5f4;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.score-range-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Test Information Section */
+.test-info-section {
+    background-color: #d9e5f4;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.test-info-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.test-info-column {
+    flex: 1;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.test-info-column h3 {
+    color: #004aad;
+    margin-bottom: 10px;
+}
+
+.test-info-column p {
+    line-height: 1.6;
+}
