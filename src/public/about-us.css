@@ -1,48 +1,74 @@
 /*About-us page style*/
 /* Container for the About section */
 .about-container {
+    /* Sets the layout as a flexbox */
     display: flex;
+    /* Vertically centers the items */
     align-items: center;
+    /* Horizontally centers the items */
     justify-content: center;
-    gap: 40px; /* Space between columns */
+    /* Space between columns */
+    gap: 40px; 
+    /* Adds padding around the container */
     padding: 40px;
   }
   
   /* Text styling */
   .about-text {
+    /* Restricts the maximum width of the text block */
     max-width: 400px;
+    /* Sets the layout as a flexbox */
     display: flex;
+    /* Arranges children in a column */
     flex-direction: column;
-    align-items: flex-start; /* Ensures all text is aligned to the left */
-    text-align: left; /* Additional left alignment */
+    /* Ensures all text is aligned to the left */
+    align-items: flex-start; 
+    /* Additional left alignment */
+    text-align: left; 
   }
   
   .about-text h2 {
     color: #7db86e; /* Green color for "About Us" */
     font-family: sans-serif; /* Apply Fredoka font if desired */
+    /* Font weight for the heading */
     font-weight: 20px;
+    /* Font size for the heading */
     font-size: 1.5rem;
+    /* Removes bottom margin */
     margin-bottom: 0px;
   }
   
   .about-text p {
+    /* Sets the font family */
     font-family: 'Fredoka', sans-serif;
+    /* Large font size for the paragraph */
     font-size: 2rem;
     color: #2a5dca; /* Dark blue color */
+    /* Makes the text bold */
     font-weight: bold;
+    /* Adds space above the paragraph */
     margin-top: 10px;
+    /* Adds space to the right */
     margin-right: 50px;
   }
   
   .join-button {
     background-color: #70a2f8; /* Light blue */
+    /* White text color */
     color: white;
+    /* Adds padding inside the button */
     padding: 10px 20px;
+    /* Removes border */
     border: none;
+    /* Rounds the corners */
     border-radius: 8px;
+    /* Font size for button text */
     font-size: 1rem;
+    /* Adds space above the button */
     margin-top: 20px;
+    /* Changes the cursor to a pointer on hover */
     cursor: pointer;
+    /* Removes underline from the link */
     text-decoration: none; 
   }
   
@@ -52,6 +78,7 @@
   
   /* Image styling */
   .about-image {
+    /* Allows positioning within the container */
     position: relative;
   }
   
@@ -61,27 +88,42 @@
   
   /* Second Part of the about-us*/
   .how-it-works-container {
+    /* Sets the layout as a flexbox */
     display: flex;
+    /* Aligns items to the top */
     align-items: flex-start;
+    /* Adds padding around the container */
     padding: 40px;
+    /* Removes space between flex items */
     gap: 0px;
   }
   
   .how-it-works-title {
+    /* Sets the font family */
     font-family: 'Montserrat', sans-serif;
+    /* Sets the layout as a flexbox */
     display: flex;
+    /* Arranges children in a column */
     flex-direction: column;
+    /* Aligns items to the left */
     align-items: flex-start;
+    /* Adds left margin */
     margin-left: 120px;
   }
   
   /* Styling each line */
   .how-it-works-title .line {
+    /* Font size for each line */
     font-size: 2rem;
+    /* Makes the text bold */
     font-weight: bold;
+    /* Dark blue color for the text */
     color: #2a5dca;
+    /* Removes default margin */
     margin: 0;
+    /* Removes default padding */
     padding: 0;
+    /* Aligns text to the left */
     text-align: left;
   }
   
@@ -90,79 +132,116 @@
   }
   
   .feature {
+    /* Sets the layout as a flexbox */
     display: flex;
+    /* Aligns items to the top */
     align-items: flex-start;
+    /* Space between the icon and text */
     gap: 50px;
+    /* Adds left margin */
     margin-left: 180px;
   }
   
   .feature-icon {
+    /* Sets the width of the icon */
     width: 100px;
+    /* Maintains aspect ratio */
     height: auto;
   }
   
   .feature-text h3 {
+    /* Sets the font family */
     font-family: 'Fredoka', sans-serif;
+    /* Font size for the feature title */
     font-size: 1.4rem;
+    /* Makes the text bold */
     font-weight: bold;
+    /* Black color for the title */
     color: #2a2a2a; /* Black color */
+    /* Removes default margin */
     margin: 0;
   }
   
   .feature-text p {
+    /* Font size for the paragraph */
     font-size: 1rem;
     color: #555555; /* Slightly muted black for paragraph text */
+    /* Adds space to the right */
     margin: 0px 100px 0 0;
   }
+
   /*Last section of the about-us page*/
   .our-team-section {
+    /* Centers text within the section */
     text-align: center;
+    /* Adds padding around the section */
     padding: 40px;
   }
   
   .our-team-section h2 {
+    /* Sets the font family */
     font-family: 'Montserrat', sans-serif;
+    /* Font size for the heading */
     font-size: 1.6rem;
+    /* Makes the text bold */
     font-weight: bold;
+    /* Adds space below the heading */
     margin-bottom: 20px;
+    /* Aligns text to the left */
     text-align: left;
+    /* Black color for the text */
     color: #000000;
+    /* Adds left margin */
     margin-left: 300px;
   }
   
   .team-members {
+    /* Sets the layout as a flexbox */
     display: flex;
+    /* Centers items horizontally */
     justify-content: center;
     gap: 100px; /* Space between each member */
   }
   
   .team-member {
+    /* Centers text within the block */
     text-align: center;
+    /* Restricts the width of each block */
     max-width: 150px;
   }
   
   .profile-image {
+    /* Sets the width of the image */
     width: 120px;
+    /* Sets the height of the image */
     height: 120px;
+    /* Makes the image a circle */
     border-radius: 50%; /* Makes the image a circle */
+    /* Ensures the image fits without distortion */
     object-fit: cover;
   }
   
   .team-member h3 {
+    /* Font size for the name */
     font-size: 1.1rem;
+    /* Sets the font family */
     font-family: 'Montserrat', sans-serif;
     color: #2a5dca; /* Blue color for names */
+    /* Adds space above and below the name */
     margin: 10px 0 5px 0;
   }
   
   .team-member p {
+    /* Removes default margin */
     margin: 0;
+    /* Font size for the text */
     font-size: 0.9rem;
     color: #7db86e; /* Muted color for degree and role */
   }
   
   .role {
     color: #7db86e; /* Green color for roles */
+    /* Makes the text bold */
     font-weight: bold;
   }
   

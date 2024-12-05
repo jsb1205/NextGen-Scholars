@@ -1,91 +1,149 @@
 /*Scholarships Page*/
+
+/* Background styling for the scholarship section */
 .Scholarship
 {
+  /* Light blue background color for the entire page */
   background-color: #d9e5f4;
 }
 .scholarship-container {
+  /* Sets the layout as a grid */
     display: grid;
+    /* Defines two columns with a 2:1 ratio */
     grid-template-columns: 2fr 1fr;
+    /* Space between grid items */
     gap: 20px;
+    /* Takes the full width of the container */
     width: 100%;
+    /* Limits the width to 80% of the page */
     max-width: 80%;
+    /* Adds left margin for alignment */
     margin-left: 150px;
+    /* Adds top margin for spacing */
     margin-top: 80px;
+    /* Adds bottom margin for spacing */
     margin-bottom: 80px;
   }
   
   .scholarship-section {
+    /* Sets the layout as a flexbox */
     display: flex;
+    /* Arranges items in a column */
     flex-direction: column;
+    /* Space between elements */
     gap: 15px;
+    /* Limits the width of the section */
     max-width: 700px;
   }
   
+  /* Styling for individual scholarship cards */
   /*Exists*/
   .scholarship-card {
+    /* White background for individual cards */
     background-color: #ffffff;
+    /* Adds padding inside the card */
     padding: 20px;
+    /* Rounds the corners of the card */
     border-radius: 20px;
+    /* Adds a subtle shadow for depth */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sets the layout as a flexbox */
     display: flex;
+    /* Spaces items evenly across the card */
     justify-content: space-between;
+    /* Centers items vertically */
     align-items: center;
+    /* Adds space below each card */
     margin-bottom: 15px;
   }
   
   .scholarship-card h3 {
+    /* Blue color for scholarship titles */
     color: #004aad;
+    /* Sets the font family */
     font-family: 'fredoka', sans-serif;
+    /* Makes the text bold */
     font-weight: bold;
+    /* Removes default margin */
     margin: 0;
+    /* Sets the font size */
     font-size: 1.5em;
   }
   
   .scholarship-card .info {
+    /* Sets the layout as a flexbox */
     display: flex;
+    /* Arranges items in a column */
     flex-direction: column;
+    /* Space between information items */
     gap: 5px;
   }
   
   .scholarship-card p {
+    /* Removes default margin */
     margin: 0;
+    /* Sets the font size for the paragraph */
     font-size: 1em;
   }
   
+  /* Apply button styling */
   .apply-btn {
+    /* Green background color */
     background-color: #7ed957;
+    /* Sets the font family */
     font-family: 'fredoka', sans-serif;
+    /* Black text color */
     color: black;
+    /* Font size for the button */
     font-size: 1.2rem;
+    /* Removes the border */
     border: none;
+    /* Adds padding inside the button */
     padding: 12px 25px;
+    /* Rounds the corners */
     border-radius: 20px;
+    /* Changes cursor to pointer on hover */
     cursor: pointer;
+    /* Makes the text bold */
     font-weight: bold;
+    /* Adds space below the button */
     margin-bottom: 60px;
+    /* Adds space to the right of the button */
     margin-right: 10px;
+    /* Removes underline for links */
     text-decoration: none; 
   }
   
   .apply-btn:hover {
+    /* Darker green background on hover */
     background-color: #28a745;
   }
   
+  /* Styling for the details link */
   .details-link {
+    /* Blue color for the text */
     color: #1e3a8a;
+    /* Underlined text */
     text-decoration: underline;
+    /* Smaller font size */
     font-size: 0.9em;
+    /* Adds space above the link */
     margin-top: 10px;
   }
   
   .scholarship-card .content {
+    /* Sets the layout as a flexbox */
     display: flex;
+    /* Arranges items in a column */
     flex-direction: column;
   }
   
   .scholarship-card .content .details {
+    /* Sets the layout as a flexbox */
     display: flex;
+    /* Arranges items in a column */
     flex-direction: column;
+    /* Adds space above the details section */
     margin-top: 10px;
   }
   
@@ -93,128 +151,218 @@
   .Scholarship-right{
     
   }
+
+  /* Filter section styling */
   .filter-section {
+    /* Light gray background */
     background-color: #f4f4f4;
+    /* Adds padding inside the section */
     padding: 20px;
+    /* Rounds the corners */
     border-radius: 20px;
+    /* Adds subtle shadow for depth */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sets the layout as a flexbox */
     display: flex;
+    /* Arranges items in a column */
     flex-direction: column;
+    /* Space between items */
     gap: 2px;
+    /* Adds space below the section */
     margin-bottom: 20px;
   }
   
+  /* Individual filter styling */
   .filters{
+    /* White background for the filter */
     background-color: white;
+    /* Rounds the corners */
     border-radius: 20px;
+    /* Adds padding inside the filter */
     padding: 15px;
   }
   
+  /* Search bar styling */
   .search-bar {
+    /* Adds padding inside the search bar */
     padding: 10px;
+    /* Rounds the corners */
     border-radius: 15px;
+    /* Light gray border */
     border: 1px solid #ccc;
+    /* Adds space below the search bar */
     margin-bottom: 10px;
+    /* Adjusts the width */
     width: 94%;
   }
   
   .filters label {
+    /* Sets labels to block display */
     display: block;
+    /* Blue color for labels */
     color: #004aad;
+    /* Space below the label */
     margin-bottom: 1px;
+    /* Makes the text bold */
     font-weight: bold;
   }
   
   .filters select {
+    /* Full width dropdown */
     width: 100%;
+    /* Adds vertical padding */
     padding: 8px 0;
+    /* Font size for dropdown text */
     font-size: 14px;
+    /* Blue text color */
     color: #0061a8;
+    /* Transparent background */
     background-color: transparent;
+    /* Removes border */
     border: none;
     border-bottom: 2px solid #7ed957; /* Underline style for dropdown */
     appearance: none; /* Remove default styling for dropdowns */
+    /* Custom arrow */
     background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg viewBox="0 0 24 24" fill="%230061a8" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5H7z"%3E%3C/path%3E%3C/svg%3E'); /* Custom dropdown arrow */
+    /* Prevents repeating the background */
     background-repeat: no-repeat;
+    /* Aligns the arrow */
     background-position: right 10px center;
   }
   
   .filters select:hover {
+    /* Blue underline on hover */
     border-bottom-color: #004aad;
   }
   
+  /* Info box styling for larger sections */
   .info-box-big{
+    /* Spans two columns */
     grid-column: span 2;
+    /* Light gray background */
     background-color: #f4f4f4;
+    /* Adds padding inside the box */
     padding: 20px;
+    /* Rounds the corners */
     border-radius: 20px;
+    /* Adds subtle shadow */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Centers text inside */
     text-align: center;
+    /* Font size for text */
     font-size: 14px;
+    /* Space below the box */
     margin-bottom: 20px;
   }
+
   .info-box {
+    /* White background */
     background-color: white;
+    /* Adds padding inside the box */
     padding: 20px;
+    /* Rounds the corners */
     border-radius: 20px;
+    /* Adds subtle shadow */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    /* Centers text inside */
     text-align: center;
+    /* Font size for text */
     font-size: 14px;
   }
 
   .info-box h2{
+    /* Blue color for the heading */
     color: #004aad;
+    /* Sets the font family */
     font-family: 'fredoka', sans-serif;
+    /* Makes the text bold */
     font-weight: bold;
+    /* Removes default margin */
     margin: 0;
+    /* Sets the font size */
     font-size: 1.8em;
   }
   
   .info-box ol {
+    /* Aligns list text to the left */
     text-align: left;
+    /* Adds space to the left of the list */
     padding-left: 20px;
+    /* Blue color for list text */
     color: #004aad;
+    /* Sets line height for better readability */
     line-height: 1.6;
+    /* Larger font size for the list */
     font-size: 1.2em;
 }
 
 .info-box ol li {
+  /* Space below each list item */
     margin-bottom: 10px;
 }
 
 .info-box ol li:last-child {
+  /* Removes space below the last list item */
     margin-bottom: 0;
 }
 
+/* Pell box styling */
 .pell-box-big{
+  /* Spans two columns */
   grid-column: span 2;
+  /* Light gray background */
   background-color: #f4f4f4;
+  /* Adds padding inside the box */
   padding: 20px;
+  /* Rounds the corners */
   border-radius: 20px;
+  /* Adds subtle shadow */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Centers text inside */
   text-align: center;
+  /* Font size for text */
   font-size: 14px;
 }
+
 .pell-box {
+  /* White background */
   background-color: white;
+  /* Adds padding inside the box */
   padding: 20px;
+  /* Rounds the corners */
   border-radius: 20px;
+  /* Adds subtle shadow */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* Centers text inside */
   text-align: center;
+  /* Font size for text */
   font-size: 14px;
 }
+
 .pell-box h2{
+  /* Blue color for the heading */
   color: #004aad;
+  /* Sets the font family */
   font-family: 'fredoka', sans-serif;
+  /* Makes the text bold */
   font-weight: bold;
+  /* Removes default margin */
   margin: 0;
+  /* Sets the font size */
   font-size: 1.8em;
 }
+
 .pell-box p{
+  /* Aligns paragraph text to the left */
   text-align: left;
+  /* Adds space above the paragraph */
   padding-top: 10px;
+  /* Adds space to the left of the paragraph */
   padding-left: 10px;
+  /* Blue color for text */
   color: #004aad;
+  /* Sets line height for better readability */
   line-height: 1.6;
+  /* Larger font size for text */
   font-size: 1.2em;
 }
