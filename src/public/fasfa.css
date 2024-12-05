@@ -129,6 +129,7 @@
   justify-content: space-around;
   gap: 20px;
   width: 40%;
+  z-index: 2;
 }
 
 .fasfa-step h3 {
@@ -150,4 +151,41 @@
   justify-content: space-around;
   gap: 20px;
   width: 40%;
+  z-index: 2;
+}
+.fafsa-background-image1 {
+  position: absolute;
+  top: 19%;
+  left: 80%;
+  width: 10%;
+  height: auto;
+  object-fit: cover; /* Keeps the image proportions */
+  z-index: 0; /* Ensure the image is behind the text */
+}
+.fafsa-background-image2 {
+  position: absolute;
+  top: 40%;
+  left: 3%;
+  width: 10%;
+  height: auto;
+  object-fit: cover; /* Keeps the image proportions */
+  z-index: 0; /* Ensure the image is behind the text */
+}
+.fafsa-background-image3 {
+  position: absolute;
+  top: 60%;
+  left: 17%;
+  width: 5%;
+  height: auto;
+  object-fit: cover; /* Keeps the image proportions */
+  z-index: 0; /* Ensure the image is behind the text */
+}
+.fafsa-background-image4 {
+  position: absolute;
+  top: 70%;
+  left: 87%;
+  width: 10%;
+  height: auto;
+  object-fit: cover; /* Keeps the image proportions */
+  z-index: 0; /* Ensure the image is behind the text */
 }
