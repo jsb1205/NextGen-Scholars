@@ -40,7 +40,7 @@ const createToken = (id) => {
   });
 };
 
-
+//Pages get funtion to export
 module.exports.signup_get = (req, res) => {
   res.render("../views/signup");
 }
