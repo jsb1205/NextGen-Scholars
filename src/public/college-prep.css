@@ -6,47 +6,62 @@
   
   /* Title Section */
   .prep-title-section {
-    text-align: center;
     margin-bottom: 30px;
   }
   
   .prep-title-section h1 {
-    font-size: 2.5rem;
-    color: #004aad;
+    font-size: 5rem;
+    color: #7ed957;
   }
   
   .prep-title-section p {
-    font-size: 1.2rem;
-    color: #333;
+    font-size: 2.5rem;
+    color: #004aad;
+  }
+  .prep-description-section p {
+    font-size: 2.5rem;
+    color: #004aad;
+    margin-left: 40%; /* Adjust the value to move it more to the right */
+    text-align: left; /* Ensure it aligns to the left after moving */
   }
   
   /* Section Headers */
   .prep-section h2, .application-section h2, .finalization-section h2 {
-    font-size: 2rem;
+    font-size: 4rem;
     color: #7ed957;
     margin-bottom: 20px;
+    text-align: left;
+  }
+  .prep-section p, .application-section p, .finalization-section-description p{
+    font-size: 2rem;
+    color: #3c9c7d;
+
+  }
+  .finalization-content p{
+    font-size: 1.5rem;
+    color: #004aad;    
   }
   
   /* Preparation Section */
   .prep-section, .application-section, .finalization-section {
     margin-bottom: 30px;
   }
-  
+
   .prep-content, .application-content, .finalization-content {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
+
   
   .prep-item, .application-item, .finalization-item {
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .prep-item h3, .application-item h3, .finalization-item h3 {
-    font-size: 1.5rem;
+    font-size: 3rem;
     color: #004aad;
     margin-bottom: 10px;
   }
@@ -57,6 +72,8 @@
   }
   
   .prep-item li, .application-item li, .finalization-item li {
+    font-size: 1.5rem;
+    color: #004aad;
     margin-bottom: 5px;
   }
   
