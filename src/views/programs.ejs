@@ -1,52 +1,73 @@
+<!-- Includes the shared header partial, such as navigation or branding -->
 <%- include("partials/header"); %>
 
 <div class="Programs">
     <div class="Programs-container">
-        <!-- Scholarship Cards Section -->
+        <!-- Programs Cards Section -->
         <div class="programs-section" id="programContainer">
+            <!-- Placeholder for dynamically added program cards -->
+
             <!-- Add more cards as needed -->
         </div>
     </div>
 </div>
 
 <script>
+    // Array to store program data for filtering
     let programData = []; // Store scholarships data for filtering
 
+    // Function to fetch and load program data
     async function loadProgram() {
         try {
+            // Fetch data from the server
             const response = await fetch('/programs.json');
+            // Parse and save the data
             programData = await response.json(); // Save the fetched data
+            // Display all programs initially
             displayPrograms(programData); // Display all scholarships initially
         } catch (error) {
+            // Log errors if any
             console.error('Error loading programs:', error);
         }
     }
 
+    // Function to display programs dynamically on the page
     // Function to load JSON data
     function displayPrograms(programs) {
         const container = document.getElementById('programContainer');
         container.innerHTML = ''; // Clear previous scholarship cards
 
+        // Loop through each program and create a card
         programs.forEach(program => {
+            // Create a new div for the card
             const card = document.createElement('div');
+            // Add a class to the card
             card.classList.add('program-card');
 
+            // Set the card's HTML content
             card.innerHTML = `
                 <div class="content">
+                    <!-- Program title -->
                     <h3>${program.title}</h3>
                     <div class="info">
+                        <!-- Program requirements -->
                         <p><span class="req">Requirements:</span> <span class="req-info">${program.requirements}</span></p>
+                        <!-- Program details -->
                         <p><span class="req">Program Details:</span> <span class="req-info">${program["program details"]}</span></p>
                     </div>
                 </div>
+                <!-- Apply button with external link -->
                 <a href="${program.link}" target="_blank" class="apply-btn">Apply</a>
             `;
 
+            // Add the card to the container
             container.appendChild(card);
         });
     }
 
+    // Load programs initially on page load
     loadProgram();
 </script>
 
+<!-- Includes the shared footer partial, such as site navigation or copyright -->
 <%- include("partials/footer"); %>

@@ -1,9 +1,9 @@
 /* SAT vs ACT Page Styles */
 .sat-act-page {
-    font-family: 'Fredoka', sans-serif;
-    background-color: #f9f9f9;
+    background-color: #d9e5f4;
     padding: 20px;
 }
+
 
 /* Title Section */
 .sat-act-title {
@@ -12,7 +12,7 @@
 }
 
 .sat-act-title h1 {
-    font-size: 3rem;
+    font-size: 10rem;
     font-weight: bold;
 }
 
@@ -21,17 +21,22 @@
 }
 
 .green-text {
-    color: #7ed957;
+    color: #00bf63;
 }
 
 .vs-circle {
     display: inline-block;
-    background-color: #f9f9f9;
-    border: 2px solid #ccc;
+    background-color: white;
+    border: 2px solid white;
     border-radius: 50%;
-    padding: 10px 15px;
-    font-size: 1.5rem;
+    padding: 20px 30px;
+    font-size: 7rem;
     font-weight: bold;
+}
+.vs-text {
+    font-size: 7rem; /* Adjust font size */
+    font-weight: bold;
+    color: #d9e5f4; /* Change the color of the "VS" text */
 }
 
 /* Banner Style */
@@ -39,19 +44,22 @@
     background-color: #f7b147;
     color: white;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 3rem;
     font-weight: bold;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 10px 20px;
+    position: relative;
     margin-bottom: 20px;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
 }
 
 /* Why Does it Matter Section */
 .why-matter-section {
-    background-color: #d9e5f4;
+    background-color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 60px;
     margin-bottom: 30px;
+    margin-left: 200px;
+    margin-right:200px;
 }
 
 .why-matter-content {
@@ -59,7 +67,9 @@
     justify-content: space-between;
     gap: 20px;
     text-align: center;
-    font-size: 1rem;
+    font-size: 2rem;
+    margin-left: 200px;
+    margin-right:200px;
 }
 
 .why-matter-content p {
@@ -68,27 +78,36 @@
 
 /* Score Range Section */
 .score-range-section {
-    background-color: #d9e5f4;
+    background-color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 60px;
     margin-bottom: 30px;
     text-align: center;
+    margin-left: 200px;
+    margin-right:200px;
 }
 
 .score-range-content {
+    font-family: 'Fredoka', sans-serif;
     display: flex;
     justify-content: space-around;
+    text-align: center;
     gap: 20px;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
+    margin-left: 200px;
+    margin-right:200px;
 }
 
 /* Test Information Section */
 .test-info-section {
-    background-color: #d9e5f4;
+    text-align: center;
+    background-color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 60px;
     margin-bottom: 30px;
+    margin-left: 200px;
+    margin-right:200px;
 }
 
 .test-info-content {
@@ -99,8 +118,8 @@
 
 .test-info-column {
     flex: 1;
-    text-align: left;
-    font-size: 1rem;
+    text-align: center;
+    font-size: 2rem;
 }
 
 .test-info-column h3 {

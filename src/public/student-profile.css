@@ -1,8 +1,12 @@
+/* General styling for invisible elements */
 .invisible {
+  /* Hides the element */
   display: none
 }
 
 /* Student-profile styles*/
+
+/* Main container for the student profile page */
 .Student-profile-page-container {
     display: flex;
     background-color: #d9e5f4;

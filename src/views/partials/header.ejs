@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Sets character encoding and viewport settings for responsive design -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Page title -->
   <title>NextGen Scholars</title>
+
+  <!-- Links to external CSS stylesheets for various pages and components -->
   <link rel="stylesheet" href="/login.css">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/home-screen.css">
@@ -27,16 +32,22 @@
   <link rel="stylesheet" href="/college-prep.css">
   <link rel="stylesheet" href="/sat-act.css">
   
+  <!-- Imports custom fonts from Google Fonts -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
   </style>
 </head>
 <body>
+  <!-- Navigation bar -->
   <nav class="header">
     <div class="nav-left">
+      <!-- Website title with links to the home page -->
       <h1><a href="/"><span class="montserrat">NextGen</span> <span class="fredoka">Scholars</span></a></h1>
+      
+      <!-- Navigation menu -->
       <ul>
         <% if (!user) { %>
+          <!-- Dropdown menu for Students -->
           <li class="dropdown">
             <a href="/login">Students</a>
             <ul class="dropdown-content">
@@ -47,6 +58,8 @@
               <li><a href="/programs">Programs</a></li>
             </ul>
           </li>
+
+          <!-- Dropdown menu for Parents -->
           <li class="dropdown">
             <a href="/login">Parents</a>
             <ul class="dropdown-content">
@@ -56,6 +69,8 @@
               <li><a href="/college-prep">College-Prep</a></li>
             </ul>
           </li>
+
+          <!-- Dropdown menu for Educators -->
           <li class="dropdown">
             <a href="/login">Educators</a>
             <ul class="dropdown-content">
@@ -64,12 +79,15 @@
               <li><a href="/courses">Courses</a></li>
             </ul>
           </li>
+
+          <!-- Link to About Us page -->
           <li><a href="/about-us">About Us</a></li>
         <% } %>
       </ul>
     </div>
 
     <div class="nav-right">
+      <!-- User-specific navigation options -->
       <ul>
         <% if (user && (user.studentProfile || user.educatorProfile)) { %>
           <% if (user.studentProfile) { %>
@@ -82,6 +100,7 @@
             <li><a href="/logout">Log out</a></li>
           <% } %>
         <% } else { %>
+          <!-- Log in option for non-logged-in users -->
           <li><a href="/login">Log in</a></li>
         <% } %>
       </ul>
