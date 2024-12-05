@@ -1,18 +1,23 @@
+<!-- Includes the shared header partial, such as navigation or branding -->
 <%- include("partials/header"); %>
 
 <div class="Extracurriculars">
     <div class="extracurriculars-container">
-        <!-- Scholarship Cards Section -->
+
+        <!-- Extracurricular Cards Section -->
         <div class="extracurriculars-section" id="extracurricularsContainer">
             
+            <!-- Placeholder for dynamically added extracurricular cards -->
             <!-- Add more cards as needed -->
         </div>
 
         <!-- Filter Section -->
         <div class="Extracurriculars-Right">
             <div class="filter-section">
+                <!-- Search Bar for extracurriculars -->
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="filters">
+                    <!-- Dropdown filter for interests -->
                     <label for="type">Interests</label>
                     <select id="type">
                         <option value="All">All</option>
@@ -51,26 +56,38 @@
 
 
 <script>
+    // Array to store extracurricular data for filtering
     let extracurricularsData = []; // Store scholarships data for filtering
 
+    // Function to fetch and load extracurricular data
     async function loadExtracurriculars() {
         try {
+            // Fetch data from server
             const response = await fetch('/extracurricular.json');
+            // Parse and save the data
             extracurricularsData = await response.json(); // Save the fetched data
+            // Display all extracurriculars initially
             displayExtracurriculars(extracurricularsData); // Display all scholarships initially
         } catch (error) {
+            // Log errors
             console.error('Error loading extracurricular:', error);
         }
     }
+
+    // Function to display extracurriculars dynamically on the page
     // Function to load JSON data
     function displayExtracurriculars(extracurriculars) {
         const container = document.getElementById('extracurricularsContainer');
         container.innerHTML = ''; // Clear previous scholarship cards
 
+         // Loop through each extracurricular and create a card
         extracurriculars.forEach(extracurricular => {
+            // Create a new div for the card
             const card = document.createElement('div');
+            // Add a class to the card
             card.classList.add('extracurriculars-card');
 
+            // Set the card's HTML content
             card.innerHTML = `
                 <div class="content">
                     <h3>${extracurricular.title}</h3>
@@ -80,37 +97,49 @@
                 </div>
             `;
 
+            // Add the card to the container
             container.appendChild(card);
         });
     }
 
+    // Function to filter extracurriculars based on interests and search query
     // Call the function to load scholarships on page load
     // GPA filter function
     function filterExtracurriculars() {
+        // Get selected interest
         const interestFilter = document.getElementById('type').value.toLowerCase();
+        // Get search input
         const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
 
+        // Filter the extracurriculars
         const filteredExtracurriculars = extracurricularsData.filter(extracurricular => {
+            // Handle multiple interests for an extracurricular
             const interests = Array.isArray(extracurricular.interests) 
             ? extracurricular.interests.map(i => i.toLowerCase()) 
             : [extracurricular.interests.toLowerCase()];
             const matchesInterest = interestFilter === "all" || interests.includes(interestFilter);
             
+            // Check if the title matches the search query
             const matchesSearch = extracurricular.title.toLowerCase().includes(searchQuery);
 
+            // Return extracurriculars matching both filters
             return matchesInterest && matchesSearch;
         });
 
+        // Display the filtered extracurriculars
         displayExtracurriculars(filteredExtracurriculars);
     }
 
 
-    // Event listener for GPA filter
+    // Event listener for interest filter dropdown
     document.getElementById('type').addEventListener('change', filterExtracurriculars);
+
+    // Event listener for search bar input
     document.querySelector('.search-bar').addEventListener('input', filterExtracurriculars);
 
+    // Load extracurriculars initially when the page loads
     loadExtracurriculars();
 </script>
 
-
+<!-- Includes the shared footer partial, such as site navigation or copyright -->
 <%- include("partials/footer"); %>

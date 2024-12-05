@@ -1,78 +1,119 @@
 /*University Page*/
+
+/* Background styling for the university page */
 .University
 {
+  /* Light blue background color for the entire page */
   background-color: #d9e5f4;
 }
 
 .university-container {
+  /* Sets layout as a grid */
   display: grid;
+  /* Defines two columns with a 2:1 ratio */
   grid-template-columns: 2fr 1fr;
+  /* Space between grid items */
   gap: 20px;
+  /* Takes up the full width of the container */
   width: 100%;
+  /* Limits the width to 80% of the page */
   max-width: 80%;
+  /* Adds left margin for alignment */
   margin-left: 150px;
+  /* Adds top margin for spacing */
   margin-top: 80px;
+  /* Adds bottom margin for spacing */
   margin-bottom: 80px;
 }
 
 .university-section {
+  /* Sets layout as a flexbox */
   display: flex;
+  /* Arranges items in a column */
   flex-direction: column;
+  /* Space between elements */
   gap: 15px;
+  /* Restricts the maximum width of the section */
   max-width: 700px;
 }
 
 .university-card {
+  /* White background for individual university cards */
   background-color: #ffffff;
+  /* Adds padding inside the card */
   padding: 20px;
+  /* Rounds the corners of the card */
   border-radius: 20px;
+  /* Adds subtle shadow for depth */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sets layout as a flexbox */
   display: flex;
+  /* Spaces items evenly across the card */
   justify-content: space-between;
+  /* Centers items vertically */
   align-items: center;
+  /* Adds space below each card */
   margin-bottom: 15px;
 }
 
 .university-card h3 {
+  /* Blue color for the card title */
   color: #004aad;
+  /* Sets the font family */
   font-family: 'fredoka', sans-serif;
+  /* Makes the text bold */
   font-weight: bold;
+  /* Removes default margin */
   margin: 0;
+  /* Sets the font size */
   font-size: 1.5em;
 }
 
 .university-card .info {
+  /* Sets layout as a flexbox */
   display: flex;
+  /* Arranges items in a column */
   flex-direction: column;
+  /* Space between info items */
   gap: 5px;
 }
 
 .university-card p {
+  /* Removes default margin */
   margin: 0;
+  /* Sets the font size for paragraphs */
   font-size: 1em;
 }
 
 
 .university-card .content {
+  /* Sets layout as a flexbox */
   display: flex;
+  /* Arranges items in a column */
   flex-direction: column;
 }
 
 .university-card .content .details {
+  /* Sets layout as a flexbox */
   display: flex;
+  /* Arranges items in a column */
   flex-direction: column;
+  /* Adds space above the details section */
   margin-top: 10px;
 }
 
 /*Right of the Scholarship Page*/
 .University-right{
+  /* Placeholder for additional styles */
 
 }
 
 /* Footer styling for full width */
 
 html, body {
+  /* Removes default margins */
   margin: 0;
+  /* Removes default padding */
   padding: 0;
   overflow-x: hidden; /* Disable horizontal scroll */
   width: 100%; /* Ensure full width */
@@ -80,6 +121,8 @@ html, body {
 }
 
 .info-box strong{
+  /* Blue color for emphasized text */
   color: #004aad;
+  /* Slightly larger font size for emphasis */
   font-size: 1.2em;
 }

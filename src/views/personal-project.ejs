@@ -1,18 +1,23 @@
+<!-- Includes the shared header partial, such as navigation or branding -->
 <%- include("partials/header"); %>
 
 <div class="Projects">
     <div class="projects-container">
-        <!-- Scholarship Cards Section -->
+        <!-- Projects Cards Section -->
         <div class="projects-section" id="projectsContainer">
-            
+            <!-- Placeholder for dynamically added project cards -->
+
             <!-- Add more cards as needed -->
         </div>
 
         <!-- Filter Section -->
         <div class="Projects-Right">
             <div class="filter-section">
+                <!-- Search Bar for projects -->
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="filters">
+
+                    <!-- Dropdown filter for interests -->
                     <label for="type">Interests</label>
                     <select id="type">
                         <option value="All">All</option>
@@ -49,26 +54,37 @@
 
 
 <script>
+    // Array to store project data for filtering
     let projectsData = []; // Store scholarships data for filtering
 
+    // Function to fetch and load project data
     async function loadProjects() {
         try {
+            // Fetch data from the server
             const response = await fetch('/personalProjects.json');
+            // Parse and save the data
             projectsData = await response.json(); // Save the fetched data
+            // Display all projects initially
             displayProjects(projectsData); // Display all scholarships initially
         } catch (error) {
+            // Log errors if any
             console.error('Error loading projects:', error);
         }
     }
+
+    // Function to display projects dynamically on the page
     // Function to load JSON data
     function displayProjects(projects) {
         const container = document.getElementById('projectsContainer');
         container.innerHTML = ''; // Clear previous scholarship cards
 
         projects.forEach(project => {
+            // Create a new div for the card
             const card = document.createElement('div');
+            // Add a class to the card
             card.classList.add('projects-card');
 
+            // Set the card's HTML content
             card.innerHTML = `
                 <div class="content">
                     <h3>${project.title}</h3>
@@ -78,36 +94,49 @@
                 </div>
             `;
 
+            // Add the card to the container
             container.appendChild(card);
         });
     }
 
+    // Function to filter projects based on user input
     // Call the function to load scholarships on page load
     // GPA filter function
     function filterProjects() {
+        // Get selected interest
         const interestFilter = document.getElementById('type').value.toLowerCase();
+        // Get search input
         const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
 
         const filteredProjects = projectsData.filter(project => {
+            // Handle multiple interests for a project
             const projects = Array.isArray(project.interests) 
             ? project.interests.map(i => i.toLowerCase()) 
             : [project.interests.toLowerCase()];
             const matchesInterest = interestFilter === "all" || projects.includes(interestFilter);
             
+            // Check if the title matches the search query
             const matchesSearch = project.title.toLowerCase().includes(searchQuery);
 
+            // Return projects matching both
             return matchesInterest && matchesSearch;
         });
 
+        // Display the filtered projects
         displayProjects(filteredProjects);
     }
 
 
     // Event listener for GPA filter
+    // Event listener for interest filter dropdown
     document.getElementById('type').addEventListener('change', filterProjects);
+    
+    // Event listener for search bar input
     document.querySelector('.search-bar').addEventListener('input', filterProjects);
 
+    // Load projects initially when the page loads
     loadProjects();
 </script>
 
+<!-- Includes the shared footer partial, such as site navigation or copyright -->
 <%- include("partials/footer"); %>

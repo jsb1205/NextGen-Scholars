@@ -1,3 +1,4 @@
+<!-- Includes the shared header partial, such as navigation or branding -->
 <%- include("partials/header"); %>
 
 <div class="Courses">
@@ -5,14 +6,17 @@
         <!-- Scholarship Cards Section -->
         <div class="courses-section" id="coursesContainer">
             
+            <!-- Placeholder for dynamically added course cards -->
             <!-- Add more cards as needed -->
         </div>
 
         <!-- Filter Section -->
         <div class="Courses-Right">
             <div class="filter-section">
+                <!-- Search Bar -->
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="filters">
+                    <!-- Dropdown filter for programs -->
                     <label for="program">Program</label>
                     <select id="program">
                         <option value="all">All</option>
@@ -44,20 +48,26 @@
 <script>
     let coursesData = []; // Store scholarships data for filtering
 
+    // Function to load courses data from a JSON file
     async function loadCourses() {
         try {
+            // Fetch data from the server
             const response = await fetch('/courses.json');
             coursesData = await response.json(); // Save the fetched data
             displayCourses(coursesData); // Display all scholarships initially
         } catch (error) {
+            // Log errors if any
             console.error('Error loading courses:', error);
         }
     }
+
+    // Function to display courses on the page
     // Function to load JSON data
     function displayCourses(courses) {
         const container = document.getElementById('coursesContainer');
         container.innerHTML = ''; // Clear previous scholarship cards
 
+        // Iterate through each course and create its card
         courses.forEach(course => {
             const card = document.createElement('div');
             card.classList.add('courses-card');
@@ -76,18 +86,22 @@
                 <a href="${course.link}" target="_blank" class="apply-btn">Apply</a>
             `;
 
+            // Add functionality to toggle extra details
             const detailsLink = card.querySelector('.details-link');
             const extraDetails = card.querySelector('.extra-details');
             detailsLink.addEventListener('click', (e) => {
                 e.preventDefault();
+                // Toggle display and link text
                 extraDetails.style.display = extraDetails.style.display === 'none' ? 'block' : 'none';
                 detailsLink.textContent = extraDetails.style.display === 'none' ? 'Scholarship Details' : 'Hide Details';
             });
 
+            // Add the card to the container
             container.appendChild(card);
         });
     }
 
+    // Function to filter courses based on user input
     // Call the function to load scholarships on page load
     // GPA filter function
     function filterCourses() {
@@ -95,25 +109,32 @@
         const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
 
         const filteredCourses = coursesData.filter(course => {
+            // Handle multiple programs for a course
             const courses = Array.isArray(course.program) 
             ? course.program.map(i => i.toLowerCase()) 
             : [course.program.toLowerCase()];
             const matchesCourses = programFilter === "all" || courses.includes(programFilter);
             
+            // Check if the title matches the search query
             const matchesSearch = course.title.toLowerCase().includes(searchQuery);
 
+            // Return courses matching both filters
             return matchesCourses && matchesSearch;
         });
 
+        // Display filtered courses
         displayCourses(filteredCourses);
     }
 
     // Event listener for GPA filter
+    // Filter by program
     document.getElementById('program').addEventListener('change', filterCourses);
+    // Filter by search input
     document.querySelector('.search-bar').addEventListener('input', filterCourses);
 
     // Load scholarships initially
     loadCourses();
 </script>
 
+<!-- Includes the shared footer partial, such as site navigation or copyright info -->
 <%- include("partials/footer"); %>

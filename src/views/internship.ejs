@@ -1,18 +1,23 @@
+<!-- Includes the shared header partial for the webpage -->
 <%- include("partials/header"); %>
 
 <div class="Internship">
     <div class="internship-container">
         <!-- Scholarship Cards Section -->
         <div class="internship-section" id="internshipContainer">
-            
+            <!-- Placeholder for dynamically added internship cards -->
+
             <!-- Add more cards as needed -->
         </div>
 
         <!-- Filter Section -->
         <div class="Internship-Right">
             <div class="filter-section">
+                <!-- Search Bar -->
                 <input type="text" placeholder="Search..." class="search-bar">
+                
                 <div class="filters">
+                    <!-- Dropdown for Year filter -->
                     <label for="year">Year</label>
                     <select id="year">
                         <option value="all">All</option>
@@ -22,6 +27,7 @@
                         <option value="Senior">Senior</option>
                     </select>
 
+                    <!-- Dropdown for State filter -->
                     <label for="state">State</label>
                     <select id="state">
                         <option value="all">All States</option>
@@ -42,6 +48,7 @@
                         <option value="Texas">Texas</option>
                     </select>
 
+                    <!-- Dropdown for GPA filter -->
                     <label for="gpa">GPA</label>
                     <select id="gpa">
                         <option value="All GPAs">All GPAs</option>
@@ -53,6 +60,7 @@
                         <!-- Add options as needed -->
                     </select>
 
+                     <!-- Dropdown for Interests filter -->
                     <label for="interest">Interests</label>
                     <select id="interest">
                         <option value="All">All</option>
@@ -88,26 +96,37 @@
 </div>
 
 <script>
+    // Array to store internship data for filtering
     let internshipsData = []; // Store scholarships data for filtering
 
+    // Function to fetch and load internship data
     async function loadInternships() {
         try {
+            // Fetch data from server
             const response = await fetch('/internship.json');
+            // Parse and store the data
             internshipsData = await response.json(); // Save the fetched data
+            // Display all internships initially
             displayInternships(internshipsData); // Display all scholarships initially
         } catch (error) {
+            // Log errors
             console.error('Error loading scholarships:', error);
         }
     }
+
+    // Function to dynamically display internships on the page
     // Function to load JSON data
     function displayInternships(internships) {
         const container = document.getElementById('internshipContainer');
         container.innerHTML = ''; // Clear previous scholarship cards
 
         internships.forEach(internship => {
+            // Create a new card element
             const card = document.createElement('div');
+            // Add a class to the card
             card.classList.add('internship-card');
 
+            // Add a class to the card
             card.innerHTML = `
                 <div class="content">
                     <h3>${internship.title}</h3>
@@ -122,28 +141,40 @@
                 <a href="${internship.link}" target="_blank" class="apply-btn">Apply</a>
             `;
 
+            // Add event listener to toggle extra details
             const detailsLink = card.querySelector('.details-link');
             const extraDetails = card.querySelector('.extra-details');
             detailsLink.addEventListener('click', (e) => {
+                // Prevent default link behavior
                 e.preventDefault();
+                // Toggle visibility
                 extraDetails.style.display = extraDetails.style.display === 'none' ? 'block' : 'none';
+                // Update link text
                 detailsLink.textContent = extraDetails.style.display === 'none' ? 'Scholarship Details' : 'Hide Details';
             });
 
+            // Add the card to the container
             container.appendChild(card);
         });
     }
 
+    // Function to filter internships based on user input
     // Call the function to load scholarships on page load
     // GPA filter function
     function filterInternships() {
+        // Get selected year
         const yearFilter = document.getElementById('year').value.toLowerCase();
+        // Get selected state
         const stateFilter = document.getElementById('state').value.toLowerCase();
+        // Get selected GPA
         const gpaFilter = document.getElementById('gpa').value;
+        // Get selected interest
         const interestFilter = document.getElementById('interest').value.toLowerCase();
+        // Get search input
         const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
 
         const filteredInternships = internshipsData.filter(internship => {
+            // Filters for year, state, GPA, interest, and search query
             // Convert scholarship properties to lowercase for case-insensitive comparison
             const internshipYear = internship.year;
             const internshipState = internship.state;
@@ -162,34 +193,50 @@
                 ? internshipState.some(state => state.toLowerCase() === stateFilter) 
                 : internshipState.toLowerCase() === stateFilter);
 
+            // GPA filter
             let matchesGPA = true;
             if (gpaFilter !== "All GPAs") {
+                // Extract GPA value
                 const gpaValue = parseFloat(gpaFilter.replace(">", ""));
                 matchesGPA = gpaFilter.startsWith(">") ? internship.gpa >= gpaValue : internship.gpa === gpaValue;
             }
 
+            // Interest filter
             const interests = Array.isArray(internship.interests) 
             ? internship.interests.map(i => i.toLowerCase()) 
             : [internship.interests.toLowerCase()];
             const matchesInterest = interestFilter === "all" || interests.includes(interestFilter);
             
+            // Search query filter
             const matchesSearch = internship.title.toLowerCase().includes(searchQuery);
 
+            // Return matching internships
             return matchesYear && matchesState && matchesInterest && matchesGPA && matchesSearch;
         });
 
+        // Display filtered internships
         displayInternships(filteredInternships);
     }
 
-    // Event listener for GPA filter
+    // Add event listeners for filters
+    // Year filter
     document.getElementById('year').addEventListener('change', filterInternships);
+    
+    // State filter
     document.getElementById('state').addEventListener('change', filterInternships);
+    
+    // GPA filter
     document.getElementById('gpa').addEventListener('change', filterInternships);
+    
+    // Interest filter
     document.getElementById('interest').addEventListener('change', filterInternships);
+    
+    // Search bar filter
     document.querySelector('.search-bar').addEventListener('input', filterInternships);
 
     // Load scholarships initially
     loadInternships();
 </script>
 
+<!-- Includes the shared footer partial, such as site navigation or copyright -->
 <%- include("partials/footer"); %>
