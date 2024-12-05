@@ -2,6 +2,7 @@
 const { Router } = require("express");
 const authController = require("../controllers/authControllers");
 
+//Set router
 const router = Router();
 
 
