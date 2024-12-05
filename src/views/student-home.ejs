@@ -1,14 +1,20 @@
+<!-- Includes the shared header partial -->
 <%- include("partials/header"); %>
 
 <div class="clubs">
+  <!-- Check if the user has selected interests -->
   <% if (user.studentProfile.interests.length !== 0) { %>
       <div class="profile-page-container">
         <div class="profile-details">
+          <!-- Display user profile details -->
           <div class="profile-info-details">
+            <!-- Display current profile picture or default -->
             <img src="/picture<%= user.studentProfile.profile || 'default' %>.png" alt="Profile Picture" class="profile-icon">
+            <!-- Button to change profile picture -->
             <button id="profile-button">Select Profile Picture</button>
+            <!-- Form for selecting profile picture -->
             <form class="profile-select-form invisible">
-  
+              <!-- Options for different profile pictures -->
               <label><img src="/picture1.PNG" alt="Option 1" class="profile-preview"></label>
               <input type="radio" name="profile" value="1">
 
@@ -39,18 +45,26 @@
               <label><img src="/picture10.PNG" alt="Option 10" class="profile-preview"></label>
               <input type="radio" name="profile" value="10">
 
+              <!-- Submit button for profile picture selection -->
               <button>Submit</button>
 
             </form>
+            <!-- Display user name -->
             <h2><%= user.studentProfile.firstName %> <%= user.studentProfile.lastName %></h2>
+            <!-- Display user email -->
             <p><a href="mailto:email@example.com">Email address</a>: <%= user.email %></p>            
+            <!-- Display user school -->
             <p>School: <%= user.studentProfile.school %></p>
+            <!-- Display user grade -->
             <p>Grade: <%= user.studentProfile.schoolYear %></p>
           </div>
           <div class="button-container">
             <% if (!user.studentProfile.educator) { %>
+              <!-- If no educator is associated -->
+              <!-- Button to add a teacher -->
               <button class="teacher-button">Add your teacher</button>
             <% } else { %>
+              <!-- Display associated educator -->
               <p>Educator: <%= user.studentProfile.educator.firstName %> <%= user.studentProfile.educator.lastName %></p>
             <% } %>
           </div>
@@ -59,7 +73,9 @@
       <!-- Right section with personal plan -->
       <div class="personal-plan">
           <h3>4-Year Personal Plan</h3>
+          <!-- Heading for personal plan -->
           <div class="plan-details">
+            <!-- Display sections for plan details -->
             <div class="plan-item">
               <div id="program"><span style="text-decoration: underline;">Eligible Programs:</span></div> <div id="internships"><span style="text-decoration: underline;">Internships:</span></div>
             </div>
@@ -70,12 +86,15 @@
       </div>
     </div>
     <div class="bottom-nav">
+      <!-- Bottom navigation with links to different sections -->
       <div class="feature-item feature-green">
         <a href="/scholarships">
           <img src="/scholarships-icon.png" alt="Scholarships Icon">
         </a>
         <p>Scholarships</p>
       </div>
+
+      <!-- Repeat for universities, extracurriculars, and programs -->
       <div class="feature-item feature-blue">
         <a href="/university">
           <img src="/universities-icon.png" alt="Universities Icon">
@@ -96,6 +115,7 @@
       </div>
   </div>
   <% } else { %>
+    <!-- Display welcome screen if no interests are selected -->
     <div class="welcome-container">
       <div class="image-container">
         <img src="/interest-side.png" alt="Interests Image">
@@ -105,9 +125,11 @@
           Welcome, <span class="user-name"><%= user.studentProfile.firstName %> <%= user.studentProfile.lastName %></span>
         </h1>
         <p class="subtext">Please select all your interest!</p>
+        <!-- Form for selecting interests -->
         <form class="interests-form">
           <h2 class="form-title">Pick Your Interest</h2>
 
+          <!-- Repeat for all interest options -->
           <div class="checkbox-group">
             <div class="checkbox-item">
                 <label for="interest1">Science</label>
@@ -174,6 +196,7 @@
             </div>
           </div>
 
+          <!-- Submit button for interests -->
           <button class="submit-interest">Submit</button>
 
         </form>
@@ -185,34 +208,50 @@
 
 
 <script>
+  // Form for selecting interests
   const form = document.querySelector(".interests-form");
+  // Container for teacher button
   const teacherButtonContainer = document.querySelector(".button-container");
+  // Button to add teacher
   const teacherButton = document.querySelector(".teacher-button");
+  // Button to toggle profile picture selection
   const profileButton = document.getElementById("profile-button");
   
+  // Element to display programs
   const program = document.getElementById("program");
+  // Element to display internships
   const internships = document.getElementById("internships");
+  // Element to display clubs
   const clubs = document.getElementById("clubs");
+  // Element to display scholarships
   const scholarships = document.getElementById("scholarships");
 
   const refreshButton = document.getElementById("refresh-button");
 
 
+  // Check if the required elements for program, internships, clubs, and scholarships exist
   if (program && internships && clubs && scholarships) {
     document.addEventListener("DOMContentLoaded", async (event) => {
+      // Prevent default form submission
       event.preventDefault();
 
+      // Get user ID
       const id = "<%= user._id %>";
 
       try {
+        // Fetch the interests data for the user
         const res = await fetch(`/student-home/${id}/get-interests`, {
           method: "GET",
           headers: { "Content-Type": "application/json" }
         });
         const data = await res.json();
+
+        // Handle errors in the response
         if (data.error) {
           console.log(data.error);
         }
+
+        // Populate the interests if the response is successful
         if (data.success) {
           programsArr = data.programs;
           clubsArr = data.clubs;
@@ -220,21 +259,28 @@
           internshipsArr = data.internships;
           projectsArr = data.personalProjects;
 
+          // Add program details dynamically to the page
           programsArr.forEach(prog => {
             const newElement = document.createElement("p");
             newElement.textContent = prog;
             program.appendChild(newElement);
           })
+
+          // Add club details dynamically to the page
           clubsArr.forEach(clb => {
             const newElement = document.createElement("p");
             newElement.textContent = clb;
             clubs.appendChild(newElement);
           })
+
+          // Add internship details dynamically to the page
           internshipsArr.forEach(intshp => {
             const newElement = document.createElement("p");
             newElement.textContent = intshp;
             internships.appendChild(newElement);
           })
+
+          // Add scholarship details dynamically to the page
           scholarshipsArr.forEach(schshp => {
             const newElement = document.createElement("p");
             newElement.textContent = schshp;
@@ -243,46 +289,61 @@
         }
       }
       catch (err) {
+        // Log any errors that occur during fetch
         console.log(err);
       }
     });
   }
 
+  // Check if the form for selecting interests exists
   if (form) {
     form.addEventListener("submit", async (event) => {
+      // Prevent default form submission
       event.preventDefault();
 
+      // Get selected interests
       const checkboxes = document.querySelectorAll('input[name="interests"]:checked');
       const selectedInterests = Array.from(checkboxes).map(checkbox => checkbox.value);
 
+      // Get user ID
       const id = "<%= user._id %>";
 
       try {
+        // Send the selected interests to the server
         const res = await fetch("/student-home/update-interests", {
           method: "PUT",
           body: JSON.stringify({ id, selectedInterests }),
           headers: { "Content-Type": "application/json" }
         });
         const data = await res.json();
+
+        // Handle errors in the response
         if (data.error) {
           console.log(data.error);
         }
+
+        // Redirect the user to their home page upon success
         if (data.success) {
           location.assign(`/student-home/${id}`);
         }
       }
       catch (err) {
+        // Log any errors that occur during the fetch
         console.log("Failed to fetch the page :(");
       }
     });
   }
   
+  // Check if the teacher button exists
   if (teacherButton) {
+     // Create and display form to add a teacher
     teacherButton.addEventListener("click", async (event) => {
+      // Create and append a new form for adding a teacher
       const newClassForm = document.createElement("form");
       newClassForm.classList.add("class-form");
       teacherButtonContainer.appendChild(newClassForm);
 
+      // Remove the existing teacher button
       teacherButtonContainer.removeChild(teacherButton);
 
       // Now that newClassForm is created, assign it to classForm
@@ -290,13 +351,14 @@
 
       // Execute the logic in the second if block after creating classForm
       if (classForm) {
-
+        // Add input field for class ID
         const newInput = document.createElement("input");
         newInput.type = "text";
         newInput.name = "classId";
         newInput.placeholder = "Class ID";
         classForm.appendChild(newInput);
 
+        // Add an error message element
         const errorMessage = document.createElement("p");
         errorMessage.classList.add("not-found");
         errorMessage.classList.add("error");
@@ -304,6 +366,7 @@
 
         const error = document.querySelector(".not-found");
 
+        // Add a submit button to the form
         const submit = document.createElement("button");
         submit.textContent = "Submit";
         submit.type = "submit";
@@ -311,19 +374,25 @@
         classForm.appendChild(submit);
 
 
+        // Add event listener for form submission
         classForm.addEventListener("submit", async (event) => {
           event.preventDefault();
 
+          // Retrieve the class ID
           const classId = classForm.classId.value;
+          // Retrieve the student ID
           const studentId = "<%= user._id %>";
 
           try {
+            // Send the class ID and student ID to the server
             const res = await fetch("/student-home/add-educator", {
               method: "PUT",
               body: JSON.stringify({ classId, studentId }),
               headers: { "Content-Type": "application/json" }
             });
             const data = await res.json();
+
+            // Display errors or reload the page upon success
             if (data.noProfile) {
               error.textContent = data.noProfile;
             }
@@ -343,22 +412,33 @@
   }
 
 
+
+// Retrieve the form for selecting a profile picture
+  // Profile picture form
   const profileForm = document.querySelector(".profile-select-form");
 
+  // Check if the profile button exists
   if (profileButton) {
     profileButton.addEventListener("click", (event) => {
+      // Toggle visibility of profile form
       profileForm.classList.toggle("invisible");
     });
   }
 
+  // Check if the profile form exists
   if (profileForm) {
     profileForm.addEventListener("submit", async (event) => {
+      // Prevent default form submission
       event.preventDefault();
 
+      // Retrieve the user ID
       const id = "<%= user._id %>";
+
+      // Retrieve the selected profile picture
       const profilePicture = profileForm.profile.value;
 
       try {
+        // Send the selected profile picture to the server
         console.log("here");
         const res = await fetch(`/student-home/${id}/profile-picture/put`, {
           method: "PUT",
@@ -370,6 +450,8 @@
         if (data.error) {
           console.log(data.error);
         }
+
+        // Reload the page upon success
         if (data.success) {
           location.reload();
         }
@@ -384,5 +466,5 @@
 </script>
 
 
-
+<!-- Includes the shared footer partial -->
 <%- include("partials/footer"); %>
