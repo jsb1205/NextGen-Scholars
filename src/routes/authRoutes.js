@@ -23,5 +23,7 @@ router.get("/tutoring", authController.tutoring_get);
 router.get("/projects", authController.projects_get);
 router.get("/college-prep", authController.prep_get);
 router.get("/loans", authController.loans_get);
+router.get("/sat-act", authController.satact_get);
+
 module.exports = router;
 

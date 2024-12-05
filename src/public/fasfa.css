@@ -7,7 +7,7 @@
 .fasfa-title-section-back-box{
     content: '';
     position: absolute;
-    top: 20%; /* Adjust position of the darker blue box */
+    top: 200px; /* Adjust position of the darker blue box */
     left: 3%; /* Adjust position of the darker blue box */
     width: 930px;
     height: 330px;
@@ -75,83 +75,79 @@
 
 /* Steps Section */
 .fasfa-steps-section {
-    margin-top: 7%;
-  }
+  margin-top: 7%;
+}
 
-  .fasfa-steps-section h2 {
-    font-size: 2rem; /* Ensure the font size is prominent */
-    color: #7ed957;
-    text-align: left; /* Align the title to the left */
-    margin-left: 20px; /* Add some space from the left edge */
-  }
-  
-  .fasfa-steps-container {
-    height: 1000px;
-    display: flex;
-    gap: 40px;
-  }
+.fasfa-steps-section h2 {
+  font-size: 2rem;
+  color: #7ed957;
+  text-align: left;
+  margin-left: 20px;
+}
 
-  .fasfa-step-line {
-    position: absolute;
-    width: 4px; /* Line thickness */
-    height: 700px; /* Full height of the container */
-    background-color: #004aad; /* Line color */
-    z-index: 1; /* Place behind the circles */
-  }
-  
-  .fasfa-step-circles-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 1000px;
-    gap: 20px;
-  }
+.fasfa-steps-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  position: relative;
+}
 
-  .fasfa-steps-info-Left{
-    display: flex;
-    flex-direction: column;
-    left: 0%;
-  }
-  .fasfa-steps-info-Right{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 100px;
-  }
-  
-  .fasfa-step-circle {
-    width: 60px;
-    height: 60px;
-    background-color: #7ed957;
-    color: white;
-    font-size: 0.9rem;
-    font-weight: bold;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-  }
-  
-  .fasfa-step {
-    display: flex;
-    flex-direction: column;
-    top: 20%;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    margin: 0 auto;
-  }
-  
-  .fasfa-step h3 {
-    color: #004aad;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
-  
-  .fasfa-step p {
-    color: #333;
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-  
+.fasfa-step-circles-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 20px;
+}
+
+.fasfa-step-line {
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  background-color: #004aad;
+  z-index: 1;
+}
+
+.fasfa-step-circle {
+  width: 60px;
+  height: 60px;
+  background-color: #7ed957;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Left Descriptions */
+.fasfa-steps-info-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+  width: 40%;
+}
+
+.fasfa-step h3 {
+  color: #004aad;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.fasfa-step p {
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Right Descriptions */
+.fasfa-steps-info-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+  width: 40%;
+}

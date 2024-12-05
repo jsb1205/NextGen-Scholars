@@ -1,94 +1,143 @@
 /* New Home Screen Styles*/
+
 /* General Styles */
 body {
+  /* Sets the default font for the body */
     font-family: Arial, sans-serif;
+    /* Dark gray text color */
     color: #333;
+    /* Removes default margin */
     margin: 0;
+    /* Removes default padding */
     padding: 0;
   }
   
   h1, h2, h3, p {
+    /* Resets default margins for headings and paragraphs */
     margin: 0;
   }
   
   /* Title Section */
   .title-section {
+    /* Centers the content horizontally */
     text-align: center;
+    /* Adds vertical padding */
     padding: 20px 0;
+    /* White background for the title section */
     background-color: #fff;
   }
   
   .montserrat-green {
+    /* Sets font family */
     font-family: 'Montserrat', sans-serif;
+    /* Makes the text bold */
     font-weight: 700;
     color: #7ed957; /* Green color */
+    /* Font size for the heading */
     font-size: 2.5rem;
   }
   
   .fredoka-blue {
+    /* Sets font family */
     font-family: 'Fredoka', sans-serif;
+    /* Makes the text bold */
     font-weight: 700;
     color: #004aad; /* Blue color */
+    /* Font size for the heading */
     font-size: 2.5rem;
   }
   
   .subtitle {
+    /* Sets font size for the subtitle */
     font-size: 1.5rem;
+    /* Dark gray color */
     color: #333;
+    /* Adds space above the subtitle */
     margin-top: 10px;
+    /* Sets font weight */
     font-weight: 600;
   }
   
   /* Introduction Section */
   .introduction {
+    /* Sets layout as flexbox */
     display: flex;
+    /* Centers items horizontally */
     justify-content: center;
+    /* Centers items horizontally */
     align-items: center;
+    /* Adds padding around the section */
     padding: 20px;
+    /* Space between items */
     gap: 80px;
+    /* Aligns text to the left */
     text-align: left;
+    /* Centers the section and adds vertical margins */
     margin: 20px auto;
+    /* Restricts the maximum width */
     max-width: 1000px;
   }
   
   .intro-text {
+    /* Limits the width of the text block */
     max-width: 400px;
   }
   
   .intro-text h3 {
+    /* Sets font family */
     font-family: 'Fredoka', sans-serif;
+    /* Blue color for headings */
     color: #004aad;
+    /* Font size for heading */
     font-size: 1.5rem;
+    /* Adds space below the heading */
     margin-bottom: 10px;
   }
   
   .intro-text p {
+    /* Sets font size for paragraph */
     font-size: 1rem;
+    /* Adds space below the paragraph */
     margin-bottom: 20px;
+    /* Makes the text lighter */
     font-weight: 200;
   }
   
   .start-button {
+    /* Makes the button inline and block-like */
     display: inline-block;
+    /* Centers text inside the button */
     text-align: center;
+    /* Light blue background */
     background-color: #72a6f9;
+    /* White text color */
     color: white;
+    /* Adds padding inside the button */
     padding: 10px 20px;
+    /* Removes border */
     border: none;
+    /* Rounds the corners */
     border-radius: 5px;
+    /* Sets font size */
     font-size: 1rem;
+    /* Changes cursor to pointer on hover */
     cursor: pointer;
     text-decoration: none; /* Removes underline for links */
+    /* Adds smooth color transition */
     transition: background-color 0.3s;
   }
   
   .start-button:hover {
+    /* Darker blue background on hover */
     background-color: #5c94f1;
   }
   
   .intro-image img {
+    /* Limits the maximum width of the image */
     max-width: 300px;
+    /* Adds subtle shadow for depth */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Slight rotation for a dynamic effect */
     transform: rotate(-2deg);
     position: relative; /* Allows for absolute positioning of the image */
     display: inline-block; /* Ensures the container wraps around the image */
@@ -96,11 +145,16 @@ body {
   
   /* A lot of manual adjustment for the rectangle*/
   .intro-image::before {
+    /* Creates a pseudo-element */
     content: '';
+    /* Positions relative to the parent */
     position: absolute;
     top: 250px; /* Adjusts the position of the green square */
+    /* Positions the square horizontally */
     left: 850px;
+    /* Sets the width of the square */
     width: 310px;
+    /* Sets the height of the square */
     height: 180px;
     background-color: #7ed957; /* Green color for the square */
     transform: rotate(15deg); /* Rotates the green square */
@@ -109,24 +163,36 @@ body {
   
   /* Features Section */
   .features {
+    /* Sets layout as flexbox */
     display: flex;
+    /* Centers items horizontally */
     justify-content: center;
+    /* Space between feature items */
     gap: 80px;
+    /* Adds padding around the section */
     padding: 40px 60px;
+    /* White background for the features section */
     background-color: #ffffff;
   }
   
   .feature-item {
+    /* Centers text within each item */
     text-align: center;
+    /* Limits the width of each feature item */
     max-width: 150px;
     margin: 0 10px; /* Sets even spacing between items */
   }
   
   .feature-item img {
+    /* Sets width for the feature icons */
     width: 100px;
+    /* Sets height for the feature icons */
     height: 100px;
+    /* Adds space below the icon */
     margin-bottom: 10px;
+    /* Makes the icons circular */
     border-radius: 50%;
+    /* Adds padding around the icon */
     padding: 10px;
   }
   
@@ -140,10 +206,14 @@ body {
   }
   
   .feature-item p {
+    /* Sets font family */
     font-family: 'Fredoka', sans-serif;
     color: #004aad; /* Blue color for the text */
+    /* Font size for feature descriptions */
     font-size: 1.1rem;
+    /* Makes the text bold */
     font-weight: 700;
+    /* Removes default margin */
     margin: 0;
   }
   
