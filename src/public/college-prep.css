@@ -1,7 +1,8 @@
 .college-prep-page {
-    font-family: 'Fredoka', sans-serif;
     line-height: 1.6;
     margin: 20px;
+    margin-left: 130px;
+    margin-right: 130px;
   }
   
   /* Title Section */
@@ -10,6 +11,7 @@
   }
   
   .prep-title-section h1 {
+    font-family: 'Fredoka', sans-serif;
     font-size: 5rem;
     color: #7ed957;
   }
@@ -23,6 +25,18 @@
     color: #004aad;
     margin-left: 40%; /* Adjust the value to move it more to the right */
     text-align: left; /* Ensure it aligns to the left after moving */
+  }
+  .college-prep-side-image {
+    position: relative; /* Set the position for flexible alignment */
+    float: right; /* Align the image to the right of the text */
+    width: 200px; /* Adjust the width to match the design */
+    height: auto;
+    margin-left: 20px; /* Add spacing between the text and the image */
+    margin-bottom: 10px; /* Add spacing below */
+  }
+  .text-CP{
+    z-index: 2;
+    overflow:hidden;
   }
   
   /* Section Headers */
@@ -47,8 +61,14 @@
     margin-bottom: 30px;
   }
 
-  .prep-content, .application-content, .finalization-content {
+   .application-content, .finalization-content {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .prep-content{
+    display: flex;
+    align-items: flex;
     flex-direction: column;
     gap: 20px;
   }

@@ -65,7 +65,7 @@
 .why-matter-content {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 150px;
     text-align: center;
     font-size: 2rem;
     margin-left: 200px;
@@ -92,7 +92,7 @@
     display: flex;
     justify-content: space-around;
     text-align: center;
-    gap: 20px;
+    gap: 150px;
     font-size: 2.5rem;
     font-weight: bold;
     margin-left: 200px;
@@ -129,4 +129,7 @@
 
 .test-info-column p {
     line-height: 1.6;
+}
+.space-text{
+    color:white;
 }
