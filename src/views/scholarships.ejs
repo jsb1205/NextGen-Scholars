@@ -1,9 +1,11 @@
+<!-- Includes the shared header partial, such as navigation or branding -->
 <%- include("partials/header"); %>
 
 <div class="Scholarship">
     <div class="scholarship-container">
         <!-- Scholarship Cards Section -->
         <div class="scholarship-section" id="scholarshipContainer">
+            <!-- Placeholder for dynamically added scholarship cards -->
             
             <!-- Add more cards as needed -->
         </div>
@@ -11,8 +13,12 @@
         <!-- Filter Section -->
         <div class="Scholarship-Right">
             <div class="filter-section">
+
+                <!-- Search Bar -->
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="filters">
+
+                    <!-- Dropdown filter for year -->
                     <label for="year">Year</label>
                     <select id="year">
                         <option value="all">All</option>
@@ -22,6 +28,7 @@
                         <option value="Senior">Senior</option>
                     </select>
 
+                    <!-- Dropdown filter for state -->
                     <label for="state">State</label>
                     <select id="state">
                         <option value="all">All States</option>
@@ -42,6 +49,7 @@
                         <option value="Texas">Texas</option>
                     </select>
 
+                    <!-- Dropdown filter for Pell eligibility -->
                     <label for="pell">Pell eligible</label>
                     <select id="pell">
                         <option value="all">All</option>
@@ -49,6 +57,7 @@
                         <option value="No">No</option>
                     </select>
 
+                    <!-- Dropdown filter for ethnicity -->
                     <label for="ethnicity">Ethnicity</label>
                     <select id="ethnicity">
                         <option value="all">All</option>
@@ -63,7 +72,7 @@
                         <option value="White">White</option>
                     </select>
 
-
+                    <!-- Dropdown filter for GPA -->
                     <label for="gpa">GPA</label>
                     <select id="gpa">
                         <option value="All GPAs">All GPAs</option>
@@ -89,6 +98,8 @@
                     </ol>
                 </div>
             </div>
+
+            <!-- Pell Eligibility Box -->
             <div class="pell-box-big">
                 <div class="pell-box">
                     <h2>Pell Elegible:</h2>
@@ -101,61 +112,91 @@
 </div>
 
 <script>
+    // Array to store scholarship data for filtering
     let scholarshipsData = []; // Store scholarships data for filtering
 
+    // Function to fetch and load scholarship data
     async function loadScholarships() {
         try {
+            // Fetch data from the server
             const response = await fetch('/scholarships.json');
+            // Parse and save the data
             scholarshipsData = await response.json(); // Save the fetched data
+            // Display all scholarships initially
             displayScholarships(scholarshipsData); // Display all scholarships initially
         } catch (error) {
+            // Log errors if any
             console.error('Error loading scholarships:', error);
         }
     }
+
+    // Function to display scholarships dynamically on the page
     // Function to load JSON data
     function displayScholarships(scholarships) {
         const container = document.getElementById('scholarshipContainer');
         container.innerHTML = ''; // Clear previous scholarship cards
 
+        // Loop through each scholarship and create a card
         scholarships.forEach(scholarship => {
+            // Create a new div for the card
             const card = document.createElement('div');
+            // Add a class to the card
             card.classList.add('scholarship-card');
 
+            // Set the card's HTML content
             card.innerHTML = `
                 <div class="content">
+                    <!-- Scholarship title -->
                     <h3>${scholarship.title}</h3>
                     <div class="info">
+                        <!-- Scholarship deadline -->
                         <p><strong>Deadline:</strong> ${scholarship.deadline}</p>
+                        <!-- Scholarship amount -->
                         <p><strong>Amount:</strong> ${scholarship.amount}</p>
                     </div>
+                    <!-- Toggle details link -->
                     <a href="#" class="details-link">Scholarship Details</a>
                     <div class="extra-details" style="display: none;">
+                        <!-- Additional details -->
                         <p>${scholarship["scholarship details"]}</p>
                     </div>
                 </div>
+                <!-- Apply button with external link -->
                 <a href="${scholarship.link}" target="_blank" class="apply-btn">Apply</a>
             `;
 
+            // Toggle display of additional details on link click
             const detailsLink = card.querySelector('.details-link');
             const extraDetails = card.querySelector('.extra-details');
             detailsLink.addEventListener('click', (e) => {
+                // Prevent default link behavior
                 e.preventDefault();
+                // Toggle display
                 extraDetails.style.display = extraDetails.style.display === 'none' ? 'block' : 'none';
+                // Toggle link text
                 detailsLink.textContent = extraDetails.style.display === 'none' ? 'Scholarship Details' : 'Hide Details';
             });
 
+            // Add the card to the container
             container.appendChild(card);
         });
     }
 
+    // Function to filter scholarships based on user input
     // Call the function to load scholarships on page load
     // GPA filter function
     function filterScholarships() {
+        // Get selected year
         const yearFilter = document.getElementById('year').value.toLowerCase();
+        // Get selected state
         const stateFilter = document.getElementById('state').value.toLowerCase();
+        // Get selected Pell eligibility
         const pellFilter = document.getElementById('pell').value.toLowerCase();
+        // Get selected ethnicity
         const ethnicityFilter = document.getElementById('ethnicity').value.toLowerCase();
+        // Get selected GPA
         const gpaFilter = document.getElementById('gpa').value;
+        // Get search input
         const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
 
         const filteredScholarships = scholarshipsData.filter(scholarship => {
@@ -182,6 +223,7 @@
             // Pell eligibility filter
             const matchesPell = pellFilter === "all" || scholarshipPell === pellFilter;
 
+            // Ethnicity filter
             let matchesEthnicity = true;
             if (ethnicityFilter !== "all") {
                 if (Array.isArray(scholarshipEthnicity)) {
@@ -191,31 +233,47 @@
                 }
             }
 
+            // GPA filter
             let matchesGPA = true;
             if (gpaFilter !== "All GPAs") {
                 const gpaValue = parseFloat(gpaFilter.replace(">", ""));
                 matchesGPA = gpaFilter.startsWith(">") ? scholarship.gpa >= gpaValue : scholarship.gpa === gpaValue;
             }
             
+            // Search query filter
             const matchesSearch = scholarship.title.toLowerCase().includes(searchQuery);
 
+            // Return scholarships matching all filters
             return matchesYear && matchesState && matchesPell && matchesEthnicity && matchesGPA && matchesSearch;
         });
 
+        // Display filtered scholarships
         displayScholarships(filteredScholarships);
     }
 
-    // Event listener for GPA filter
+    // Add event listeners for filters
+    // Year filter
     document.getElementById('year').addEventListener('change', filterScholarships);
+    
+    // State filter
     document.getElementById('state').addEventListener('change', filterScholarships);
+    
+    // Pell eligibility filter
     document.getElementById('pell').addEventListener('change', filterScholarships);
+    
+    // Ethnicity filter
     document.getElementById('ethnicity').addEventListener('change', filterScholarships);
+    
+    // GPA filter
     document.getElementById('gpa').addEventListener('change', filterScholarships);
+    
+    // Search bar filter
     document.querySelector('.search-bar').addEventListener('input', filterScholarships);
 
     // Load scholarships initially
     loadScholarships();
+    
 </script>
 
-
+<!-- Includes the shared footer partial, such as site navigation or copyright -->
 <%- include("partials/footer"); %>

@@ -1,18 +1,24 @@
+<!-- Includes the shared header partial, such as navigation or branding -->
 <%- include("partials/header"); %>
 
 <div class="Tutoring">
     <div class="tutoring-container">
-        <!-- Scholarship Cards Section -->
+        <!-- Tutoring Cards Section -->
         <div class="tutoring-section" id="tutoringContainer">
-            
+            <!-- Placeholder for dynamically added tutoring cards -->
+
             <!-- Add more cards as needed -->
         </div>
 
         <!-- Filter Section -->
         <div class="Tutoring-Right">
             <div class="filter-section">
+
+                <!-- Search Bar -->
                 <input type="text" placeholder="Search..." class="search-bar">
                 <div class="filters">
+
+                    <!-- Dropdown filter for format -->
                     <label for="format">Format</label>
                     <select id="format">
                         <option value="all">All</option>
@@ -23,7 +29,8 @@
                     </select>
 
                 </div>
-                <!-- Information Box -->
+
+            <!-- Information Box -->
             
             </div>
             <div class="info-box-big">
@@ -42,78 +49,111 @@
 </div>
 
 <script>
+    // Array to store tutoring data for filtering
     let tutoringData = []; // Store scholarships data for filtering
 
+    // Function to fetch and load tutoring data
     async function loadTutoring() {
         try {
+            // Fetch data from the server
             const response = await fetch('/tutoring.json');
+            // Parse and save the data
             tutoringData = await response.json(); // Save the fetched data
+            // Display all tutoring options initially
             displayTutoring(tutoringData); // Display all scholarships initially
         } catch (error) {
+            // Log errors if any
             console.error('Error loading tutoring:', error);
         }
     }
+
+    // Function to display tutoring options dynamically on the page
     // Function to load JSON data
     function displayTutoring(tutors) {
         const container = document.getElementById('tutoringContainer');
         container.innerHTML = ''; // Clear previous scholarship cards
 
+        // Loop through each tutoring option and create a card
         tutors.forEach(tutoring => {
+            // Create a new div for the card
             const card = document.createElement('div');
+            // Add a class to the card
             card.classList.add('tutoring-card');
 
+            // Set the card's HTML content
             card.innerHTML = `
                 <div class="content">
+                    <!-- Tutoring title -->
                     <h3>${tutoring.title}</h3>
                     <div class="info">
+                        <!-- Tutoring format -->
                         <p><strong>Format:</strong> ${tutoring.format}</p>
                     </div>
+                    <!-- Toggle details link -->
                     <a href="#" class="details-link">Tutoring Details</a>
                     <div class="extra-details" style="display: none;">
+                        <!-- Additional details -->
                         <p>${tutoring["description"]}</p>
                     </div>
                 </div>
+                <!-- Apply button with external link -->
                 <a href="${tutoring.link}" target="_blank" class="apply-btn">Apply</a>
             `;
 
+            // Add functionality to toggle extra details
             const detailsLink = card.querySelector('.details-link');
             const extraDetails = card.querySelector('.extra-details');
             detailsLink.addEventListener('click', (e) => {
+                // Prevent default link behavior
                 e.preventDefault();
+                // Toggle display
                 extraDetails.style.display = extraDetails.style.display === 'none' ? 'block' : 'none';
+                // Toggle link text
                 detailsLink.textContent = extraDetails.style.display === 'none' ? 'Scholarship Details' : 'Hide Details';
             });
 
+            // Add the card to the container
             container.appendChild(card);
         });
     }
 
+    // Function to filter tutoring options based on user input
     // Call the function to load scholarships on page load
     // GPA filter function
     function filterTutors() {
+        // Get selected format
         const formatFilter = document.getElementById('format').value.toLowerCase();
+        // Get search input
         const searchQuery = document.querySelector('.search-bar').value.toLowerCase();
 
         const filteredTutors = tutoringData.filter(tutoring => {
+            // Handle multiple formats for a tutoring option
             const tutors = Array.isArray(tutoring.format) 
             ? tutoring.format.map(i => i.toLowerCase()) 
             : [tutoring.format.toLowerCase()];
             const matchesFormat = formatFilter === "all" || tutors.includes(formatFilter);
             
+             // Check if the title matches the search query
             const matchesSearch = tutoring.title.toLowerCase().includes(searchQuery);
 
+            // Return tutoring options matching both filters
             return matchesFormat && matchesSearch;
         });
 
+        // Display the filtered tutoring options
         displayTutoring(filteredTutors);
     }
 
+    // Event listener for format filter dropdown
     // Event listener for GPA filter
     document.getElementById('format').addEventListener('change', filterTutors);
+    
+    // Event listener for search bar input
     document.querySelector('.search-bar').addEventListener('input', filterTutors);
 
-    // Load scholarships initially
+    // Load tutoring options initially on page load
     loadTutoring();
 </script>
 
+<!-- Includes the shared footer partial, such as site navigation or copyright -->
 <%- include("partials/footer"); %>
