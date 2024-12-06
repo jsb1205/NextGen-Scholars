@@ -1,135 +1,206 @@
 /* SAT vs ACT Page Styles */
 .sat-act-page {
+    /* Light blue background for the entire page */
     background-color: #d9e5f4;
+    /* Adds spacing inside the page container */
     padding: 20px;
 }
 
 
 /* Title Section */
 .sat-act-title {
+    /* Centers the title on the page */
     text-align: center;
+    /* Adds spacing below the title */
     margin-bottom: 30px;
 }
 
 .sat-act-title h1 {
+    /* Large font size for the main title */
     font-size: 10rem;
+    /* Makes the title text bold */
     font-weight: bold;
 }
 
 .blue-text {
+    /* Applies a deep blue color to text */
     color: #004aad;
 }
 
 .green-text {
+    /* Applies a green color to text */
     color: #00bf63;
 }
 
 .vs-circle {
+     /* Makes the circle inline and block-aligned */
     display: inline-block;
+    /* Sets the circle's background color */
     background-color: white;
+    /* Adds a white border around the circle */
     border: 2px solid white;
+    /* Makes the element a perfect circle */
     border-radius: 50%;
+    /* Adjusts padding inside the circle */
     padding: 20px 30px;
+    /* Sets the size of the "VS" text */
     font-size: 7rem;
+    /* Makes the "VS" text bold */
     font-weight: bold;
 }
 .vs-text {
     font-size: 7rem; /* Adjust font size */
+    /* Makes the "VS" text bold */
     font-weight: bold;
     color: #d9e5f4; /* Change the color of the "VS" text */
 }
 
 /* Banner Style */
 .banner {
+    /* Sets a golden-orange color for the banner */
     background-color: #f7b147;
+    /* White text color */
     color: white;
+    /* Centers the text inside the banner */
     text-align: center;
+    /* Font size for the banner text */
     font-size: 3rem;
+     /* Makes the banner text bold */
     font-weight: bold;
+    /* Adds padding inside the banner */
     padding: 10px 20px;
+    /* Positions the banner relative to other elements */
     position: relative;
+     /* Adds spacing below the banner */
     margin-bottom: 20px;
+    /* Creates a polygonal banner shape */
     clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
 }
 
 /* Why Does it Matter Section */
 .why-matter-section {
+    /* White background for this section */
     background-color: white;
+    /* Adds padding inside the section */
     padding: 20px;
+    /* Rounds the corners of the section */
     border-radius: 60px;
+    /* Adds spacing below this section */
     margin-bottom: 30px;
+    /* Adds space to the left of the section */
     margin-left: 200px;
+    /* Adds space to the right of the section */
     margin-right:200px;
 }
 
 .why-matter-content {
+    /* Enables flexbox layout */
     display: flex;
+    /* Distributes content evenly with space between items */
     justify-content: space-between;
+    /* Adds spacing between the items */
     gap: 150px;
+    /* Centers the text inside each item */
     text-align: center;
+    /* Font size for the content */
     font-size: 2rem;
+    /* Adjusts spacing to align within the section */
     margin-left: 200px;
     margin-right:200px;
 }
 
 .why-matter-content p {
+    /* Makes each paragraph take equal width */
     flex: 1;
 }
 
 /* Score Range Section */
 .score-range-section {
+    /* White background for this section */
     background-color: white;
+     /* Adds padding inside the section */
     padding: 20px;
+     /* Rounds the corners of the section */
     border-radius: 60px;
+    /* Adds spacing below the section */
     margin-bottom: 30px;
+     /* Centers the text inside the section */
     text-align: center;
+    /* Adds space to the left */
     margin-left: 200px;
+    /* Adds space to the right */
     margin-right:200px;
 }
 
 .score-range-content {
+    /* Sets the font family */
     font-family: 'Fredoka', sans-serif;
+    /* Enables flexbox layout */
     display: flex;
+    /* Distributes items evenly with space between */
     justify-content: space-around;
+    /* Centers text inside each item */
     text-align: center;
+    /* Adds space between items */
     gap: 150px;
+    /* Sets font size for content */
     font-size: 2.5rem;
+     /* Makes the text bold */
     font-weight: bold;
+    /* Aligns content within the section */
     margin-left: 200px;
     margin-right:200px;
 }
 
 /* Test Information Section */
 .test-info-section {
+    /* Centers all text in this section */
     text-align: center;
+    /* White background for this section */
     background-color: white;
+    /* Adds padding inside the section */
     padding: 20px;
+     /* Rounds the corners of the section */
     border-radius: 60px;
+     /* Adds spacing below the section */
     margin-bottom: 30px;
+    /* Adds space to the left */
     margin-left: 200px;
+    /* Adds space to the right */
     margin-right:200px;
 }
 
 .test-info-content {
+    /* Enables flexbox layout */
     display: flex;
+    /* Distributes items evenly with space between */
     justify-content: space-between;
+    /* Adds space between columns */
     gap: 20px;
 }
 
 .test-info-column {
+    /* Makes each column take equal width */
     flex: 1;
+    /* Centers text inside each column */
     text-align: center;
+    /* Sets font size for column text */
     font-size: 2rem;
 }
 
 .test-info-column h3 {
+    /* Sets heading text color to blue */
     color: #004aad;
+    /* Adds spacing below the heading */
     margin-bottom: 10px;
 }
 
 .test-info-column p {
+    /* Increases line spacing for better readability */
     line-height: 1.6;
 }
+/* White Text for Extra Spacing */
 .space-text{
+    /* Sets text color to white (used for spacing) */
     color:white;
 }
